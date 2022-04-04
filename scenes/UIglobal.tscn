@@ -1,0 +1,456 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Sprites/UI/GlobSeaLev.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/UI/GlobTemp.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/UIglobal.gd" type="Script" id=3]
+[ext_resource path="res://sprites/UI/GlobEmit.png" type="Texture" id=4]
+[ext_resource path="res://fonts/Ubuntu40.tres" type="DynamicFont" id=5]
+[ext_resource path="res://sprites/UI/blank.png" type="Texture" id=6]
+[ext_resource path="res://sprites/UI/play.png" type="Texture" id=7]
+[ext_resource path="res://sprites/UI/pause.png" type="Texture" id=8]
+[ext_resource path="res://scripts/Button.gd" type="Script" id=9]
+[ext_resource path="res://sprites/UI/blankHover.png" type="Texture" id=10]
+[ext_resource path="res://fonts/Ubuntu24.tres" type="DynamicFont" id=11]
+[ext_resource path="res://scenes/PopupGraph.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/PopupGraph2.tscn" type="PackedScene" id=13]
+[ext_resource path="res://sprites/UI/electricityWhite.png" type="Texture" id=14]
+[ext_resource path="res://sprites/UI/electricity.png" type="Texture" id=15]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Settings"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("blank:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 950, 497 ), Vector2( 425, 497 ) ]
+}
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 8.80571
+height = 57.3514
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 8.80571
+height = 45.4856
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("GlobEmit:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -340, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "value"
+tracks/0/path = NodePath("GlobSeaLev:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 145 ), Vector2( -215, 145 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+tracks/0/type = "value"
+tracks/0/path = NodePath("GlobTemp:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 290 ), Vector2( -215, 290 ) ]
+}
+
+[node name="UIGlobal" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="blank" type="TextureRect" parent="."]
+margin_left = 950.0
+margin_top = 497.0
+margin_right = 1541.0
+margin_bottom = 602.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="TextureButton" parent="blank"]
+margin_left = 37.0
+margin_top = 11.0
+margin_right = 142.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pause" type="TextureButton" parent="blank"]
+margin_left = 37.0
+margin_top = 13.0
+margin_right = 122.0
+margin_bottom = 88.0
+texture_normal = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetButton" type="TextureButton" parent="blank"]
+margin_left = 335.146
+margin_top = 57.0548
+margin_right = 505.146
+margin_bottom = 91.0548
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 10 )
+expand = true
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="blank/ResetButton"]
+margin_right = 169.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 11 )
+text = "Reset"
+align = 1
+valign = 1
+
+[node name="GraphButton" type="TextureButton" parent="blank"]
+margin_left = 335.146
+margin_top = 12.0548
+margin_right = 505.146
+margin_bottom = 46.0548
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="blank/GraphButton"]
+margin_left = 1.0
+margin_top = 0.14856
+margin_right = 170.0
+margin_bottom = 34.1486
+custom_fonts/font = ExtResource( 11 )
+text = "Graph T"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GraphButton2" type="TextureButton" parent="blank"]
+margin_left = 155.146
+margin_top = 12.0548
+margin_right = 325.146
+margin_bottom = 46.0548
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="blank/GraphButton2"]
+margin_left = 1.0
+margin_top = -0.356739
+margin_right = 170.0
+margin_bottom = 33.6433
+custom_fonts/font = ExtResource( 11 )
+text = "Graph F"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="TextureButton" parent="blank"]
+margin_left = 155.146
+margin_top = 57.0548
+margin_right = 325.146
+margin_bottom = 91.0548
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="blank/BackButton"]
+margin_right = 169.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 11 )
+text = "Back"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupGraph" parent="blank" instance=ExtResource( 12 )]
+margin_left = -788.0
+margin_top = -397.0
+margin_right = -88.0
+margin_bottom = 3.0
+
+[node name="PopupGraph2" parent="blank" instance=ExtResource( 13 )]
+margin_left = -788.0
+margin_top = -397.0
+margin_right = -88.0
+margin_bottom = 3.0
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 918.544
+margin_top = 486.776
+margin_right = 1027.54
+margin_bottom = 611.776
+toggle_mode = true
+texture_normal = ExtResource( 15 )
+texture_hover = ExtResource( 14 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Settings = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 879.0
+margin_top = 40.0
+margin_right = 1022.0
+margin_bottom = 498.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GlobEmit" type="Sprite" parent="VBoxContainer"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="GlobEmit" type="Sprite" parent="VBoxContainer/GlobEmit"]
+show_behind_parent = true
+position = Vector2( 250, 0 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="AreaEmit" type="Area2D" parent="VBoxContainer/GlobEmit"]
+pause_mode = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="VBoxContainer/GlobEmit/AreaEmit"]
+position = Vector2( 565.714, 185.714 )
+rotation = 1.5708
+scale = Vector2( 14.2857, 14.2857 )
+shape = SubResource( 2 )
+
+[node name="Container" type="GridContainer" parent="VBoxContainer/GlobEmit"]
+margin_left = 285.0
+margin_top = 66.0
+margin_right = 957.0
+margin_bottom = 362.0
+rect_min_size = Vector2( 700, 59 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/GlobEmit/Container"]
+margin_right = 672.0
+margin_bottom = 46.0
+custom_colors/font_color = Color( 0.0117647, 0.137255, 0.517647, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = " Global Forcings: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YearTLabel" type="Label" parent="VBoxContainer/GlobEmit/Container/Label"]
+margin_left = 332.0
+margin_top = -2.0
+margin_right = 1004.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 672, 0 )
+custom_fonts/font = ExtResource( 5 )
+text = " F = 2.2 W/m2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CO2TLabel" type="Label" parent="VBoxContainer/GlobEmit/Container"]
+margin_top = 50.0
+margin_right = 672.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 672, 0 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "  CO2 = 415 ppm  FCO2 = 2.10 W/m2"
+
+[node name="CH4TLabel" type="Label" parent="VBoxContainer/GlobEmit/Container"]
+margin_top = 100.0
+margin_right = 672.0
+margin_bottom = 146.0
+rect_min_size = Vector2( 672, 0 )
+custom_colors/font_color = Color( 0.541176, 0.894118, 0.403922, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "  CH4 = 2.20 ppm  FCH4 = 0.54 W/m2"
+
+[node name="N2OTLabel" type="Label" parent="VBoxContainer/GlobEmit/Container"]
+margin_top = 150.0
+margin_right = 672.0
+margin_bottom = 196.0
+rect_min_size = Vector2( 672, 0 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "  N2O = 0.40 ppm  FN2O = 0.20 W/m2"
+
+[node name="AerTLabel" type="Label" parent="VBoxContainer/GlobEmit/Container"]
+margin_top = 200.0
+margin_right = 672.0
+margin_bottom = 246.0
+rect_min_size = Vector2( 672, 0 )
+custom_colors/font_color = Color( 0, 0.847059, 0.933333, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "  Aerosol cooling = -1.10 W/m2"
+
+[node name="GlobSeaLev" type="Sprite" parent="VBoxContainer"]
+position = Vector2( 0, 145 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="AreaSeaLev" type="Area2D" parent="VBoxContainer/GlobSeaLev"]
+scale = Vector2( 14.2857, 14.2857 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/GlobSeaLev/AreaSeaLev"]
+position = Vector2( 34, 13 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="Label2" type="Label" parent="VBoxContainer/GlobSeaLev"]
+margin_left = 296.0
+margin_top = 81.0
+margin_right = 719.0
+margin_bottom = 165.0
+custom_colors/font_color = Color( 0.0117647, 0.137255, 0.517647, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "Global Sea Level: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GlobTemp" type="Sprite" parent="VBoxContainer"]
+position = Vector2( 0, 290 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="AreaTemp" type="Area2D" parent="VBoxContainer/GlobTemp"]
+scale = Vector2( 14.2857, 14.2857 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/GlobTemp/AreaTemp"]
+position = Vector2( 34, 13 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="Temp" type="Label" parent="VBoxContainer/GlobTemp"]
+margin_left = 310.0
+margin_top = 206.0
+margin_right = 673.0
+margin_bottom = 291.0
+custom_fonts/font = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="VBoxContainer/GlobTemp"]
+margin_left = 291.0
+margin_top = 77.0
+margin_right = 801.0
+margin_bottom = 194.0
+custom_colors/font_color = Color( 0.0117647, 0.137255, 0.517647, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "Global Temperature Change (since 1980): "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer"]
+pause_mode = 2
+anims/GlobEmit = SubResource( 4 )
+anims/GlobSeaLev = SubResource( 5 )
+anims/GlobTemp = SubResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 892.0
+margin_top = 4.0
+margin_right = 1024.0
+margin_bottom = 54.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Year" type="Label" parent="TextureRect"]
+margin_left = 7.0
+margin_top = -5.0
+margin_right = 129.0
+margin_bottom = 52.0
+grow_horizontal = 0
+custom_fonts/font = ExtResource( 5 )
+text = "2020"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="blank/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="blank/Pause" to="." method="_on_Pause_pressed"]
+[connection signal="pressed" from="blank/ResetButton" to="blank/ResetButton" method="_on_Button_pressed"]
+[connection signal="pressed" from="blank/GraphButton" to="blank/ResetButton" method="_on_GraphButton_pressed"]
+[connection signal="pressed" from="blank/GraphButton2" to="blank/ResetButton" method="_on_GraphButton2_pressed"]
+[connection signal="pressed" from="blank/BackButton" to="blank/ResetButton" method="_on_BackButton_pressed"]
+[connection signal="toggled" from="TextureButton" to="." method="_on_SettingsButton_toggled"]
+[connection signal="mouse_entered" from="VBoxContainer/GlobEmit/AreaEmit" to="." method="_on_AreaEmit_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/GlobEmit/AreaEmit" to="." method="_on_AreaEmit_mouse_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/GlobSeaLev/AreaSeaLev" to="." method="_on_AreaSeaLev_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/GlobSeaLev/AreaSeaLev" to="." method="_on_AreaSeaLev_mouse_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/GlobTemp/AreaTemp" to="." method="_on_AreaTemp_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/GlobTemp/AreaTemp" to="." method="_on_AreaTemp_mouse_exited"]

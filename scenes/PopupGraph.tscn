@@ -1,0 +1,183 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/Ubuntu40.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/Ubuntu24.tres" type="DynamicFont" id=2]
+
+[node name="PopupGraph" type="Popup"]
+margin_left = 162.0
+margin_top = 100.0
+margin_right = 862.0
+margin_bottom = 500.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundPopup" type="ColorRect" parent="."]
+margin_right = 700.0
+margin_bottom = 400.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GraphTitleLabel" type="Label" parent="."]
+margin_left = 68.7772
+margin_top = 10.0
+margin_right = 681.777
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Temperature Increase (C) vs Year"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YearLine" type="Line2D" parent="."]
+points = PoolVector2Array( 50, 360, 50, 350, 170, 350, 170, 360, 170, 350, 290, 350, 290, 360, 290, 350, 410, 350, 410, 360, 410, 350, 530, 350, 530, 360, 530, 350, 650, 350, 650, 360 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="2020Label" type="Label" parent="YearLine"]
+margin_left = 28.0
+margin_top = 362.0
+margin_right = 72.0
+margin_bottom = 385.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2020"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2040Label" type="Label" parent="YearLine"]
+margin_left = 148.0
+margin_top = 362.0
+margin_right = 188.0
+margin_bottom = 393.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2040"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2060Label" type="Label" parent="YearLine"]
+margin_left = 268.0
+margin_top = 362.0
+margin_right = 308.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2060"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2080Label" type="Label" parent="YearLine"]
+margin_left = 388.0
+margin_top = 362.0
+margin_right = 428.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2080"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2100Label" type="Label" parent="YearLine"]
+margin_left = 508.0
+margin_top = 362.0
+margin_right = 548.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2120Label" type="Label" parent="YearLine"]
+margin_left = 628.0
+margin_top = 362.0
+margin_right = 668.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2120"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TempLine" type="Line2D" parent="."]
+points = PoolVector2Array( 40, 50, 50, 50, 50, 125, 40, 125, 50, 125, 50, 200, 40, 200, 50, 200, 50, 275, 40, 275, 50, 275, 50, 350, 40, 350 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="0CLabel" type="Label" parent="TempLine"]
+margin_left = 5.0
+margin_top = 338.0
+margin_right = 49.0
+margin_bottom = 361.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0 C"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1CLabel" type="Label" parent="TempLine"]
+margin_left = 5.0
+margin_top = 263.0
+margin_right = 45.0
+margin_bottom = 286.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1 C"
+
+[node name="2CLabel" type="Label" parent="TempLine"]
+margin_left = 5.0
+margin_top = 188.0
+margin_right = 45.0
+margin_bottom = 211.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2 C"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3CLabel" type="Label" parent="TempLine"]
+margin_left = 5.0
+margin_top = 113.0
+margin_right = 45.0
+margin_bottom = 136.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "3 C"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4CLabel" type="Label" parent="TempLine"]
+margin_left = 5.0
+margin_top = 38.0
+margin_right = 45.0
+margin_bottom = 61.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "4 C"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighTempGraph" type="Line2D" parent="."]
+width = 3.0
+default_color = Color( 0.741176, 0.121569, 0.0509804, 1 )
+
+[node name="MidTempGraph" type="Line2D" parent="."]
+width = 3.0
+default_color = Color( 0.886275, 0.32549, 0.141176, 1 )
+
+[node name="LowTempGraph" type="Line2D" parent="."]
+width = 3.0
+default_color = Color( 0.988235, 0.698039, 0.196078, 1 )

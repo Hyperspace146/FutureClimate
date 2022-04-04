@@ -1,0 +1,254 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/Nuclear.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Solar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Windmill.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/FossilFuels.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/TileGlobeMap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/FossilFuels_truck.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/FossilFuels_PowerPlant.tscn" type="PackedScene" id=7]
+
+[node name="PowerSources" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="TileMap" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1424, 792 )
+rotation = 3.14159
+
+[node name="Wind_07" parent="." instance=ExtResource( 3 )]
+margin_left = 390.826
+margin_top = 204.059
+margin_right = 430.826
+margin_bottom = 273.059
+
+[node name="Wind_08" parent="." instance=ExtResource( 3 )]
+margin_left = 623.417
+margin_top = 117.635
+margin_right = 663.417
+margin_bottom = 186.635
+
+[node name="Wind_09" parent="." instance=ExtResource( 3 )]
+margin_left = 289.415
+margin_top = 188.334
+margin_right = 329.415
+margin_bottom = 257.334
+
+[node name="Wind_10" parent="." instance=ExtResource( 3 )]
+margin_left = 818.0
+margin_top = 258.0
+margin_right = 858.0
+margin_bottom = 327.0
+
+[node name="Wind_11" parent="." instance=ExtResource( 3 )]
+margin_left = 1110.11
+margin_top = 210.238
+margin_right = 1150.11
+margin_bottom = 279.238
+
+[node name="Wind_12" parent="." instance=ExtResource( 3 )]
+margin_left = 1060.12
+margin_top = 215.797
+margin_right = 1100.12
+margin_bottom = 284.797
+
+[node name="Wind_13" parent="." instance=ExtResource( 3 )]
+margin_left = 930.119
+margin_top = 218.44
+margin_right = 970.119
+margin_bottom = 287.44
+
+[node name="Solar_02" parent="." instance=ExtResource( 2 )]
+visible = false
+margin_left = 628.69
+margin_top = 392.005
+margin_right = 691.69
+margin_bottom = 417.005
+
+[node name="Solar_10" parent="." instance=ExtResource( 2 )]
+margin_left = 858.711
+margin_top = 305.679
+margin_right = 921.711
+margin_bottom = 330.679
+
+[node name="Solar_11" parent="." instance=ExtResource( 2 )]
+margin_left = 647.546
+margin_top = 286.845
+margin_right = 710.546
+margin_bottom = 311.845
+
+[node name="Solar_12" parent="." instance=ExtResource( 2 )]
+margin_left = 299.0
+margin_top = 266.0
+margin_right = 362.0
+margin_bottom = 291.0
+
+[node name="Solar_03" parent="." instance=ExtResource( 2 )]
+margin_left = 770.604
+margin_top = 527.456
+margin_right = 833.604
+margin_bottom = 552.456
+
+[node name="Solar_04" parent="." instance=ExtResource( 2 )]
+margin_left = 857.99
+margin_top = 447.982
+margin_right = 920.99
+margin_bottom = 472.982
+
+[node name="Solar_05" parent="." instance=ExtResource( 2 )]
+margin_left = 461.396
+margin_top = 527.404
+margin_right = 524.396
+margin_bottom = 552.404
+
+[node name="Solar_06" parent="." instance=ExtResource( 2 )]
+margin_left = 685.0
+margin_top = 445.0
+margin_right = 748.0
+margin_bottom = 470.0
+
+[node name="Solar_07" parent="." instance=ExtResource( 2 )]
+margin_left = 1204.67
+margin_top = 550.133
+margin_right = 1267.67
+margin_bottom = 575.133
+
+[node name="Solar_08" parent="." instance=ExtResource( 2 )]
+margin_left = 934.81
+margin_top = 301.548
+margin_right = 997.81
+margin_bottom = 326.548
+
+[node name="Solar_09" parent="." instance=ExtResource( 2 )]
+margin_left = 844.0
+margin_top = 381.0
+margin_right = 907.0
+margin_bottom = 406.0
+
+[node name="Nuclear_01" parent="." instance=ExtResource( 1 )]
+margin_left = 889.703
+margin_top = 106.111
+margin_right = 929.703
+margin_bottom = 175.111
+
+[node name="Nuclear_04" parent="." instance=ExtResource( 1 )]
+margin_left = 438.0
+margin_top = 641.0
+margin_right = 478.0
+margin_bottom = 710.0
+
+[node name="Nuclear_05" parent="." instance=ExtResource( 1 )]
+margin_left = 337.397
+margin_top = 187.598
+margin_right = 377.397
+margin_bottom = 256.598
+
+[node name="Nuclear_02" parent="." instance=ExtResource( 1 )]
+margin_left = 662.498
+margin_top = 160.944
+margin_right = 702.498
+margin_bottom = 229.944
+
+[node name="FFTruck_01" parent="." instance=ExtResource( 6 )]
+margin_left = 425.82
+margin_top = 428.097
+margin_right = 491.82
+margin_bottom = 457.097
+
+[node name="FFTruck_03" parent="." instance=ExtResource( 6 )]
+margin_left = 293.56
+margin_top = 246.764
+margin_right = 359.56
+margin_bottom = 275.764
+rect_scale = Vector2( -1, 1 )
+
+[node name="FFTruck_04" parent="." instance=ExtResource( 6 )]
+margin_left = 1063.42
+margin_top = 243.692
+margin_right = 1129.42
+margin_bottom = 272.692
+rect_scale = Vector2( -1, 1 )
+
+[node name="FF_01" parent="." instance=ExtResource( 4 )]
+visible = false
+margin_left = 152.0
+margin_top = 632.0
+margin_right = 215.0
+margin_bottom = 689.0
+rect_scale = Vector2( -1, 1 )
+
+[node name="FF_02" parent="." instance=ExtResource( 4 )]
+margin_left = 696.499
+margin_top = 105.288
+margin_right = 759.499
+margin_bottom = 162.288
+rect_scale = Vector2( -0.5, 0.5 )
+
+[node name="FF_04" parent="." instance=ExtResource( 4 )]
+margin_left = 351.037
+margin_top = 303.595
+margin_right = 414.037
+margin_bottom = 360.595
+rect_scale = Vector2( -0.5, 0.5 )
+
+[node name="FF_06" parent="." instance=ExtResource( 4 )]
+visible = false
+margin_left = 1275.0
+margin_top = 677.0
+margin_right = 1338.0
+margin_bottom = 734.0
+rect_scale = Vector2( -1, 1 )
+
+[node name="FF_07" parent="." instance=ExtResource( 4 )]
+visible = false
+margin_left = 1378.0
+margin_top = 717.0
+margin_right = 1441.0
+margin_bottom = 774.0
+rect_scale = Vector2( -1, 1 )
+
+[node name="FF_08" parent="." instance=ExtResource( 4 )]
+margin_left = 895.109
+margin_top = 255.049
+margin_right = 958.109
+margin_bottom = 312.049
+rect_scale = Vector2( -0.5, 0.5 )
+
+[node name="FF_03" parent="." instance=ExtResource( 4 )]
+margin_left = 829.925
+margin_top = 452.942
+margin_right = 892.925
+margin_bottom = 509.942
+rect_scale = Vector2( -0.5, 0.5 )
+
+[node name="FF_powerplant" parent="." instance=ExtResource( 7 )]
+margin_left = 1060.95
+margin_top = 287.037
+margin_right = 1163.95
+margin_bottom = 358.037
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="FF_powerplant3" parent="." instance=ExtResource( 7 )]
+margin_left = 964.579
+margin_top = 314.573
+margin_right = 1067.58
+margin_bottom = 385.573
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="FF_powerplant4" parent="." instance=ExtResource( 7 )]
+margin_left = 712.967
+margin_top = 177.466
+margin_right = 815.967
+margin_bottom = 248.466
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="FF_powerplant2" parent="." instance=ExtResource( 7 )]
+margin_left = 419.93
+margin_top = 562.345
+margin_right = 522.93
+margin_bottom = 633.345
+rect_scale = Vector2( 0.5, 0.5 )

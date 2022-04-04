@@ -1,0 +1,1371 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://fonts/Ubuntu40.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/Ubuntu24.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scripts/GlobeSectors.gd" type="Script" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://scripts/WasteParticles2D.gd" type="Script" id=5]
+[ext_resource path="res://scripts/AgricultureParticles2D.gd" type="Script" id=6]
+[ext_resource path="res://scripts/IndustryParticles2D.gd" type="Script" id=7]
+[ext_resource path="res://sprites/200px-Circle_-_black_simple.svg.png" type="Texture" id=8]
+[ext_resource path="res://scripts/ElectricityParticles2D.gd" type="Script" id=9]
+[ext_resource path="res://scripts/Button.gd" type="Script" id=10]
+[ext_resource path="res://sprites/13920061813626.png" type="Texture" id=11]
+[ext_resource path="res://scripts/BuildingsParticles2D2.gd" type="Script" id=12]
+[ext_resource path="res://scripts/TransportParticles2D.gd" type="Script" id=13]
+[ext_resource path="res://scripts/PauseButtonSector.gd" type="Script" id=14]
+[ext_resource path="res://sprites/UI/industry.png" type="Texture" id=15]
+[ext_resource path="res://sprites/UI/electricityWhite.png" type="Texture" id=16]
+[ext_resource path="res://scenes/TileGlobeMap.tscn" type="PackedScene" id=17]
+[ext_resource path="res://fonts/Ubuntu-Regular.ttf" type="DynamicFontData" id=18]
+[ext_resource path="res://UITheme.tres" type="Theme" id=19]
+[ext_resource path="res://sprites/UI/blankHover.png" type="Texture" id=20]
+[ext_resource path="res://sprites/UI/blank.png" type="Texture" id=21]
+[ext_resource path="res://sprites/Gas/gas1.png" type="Texture" id=22]
+[ext_resource path="res://sprites/UI/electricity.png" type="Texture" id=23]
+[ext_resource path="res://sprites/UI/transportation.png" type="Texture" id=24]
+[ext_resource path="res://sprites/UI/agriculture_2.png" type="Texture" id=25]
+[ext_resource path="res://sprites/UI/buildings.png" type="Texture" id=26]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+outline_size = 1
+outline_color = Color( 0.627451, 0.627451, 0.627451, 1 )
+font_data = ExtResource( 18 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.406897, 1 )
+colors = PoolColorArray( 0.409668, 0.409668, 0.409668, 1, 0.65098, 0.65098, 0.65098, 0.862745, 1, 1, 1, 0 )
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.706897, 1 )
+colors = PoolColorArray( 0.278431, 1, 0, 1, 0.278431, 1, 0, 0.721569, 0.278431, 1, 0, 0 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 18 )
+
+[node name="SectorMode" type="Node2D"]
+
+[node name="Globe" type="Sprite" parent="."]
+visible = false
+position = Vector2( 842.838, 445.932 )
+texture = ExtResource( 4 )
+script = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="Globe"]
+
+[node name="TileMap" parent="." instance=ExtResource( 17 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
+
+[node name="ForcingBox2" type="VBoxContainer" parent="CanvasLayer"]
+margin_left = 450.0
+margin_top = 65.0
+margin_right = 884.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AerRect" type="ColorRect" parent="CanvasLayer/ForcingBox2"]
+margin_right = 434.0
+hint_tooltip = "Aerosol radiative forcing = -1.1 W/m2"
+mouse_filter = 1
+color = Color( 0, 0.847059, 0.933333, 1 )
+
+[node name="ForcingBox" type="VBoxContainer" parent="CanvasLayer"]
+margin_top = 65.0
+margin_right = 450.0
+margin_bottom = 202.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CO2Rect" type="ColorRect" parent="CanvasLayer/ForcingBox"]
+margin_right = 450.0
+hint_tooltip = "Carbon dioxide forcing = 2.2 W/m2"
+mouse_filter = 1
+color = Color( 0, 0, 0, 0.784314 )
+
+[node name="CH4Rect" type="ColorRect" parent="CanvasLayer/ForcingBox"]
+margin_top = 4.0
+margin_right = 450.0
+margin_bottom = 4.0
+grow_vertical = 0
+hint_tooltip = "Methane forcing = 0.54 W/m2"
+mouse_filter = 1
+color = Color( 0.611765, 0.917647, 0.462745, 1 )
+
+[node name="N2ORect" type="ColorRect" parent="CanvasLayer/ForcingBox"]
+visible = false
+margin_top = 8.0
+margin_right = 590.0
+margin_bottom = 8.0
+hint_tooltip = "Nitrous oxide forcing = 0.2 W/m2"
+mouse_filter = 1
+color = Color( 1, 0, 0, 0.784314 )
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer"]
+margin_left = 827.0
+margin_right = 1011.0
+margin_bottom = 600.0
+color = Color( 1, 1, 1, 0.54902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+margin_right = 1024.0
+margin_bottom = 65.0
+color = Color( 0.0823529, 0.0823529, 0.360784, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer"]
+margin_left = 827.0
+margin_right = 1021.0
+margin_bottom = 202.0
+color = Color( 0.0823529, 0.0823529, 0.360784, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect5" type="ColorRect" parent="CanvasLayer"]
+margin_left = 999.0
+margin_right = 1024.0
+margin_bottom = 601.0
+color = Color( 0.0823529, 0.0823529, 0.360784, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect6" type="ColorRect" parent="CanvasLayer"]
+margin_left = 503.0
+margin_top = 544.0
+margin_right = 876.0
+margin_bottom = 601.0
+color = Color( 0.0823529, 0.0823529, 0.360784, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sliders" type="Control" parent="CanvasLayer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+theme = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentLine" type="Line2D" parent="CanvasLayer/Sliders"]
+position = Vector2( 0, -48 )
+points = PoolVector2Array( 75, 426, 465, 426 )
+width = 2.0
+default_color = Color( 0.6, 0.596078, 0.596078, 1 )
+
+[node name="CurrentLabel" type="Label" parent="CanvasLayer/Sliders/CurrentLine"]
+anchor_bottom = 1.0
+margin_top = 398.0
+margin_right = 93.0
+margin_bottom = 457.0
+hint_tooltip = "Drag to change emissions"
+mouse_filter = 1
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Emissions 
+  in 2020"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ZeroLine" type="Line2D" parent="CanvasLayer/Sliders"]
+points = PoolVector2Array( 75, 540, 465, 540 )
+width = 2.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="ZeroLabel" type="Label" parent="CanvasLayer/Sliders/ZeroLine"]
+anchor_bottom = 1.0
+margin_left = 60.0
+margin_top = 525.0
+margin_right = 100.0
+margin_bottom = 553.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ElectricitySlider" type="VSlider" parent="CanvasLayer/Sliders"]
+pause_mode = 2
+margin_left = 90.0
+margin_top = 300.0
+margin_right = 140.0
+margin_bottom = 550.0
+hint_tooltip = "Carbon dioxide"
+custom_icons/grabber_highlight = ExtResource( 11 )
+custom_icons/grabber = ExtResource( 11 )
+value = 70.0
+tick_count = 11
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ElectricityLabel" type="TextureButton" parent="CanvasLayer/Sliders/ElectricitySlider"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -9.0
+margin_top = -23.0
+margin_right = 15.0
+margin_bottom = 55.0
+hint_tooltip = "Electricity"
+texture_normal = ExtResource( 23 )
+texture_hover = ExtResource( 16 )
+expand = true
+
+[node name="IndustrySlider" type="VSlider" parent="CanvasLayer/Sliders"]
+pause_mode = 2
+margin_left = 170.0
+margin_top = 300.0
+margin_right = 220.0
+margin_bottom = 550.0
+hint_tooltip = "Methane"
+custom_icons/grabber_highlight = ExtResource( 11 )
+custom_icons/grabber = ExtResource( 11 )
+value = 70.0
+tick_count = 11
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IndustryLabel" type="TextureButton" parent="CanvasLayer/Sliders/IndustrySlider"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3.0
+margin_top = -11.0
+margin_right = 7.0
+margin_bottom = 49.0
+hint_tooltip = "Industry"
+texture_normal = ExtResource( 15 )
+expand = true
+
+[node name="TransportationSlider" type="VSlider" parent="CanvasLayer/Sliders"]
+pause_mode = 2
+margin_left = 250.0
+margin_top = 300.0
+margin_right = 300.0
+margin_bottom = 550.0
+hint_tooltip = "Nitrous oxide"
+custom_icons/grabber_highlight = ExtResource( 11 )
+custom_icons/grabber = ExtResource( 11 )
+value = 70.0
+tick_count = 11
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TransportationLabel" type="TextureButton" parent="CanvasLayer/Sliders/TransportationSlider"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.0
+margin_top = -10.0
+margin_right = 6.0
+margin_bottom = 50.0
+hint_tooltip = "Transportation"
+texture_normal = ExtResource( 24 )
+expand = true
+
+[node name="AgricultureSlider" type="VSlider" parent="CanvasLayer/Sliders"]
+pause_mode = 2
+margin_left = 330.0
+margin_top = 300.0
+margin_right = 380.0
+margin_bottom = 550.0
+hint_tooltip = "Short-lived climate pollutants"
+custom_icons/grabber_highlight = ExtResource( 11 )
+custom_icons/grabber = ExtResource( 11 )
+value = 70.0
+tick_count = 11
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AgricultureLabel" type="TextureButton" parent="CanvasLayer/Sliders/AgricultureSlider"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3.83945
+margin_top = -10.2933
+margin_right = 6.16056
+margin_bottom = 49.7067
+hint_tooltip = "Agriculture/forestry"
+texture_normal = ExtResource( 25 )
+expand = true
+
+[node name="BuildingsSlider" type="VSlider" parent="CanvasLayer/Sliders"]
+pause_mode = 2
+margin_left = 410.0
+margin_top = 300.0
+margin_right = 460.0
+margin_bottom = 550.0
+hint_tooltip = "Short-lived climate pollutants"
+custom_icons/grabber_highlight = ExtResource( 11 )
+custom_icons/grabber = ExtResource( 11 )
+value = 70.0
+tick_count = 11
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuildingsLabel" type="TextureButton" parent="CanvasLayer/Sliders/BuildingsSlider"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_top = -10.0
+margin_right = 2.0
+margin_bottom = 50.0
+hint_tooltip = "Buildings"
+texture_normal = ExtResource( 26 )
+expand = true
+
+[node name="WasteSlider" type="VSlider" parent="CanvasLayer/Sliders"]
+pause_mode = 2
+visible = false
+margin_left = 490.0
+margin_top = 300.0
+margin_right = 540.0
+margin_bottom = 550.0
+hint_tooltip = "Short-lived climate pollutants"
+custom_icons/grabber_highlight = ExtResource( 11 )
+custom_icons/grabber = ExtResource( 11 )
+value = 70.0
+tick_count = 11
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WasteLabel" type="Button" parent="CanvasLayer/Sliders/WasteSlider"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -60.0
+margin_top = 10.0
+margin_right = 65.0
+margin_bottom = 55.0
+hint_tooltip = "Agriculture/forestry emits carbon dioxide, methane and nitrous oxide."
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Waste"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Sliders"]
+margin_right = 1024.0
+margin_bottom = 59.0
+custom_constants/separation = 24
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YearTLabel" type="Label" parent="CanvasLayer/Sliders/HBoxContainer"]
+margin_right = 157.0
+margin_bottom = 59.0
+custom_fonts/font = ExtResource( 2 )
+text = "  Year: 2020  
+  F = 2.2 W/m2"
+
+[node name="CO2TLabel" type="Label" parent="CanvasLayer/Sliders/HBoxContainer"]
+margin_left = 181.0
+margin_right = 388.0
+margin_bottom = 59.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "CO2 = 415 ppm  
+FCO2 = 2.10 W/m2"
+
+[node name="CH4TLabel" type="Label" parent="CanvasLayer/Sliders/HBoxContainer"]
+margin_left = 412.0
+margin_right = 617.0
+margin_bottom = 59.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.541176, 0.894118, 0.403922, 1 )
+text = "CH4 = 2.20 ppm  
+FCH4 = 0.54 W/m2"
+
+[node name="N2OTLabel" type="Label" parent="CanvasLayer/Sliders/HBoxContainer"]
+visible = false
+margin_left = 477.0
+margin_top = 2.0
+margin_right = 649.0
+margin_bottom = 51.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "N2O = 0.40 ppm  
+FN2O = 0.20 W/m2"
+
+[node name="AerTLabel" type="Label" parent="CanvasLayer/Sliders/HBoxContainer"]
+margin_left = 641.0
+margin_right = 811.0
+margin_bottom = 59.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0.847059, 0.933333, 1 )
+text = "Aerosol cooling
+  = -1.10 W/m2"
+
+[node name="ResetButton" type="TextureButton" parent="CanvasLayer"]
+pause_mode = 2
+margin_left = 693.0
+margin_top = 555.0
+margin_right = 863.0
+margin_bottom = 589.0
+texture_normal = ExtResource( 21 )
+texture_hover = ExtResource( 20 )
+expand = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/ResetButton"]
+margin_right = 169.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 2 )
+text = "Reset"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseButton" type="TextureButton" parent="CanvasLayer"]
+pause_mode = 2
+margin_left = 835.0
+margin_top = 157.0
+margin_right = 1005.0
+margin_bottom = 191.0
+texture_normal = ExtResource( 21 )
+texture_hover = ExtResource( 20 )
+expand = true
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseButton"]
+margin_left = 1.0
+margin_top = -0.209686
+margin_right = 170.0
+margin_bottom = 33.7903
+custom_fonts/font = ExtResource( 2 )
+text = "Pause"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GraphButton" type="TextureButton" parent="CanvasLayer"]
+pause_mode = 2
+margin_left = 835.0
+margin_top = 67.0
+margin_right = 1005.0
+margin_bottom = 101.0
+texture_normal = ExtResource( 21 )
+texture_hover = ExtResource( 20 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/GraphButton"]
+margin_left = 1.0
+margin_top = 0.14856
+margin_right = 170.0
+margin_bottom = 34.1486
+custom_fonts/font = ExtResource( 2 )
+text = "Graph T"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GraphButton2" type="TextureButton" parent="CanvasLayer"]
+pause_mode = 2
+margin_left = 835.0
+margin_top = 112.0
+margin_right = 1005.0
+margin_bottom = 146.0
+texture_normal = ExtResource( 21 )
+texture_hover = ExtResource( 20 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/GraphButton2"]
+margin_left = 1.0
+margin_top = -0.356739
+margin_right = 170.0
+margin_bottom = 33.6433
+custom_fonts/font = ExtResource( 2 )
+text = "Graph F"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="TextureButton" parent="CanvasLayer"]
+pause_mode = 2
+margin_left = 513.0
+margin_top = 555.0
+margin_right = 683.0
+margin_bottom = 589.0
+texture_normal = ExtResource( 21 )
+texture_hover = ExtResource( 21 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/BackButton"]
+margin_right = 169.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 2 )
+text = "Back"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupGraph" type="Popup" parent="CanvasLayer"]
+margin_left = 162.0
+margin_top = 100.0
+margin_right = 862.0
+margin_bottom = 500.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundPopup" type="ColorRect" parent="CanvasLayer/PopupGraph"]
+margin_right = 700.0
+margin_bottom = 400.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GraphTitleLabel" type="Label" parent="CanvasLayer/PopupGraph"]
+margin_left = 100.0
+margin_top = 10.0
+margin_right = 599.0
+margin_bottom = 47.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Temperature Increase (C) vs Years"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YearLine" type="Line2D" parent="CanvasLayer/PopupGraph"]
+points = PoolVector2Array( 50, 360, 50, 350, 170, 350, 170, 360, 170, 350, 290, 350, 290, 360, 290, 350, 410, 350, 410, 360, 410, 350, 530, 350, 530, 360, 530, 350, 650, 350, 650, 360 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="2020Label" type="Label" parent="CanvasLayer/PopupGraph/YearLine"]
+margin_left = 28.0
+margin_top = 362.0
+margin_right = 72.0
+margin_bottom = 385.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2020"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2040Label" type="Label" parent="CanvasLayer/PopupGraph/YearLine"]
+margin_left = 148.0
+margin_top = 362.0
+margin_right = 188.0
+margin_bottom = 393.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2040"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2060Label" type="Label" parent="CanvasLayer/PopupGraph/YearLine"]
+margin_left = 268.0
+margin_top = 362.0
+margin_right = 308.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2060"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2080Label" type="Label" parent="CanvasLayer/PopupGraph/YearLine"]
+margin_left = 388.0
+margin_top = 362.0
+margin_right = 428.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2080"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2100Label" type="Label" parent="CanvasLayer/PopupGraph/YearLine"]
+margin_left = 508.0
+margin_top = 362.0
+margin_right = 548.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2120Label" type="Label" parent="CanvasLayer/PopupGraph/YearLine"]
+margin_left = 628.0
+margin_top = 362.0
+margin_right = 668.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2120"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TempLine" type="Line2D" parent="CanvasLayer/PopupGraph"]
+points = PoolVector2Array( 40, 50, 50, 50, 50, 125, 40, 125, 50, 125, 50, 200, 40, 200, 50, 200, 50, 275, 40, 275, 50, 275, 50, 350, 40, 350 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="0CLabel" type="Label" parent="CanvasLayer/PopupGraph/TempLine"]
+margin_left = 5.0
+margin_top = 338.0
+margin_right = 49.0
+margin_bottom = 361.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0 C"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1CLabel" type="Label" parent="CanvasLayer/PopupGraph/TempLine"]
+margin_left = 5.0
+margin_top = 263.0
+margin_right = 45.0
+margin_bottom = 286.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1 C"
+
+[node name="2CLabel" type="Label" parent="CanvasLayer/PopupGraph/TempLine"]
+margin_left = 5.0
+margin_top = 188.0
+margin_right = 45.0
+margin_bottom = 211.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2 C"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3CLabel" type="Label" parent="CanvasLayer/PopupGraph/TempLine"]
+margin_left = 5.0
+margin_top = 113.0
+margin_right = 45.0
+margin_bottom = 136.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "3 C"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4CLabel" type="Label" parent="CanvasLayer/PopupGraph/TempLine"]
+margin_left = 5.0
+margin_top = 38.0
+margin_right = 45.0
+margin_bottom = 61.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "4 C"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighTempGraph" type="Line2D" parent="CanvasLayer/PopupGraph"]
+width = 3.0
+default_color = Color( 0.741176, 0.121569, 0.0509804, 1 )
+
+[node name="MidTempGraph" type="Line2D" parent="CanvasLayer/PopupGraph"]
+width = 3.0
+default_color = Color( 0.886275, 0.32549, 0.141176, 1 )
+
+[node name="LowTempGraph" type="Line2D" parent="CanvasLayer/PopupGraph"]
+width = 3.0
+default_color = Color( 0.988235, 0.698039, 0.196078, 1 )
+
+[node name="PopupGraph2" type="Popup" parent="CanvasLayer"]
+margin_left = 162.0
+margin_top = 100.0
+margin_right = 862.0
+margin_bottom = 500.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundPopup2" type="ColorRect" parent="CanvasLayer/PopupGraph2"]
+margin_right = 700.0
+margin_bottom = 400.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GraphTitleLabel2" type="Label" parent="CanvasLayer/PopupGraph2"]
+margin_left = 100.0
+margin_top = 10.0
+margin_right = 599.0
+margin_bottom = 47.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "F (W/m2) vs Years"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YearLine2" type="Line2D" parent="CanvasLayer/PopupGraph2"]
+points = PoolVector2Array( 50, 250, 650, 250 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="2020Label" type="Label" parent="CanvasLayer/PopupGraph2/YearLine2"]
+margin_left = 28.0
+margin_top = 362.0
+margin_right = 72.0
+margin_bottom = 385.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2020"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2040Label" type="Label" parent="CanvasLayer/PopupGraph2/YearLine2"]
+margin_left = 148.0
+margin_top = 362.0
+margin_right = 188.0
+margin_bottom = 393.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2040"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2060Label" type="Label" parent="CanvasLayer/PopupGraph2/YearLine2"]
+margin_left = 268.0
+margin_top = 362.0
+margin_right = 308.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2060"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2080Label" type="Label" parent="CanvasLayer/PopupGraph2/YearLine2"]
+margin_left = 388.0
+margin_top = 362.0
+margin_right = 428.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2080"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2100Label" type="Label" parent="CanvasLayer/PopupGraph2/YearLine2"]
+margin_left = 508.0
+margin_top = 362.0
+margin_right = 548.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2120Label" type="Label" parent="CanvasLayer/PopupGraph2/YearLine2"]
+margin_left = 628.0
+margin_top = 362.0
+margin_right = 668.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2120"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FLine" type="Line2D" parent="CanvasLayer/PopupGraph2"]
+points = PoolVector2Array( 50, 50, 50, 350 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="-2Label" type="Label" parent="CanvasLayer/PopupGraph2/FLine"]
+margin_left = 5.0
+margin_top = 338.0
+margin_right = 49.0
+margin_bottom = 361.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-2.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="-1Label" type="Label" parent="CanvasLayer/PopupGraph2/FLine"]
+margin_left = 5.0
+margin_top = 288.0
+margin_right = 45.0
+margin_bottom = 311.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-1.0"
+
+[node name="0Label" type="Label" parent="CanvasLayer/PopupGraph2/FLine"]
+margin_left = 5.0
+margin_top = 238.0
+margin_right = 45.0
+margin_bottom = 261.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1Label" type="Label" parent="CanvasLayer/PopupGraph2/FLine"]
+margin_left = 5.0
+margin_top = 188.0
+margin_right = 45.0
+margin_bottom = 211.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2Label" type="Label" parent="CanvasLayer/PopupGraph2/FLine"]
+margin_left = 5.0
+margin_top = 138.0
+margin_right = 45.0
+margin_bottom = 161.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3Label" type="Label" parent="CanvasLayer/PopupGraph2/FLine"]
+margin_left = 5.0
+margin_top = 88.0
+margin_right = 45.0
+margin_bottom = 111.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "3.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4Label" type="Label" parent="CanvasLayer/PopupGraph2/FLine"]
+margin_left = 5.0
+margin_top = 38.0
+margin_right = 45.0
+margin_bottom = 61.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "4.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CO2Line" type="Line2D" parent="CanvasLayer/PopupGraph2"]
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="AerosolLine" type="Line2D" parent="CanvasLayer/PopupGraph2"]
+width = 3.0
+default_color = Color( 0.513726, 0.513726, 0.513726, 1 )
+
+[node name="CH4Line" type="Line2D" parent="CanvasLayer/PopupGraph2"]
+width = 3.0
+default_color = Color( 0.541176, 0.894118, 0.403922, 1 )
+
+[node name="TotalFLineBackground" type="Line2D" parent="CanvasLayer/PopupGraph2"]
+width = 5.0
+default_color = Color( 0.376471, 0.721569, 1, 1 )
+
+[node name="TotalFLine" type="Line2D" parent="CanvasLayer/PopupGraph2"]
+width = 1.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="ElectricityParticles2D" type="CPUParticles2D" parent="CanvasLayer"]
+pause_mode = 1
+position = Vector2( 113.505, 304.03 )
+lifetime = 1.65
+texture = ExtResource( 22 )
+direction = Vector2( 0, -1 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 130.0
+angular_velocity = 100.0
+angular_velocity_random = 0.34
+scale_amount = 0.1
+scale_amount_random = 0.2
+color_ramp = SubResource( 2 )
+script = ExtResource( 9 )
+
+[node name="CH4Particles2D" type="CPUParticles2D" parent="CanvasLayer/ElectricityParticles2D"]
+position = Vector2( 0, -2.687 )
+amount = 5
+lifetime = 2.5
+texture = ExtResource( 22 )
+direction = Vector2( 0, -1 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 75.0
+angular_velocity = 200.0
+angular_velocity_random = 0.34
+scale_amount = 0.06
+scale_amount_random = 0.05
+color_ramp = SubResource( 3 )
+
+[node name="SulfateParticles2D" type="CPUParticles2D" parent="CanvasLayer/ElectricityParticles2D"]
+position = Vector2( 0, -2.687 )
+texture = ExtResource( 22 )
+direction = Vector2( 0, -1 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+scale_amount = 0.05
+color = Color( 0.105882, 0.917647, 1, 0.478431 )
+
+[node name="IndustryParticles2D" type="CPUParticles2D" parent="CanvasLayer"]
+pause_mode = 1
+position = Vector2( 193, 298.657 )
+lifetime = 1.65
+texture = ExtResource( 22 )
+direction = Vector2( 0, -1 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 130.0
+angular_velocity = 100.0
+angular_velocity_random = 0.34
+scale_amount = 0.1
+scale_amount_random = 0.2
+color_ramp = SubResource( 2 )
+script = ExtResource( 7 )
+
+[node name="N2OParticles2D" type="CPUParticles2D" parent="CanvasLayer/IndustryParticles2D"]
+position = Vector2( 0, 2.686 )
+amount = 1
+texture = ExtResource( 22 )
+direction = Vector2( 0, -1 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 150.0
+angular_velocity = 100.0
+scale_amount = 0.1
+color = Color( 1, 0, 0, 0.647059 )
+
+[node name="SulfateParticles2D" type="CPUParticles2D" parent="CanvasLayer/IndustryParticles2D"]
+position = Vector2( 0, 2.686 )
+lifetime = 1.5
+texture = ExtResource( 22 )
+direction = Vector2( 0, -1 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+scale_amount = 0.05
+color = Color( 0.105882, 0.917647, 1, 0.478431 )
+
+[node name="TransportParticles2D" type="CPUParticles2D" parent="CanvasLayer"]
+pause_mode = 1
+position = Vector2( 274.981, 300 )
+lifetime = 1.65
+texture = ExtResource( 22 )
+direction = Vector2( 0, -1 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 130.0
+scale_amount = 0.1
+scale_amount_random = 0.2
+color_ramp = SubResource( 2 )
+script = ExtResource( 13 )
+
+[node name="SulfateParticles2D" type="CPUParticles2D" parent="CanvasLayer/TransportParticles2D"]
+position = Vector2( 0, 1.343 )
+amount = 3
+lifetime = 1.5
+texture = ExtResource( 22 )
+direction = Vector2( 0, -1 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+scale_amount = 0.05
+color = Color( 0.105882, 0.917647, 1, 0.478431 )
+
+[node name="AgricultureParticles2D" type="CPUParticles2D" parent="CanvasLayer"]
+pause_mode = 1
+position = Vector2( 355, 301.343 )
+amount = 5
+lifetime = 1.65
+texture = ExtResource( 22 )
+direction = Vector2( 0, -1 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 130.0
+scale_amount = 0.1
+scale_amount_random = 0.2
+color_ramp = SubResource( 2 )
+script = ExtResource( 6 )
+
+[node name="CH4Particles2D" type="CPUParticles2D" parent="CanvasLayer/AgricultureParticles2D"]
+amount = 4
+lifetime = 2.5
+texture = ExtResource( 22 )
+direction = Vector2( 0, -1 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 75.0
+angular_velocity = 100.0
+angular_velocity_random = 0.34
+scale_amount = 0.06
+scale_amount_random = 0.05
+color_ramp = SubResource( 3 )
+
+[node name="N2OParticles2D" type="CPUParticles2D" parent="CanvasLayer/AgricultureParticles2D"]
+amount = 4
+texture = ExtResource( 22 )
+direction = Vector2( 0, -1 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 150.0
+angular_velocity = 100.0
+angular_velocity_random = 0.34
+scale_amount = 0.08
+scale_amount_random = 0.05
+color = Color( 1, 0, 0, 0.647059 )
+
+[node name="SulfateParticles2D" type="CPUParticles2D" parent="CanvasLayer/AgricultureParticles2D"]
+amount = 2
+lifetime = 1.5
+texture = ExtResource( 22 )
+direction = Vector2( 0, -1 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+scale_amount = 0.05
+color = Color( 0.513726, 0.513726, 0.513726, 0.784314 )
+
+[node name="BuildingsParticles2D" type="CPUParticles2D" parent="CanvasLayer"]
+pause_mode = 1
+position = Vector2( 435, 301.343 )
+amount = 4
+lifetime = 1.65
+texture = ExtResource( 22 )
+direction = Vector2( 0, -1 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 130.0
+scale_amount = 0.1
+scale_amount_random = 0.2
+color_ramp = SubResource( 2 )
+script = ExtResource( 12 )
+
+[node name="CH4Particles2D3" type="CPUParticles2D" parent="CanvasLayer/BuildingsParticles2D"]
+amount = 1
+lifetime = 2.5
+texture = ExtResource( 22 )
+direction = Vector2( 0, -1 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 75.0
+angular_velocity = 100.0
+angular_velocity_random = 0.34
+scale_amount = 0.06
+scale_amount_random = 0.05
+color_ramp = SubResource( 3 )
+
+[node name="SulfateParticles2D" type="CPUParticles2D" parent="CanvasLayer/BuildingsParticles2D"]
+amount = 3
+lifetime = 1.5
+direction = Vector2( 0, -1 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+scale_amount = 0.05
+color = Color( 0.513726, 0.513726, 0.513726, 0.784314 )
+
+[node name="WasteParticles2D" type="CPUParticles2D" parent="CanvasLayer"]
+pause_mode = 1
+visible = false
+position = Vector2( 515, 301.343 )
+amount = 2
+lifetime = 2.0
+direction = Vector2( 0, -1 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 75.0
+scale_amount = 11.49
+color = Color( 0.647059, 0.164706, 0.164706, 0.784314 )
+script = ExtResource( 5 )
+
+[node name="10 C" type="Line2D" parent="CanvasLayer"]
+position = Vector2( 921, 450 )
+points = PoolVector2Array( -20, 0, 60, 0 )
+width = 2.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="10C label" type="Label" parent="CanvasLayer/10 C"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -89.0
+margin_top = -12.0
+margin_right = -28.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = " 1.0 C"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="15C label" type="Label" parent="CanvasLayer/10 C"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -89.0
+margin_top = -62.0
+margin_right = 11.0
+margin_bottom = -13.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = " 1.5 C"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="20C label" type="Label" parent="CanvasLayer/10 C"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -89.0
+margin_top = -112.0
+margin_right = -28.0
+margin_bottom = -84.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = " 2.0 C"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="25C label" type="Label" parent="CanvasLayer/10 C"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -89.0
+margin_top = -162.0
+margin_right = -28.0
+margin_bottom = -134.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = " 2.5 C"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="30C label" type="Label" parent="CanvasLayer/10 C"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -89.0
+margin_top = -212.0
+margin_right = -28.0
+margin_bottom = -184.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = " 3.0 C"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="15 C" type="Line2D" parent="CanvasLayer"]
+position = Vector2( 921, 450 )
+points = PoolVector2Array( -20, -50, 60, -50 )
+width = 4.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="20 C" type="Line2D" parent="CanvasLayer"]
+position = Vector2( 921, 450 )
+points = PoolVector2Array( -20, -100, 60, -100 )
+width = 4.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="25 C" type="Line2D" parent="CanvasLayer"]
+position = Vector2( 921, 450 )
+points = PoolVector2Array( -20, -150, 60, -150 )
+width = 4.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="30 C" type="Line2D" parent="CanvasLayer"]
+position = Vector2( 921, 450 )
+points = PoolVector2Array( -20, -200, 60, -200 )
+width = 6.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+modulate = Color( 0.886275, 0.32549, 0.141176, 1 )
+position = Vector2( 941, 555.439 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="TempRect" type="ColorRect" parent="CanvasLayer"]
+anchor_bottom = 40.0
+margin_left = 921.0
+margin_top = 450.0
+margin_right = 961.0
+margin_bottom = -23457.0
+color = Color( 0.886275, 0.32549, 0.141176, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TTLabel" type="Label" parent="CanvasLayer/TempRect"]
+margin_left = -276.0
+margin_top = -20.0
+margin_right = -61.0
+margin_bottom = 75.0
+hint_tooltip = "Warming since preindustrial"
+mouse_filter = 1
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.886275, 0.32549, 0.141176, 1 )
+text = "T = 1.0 K 
+Td = 0.3 K"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighLine" type="Line2D" parent="CanvasLayer/TempRect"]
+position = Vector2( 20, 0 )
+points = PoolVector2Array( 0, 0, 0, 0 )
+width = 2.0
+default_color = Color( 0.741176, 0.121569, 0.0509804, 1 )
+
+[node name="LowLine" type="Line2D" parent="CanvasLayer/TempRect"]
+position = Vector2( 20, 0 )
+points = PoolVector2Array( 0, 0, 0, 0 )
+width = 2.0
+default_color = Color( 0.988235, 0.698039, 0.196078, 1 )
+
+[node name="HowToPlay" type="Control" parent="CanvasLayer"]
+visible = false
+margin_left = 18.0
+margin_top = 125.0
+margin_right = 18.0
+margin_bottom = 125.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="blank" type="Sprite" parent="CanvasLayer/HowToPlay"]
+self_modulate = Color( 0.54902, 0.545098, 0.682353, 1 )
+scale = Vector2( 1.17757, 1.16153 )
+texture = ExtResource( 21 )
+centered = false
+
+[node name="Label" type="Label" parent="CanvasLayer/HowToPlay"]
+margin_left = 85.0
+margin_top = 32.0
+margin_right = 706.0
+margin_bottom = 221.0
+custom_fonts/font = SubResource( 4 )
+text = "Welcome to Sector Mode, where you can change emissions by economic sector.
+All pollutants in each sector are scaled to today's values"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/HowToPlay"]
+pause_mode = 2
+margin_left = 309.0
+margin_top = 221.0
+margin_right = 479.0
+margin_bottom = 271.0
+texture_normal = ExtResource( 21 )
+texture_hover = ExtResource( 20 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/HowToPlay/TextureButton"]
+pause_mode = 2
+margin_left = 2.0
+margin_top = -1.0
+margin_right = 167.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 4 )
+text = "Begin"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="value_changed" from="CanvasLayer/Sliders/ElectricitySlider" to="CanvasLayer/ElectricityParticles2D" method="_on_ElectricitySlider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Sliders/IndustrySlider" to="CanvasLayer/IndustryParticles2D" method="_on_IndustrySlider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Sliders/TransportationSlider" to="CanvasLayer/TransportParticles2D" method="_on_TransportationSlider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Sliders/AgricultureSlider" to="CanvasLayer/AgricultureParticles2D" method="_on_AgricultureSlider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Sliders/BuildingsSlider" to="CanvasLayer/BuildingsParticles2D" method="_on_BuildingsSlider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Sliders/WasteSlider" to="CanvasLayer/WasteParticles2D" method="_on_WasteSlider_value_changed"]
+[connection signal="pressed" from="CanvasLayer/ResetButton" to="CanvasLayer/ResetButton" method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseButton" to="CanvasLayer/PauseButton" method="_on_PauseButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/GraphButton" to="CanvasLayer/ResetButton" method="_on_GraphButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/GraphButton2" to="CanvasLayer/ResetButton" method="_on_GraphButton2_pressed"]
+[connection signal="pressed" from="CanvasLayer/BackButton" to="CanvasLayer/ResetButton" method="_on_BackButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/HowToPlay/TextureButton" to="CanvasLayer/PauseButton" method="_on_PauseButton_pressed"]

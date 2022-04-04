@@ -1,0 +1,660 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://scripts/EnergyDemandGame/OutdoorView.gd" type="Script" id=1]
+[ext_resource path="res://sprites/EnergyDemandGame/building 3.png" type="Texture" id=2]
+[ext_resource path="res://sprites/EnergyDemandGame/building 7.png" type="Texture" id=3]
+[ext_resource path="res://sprites/EnergyDemandGame/building 6.png" type="Texture" id=4]
+[ext_resource path="res://sprites/EnergyDemandGame/building 8.png" type="Texture" id=5]
+[ext_resource path="res://sprites/EnergyDemandGame/building 4.png" type="Texture" id=6]
+[ext_resource path="res://sprites/EnergyDemandGame/building 2.png" type="Texture" id=7]
+[ext_resource path="res://sprites/EnergyDemandGame/building 5.png" type="Texture" id=8]
+[ext_resource path="res://sprites/EnergyDemandGame/building 9.png" type="Texture" id=9]
+[ext_resource path="res://sprites/EnergyDemandGame/building 1.png" type="Texture" id=10]
+[ext_resource path="res://sprites/EnergyDemandGame/city 2.png" type="Texture" id=11]
+[ext_resource path="res://sprites/EnergyDemandGame/city 4.png" type="Texture" id=12]
+[ext_resource path="res://sprites/EnergyDemandGame/city 1.png" type="Texture" id=13]
+[ext_resource path="res://sprites/EnergyDemandGame/city 3.png" type="Texture" id=14]
+[ext_resource path="res://scripts/Editor_Object.gd" type="Script" id=15]
+[ext_resource path="res://fonts/Ubuntu40.tres" type="DynamicFont" id=16]
+[ext_resource path="res://fonts/Ubuntu24.tres" type="DynamicFont" id=17]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.258824, 0.513726, 0.270588, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 4
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_top = 12.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.231373, 0.309804, 0.235294, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.00784314, 0.266667, 0.0235294, 1 )
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_top = 12.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="Theme" id=3]
+default_font = ExtResource( 17 )
+HSlider/styles/grabber_area = SubResource( 1 )
+HSlider/styles/slider = SubResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.721569, 0.427451, 0.427451, 1 )
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[node name="OutdoorView" type="Control"]
+theme = SubResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="Node2D"]
+margin_left = -1238.0
+margin_top = -1147.0
+margin_right = 1327.0
+margin_bottom = 2015.0
+color = Color( 0.337255, 0.4, 0.411765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect5" type="ColorRect" parent="Node2D"]
+margin_left = -1383.0
+margin_top = 1066.0
+margin_right = 2217.0
+margin_bottom = 1358.0
+rect_rotation = -30.0
+color = Color( 0.2, 0.537255, 0.0627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect6" type="ColorRect" parent="Node2D"]
+margin_left = -1393.0
+margin_top = 1715.0
+margin_right = 2207.0
+margin_bottom = 2011.0
+rect_rotation = -30.0
+color = Color( 0.2, 0.537255, 0.0627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect7" type="ColorRect" parent="Node2D"]
+margin_left = -1284.0
+margin_top = 2331.0
+margin_right = 2316.0
+margin_bottom = 2627.0
+rect_rotation = -30.0
+color = Color( 0.2, 0.537255, 0.0627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect12" type="ColorRect" parent="Node2D"]
+margin_left = -1284.0
+margin_top = 2999.0
+margin_right = 2316.0
+margin_bottom = 3295.0
+rect_rotation = -30.0
+color = Color( 0.2, 0.537255, 0.0627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect8" type="ColorRect" parent="Node2D"]
+margin_left = -1383.0
+margin_top = 831.0
+margin_right = 2217.0
+margin_bottom = 991.0
+rect_rotation = -30.0
+color = Color( 0.266667, 0.266667, 0.266667, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect9" type="ColorRect" parent="Node2D"]
+margin_left = -1393.0
+margin_top = 1464.0
+margin_right = 2207.0
+margin_bottom = 1624.0
+rect_rotation = -30.0
+color = Color( 0.266667, 0.266667, 0.266667, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect10" type="ColorRect" parent="Node2D"]
+margin_left = -1284.0
+margin_top = 2074.0
+margin_right = 2316.0
+margin_bottom = 2234.0
+rect_rotation = -30.0
+color = Color( 0.266667, 0.266667, 0.266667, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect11" type="ColorRect" parent="Node2D"]
+margin_left = -1284.0
+margin_top = 2741.0
+margin_right = 2316.0
+margin_bottom = 2901.0
+rect_rotation = -30.0
+color = Color( 0.266667, 0.266667, 0.266667, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="building 1" type="Sprite" parent="Node2D"]
+position = Vector2( 352.014, 172.448 )
+texture = ExtResource( 10 )
+
+[node name="building 10" type="Sprite" parent="Node2D"]
+position = Vector2( 192, 1582 )
+texture = ExtResource( 10 )
+
+[node name="building 2" type="Sprite" parent="Node2D"]
+position = Vector2( 865.7, 498.783 )
+texture = ExtResource( 7 )
+
+[node name="building 7" type="Sprite" parent="Node2D"]
+position = Vector2( 416.094, 764.315 )
+texture = ExtResource( 3 )
+
+[node name="building 14" type="Sprite" parent="Node2D"]
+modulate = Color( 0.882353, 0.882353, 0.882353, 1 )
+position = Vector2( -748, 1427 )
+texture = ExtResource( 3 )
+
+[node name="building 3" type="Sprite" parent="Node2D"]
+position = Vector2( 27.667, 1017.05 )
+texture = ExtResource( 2 )
+
+[node name="building 5" type="Sprite" parent="Node2D"]
+position = Vector2( 982.5, 1119.22 )
+texture = ExtResource( 8 )
+
+[node name="building 6" type="Sprite" parent="Node2D"]
+position = Vector2( 599.86, 1359.19 )
+texture = ExtResource( 4 )
+
+[node name="building 4" type="Sprite" parent="Node2D"]
+position = Vector2( -374, 1227 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="building 13" type="Sprite" parent="Node2D"]
+position = Vector2( 914, -172 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="building 12" type="Sprite" parent="Node2D"]
+position = Vector2( 698, -57 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="building 8" type="Sprite" parent="Node2D"]
+position = Vector2( -12.735, 363.641 )
+texture = ExtResource( 5 )
+
+[node name="building 9" type="Sprite" parent="Node2D"]
+position = Vector2( -332.814, 576.861 )
+texture = ExtResource( 9 )
+
+[node name="building 11" type="Sprite" parent="Node2D"]
+position = Vector2( -652, 762 )
+texture = ExtResource( 9 )
+
+[node name="city 5" type="Sprite" parent="Node2D"]
+position = Vector2( -865.548, -570.304 )
+scale = Vector2( -2, 2 )
+texture = ExtResource( 13 )
+
+[node name="city 7" type="Sprite" parent="Node2D"]
+position = Vector2( -139, -893 )
+scale = Vector2( -2, 2 )
+texture = ExtResource( 13 )
+
+[node name="city 8" type="Sprite" parent="Node2D"]
+position = Vector2( 748, -1091 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 13 )
+
+[node name="city 1" type="Sprite" parent="Node2D"]
+position = Vector2( -212.548, -382.304 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 13 )
+
+[node name="city 2" type="Sprite" parent="Node2D"]
+position = Vector2( -789.163, 148.573 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 11 )
+
+[node name="city 3" type="Sprite" parent="Node2D"]
+position = Vector2( 346.68, -465.651 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+
+[node name="city 4" type="Sprite" parent="Node2D"]
+position = Vector2( 708, -580 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 12 )
+
+[node name="city 6" type="Sprite" parent="Node2D"]
+position = Vector2( -1053, -90 )
+scale = Vector2( -2, 2 )
+texture = ExtResource( 12 )
+
+[node name="CamContainer" type="Node2D" parent="."]
+script = ExtResource( 15 )
+
+[node name="Camera2D" type="Camera2D" parent="CamContainer"]
+current = true
+zoom = Vector2( 2, 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+margin_right = 559.0
+margin_bottom = 98.0
+theme = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_fonts/font = ExtResource( 16 )
+disabled = true
+text = "Residence"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopUp" type="Button" parent="CanvasLayer"]
+margin_left = 29.0
+margin_top = 121.0
+margin_right = 999.0
+margin_bottom = 544.0
+theme = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+disabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GrocerySliders" type="VBoxContainer" parent="CanvasLayer/PopUp"]
+visible = false
+margin_left = 47.0
+margin_top = 69.0
+margin_right = 573.0
+margin_bottom = 402.0
+rect_min_size = Vector2( 500, 300 )
+custom_constants/separation = 43
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FractLocal" type="HSlider" parent="CanvasLayer/PopUp/GrocerySliders"]
+margin_right = 526.0
+margin_bottom = 16.0
+value = 10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/GrocerySliders/FractLocal"]
+margin_left = -1.0
+margin_top = -34.0
+margin_right = 520.0
+text = "Fraction of food that is local:                           10%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CalorieFractBeef" type="HSlider" parent="CanvasLayer/PopUp/GrocerySliders"]
+margin_top = 59.0
+margin_right = 526.0
+margin_bottom = 75.0
+value = 5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/GrocerySliders/CalorieFractBeef"]
+margin_left = -1.0
+margin_top = -35.0
+margin_right = 520.0
+margin_bottom = -1.0
+text = "Fraction of Calories that is Beef:                      5%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CalorieFractPoultry" type="HSlider" parent="CanvasLayer/PopUp/GrocerySliders"]
+margin_top = 118.0
+margin_right = 526.0
+margin_bottom = 134.0
+value = 15.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/GrocerySliders/CalorieFractPoultry"]
+margin_left = -1.0
+margin_top = -35.0
+margin_right = 520.0
+margin_bottom = -2.0
+text = "Fraction of Calories that is Poultry:                15%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CalorieFractDairy" type="HSlider" parent="CanvasLayer/PopUp/GrocerySliders"]
+margin_top = 177.0
+margin_right = 526.0
+margin_bottom = 193.0
+value = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/GrocerySliders/CalorieFractDairy"]
+margin_left = -1.0
+margin_top = -34.0
+margin_right = 520.0
+margin_bottom = 5.0
+text = "Fraction of Calories that is Dairy:                    20%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FractWaste" type="HSlider" parent="CanvasLayer/PopUp/GrocerySliders"]
+margin_top = 236.0
+margin_right = 526.0
+margin_bottom = 252.0
+value = 25.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/GrocerySliders/FractWaste"]
+margin_left = -1.0
+margin_top = -36.0
+margin_right = 520.0
+margin_bottom = 13.0
+text = "Fraction of Food that is Wasted:                     25%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FractProcessed" type="HSlider" parent="CanvasLayer/PopUp/GrocerySliders"]
+margin_top = 295.0
+margin_right = 526.0
+margin_bottom = 311.0
+value = 55.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/GrocerySliders/FractProcessed"]
+margin_left = -1.0
+margin_top = -35.0
+margin_right = 521.0
+margin_bottom = 15.0
+text = "Fraction of Food that is Processed:                 55%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Building6" type="Sprite" parent="CanvasLayer/PopUp/GrocerySliders"]
+position = Vector2( 713, 145 )
+scale = Vector2( -0.9, 0.9 )
+texture = ExtResource( 4 )
+
+[node name="ResidenceSliders" type="VBoxContainer" parent="CanvasLayer/PopUp"]
+margin_left = 46.0
+margin_top = 87.0
+margin_right = 571.0
+margin_bottom = 394.0
+rect_min_size = Vector2( 500, 300 )
+custom_constants/separation = 49
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StoveType" type="HSlider" parent="CanvasLayer/PopUp/ResidenceSliders"]
+margin_right = 525.0
+margin_bottom = 16.0
+value = 33.0
+
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/ResidenceSliders/StoveType"]
+margin_top = -34.0
+margin_right = 521.0
+margin_bottom = 3.0
+text = "Stove Type:                                                      Wood"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FractCooked" type="HSlider" parent="CanvasLayer/PopUp/ResidenceSliders"]
+margin_top = 65.0
+margin_right = 525.0
+margin_bottom = 81.0
+value = 50.0
+
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/ResidenceSliders/FractCooked"]
+margin_top = -35.0
+margin_right = 521.0
+text = "Fraction of food bought that is cooked:       50%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WaterUsage" type="HSlider" parent="CanvasLayer/PopUp/ResidenceSliders"]
+margin_top = 130.0
+margin_right = 525.0
+margin_bottom = 146.0
+value = 24.0
+
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/ResidenceSliders/WaterUsage"]
+margin_top = -34.0
+margin_right = 521.0
+margin_bottom = 1.0
+text = "Water Usage:                                     50 liters / day"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeatedWater" type="HSlider" parent="CanvasLayer/PopUp/ResidenceSliders"]
+margin_top = 195.0
+margin_right = 525.0
+margin_bottom = 211.0
+value = 20.0
+
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/ResidenceSliders/HeatedWater"]
+margin_top = -34.0
+margin_right = 523.0
+margin_bottom = 1.0
+text = "Heated Water:                                    20 liters / day"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FridgeEnergyUsage" type="HSlider" parent="CanvasLayer/PopUp/ResidenceSliders"]
+margin_top = 260.0
+margin_right = 525.0
+margin_bottom = 276.0
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/ResidenceSliders/FridgeEnergyUsage"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Fridge Energy Usage:                               14  Watts"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Building9" type="Sprite" parent="CanvasLayer/PopUp/ResidenceSliders"]
+position = Vector2( 714, 122 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 9 )
+
+[node name="ConstructionSliders" type="VBoxContainer" parent="CanvasLayer/PopUp"]
+visible = false
+margin_left = 46.0
+margin_top = 42.0
+margin_right = 593.0
+margin_bottom = 383.0
+rect_min_size = Vector2( 500, 300 )
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SquareFootage" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
+margin_right = 547.0
+margin_bottom = 16.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PeoplePerResidence" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
+margin_top = 46.0
+margin_right = 547.0
+margin_bottom = 62.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuildingLifetime" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
+margin_top = 92.0
+margin_right = 547.0
+margin_bottom = 108.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuildingMaterial" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
+margin_top = 138.0
+margin_right = 547.0
+margin_bottom = 154.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Insulation" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
+margin_top = 184.0
+margin_right = 547.0
+margin_bottom = 200.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeatCoolMethod" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
+margin_top = 230.0
+margin_right = 547.0
+margin_bottom = 246.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BatterySize" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
+margin_top = 276.0
+margin_right = 547.0
+margin_bottom = 292.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SolarPanelSize" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
+margin_top = 322.0
+margin_right = 547.0
+margin_bottom = 338.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Building7" type="Sprite" parent="CanvasLayer/PopUp/ConstructionSliders"]
+position = Vector2( 727, 169 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 3 )
+
+[node name="SchoolSlider" type="VBoxContainer" parent="CanvasLayer/PopUp"]
+visible = false
+margin_left = 74.0
+margin_top = 97.0
+margin_right = 914.0
+margin_bottom = 524.0
+rect_min_size = Vector2( 840, 427 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TransportationSlider" type="VBoxContainer" parent="CanvasLayer/PopUp"]
+visible = false
+margin_left = 74.0
+margin_top = 97.0
+margin_right = 914.0
+margin_bottom = 524.0
+rect_min_size = Vector2( 840, 427 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MedicalSliders" type="VBoxContainer" parent="CanvasLayer/PopUp"]
+visible = false
+margin_left = 74.0
+margin_top = 97.0
+margin_right = 914.0
+margin_bottom = 524.0
+rect_min_size = Vector2( 840, 427 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IlluminationSliders" type="VBoxContainer" parent="CanvasLayer/PopUp"]
+visible = false
+margin_left = 74.0
+margin_top = 97.0
+margin_right = 914.0
+margin_bottom = 524.0
+rect_min_size = Vector2( 840, 427 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="value_changed" from="CanvasLayer/PopUp/ConstructionSliders/SquareFootage" to="." method="_on_SquareFootage_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/PopUp/ConstructionSliders/PeoplePerResidence" to="." method="_on_PeoplePerResidence_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/PopUp/ConstructionSliders/BuildingLifetime" to="." method="_on_BuildingLifetime_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/PopUp/ConstructionSliders/BuildingMaterial" to="." method="_on_BuildingMaterial_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/PopUp/ConstructionSliders/Insulation" to="." method="_on_Insolation_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/PopUp/ConstructionSliders/HeatCoolMethod" to="." method="_on_HeatCoolMethod_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/PopUp/ConstructionSliders/BatterySize" to="." method="_on_Battery_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/PopUp/ConstructionSliders/SolarPanelSize" to="." method="_on_Battery_value_changed"]

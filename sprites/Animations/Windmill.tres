@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=2]
+
+[ext_resource path="res://sprites/Winmill/wind-1.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Winmill/wind-3.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Winmill/wind-4.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Winmill/wind-2.png" type="Texture" id=4]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "on",
+"speed": 5.0
+} ]

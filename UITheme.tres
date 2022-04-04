@@ -1,0 +1,127 @@
+[gd_resource type="Theme" load_steps=12 format=2]
+
+[ext_resource path="res://fonts/Ubuntu55.tres" type="DynamicFont" id=1]
+[ext_resource path="res://sprites/grabber.png" type="Texture" id=2]
+[ext_resource path="res://sprites/13920061813626.png" type="Texture" id=3]
+[ext_resource path="res://fonts/Ubuntu24.tres" type="DynamicFont" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.356863, 0.309804, 0.733333, 1 )
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.580392, 0.47451, 0.827451, 1 )
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.32549, 0.243137, 1, 1 )
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.172549, 0.0627451, 0.423529, 1 )
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_top = 32.0
+bg_color = Color( 0.827451, 0.811765, 0.952941, 1 )
+border_width_top = 4
+border_width_right = 5
+border_width_bottom = 4
+border_color = Color( 0.423529, 0.364706, 0.560784, 1 )
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+expand_margin_right = 8.0
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.827451, 0.811765, 0.952941, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.172549, 0.0627451, 0.423529, 1 )
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+expand_margin_left = 12.0
+expand_margin_right = 12.0
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.423529, 0.364706, 0.560784, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.356863, 0.309804, 0.733333, 1 )
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.356863, 0.309804, 0.733333, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.423529, 0.364706, 0.560784, 1 )
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.32549, 0.243137, 1, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.172549, 0.0627451, 0.423529, 1 )
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[resource]
+default_font = ExtResource( 4 )
+HSlider/icons/grabber = ExtResource( 2 )
+HSlider/icons/grabber_disabled = ExtResource( 2 )
+HSlider/icons/grabber_highlight = ExtResource( 2 )
+HSlider/icons/tick = null
+HSlider/styles/grabber_area = SubResource( 1 )
+HSlider/styles/grabber_area_highlight = SubResource( 2 )
+HSlider/styles/slider = SubResource( 3 )
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = ExtResource( 1 )
+Label/styles/normal = null
+ProgressBar/colors/font_color = Color( 0.94, 0.94, 0.94, 1 )
+ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
+ProgressBar/fonts/font = null
+ProgressBar/styles/bg = SubResource( 4 )
+ProgressBar/styles/fg = SubResource( 5 )
+TooltipLabel/colors/font_color = Color( 0, 0, 0, 1 )
+TooltipLabel/colors/font_color_shadow = Color( 0, 0, 0, 0.1 )
+TooltipLabel/constants/shadow_offset_x = 1
+TooltipLabel/constants/shadow_offset_y = 1
+TooltipLabel/fonts/font = ExtResource( 4 )
+VSlider/icons/grabber = ExtResource( 3 )
+VSlider/icons/grabber_disabled = ExtResource( 3 )
+VSlider/icons/grabber_highlight = ExtResource( 3 )
+VSlider/icons/tick = null
+VSlider/styles/grabber_area = SubResource( 6 )
+VSlider/styles/grabber_area_highlight = SubResource( 7 )
+VSlider/styles/slider = SubResource( 4 )

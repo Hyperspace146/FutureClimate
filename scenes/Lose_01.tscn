@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/Ubuntu-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://sprites/UI/blank.png" type="Texture" id=2]
+[ext_resource path="res://sprites/UI/blankHover.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 1 )
+
+[node name="Lose" type="Control"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="blank" type="Sprite" parent="."]
+self_modulate = Color( 0.54902, 0.545098, 0.682353, 1 )
+scale = Vector2( 1.21541, 1.55542 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Label" type="Label" parent="."]
+margin_left = 85.0
+margin_top = 43.0
+margin_right = 731.0
+margin_bottom = 326.0
+custom_fonts/font = SubResource( 1 )
+text = "Even for a future potential population of 10 billion people, the decent living requirement could be met for everyone with under 5 TW of power. Solar panels with efficiency of 20% placed over just 0.1% of the Earth’s surface could provide this amount of power for over 10 billion people."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+pause_mode = 2
+margin_left = 428.0
+margin_top = 326.0
+margin_right = 598.0
+margin_bottom = 376.0
+texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureButton"]
+pause_mode = 2
+margin_left = 2.0
+margin_top = -1.0
+margin_right = 167.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 1 )
+text = "Try Again"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+pause_mode = 2
+margin_left = 236.0
+margin_top = 326.0
+margin_right = 406.0
+margin_bottom = 376.0
+texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureButton2"]
+pause_mode = 2
+margin_left = 2.0
+margin_top = -1.0
+margin_right = 167.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 1 )
+text = "Back"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

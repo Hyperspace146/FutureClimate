@@ -1,0 +1,269 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://scenes/UILocal.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/PowerSources.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/UIglobal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/lights/Africa_light.png" type="Texture" id=5]
+[ext_resource path="res://scripts/MapGlobe.gd" type="Script" id=6]
+[ext_resource path="res://sprites/lights/Australia_light.png" type="Texture" id=29]
+[ext_resource path="res://sprites/lights/Europia_light.png" type="Texture" id=30]
+[ext_resource path="res://sprites/lights/NAmerica_light.png" type="Texture" id=31]
+[ext_resource path="res://sprites/lights/IndiaPhilipines_light.png" type="Texture" id=32]
+[ext_resource path="res://sprites/lights/SAmerica_light.png" type="Texture" id=33]
+[ext_resource path="res://fonts/Ubuntu-Regular.ttf" type="DynamicFontData" id=34]
+[ext_resource path="res://sprites/UI/blank.png" type="Texture" id=35]
+[ext_resource path="res://sprites/UI/blankHover.png" type="Texture" id=36]
+[ext_resource path="res://scenes/Lose_01.tscn" type="PackedScene" id=37]
+[ext_resource path="res://PercapenergySlider.tscn" type="PackedScene" id=38]
+[ext_resource path="res://fonts/Ubuntu40.tres" type="DynamicFont" id=39]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 52.9999
+height = 166.074
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 221.043
+height = 107.878
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 186.647
+height = 135.602
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 296.961
+height = 83.6386
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 158.806
+height = 702.127
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 176.15
+height = 381.837
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = ExtResource( 34 )
+
+[node name="MainMap" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="lights" type="Node2D" parent="."]
+
+[node name="AustraliaArea2D" type="Area2D" parent="lights"]
+visible = false
+position = Vector2( 2086.61, 1265.77 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lights/AustraliaArea2D"]
+position = Vector2( -1892.61, -819.77 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="AfricaArea2D" type="Area2D" parent="lights"]
+visible = false
+position = Vector2( 1309, 998 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lights/AfricaArea2D"]
+shape = SubResource( 2 )
+
+[node name="SAmericaArea2D" type="Area2D" parent="lights"]
+visible = false
+position = Vector2( 836.223, 1125.3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lights/SAmericaArea2D"]
+shape = SubResource( 3 )
+
+[node name="NAmericaArea2D" type="Area2D" parent="lights"]
+visible = false
+position = Vector2( 543.404, 566.931 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lights/NAmericaArea2D"]
+position = Vector2( 33, -45 )
+shape = SubResource( 4 )
+
+[node name="EUArea2D" type="Area2D" parent="lights"]
+visible = false
+position = Vector2( 1566, 513.237 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lights/EUArea2D"]
+rotation = 1.5708
+shape = SubResource( 5 )
+
+[node name="IndiaArea2D" type="Area2D" parent="lights"]
+visible = false
+position = Vector2( 1904.12, 890.151 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lights/IndiaArea2D"]
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="Africa" type="Light2D" parent="lights"]
+visible = false
+position = Vector2( 1307, 973 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+texture_scale = 2.0
+energy = 0.65
+
+[node name="Australia" type="Light2D" parent="lights"]
+visible = false
+position = Vector2( 241, 471 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 29 )
+texture_scale = 2.0
+energy = 0.65
+
+[node name="EUropia" type="Light2D" parent="lights"]
+visible = false
+position = Vector2( 1605, 448.237 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 30 )
+texture_scale = 2.0
+energy = 0.65
+
+[node name="SAmerica" type="Light2D" parent="lights"]
+visible = false
+position = Vector2( 871, 1152 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 33 )
+texture_scale = 2.0
+energy = 0.65
+
+[node name="NAmerica" type="Light2D" parent="lights"]
+visible = false
+position = Vector2( 592.404, 508.931 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 31 )
+texture_scale = 2.0
+energy = 0.65
+
+[node name="India" type="Light2D" parent="lights"]
+visible = false
+position = Vector2( 1826.12, 881 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 32 )
+texture_scale = 2.0
+energy = 0.65
+
+[node name="PowerSources" parent="." instance=ExtResource( 3 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
+
+[node name="UILocal" parent="CanvasLayer" instance=ExtResource( 1 )]
+
+[node name="HowToPlay" type="Control" parent="CanvasLayer"]
+visible = false
+margin_left = 154.0
+margin_top = 116.0
+margin_right = 154.0
+margin_bottom = 116.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="blank" type="Sprite" parent="CanvasLayer/HowToPlay"]
+self_modulate = Color( 0.54902, 0.545098, 0.682353, 1 )
+position = Vector2( 295.703, 181.966 )
+scale = Vector2( 1.28477, 1.50071 )
+texture = ExtResource( 35 )
+
+[node name="Label" type="Label" parent="CanvasLayer/HowToPlay"]
+margin_left = -66.0
+margin_top = 38.0
+margin_right = 666.0
+margin_bottom = 294.0
+custom_fonts/font = SubResource( 7 )
+text = "Use the arrow keys and mouse wheel to move the camera around the Earth.
+ Move the slider(s) up and down to change the fossil fuel emissions for the globe.
+Click the green power sources to turn them on. Right click and drag to move them. Click the green power sources on the top toolbar to add new ones."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/HowToPlay"]
+pause_mode = 2
+margin_left = 215.0
+margin_top = 294.0
+margin_right = 385.0
+margin_bottom = 344.0
+texture_normal = ExtResource( 35 )
+texture_hover = ExtResource( 36 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/HowToPlay/TextureButton"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 167.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 7 )
+text = "Begin"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lose" parent="CanvasLayer" instance=ExtResource( 37 )]
+visible = false
+margin_left = 69.0
+margin_top = 81.0
+margin_right = 69.0
+margin_bottom = 81.0
+
+[node name="UIglobal" parent="CanvasLayer" instance=ExtResource( 4 )]
+margin_top = 1.13763
+margin_bottom = 1.13763
+
+[node name="PercapenergySlider" parent="CanvasLayer" instance=ExtResource( 38 )]
+visible = false
+margin_left = 919.0
+margin_right = 935.0
+
+[node name="TeraLabel" type="Label" parent="CanvasLayer"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 39 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeSlider" type="HSlider" parent="CanvasLayer"]
+margin_left = 893.0
+margin_top = 54.0
+margin_right = 1023.0
+margin_bottom = 70.0
+max_value = 2.0
+step = 0.1
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="mouse_entered" from="lights/AustraliaArea2D" to="." method="_on_AustraliaArea_mouse_entered"]
+[connection signal="mouse_exited" from="lights/AustraliaArea2D" to="." method="_on_AustraliaArea_mouse_exited"]
+[connection signal="mouse_entered" from="lights/AfricaArea2D" to="." method="_on_AfricaArea_mouse_entered"]
+[connection signal="mouse_exited" from="lights/AfricaArea2D" to="." method="_on_AfricaArea_mouse_exited"]
+[connection signal="mouse_entered" from="lights/SAmericaArea2D" to="." method="_on_AreaSouthAmerica_mouse_entered"]
+[connection signal="mouse_exited" from="lights/SAmericaArea2D" to="." method="_on_AreaSouthAmerica_mouse_exited"]
+[connection signal="mouse_entered" from="lights/NAmericaArea2D" to="." method="_on_AreaNorthAmerica_mouse_entered"]
+[connection signal="mouse_exited" from="lights/NAmericaArea2D" to="." method="_on_AreaNorthAmerica_mouse_exited"]
+[connection signal="mouse_entered" from="lights/EUArea2D" to="." method="_on_EUArea_mouse_entered"]
+[connection signal="mouse_exited" from="lights/EUArea2D" to="." method="_on_EUArea_mouse_exited"]
+[connection signal="mouse_entered" from="lights/IndiaArea2D" to="." method="_on_AreaIndia_mouse_entered"]
+[connection signal="mouse_exited" from="lights/IndiaArea2D" to="." method="_on_AreaIndia_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/HowToPlay/TextureButton" to="." method="_on_WelcomeButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Lose/TextureButton" to="." method="_on_Lose_TryAgain_pressed"]
+[connection signal="pressed" from="CanvasLayer/Lose/TextureButton2" to="." method="_on_Lose_Back_pressed"]
+[connection signal="value_changed" from="CanvasLayer/TimeSlider" to="." method="_on_TimeSlider_value_changed"]
+
+[editable path="CanvasLayer/Lose"]

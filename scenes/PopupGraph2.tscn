@@ -1,0 +1,216 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/Ubuntu40.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/Ubuntu24.tres" type="DynamicFont" id=2]
+
+[node name="PopupGraph2" type="Popup"]
+margin_left = 162.0
+margin_top = 100.0
+margin_right = 862.0
+margin_bottom = 500.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundPopup2" type="ColorRect" parent="."]
+margin_right = 700.0
+margin_bottom = 400.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GraphTitleLabel2" type="Label" parent="."]
+margin_left = 100.0
+margin_top = 10.0
+margin_right = 599.0
+margin_bottom = 47.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "F (W/m2) vs Year"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YearLine2" type="Line2D" parent="."]
+points = PoolVector2Array( 50, 250, 650, 250 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="2020Label" type="Label" parent="YearLine2"]
+margin_left = 28.0
+margin_top = 362.0
+margin_right = 72.0
+margin_bottom = 385.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2020"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2040Label" type="Label" parent="YearLine2"]
+margin_left = 148.0
+margin_top = 362.0
+margin_right = 188.0
+margin_bottom = 393.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2040"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2060Label" type="Label" parent="YearLine2"]
+margin_left = 268.0
+margin_top = 362.0
+margin_right = 308.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2060"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2080Label" type="Label" parent="YearLine2"]
+margin_left = 388.0
+margin_top = 362.0
+margin_right = 428.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2080"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2100Label" type="Label" parent="YearLine2"]
+margin_left = 508.0
+margin_top = 362.0
+margin_right = 548.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2120Label" type="Label" parent="YearLine2"]
+margin_left = 628.0
+margin_top = 362.0
+margin_right = 668.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2120"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FLine" type="Line2D" parent="."]
+points = PoolVector2Array( 50, 50, 50, 350 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="-2Label" type="Label" parent="FLine"]
+margin_left = 5.0
+margin_top = 338.0
+margin_right = 49.0
+margin_bottom = 361.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-2.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="-1Label" type="Label" parent="FLine"]
+margin_left = 5.0
+margin_top = 288.0
+margin_right = 45.0
+margin_bottom = 311.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-1.0"
+
+[node name="0Label" type="Label" parent="FLine"]
+margin_left = 5.0
+margin_top = 238.0
+margin_right = 45.0
+margin_bottom = 261.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1Label" type="Label" parent="FLine"]
+margin_left = 5.0
+margin_top = 188.0
+margin_right = 45.0
+margin_bottom = 211.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2Label" type="Label" parent="FLine"]
+margin_left = 5.0
+margin_top = 138.0
+margin_right = 45.0
+margin_bottom = 161.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3Label" type="Label" parent="FLine"]
+margin_left = 5.0
+margin_top = 88.0
+margin_right = 45.0
+margin_bottom = 111.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "3.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4Label" type="Label" parent="FLine"]
+margin_left = 5.0
+margin_top = 38.0
+margin_right = 45.0
+margin_bottom = 61.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "4.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CO2Line" type="Line2D" parent="."]
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="AerosolLine" type="Line2D" parent="."]
+width = 3.0
+default_color = Color( 0.513726, 0.513726, 0.513726, 1 )
+
+[node name="CH4Line" type="Line2D" parent="."]
+width = 3.0
+default_color = Color( 0.541176, 0.894118, 0.403922, 1 )
+
+[node name="TotalFLineBackground" type="Line2D" parent="."]
+width = 5.0
+default_color = Color( 0.376471, 0.721569, 1, 1 )
+
+[node name="TotalFLine" type="Line2D" parent="."]
+width = 1.0
+default_color = Color( 1, 1, 1, 1 )

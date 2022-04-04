@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://fonts/Ubuntu24.tres" type="DynamicFont" id=1]
+
+[node name="PercapenergySlider" type="VSlider"]
+margin_left = 920.0
+margin_top = 73.964
+margin_right = 936.0
+margin_bottom = 183.964
+min_value = 500.0
+max_value = 2500.0
+step = 10.0
+value = 1000.0
+tick_count = 6
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Percaplabel" type="RichTextLabel" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = 4.99999
+margin_right = 60.0
+margin_bottom = 55.0
+hint_tooltip = "Watts per capita energy usage (electrical equivalent)"
+custom_fonts/mono_font = ExtResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighLimitPercap" type="RichTextLabel" parent="."]
+margin_left = 18.0
+margin_right = 78.0
+margin_bottom = 40.0
+hint_tooltip = "North America average everywhere"
+custom_fonts/mono_font = ExtResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LowLimitPercap" type="RichTextLabel" parent="."]
+margin_left = 18.0
+margin_top = 98.0
+margin_right = 68.0
+margin_bottom = 128.0
+hint_tooltip = "Decent living with minimum energy for everyone"
+custom_fonts/mono_font = ExtResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

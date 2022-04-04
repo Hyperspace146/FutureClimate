@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/new 8 bit - 2_5_21, 10.35 PM.ogg-0820e51b86265a05f741a85cdbd52aae.oggstr"
+
+[deps]
+
+source_file="res://Sounds/new 8 bit - 2_5_21, 10.35 PM.ogg"
+dest_files=[ "res://.import/new 8 bit - 2_5_21, 10.35 PM.ogg-0820e51b86265a05f741a85cdbd52aae.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

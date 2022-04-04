@@ -1,0 +1,155 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://sprites/UI/blankHover.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Music.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/new 8 bit - 2_5_21, 10.35 PM.ogg" type="AudioStream" id=3]
+[ext_resource path="res://sprites/TitlePage.png" type="Texture" id=4]
+[ext_resource path="res://sprites/UI/blank.png" type="Texture" id=6]
+[ext_resource path="res://fonts/Ubuntu-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://scripts/TitlePage.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 42
+font_data = ExtResource( 7 )
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 512, 300 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitlePage" type="Sprite" parent="Control"]
+position = Vector2( -17, -1.5992 )
+scale = Vector2( 0.55, 0.56 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="ByGHGButton" type="TextureButton" parent="Control"]
+margin_left = 660.0
+margin_top = 414.0
+margin_right = 905.0
+margin_bottom = 497.0
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/ByGHGButton"]
+margin_right = 242.0
+margin_bottom = 79.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.345098, 0.0784314, 0.666667, 1 )
+text = "By  Gas"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BySectorButton" type="TextureButton" parent="Control"]
+margin_left = 389.0
+margin_top = 414.0
+margin_right = 634.0
+margin_bottom = 497.0
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Control/BySectorButton"]
+margin_right = 245.0
+margin_bottom = 79.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.345098, 0.0784314, 0.666667, 1 )
+text = "By Sector"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OneBarButton" type="TextureButton" parent="Control"]
+margin_left = 71.0
+margin_top = 414.0
+margin_right = 357.0
+margin_bottom = 497.0
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Control/OneBarButton"]
+margin_right = 287.0
+margin_bottom = 79.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.345098, 0.0784314, 0.666667, 1 )
+text = "Simple Mode"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayGame" type="TextureButton" parent="Control"]
+visible = false
+margin_left = 366.0
+margin_top = 506.0
+margin_right = 656.0
+margin_bottom = 589.0
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="Control/PlayGame"]
+margin_right = 290.0
+margin_bottom = 79.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.345098, 0.0784314, 0.666667, 1 )
+text = "Game Mode"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="Music"]
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Music"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="Control/ByGHGButton" to="." method="_on_ByGHGButton_pressed"]
+[connection signal="pressed" from="Control/BySectorButton" to="." method="_on_BySectorButton_pressed"]
+[connection signal="pressed" from="Control/OneBarButton" to="." method="_on_OneBarButton_pressed"]
+[connection signal="pressed" from="Control/PlayGame" to="." method="_on_PlayGame_pressed"]
