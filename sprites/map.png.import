@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/building 4.png-04b9dbe756d7230b57c13a876fce834d.stex"
+path="res://.import/map.png-659e88586eefd66127a1dc6c44095341.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/EnergyDemandGame/building 4.png"
-dest_files=[ "res://.import/building 4.png-04b9dbe756d7230b57c13a876fce834d.stex" ]
+source_file="res://sprites/map.png"
+dest_files=[ "res://.import/map.png-659e88586eefd66127a1dc6c44095341.stex" ]
 
 [params]
 

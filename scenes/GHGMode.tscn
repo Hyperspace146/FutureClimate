@@ -21,8 +21,6 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
-outline_size = 1
-outline_color = Color( 0.627451, 0.627451, 0.627451, 1 )
 font_data = ExtResource( 18 )
 
 [sub_resource type="Gradient" id=2]
@@ -110,13 +108,14 @@ color = Color( 0, 0.847059, 0.933333, 0.831373 )
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Node2D"]
 margin_right = 1024.0
 margin_bottom = 65.0
-color = Color( 0.0823529, 0.0823529, 0.360784, 1 )
+color = Color( 0.592157, 0.592157, 0.623529, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect3" type="ColorRect" parent="CanvasLayer/Node2D"]
 margin_left = 823.0
+margin_top = 65.0
 margin_right = 1024.0
 margin_bottom = 206.0
 mouse_filter = 1
@@ -137,6 +136,7 @@ __meta__ = {
 
 [node name="ColorRect4" type="ColorRect" parent="CanvasLayer/Node2D"]
 margin_left = 999.0
+margin_top = 66.0
 margin_right = 1024.0
 margin_bottom = 601.0
 color = Color( 0.0823529, 0.0823529, 0.360784, 1 )
@@ -680,8 +680,7 @@ hint_tooltip = "Warming since preindustrial"
 mouse_filter = 1
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.886275, 0.32549, 0.141176, 1 )
-text = "T = 1.0 K 
-Td = 0.3 K"
+text = "T = 1.0 K "
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -708,20 +707,20 @@ __meta__ = {
 }
 
 [node name="BackgroundPopup" type="ColorRect" parent="CanvasLayer/PopupGraph"]
-margin_right = 700.0
+margin_right = 734.0
 margin_bottom = 400.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GraphTitleLabel" type="Label" parent="CanvasLayer/PopupGraph"]
-margin_left = 100.0
-margin_top = 10.0
-margin_right = 599.0
-margin_bottom = 47.0
+margin_left = 72.0
+margin_top = 8.0
+margin_right = 685.0
+margin_bottom = 54.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Temperature Increase (C) vs Years"
+text = "Temperature Increase (C) vs Year"
 __meta__ = {
 "_edit_use_anchors_": false
 }
