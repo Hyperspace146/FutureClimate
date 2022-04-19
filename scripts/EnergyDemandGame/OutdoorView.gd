@@ -108,7 +108,7 @@ func set_homeEmbodied():
 		homeEmbodied = sqrFt.value * 50.0*80.0/bldngLifetime.value/pplpRes.value/31.536
 	if (bldngMaterial.value == 3): #steel
 		homeEmbodied = sqrFt.value * 100.0*80.0/bldngLifetime.value/pplpRes.value/31.536
-	get_node("CanvasLayer/Construction").text = str("%3.1f" % homeEmbodied) + " watts/cap"
+	get_node("CanvasLayer/ConstructionPopUp/Construction").text = str("%3.1f" % homeEmbodied) + " watts/cap"
 	
 	
 func set_illumination():
@@ -163,4 +163,18 @@ func _on_HeatCoolMethod_value_changed(value):
 
 
 func _on_Battery_value_changed(value):
+	pass # Replace with function body.
+
+
+func _on_ToGrocery_pressed():
+	get_node("CanvasLayer/ConstructionPopUp").visible = false
+	get_node("CanvasLayer/GroceryPopUp").visible = true
+	get_node("CanvasLayer/GroceryPopUp").rect_position = Vector2(29,121)
+
+
+
+func _on_ToResidence_pressed():
+	get_node("CanvasLayer/GroceryPopUp").visible = false
+	get_node("CanvasLayer/ResidencePopUp").visible = true
+	get_node("CanvasLayer/ResidencePopUp").rect_position = Vector2(29,121)
 	pass # Replace with function body.

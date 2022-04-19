@@ -17,6 +17,7 @@
 [ext_resource path="res://scripts/Editor_Object.gd" type="Script" id=15]
 [ext_resource path="res://fonts/Ubuntu40.tres" type="DynamicFont" id=16]
 [ext_resource path="res://fonts/Ubuntu24.tres" type="DynamicFont" id=17]
+[ext_resource path="res://scenes/EnergyDemandGame/ButtonStyle.tres" type="StyleBox" id=18]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.258824, 0.513726, 0.270588, 1 )
@@ -49,17 +50,6 @@ expand_margin_bottom = 12.0
 default_font = ExtResource( 17 )
 HSlider/styles/grabber_area = SubResource( 1 )
 HSlider/styles/slider = SubResource( 2 )
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.721569, 0.427451, 0.427451, 1 )
-border_width_left = 20
-border_width_top = 20
-border_width_right = 20
-border_width_bottom = 20
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
 
 [node name="OutdoorView" type="Control"]
 theme = SubResource( 3 )
@@ -277,53 +267,13 @@ zoom = Vector2( 2, 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Construction" type="Button" parent="CanvasLayer"]
-margin_right = 559.0
-margin_bottom = 98.0
-theme = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
-custom_fonts/font = ExtResource( 16 )
-disabled = true
-text = "Construction"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Grocery" type="Button" parent="CanvasLayer"]
-margin_left = -637.99
-margin_top = 560.781
-margin_right = -78.9898
-margin_bottom = 658.781
-theme = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
-custom_fonts/font = ExtResource( 16 )
-disabled = true
-text = "Grocery"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Residence" type="Button" parent="CanvasLayer"]
-margin_left = 433.454
-margin_top = 556.717
-margin_right = 992.454
-margin_bottom = 654.717
-theme = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
-custom_fonts/font = ExtResource( 16 )
-disabled = true
-text = "Residence"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ConstructionPopUp" type="Button" parent="CanvasLayer"]
 margin_left = 29.0
 margin_top = 121.0
 margin_right = 999.0
 margin_bottom = 544.0
 theme = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
+custom_styles/disabled = ExtResource( 18 )
 disabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -540,13 +490,43 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ToGrocery" type="Button" parent="CanvasLayer/ConstructionPopUp"]
+margin_left = 724.1
+margin_top = -107.0
+margin_right = 972.1
+margin_bottom = -9.0
+theme = SubResource( 3 )
+custom_styles/hover = ExtResource( 18 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/disabled = ExtResource( 18 )
+custom_styles/normal = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
+text = "Next"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Construction" type="Button" parent="CanvasLayer/ConstructionPopUp"]
+margin_left = -29.0
+margin_top = -121.0
+margin_right = 471.0
+margin_bottom = -23.0
+theme = SubResource( 3 )
+custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
+disabled = true
+text = "Construction"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="GroceryPopUp" type="Button" parent="CanvasLayer"]
 margin_left = -644.208
 margin_top = 670.944
 margin_right = 325.792
 margin_bottom = 1093.94
 theme = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
+custom_styles/disabled = ExtResource( 18 )
 disabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -724,13 +704,43 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ToResidence" type="Button" parent="CanvasLayer/GroceryPopUp"]
+margin_left = 724.0
+margin_top = -107.0
+margin_right = 972.0
+margin_bottom = -9.00001
+theme = SubResource( 3 )
+custom_styles/hover = ExtResource( 18 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/disabled = ExtResource( 18 )
+custom_styles/normal = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
+text = "Next"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grocery" type="Button" parent="CanvasLayer/GroceryPopUp"]
+margin_left = 6.20795
+margin_top = -110.944
+margin_right = 506.208
+margin_bottom = -12.9445
+theme = SubResource( 3 )
+custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
+disabled = true
+text = "Grocery"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ResidencePopUp" type="Button" parent="CanvasLayer"]
 margin_left = 420.463
 margin_top = 660.108
 margin_right = 1390.46
 margin_bottom = 1083.11
 theme = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
+custom_styles/disabled = ExtResource( 18 )
 disabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -868,6 +878,36 @@ rect_min_size = Vector2( 840, 427 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ToResidence2" type="Button" parent="CanvasLayer/ResidencePopUp"]
+margin_left = 724.0
+margin_top = -107.0
+margin_right = 972.0
+margin_bottom = -9.00001
+theme = SubResource( 3 )
+custom_styles/hover = ExtResource( 18 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/disabled = ExtResource( 18 )
+custom_styles/normal = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
+text = "Next"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Residence" type="Button" parent="CanvasLayer/ResidencePopUp"]
+margin_left = 12.9908
+margin_top = -103.391
+margin_right = 512.991
+margin_bottom = -5.39075
+theme = SubResource( 3 )
+custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
+disabled = true
+text = "Residence"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/SquareFootage" to="." method="_on_SquareFootage_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/PeoplePerResidence" to="." method="_on_PeoplePerResidence_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/BuildingLifetime" to="." method="_on_BuildingLifetime_value_changed"]
@@ -876,3 +916,5 @@ __meta__ = {
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod" to="." method="_on_HeatCoolMethod_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/BatterySize" to="." method="_on_Battery_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/SolarPanelSize" to="." method="_on_Battery_value_changed"]
+[connection signal="pressed" from="CanvasLayer/ConstructionPopUp/ToGrocery" to="." method="_on_ToGrocery_pressed"]
+[connection signal="pressed" from="CanvasLayer/GroceryPopUp/ToResidence" to="." method="_on_ToResidence_pressed"]
