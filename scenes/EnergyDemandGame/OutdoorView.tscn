@@ -277,9 +277,37 @@ zoom = Vector2( 2, 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="Construction" type="Button" parent="CanvasLayer"]
 margin_right = 559.0
 margin_bottom = 98.0
+theme = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_fonts/font = ExtResource( 16 )
+disabled = true
+text = "Construction"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grocery" type="Button" parent="CanvasLayer"]
+margin_left = -637.99
+margin_top = 560.781
+margin_right = -78.9898
+margin_bottom = 658.781
+theme = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_fonts/font = ExtResource( 16 )
+disabled = true
+text = "Grocery"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Residence" type="Button" parent="CanvasLayer"]
+margin_left = 433.454
+margin_top = 556.717
+margin_right = 992.454
+margin_bottom = 654.717
 theme = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_fonts/font = ExtResource( 16 )
@@ -289,7 +317,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PopUp" type="Button" parent="CanvasLayer"]
+[node name="ConstructionPopUp" type="Button" parent="CanvasLayer"]
 margin_left = 29.0
 margin_top = 121.0
 margin_right = 999.0
@@ -301,226 +329,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GrocerySliders" type="VBoxContainer" parent="CanvasLayer/PopUp"]
-visible = false
-margin_left = 47.0
-margin_top = 69.0
-margin_right = 573.0
-margin_bottom = 402.0
-rect_min_size = Vector2( 500, 300 )
-custom_constants/separation = 43
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FractLocal" type="HSlider" parent="CanvasLayer/PopUp/GrocerySliders"]
-margin_right = 526.0
-margin_bottom = 16.0
-value = 10.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/GrocerySliders/FractLocal"]
-margin_left = -1.0
-margin_top = -34.0
-margin_right = 520.0
-text = "Fraction of food that is local:                           10%"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CalorieFractBeef" type="HSlider" parent="CanvasLayer/PopUp/GrocerySliders"]
-margin_top = 59.0
-margin_right = 526.0
-margin_bottom = 75.0
-value = 5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/GrocerySliders/CalorieFractBeef"]
-margin_left = -1.0
-margin_top = -35.0
-margin_right = 520.0
-margin_bottom = -1.0
-text = "Fraction of Calories that is Beef:                      5%"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CalorieFractPoultry" type="HSlider" parent="CanvasLayer/PopUp/GrocerySliders"]
-margin_top = 118.0
-margin_right = 526.0
-margin_bottom = 134.0
-value = 15.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/GrocerySliders/CalorieFractPoultry"]
-margin_left = -1.0
-margin_top = -35.0
-margin_right = 520.0
-margin_bottom = -2.0
-text = "Fraction of Calories that is Poultry:                15%"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CalorieFractDairy" type="HSlider" parent="CanvasLayer/PopUp/GrocerySliders"]
-margin_top = 177.0
-margin_right = 526.0
-margin_bottom = 193.0
-value = 20.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/GrocerySliders/CalorieFractDairy"]
-margin_left = -1.0
-margin_top = -34.0
-margin_right = 520.0
-margin_bottom = 5.0
-text = "Fraction of Calories that is Dairy:                    20%"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FractWaste" type="HSlider" parent="CanvasLayer/PopUp/GrocerySliders"]
-margin_top = 236.0
-margin_right = 526.0
-margin_bottom = 252.0
-value = 25.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/GrocerySliders/FractWaste"]
-margin_left = -1.0
-margin_top = -36.0
-margin_right = 520.0
-margin_bottom = 13.0
-text = "Fraction of Food that is Wasted:                     25%"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FractProcessed" type="HSlider" parent="CanvasLayer/PopUp/GrocerySliders"]
-margin_top = 295.0
-margin_right = 526.0
-margin_bottom = 311.0
-value = 55.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/GrocerySliders/FractProcessed"]
-margin_left = -1.0
-margin_top = -35.0
-margin_right = 521.0
-margin_bottom = 15.0
-text = "Fraction of Food that is Processed:                 55%"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Building6" type="Sprite" parent="CanvasLayer/PopUp/GrocerySliders"]
-position = Vector2( 713, 145 )
-scale = Vector2( -0.9, 0.9 )
-texture = ExtResource( 4 )
-
-[node name="ResidenceSliders" type="VBoxContainer" parent="CanvasLayer/PopUp"]
-visible = false
-margin_left = 46.0
-margin_top = 87.0
-margin_right = 571.0
-margin_bottom = 394.0
-rect_min_size = Vector2( 500, 300 )
-custom_constants/separation = 49
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StoveType" type="HSlider" parent="CanvasLayer/PopUp/ResidenceSliders"]
-margin_right = 525.0
-margin_bottom = 16.0
-value = 33.0
-
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/ResidenceSliders/StoveType"]
-margin_top = -34.0
-margin_right = 521.0
-margin_bottom = 3.0
-text = "Stove Type:                                                      Wood"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FractCooked" type="HSlider" parent="CanvasLayer/PopUp/ResidenceSliders"]
-margin_top = 65.0
-margin_right = 525.0
-margin_bottom = 81.0
-value = 50.0
-
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/ResidenceSliders/FractCooked"]
-margin_top = -35.0
-margin_right = 521.0
-text = "Fraction of food bought that is cooked:       50%"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="WaterUsage" type="HSlider" parent="CanvasLayer/PopUp/ResidenceSliders"]
-margin_top = 130.0
-margin_right = 525.0
-margin_bottom = 146.0
-value = 24.0
-
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/ResidenceSliders/WaterUsage"]
-margin_top = -34.0
-margin_right = 521.0
-margin_bottom = 1.0
-text = "Water Usage:                                     50 liters / day"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HeatedWater" type="HSlider" parent="CanvasLayer/PopUp/ResidenceSliders"]
-margin_top = 195.0
-margin_right = 525.0
-margin_bottom = 211.0
-value = 20.0
-
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/ResidenceSliders/HeatedWater"]
-margin_top = -34.0
-margin_right = 523.0
-margin_bottom = 1.0
-text = "Heated Water:                                    20 liters / day"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FridgeEnergyUsage" type="HSlider" parent="CanvasLayer/PopUp/ResidenceSliders"]
-margin_top = 260.0
-margin_right = 525.0
-margin_bottom = 276.0
-value = 10.0
-
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/ResidenceSliders/FridgeEnergyUsage"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Fridge Energy Usage:                               14  Watts"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Building9" type="Sprite" parent="CanvasLayer/PopUp/ResidenceSliders"]
-position = Vector2( 714, 122 )
-scale = Vector2( -1, 1 )
-texture = ExtResource( 9 )
-
-[node name="ConstructionSliders" type="VBoxContainer" parent="CanvasLayer/PopUp"]
+[node name="ConstructionSliders" type="VBoxContainer" parent="CanvasLayer/ConstructionPopUp"]
 margin_left = 46.0
 margin_top = 42.0
 margin_right = 593.0
@@ -531,12 +340,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Building7" type="Sprite" parent="CanvasLayer/PopUp/ConstructionSliders"]
+[node name="Building7" type="Sprite" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
 position = Vector2( 727, 169 )
 scale = Vector2( 0.9, 0.9 )
 texture = ExtResource( 3 )
 
-[node name="SquareFootage" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
+[node name="SquareFootage" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
 margin_right = 547.0
 margin_bottom = 16.0
 value = 1.0
@@ -544,7 +353,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/ConstructionSliders/SquareFootage"]
+[node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/SquareFootage"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_right = 40.0
@@ -554,7 +363,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PeoplePerResidence" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
+[node name="PeoplePerResidence" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
 margin_top = 46.0
 margin_right = 547.0
 margin_bottom = 62.0
@@ -563,7 +372,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/ConstructionSliders/PeoplePerResidence"]
+[node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/PeoplePerResidence"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_right = 40.0
@@ -573,7 +382,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BuildingLifetime" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
+[node name="BuildingLifetime" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
 margin_top = 92.0
 margin_right = 547.0
 margin_bottom = 108.0
@@ -582,7 +391,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/ConstructionSliders/BuildingLifetime"]
+[node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/BuildingLifetime"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_right = 40.0
@@ -592,7 +401,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BuildingMaterial" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
+[node name="BuildingMaterial" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
 margin_top = 138.0
 margin_right = 547.0
 margin_bottom = 154.0
@@ -601,7 +410,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/ConstructionSliders/BuildingMaterial"]
+[node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/BuildingMaterial"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_right = 40.0
@@ -611,7 +420,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Insulation" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
+[node name="Insulation" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
 margin_top = 184.0
 margin_right = 547.0
 margin_bottom = 200.0
@@ -620,7 +429,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/ConstructionSliders/Insulation"]
+[node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/Insulation"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_right = 40.0
@@ -630,7 +439,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HeatCoolMethod" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
+[node name="HeatCoolMethod" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
 margin_top = 230.0
 margin_right = 547.0
 margin_bottom = 246.0
@@ -639,7 +448,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/ConstructionSliders/HeatCoolMethod"]
+[node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_right = 40.0
@@ -649,7 +458,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BatterySize" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
+[node name="BatterySize" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
 margin_top = 276.0
 margin_right = 547.0
 margin_bottom = 292.0
@@ -658,7 +467,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/ConstructionSliders/BatterySize"]
+[node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/BatterySize"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_right = 40.0
@@ -668,7 +477,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SolarPanelSize" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
+[node name="SolarPanelSize" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
 margin_top = 322.0
 margin_right = 547.0
 margin_bottom = 338.0
@@ -677,7 +486,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/PopUp/ConstructionSliders/SolarPanelSize"]
+[node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/SolarPanelSize"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_right = 40.0
@@ -687,7 +496,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SchoolSlider" type="VBoxContainer" parent="CanvasLayer/PopUp"]
+[node name="SchoolSlider" type="VBoxContainer" parent="CanvasLayer/ConstructionPopUp"]
 visible = false
 margin_left = 74.0
 margin_top = 97.0
@@ -698,7 +507,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TransportationSlider" type="VBoxContainer" parent="CanvasLayer/PopUp"]
+[node name="TransportationSlider" type="VBoxContainer" parent="CanvasLayer/ConstructionPopUp"]
 visible = false
 margin_left = 74.0
 margin_top = 97.0
@@ -709,7 +518,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MedicalSliders" type="VBoxContainer" parent="CanvasLayer/PopUp"]
+[node name="MedicalSliders" type="VBoxContainer" parent="CanvasLayer/ConstructionPopUp"]
 visible = false
 margin_left = 74.0
 margin_top = 97.0
@@ -720,7 +529,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="IlluminationSliders" type="VBoxContainer" parent="CanvasLayer/PopUp"]
+[node name="IlluminationSliders" type="VBoxContainer" parent="CanvasLayer/ConstructionPopUp"]
 visible = false
 margin_left = 74.0
 margin_top = 97.0
@@ -730,11 +539,340 @@ rect_min_size = Vector2( 840, 427 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="value_changed" from="CanvasLayer/PopUp/ConstructionSliders/SquareFootage" to="." method="_on_SquareFootage_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/PopUp/ConstructionSliders/PeoplePerResidence" to="." method="_on_PeoplePerResidence_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/PopUp/ConstructionSliders/BuildingLifetime" to="." method="_on_BuildingLifetime_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/PopUp/ConstructionSliders/BuildingMaterial" to="." method="_on_BuildingMaterial_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/PopUp/ConstructionSliders/Insulation" to="." method="_on_Insolation_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/PopUp/ConstructionSliders/HeatCoolMethod" to="." method="_on_HeatCoolMethod_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/PopUp/ConstructionSliders/BatterySize" to="." method="_on_Battery_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/PopUp/ConstructionSliders/SolarPanelSize" to="." method="_on_Battery_value_changed"]
+
+[node name="GroceryPopUp" type="Button" parent="CanvasLayer"]
+margin_left = -644.208
+margin_top = 670.944
+margin_right = 325.792
+margin_bottom = 1093.94
+theme = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+disabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GrocerySliders" type="VBoxContainer" parent="CanvasLayer/GroceryPopUp"]
+margin_left = 47.0
+margin_top = 69.0
+margin_right = 573.0
+margin_bottom = 402.0
+rect_min_size = Vector2( 500, 300 )
+custom_constants/separation = 43
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FractLocal" type="HSlider" parent="CanvasLayer/GroceryPopUp/GrocerySliders"]
+margin_right = 526.0
+margin_bottom = 16.0
+value = 10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal"]
+margin_left = -1.0
+margin_top = -34.0
+margin_right = 520.0
+text = "Fraction of food that is local:                           10%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CalorieFractBeef" type="HSlider" parent="CanvasLayer/GroceryPopUp/GrocerySliders"]
+margin_top = 59.0
+margin_right = 526.0
+margin_bottom = 75.0
+value = 5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractBeef"]
+margin_left = -1.0
+margin_top = -35.0
+margin_right = 520.0
+margin_bottom = -1.0
+text = "Fraction of Calories that is Beef:                      5%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CalorieFractPoultry" type="HSlider" parent="CanvasLayer/GroceryPopUp/GrocerySliders"]
+margin_top = 118.0
+margin_right = 526.0
+margin_bottom = 134.0
+value = 15.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractPoultry"]
+margin_left = -1.0
+margin_top = -35.0
+margin_right = 520.0
+margin_bottom = -2.0
+text = "Fraction of Calories that is Poultry:                15%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CalorieFractDairy" type="HSlider" parent="CanvasLayer/GroceryPopUp/GrocerySliders"]
+margin_top = 177.0
+margin_right = 526.0
+margin_bottom = 193.0
+value = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractDairy"]
+margin_left = -1.0
+margin_top = -34.0
+margin_right = 520.0
+margin_bottom = 5.0
+text = "Fraction of Calories that is Dairy:                    20%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FractWaste" type="HSlider" parent="CanvasLayer/GroceryPopUp/GrocerySliders"]
+margin_top = 236.0
+margin_right = 526.0
+margin_bottom = 252.0
+value = 25.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/FractWaste"]
+margin_left = -1.0
+margin_top = -36.0
+margin_right = 520.0
+margin_bottom = 13.0
+text = "Fraction of Food that is Wasted:                     25%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FractProcessed" type="HSlider" parent="CanvasLayer/GroceryPopUp/GrocerySliders"]
+margin_top = 295.0
+margin_right = 526.0
+margin_bottom = 311.0
+value = 55.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed"]
+margin_left = -1.0
+margin_top = -35.0
+margin_right = 521.0
+margin_bottom = 15.0
+text = "Fraction of Food that is Processed:                 55%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Building6" type="Sprite" parent="CanvasLayer/GroceryPopUp/GrocerySliders"]
+position = Vector2( 713, 145 )
+scale = Vector2( -0.9, 0.9 )
+texture = ExtResource( 4 )
+
+[node name="SchoolSlider" type="VBoxContainer" parent="CanvasLayer/GroceryPopUp"]
+visible = false
+margin_left = 74.0
+margin_top = 97.0
+margin_right = 914.0
+margin_bottom = 524.0
+rect_min_size = Vector2( 840, 427 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TransportationSlider" type="VBoxContainer" parent="CanvasLayer/GroceryPopUp"]
+visible = false
+margin_left = 74.0
+margin_top = 97.0
+margin_right = 914.0
+margin_bottom = 524.0
+rect_min_size = Vector2( 840, 427 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MedicalSliders" type="VBoxContainer" parent="CanvasLayer/GroceryPopUp"]
+visible = false
+margin_left = 74.0
+margin_top = 97.0
+margin_right = 914.0
+margin_bottom = 524.0
+rect_min_size = Vector2( 840, 427 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IlluminationSliders" type="VBoxContainer" parent="CanvasLayer/GroceryPopUp"]
+visible = false
+margin_left = 74.0
+margin_top = 97.0
+margin_right = 914.0
+margin_bottom = 524.0
+rect_min_size = Vector2( 840, 427 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResidencePopUp" type="Button" parent="CanvasLayer"]
+margin_left = 420.463
+margin_top = 660.108
+margin_right = 1390.46
+margin_bottom = 1083.11
+theme = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+disabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResidenceSliders" type="VBoxContainer" parent="CanvasLayer/ResidencePopUp"]
+margin_left = 46.0
+margin_top = 87.0
+margin_right = 571.0
+margin_bottom = 394.0
+rect_min_size = Vector2( 500, 300 )
+custom_constants/separation = 49
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StoveType" type="HSlider" parent="CanvasLayer/ResidencePopUp/ResidenceSliders"]
+margin_right = 525.0
+margin_bottom = 16.0
+value = 33.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ResidencePopUp/ResidenceSliders/StoveType"]
+margin_top = -34.0
+margin_right = 521.0
+margin_bottom = 3.0
+text = "Stove Type:                                                      Wood"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FractCooked" type="HSlider" parent="CanvasLayer/ResidencePopUp/ResidenceSliders"]
+margin_top = 65.0
+margin_right = 525.0
+margin_bottom = 81.0
+value = 50.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ResidencePopUp/ResidenceSliders/FractCooked"]
+margin_top = -35.0
+margin_right = 521.0
+text = "Fraction of food bought that is cooked:       50%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WaterUsage" type="HSlider" parent="CanvasLayer/ResidencePopUp/ResidenceSliders"]
+margin_top = 130.0
+margin_right = 525.0
+margin_bottom = 146.0
+value = 24.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ResidencePopUp/ResidenceSliders/WaterUsage"]
+margin_top = -34.0
+margin_right = 521.0
+margin_bottom = 1.0
+text = "Water Usage:                                     50 liters / day"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeatedWater" type="HSlider" parent="CanvasLayer/ResidencePopUp/ResidenceSliders"]
+margin_top = 195.0
+margin_right = 525.0
+margin_bottom = 211.0
+value = 20.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ResidencePopUp/ResidenceSliders/HeatedWater"]
+margin_top = -34.0
+margin_right = 523.0
+margin_bottom = 1.0
+text = "Heated Water:                                    20 liters / day"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FridgeEnergyUsage" type="HSlider" parent="CanvasLayer/ResidencePopUp/ResidenceSliders"]
+margin_top = 260.0
+margin_right = 525.0
+margin_bottom = 276.0
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ResidencePopUp/ResidenceSliders/FridgeEnergyUsage"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Fridge Energy Usage:                               14  Watts"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Building9" type="Sprite" parent="CanvasLayer/ResidencePopUp/ResidenceSliders"]
+position = Vector2( 714, 122 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 9 )
+
+[node name="SchoolSlider" type="VBoxContainer" parent="CanvasLayer/ResidencePopUp"]
+visible = false
+margin_left = 74.0
+margin_top = 97.0
+margin_right = 914.0
+margin_bottom = 524.0
+rect_min_size = Vector2( 840, 427 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TransportationSlider" type="VBoxContainer" parent="CanvasLayer/ResidencePopUp"]
+visible = false
+margin_left = 74.0
+margin_top = 97.0
+margin_right = 914.0
+margin_bottom = 524.0
+rect_min_size = Vector2( 840, 427 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MedicalSliders" type="VBoxContainer" parent="CanvasLayer/ResidencePopUp"]
+visible = false
+margin_left = 74.0
+margin_top = 97.0
+margin_right = 914.0
+margin_bottom = 524.0
+rect_min_size = Vector2( 840, 427 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IlluminationSliders" type="VBoxContainer" parent="CanvasLayer/ResidencePopUp"]
+visible = false
+margin_left = 74.0
+margin_top = 97.0
+margin_right = 914.0
+margin_bottom = 524.0
+rect_min_size = Vector2( 840, 427 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/SquareFootage" to="." method="_on_SquareFootage_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/PeoplePerResidence" to="." method="_on_PeoplePerResidence_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/BuildingLifetime" to="." method="_on_BuildingLifetime_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/BuildingMaterial" to="." method="_on_BuildingMaterial_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/Insulation" to="." method="_on_Insolation_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod" to="." method="_on_HeatCoolMethod_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/BatterySize" to="." method="_on_Battery_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/SolarPanelSize" to="." method="_on_Battery_value_changed"]
