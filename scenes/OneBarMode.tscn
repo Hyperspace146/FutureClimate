@@ -174,8 +174,8 @@ margin_right = -12.0
 margin_bottom = 80.0
 hint_tooltip = "Warming since preindustrial"
 mouse_filter = 1
-custom_colors/font_color = Color( 0.886275, 0.32549, 0.141176, 1 )
 custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.886275, 0.32549, 0.141176, 1 )
 text = "T = 1.0 K 
 Td = 0.3 K"
 __meta__ = {
@@ -207,8 +207,8 @@ margin_left = -92.0
 margin_top = -12.0
 margin_right = -31.0
 margin_bottom = 16.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = " 1.0 C"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -221,8 +221,8 @@ margin_left = -92.0
 margin_top = -62.0
 margin_right = 8.0
 margin_bottom = -13.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = " 1.5 C"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -235,8 +235,8 @@ margin_left = -92.0
 margin_top = -112.0
 margin_right = -31.0
 margin_bottom = -84.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = " 2.0 C"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -249,8 +249,8 @@ margin_left = -92.0
 margin_top = -162.0
 margin_right = -31.0
 margin_bottom = -134.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = " 2.5 C"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -263,8 +263,8 @@ margin_left = -92.0
 margin_top = -212.0
 margin_right = -31.0
 margin_bottom = -184.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = " 3.0 C"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -353,8 +353,8 @@ margin_right = 103.0
 margin_bottom = 457.0
 hint_tooltip = "Drag to change emissions"
 mouse_filter = 1
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Emissions 
   in 2020"
 __meta__ = {
@@ -372,8 +372,8 @@ margin_left = 60.0
 margin_top = 525.0
 margin_right = 100.0
 margin_bottom = 553.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -406,8 +406,8 @@ margin_top = -9.99998
 margin_right = 52.0
 margin_bottom = 40.0
 hint_tooltip = "CO2, CH4, N2O, SL"
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Total Emissions"
 flat = true
 __meta__ = {
@@ -433,8 +433,8 @@ text = "  Year: 2020
 margin_left = 181.0
 margin_right = 388.0
 margin_bottom = 59.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "CO2 = 415 ppm  
 FCO2 = 2.10 W/m2"
 
@@ -442,8 +442,8 @@ FCO2 = 2.10 W/m2"
 margin_left = 412.0
 margin_right = 617.0
 margin_bottom = 59.0
-custom_colors/font_color = Color( 0.541176, 0.894118, 0.403922, 1 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.541176, 0.894118, 0.403922, 1 )
 text = "CH4 = 2.20 ppm  
 FCH4 = 0.54 W/m2"
 
@@ -453,8 +453,8 @@ margin_left = 477.0
 margin_top = 2.0
 margin_right = 649.0
 margin_bottom = 51.0
-custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "N2O = 0.40 ppm  
 FN2O = 0.20 W/m2"
 
@@ -462,8 +462,8 @@ FN2O = 0.20 W/m2"
 margin_left = 641.0
 margin_right = 866.0
 margin_bottom = 59.0
-custom_colors/font_color = Color( 0, 0.847059, 0.933333, 1 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0.847059, 0.933333, 1 )
 text = "Short-lived pollution
 = -1.10 W/m2"
 
@@ -651,7 +651,6 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="value_changed" from="CanvasLayer/Sliders/TotalSlider" to="CanvasLayer/TotalParticles2D" method="_on_TotalSlider_value_changed"]
 [connection signal="pressed" from="CanvasLayer/PauseButton" to="CanvasLayer/PauseButton" method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseButton/BackButton" to="CanvasLayer/ResetButton" method="_on_BackButton_pressed"]

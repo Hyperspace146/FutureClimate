@@ -119,13 +119,14 @@ __meta__ = {
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
 margin_right = 1024.0
 margin_bottom = 65.0
-color = Color( 0.0823529, 0.0823529, 0.360784, 1 )
+color = Color( 0.505882, 0.505882, 0.513726, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect4" type="ColorRect" parent="CanvasLayer"]
 margin_left = 827.0
+margin_top = 63.0
 margin_right = 1021.0
 margin_bottom = 202.0
 color = Color( 0.0823529, 0.0823529, 0.360784, 1 )
@@ -135,6 +136,7 @@ __meta__ = {
 
 [node name="ColorRect5" type="ColorRect" parent="CanvasLayer"]
 margin_left = 999.0
+margin_top = 66.0
 margin_right = 1024.0
 margin_bottom = 601.0
 color = Color( 0.0823529, 0.0823529, 0.360784, 1 )
@@ -420,11 +422,11 @@ FN2O = 0.20 W/m2"
 
 [node name="AerTLabel" type="Label" parent="CanvasLayer/Sliders/HBoxContainer"]
 margin_left = 641.0
-margin_right = 811.0
+margin_right = 880.0
 margin_bottom = 59.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0.847059, 0.933333, 1 )
-text = "Aerosol cooling
+text = "Short-lived pollutants
   = -1.10 W/m2"
 
 [node name="ResetButton" type="TextureButton" parent="CanvasLayer"]
@@ -562,7 +564,8 @@ __meta__ = {
 }
 
 [node name="BackgroundPopup" type="ColorRect" parent="CanvasLayer/PopupGraph"]
-margin_right = 700.0
+margin_top = -5.0
+margin_right = 739.0
 margin_bottom = 400.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1281,8 +1284,7 @@ hint_tooltip = "Warming since preindustrial"
 mouse_filter = 1
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.886275, 0.32549, 0.141176, 1 )
-text = "T = 1.0 K 
-Td = 0.3 K"
+text = "T = 1.0 C"
 __meta__ = {
 "_edit_use_anchors_": false
 }

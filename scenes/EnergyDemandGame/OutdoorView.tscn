@@ -431,6 +431,7 @@ scale = Vector2( -0.9, 0.9 )
 texture = ExtResource( 4 )
 
 [node name="ResidenceSliders" type="VBoxContainer" parent="CanvasLayer/PopUp"]
+visible = false
 margin_left = 46.0
 margin_top = 87.0
 margin_right = 571.0
@@ -520,7 +521,6 @@ scale = Vector2( -1, 1 )
 texture = ExtResource( 9 )
 
 [node name="ConstructionSliders" type="VBoxContainer" parent="CanvasLayer/PopUp"]
-visible = false
 margin_left = 46.0
 margin_top = 42.0
 margin_right = 593.0
@@ -531,10 +531,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Building7" type="Sprite" parent="CanvasLayer/PopUp/ConstructionSliders"]
+position = Vector2( 727, 169 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 3 )
+
 [node name="SquareFootage" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
 margin_right = 547.0
 margin_bottom = 16.0
 value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/ConstructionSliders/SquareFootage"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_right = 40.0
+margin_bottom = 28.0
+text = "Square footage"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -548,11 +563,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/ConstructionSliders/PeoplePerResidence"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_right = 40.0
+margin_bottom = 28.0
+text = "People per residence"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="BuildingLifetime" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
 margin_top = 92.0
 margin_right = 547.0
 margin_bottom = 108.0
 value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/ConstructionSliders/BuildingLifetime"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_right = 40.0
+margin_bottom = 28.0
+text = "Building lifetime"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -566,11 +601,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/ConstructionSliders/BuildingMaterial"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_right = 40.0
+margin_bottom = 28.0
+text = "Building material"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Insulation" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
 margin_top = 184.0
 margin_right = 547.0
 margin_bottom = 200.0
 value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/ConstructionSliders/Insulation"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_right = 40.0
+margin_bottom = 28.0
+text = "Insulation"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -584,11 +639,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/ConstructionSliders/HeatCoolMethod"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_right = 40.0
+margin_bottom = 28.0
+text = "Heat cool method"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="BatterySize" type="HSlider" parent="CanvasLayer/PopUp/ConstructionSliders"]
 margin_top = 276.0
 margin_right = 547.0
 margin_bottom = 292.0
 value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/ConstructionSliders/BatterySize"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_right = 40.0
+margin_bottom = 28.0
+text = "Battery size (off)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -602,10 +677,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Building7" type="Sprite" parent="CanvasLayer/PopUp/ConstructionSliders"]
-position = Vector2( 727, 169 )
-scale = Vector2( 0.9, 0.9 )
-texture = ExtResource( 3 )
+[node name="Label" type="Label" parent="CanvasLayer/PopUp/ConstructionSliders/SolarPanelSize"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_right = 40.0
+margin_bottom = 28.0
+text = "Solar panel size (off)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SchoolSlider" type="VBoxContainer" parent="CanvasLayer/PopUp"]
 visible = false

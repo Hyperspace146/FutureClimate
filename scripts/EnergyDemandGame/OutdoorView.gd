@@ -39,25 +39,33 @@ func _ready():
 	sqrFt.min_value = 30 # square meters
 	sqrFt.step = 5
 	sqrFt.max_value = 750 # square meters
-	#sqrFt.value = 300
+	sqrFt.value = 300
+	var sqrFt0 = 300
 	pplpRes.min_value = 1 # people
 	pplpRes.max_value = 6 # people
 	pplpRes.value = 2
+	var pplpRes0 = 2
 	bldngLifetime.min_value = 20 # years
 	bldngLifetime.max_value = 100 # years
 	bldngLifetime.value = 50
+	var bldngLifetime0 = 50
 	bldngMaterial.min_value = 1
 	bldngMaterial.max_value = 3 # 1 = timber, 2 = concrete, 3 = steel
 	bldngMaterial.value = 2
+	var bldngMaterial0 = 2
 	insulation.min_value = 10 # kW hr / m^2 / year
 	insulation.max_value = 200 # kW hr / m^2 / year
 	insulation.value = 100
+	var insulation0 = 100
 	htClMethod.min_value = 1 
-	htClMethod.max_value = 4 # 1 = heat pump, 2 = elictrical resistance, 3 = gas, 4 = wood
+	htClMethod.max_value = 4 # 1 = heat pump, 2 = electrical resistance, 3 = gas, 4 = wood
+	var htClMethod0 = 3
 	battery.min_value = 0 # kW hr
 	battery.max_value = 100 # kW hr
+	var battery0 = 0
 	solarPanelSize.min_value = 0 #  kW
 	solarPanelSize.max_value = 25 # kW
+	var solarPanelSize0 = 0
 	
 	# RESIDENCE
 	stove.min_value = 1
@@ -97,11 +105,13 @@ func _on_SquareFootage_value_changed(value):
 	set_heating()
 	illumination = sqrFt.value/pplpRes.value #* time * percent * watts
 	if (bldngMaterial.value == 1): #timber
-		homeEmbodied = sqrFt.value * 30.0*80.0/bldngLifetime.value/pplpRes.value
+		homeEmbodied = sqrFt.value * 30.0*80.0/bldngLifetime.value/pplpRes.value/31.536
 	if (bldngMaterial.value == 2): #concrete
-		homeEmbodied = sqrFt.value * 50.0*80.0/bldngLifetime.value/pplpRes.value
+		homeEmbodied = sqrFt.value * 50.0*80.0/bldngLifetime.value/pplpRes.value/31.536
 	if (bldngMaterial.value == 3): #steel
-		homeEmbodied = sqrFt.value * 100.0*80.0/bldngLifetime.value/pplpRes.value
+		homeEmbodied = sqrFt.value * 100.0*80.0/bldngLifetime.value/pplpRes.value/31.536
+	get_node("CanvasLayer/Button").text = str(homeEmbodied) + " watts/cap"
+	get_node("CanvasLayer/PopUp/ConstructionSliders/SquareFootage/Label").text = str(sqrFt.value) + " sq meters per residence"
 	pass # Replace with function body.
 
 
@@ -110,39 +120,46 @@ func _on_PeoplePerResidence_value_changed(value):
 	set_heating() 
 	illumination = sqrFt.value/pplpRes.value #* time * percent * watts
 	if (bldngMaterial.value == 1): #timber
-		homeEmbodied = sqrFt.value * 30.0*80.0/bldngLifetime.value/pplpRes.value
+		homeEmbodied = sqrFt.value * 30.0*80.0/bldngLifetime.value/pplpRes.value/31.536
 	if (bldngMaterial.value == 2): #concrete
-		homeEmbodied = sqrFt.value * 50.0*80.0/bldngLifetime.value/pplpRes.value
+		homeEmbodied = sqrFt.value * 50.0*80.0/bldngLifetime.value/pplpRes.value/31.536
 	if (bldngMaterial.value == 3): #steel
-		homeEmbodied = sqrFt.value * 100.0*80.0/bldngLifetime.value/pplpRes.value
+		homeEmbodied = sqrFt.value * 100.0*80.0/bldngLifetime.value/pplpRes.value/31.536
+	get_node("/root/OutdoorView/CanvasLayer/Button").text = str(homeEmbodied) + " watts/cap"
+	get_node("CanvasLayer/PopUp/ConstructionSliders/PeoplePerResidence/Label").text = str(pplpRes.value) + " people per residence"
 	pass # Replace with function body.
 
 
 func _on_BuildingLifetime_value_changed(value):
 	#affect embodied energy of home
 	if (bldngMaterial.value == 1): #timber
-		homeEmbodied = sqrFt.value * 30.0*80.0/bldngLifetime.value/pplpRes.value
+		homeEmbodied = sqrFt.value * 30.0*80.0/bldngLifetime.value/pplpRes.value/31.536
 	if (bldngMaterial.value == 2): #concrete
-		homeEmbodied = sqrFt.value * 50.0*80.0/bldngLifetime.value/pplpRes.value
+		homeEmbodied = sqrFt.value * 50.0*80.0/bldngLifetime.value/pplpRes.value/31.536
 	if (bldngMaterial.value == 3): #steel
-		homeEmbodied = sqrFt.value * 100.0*80.0/bldngLifetime.value/pplpRes.value
-	pass # Replace with function body.
-
+		homeEmbodied = sqrFt.value * 100.0*80.0/bldngLifetime.value/pplpRes.value/31.536
+	get_node("/root/OutdoorView/CanvasLayer/Button").text = str(homeEmbodied) + " watts/cap"
+	get_node("CanvasLayer/PopUp/ConstructionSliders/BuildingLifetime/Label").text = str(bldngLifetime.value) + " yr lifetime of building"
 
 func _on_BuildingMaterial_value_changed(value):
 	#affects embodied energy of home
 	if (bldngMaterial.value == 1): #timber
-		homeEmbodied = sqrFt.value * 30.0*80.0/bldngLifetime.value/pplpRes.value
+		homeEmbodied = sqrFt.value * 30.0*80.0/bldngLifetime.value/pplpRes.value/31.536
+		get_node("CanvasLayer/PopUp/ConstructionSliders/BuildingMaterial/Label").text = "Best timber building"
 	if (bldngMaterial.value == 2): #concrete
-		homeEmbodied = sqrFt.value * 50.0*80.0/bldngLifetime.value/pplpRes.value
+		homeEmbodied = sqrFt.value * 50.0*80.0/bldngLifetime.value/pplpRes.value/31.536
+		get_node("CanvasLayer/PopUp/ConstructionSliders/BuildingMaterial/Label").text = "Best concrete building"
 	if (bldngMaterial.value == 3): #steel
-		homeEmbodied = sqrFt.value * 100.0*80.0/bldngLifetime.value/pplpRes.value
+		homeEmbodied = sqrFt.value * 100.0*80.0/bldngLifetime.value/pplpRes.value/31.536
+		get_node("CanvasLayer/PopUp/ConstructionSliders/BuildingMaterial/Label").text = "Best steel building"
+	get_node("/root/OutdoorView/CanvasLayer/Button").text = str(homeEmbodied) + " watts/cap"
 	pass # Replace with function body.
 
 
 func _on_Insolation_value_changed(value):
 	#affects climate
 	set_heating() #kilo-hours per year
+	get_node("CanvasLayer/PopUp/ConstructionSliders/Insulation/Label").text = str(value) + " kWh/m2/yr for heating/cooling"
 	pass # Replace with function body.
 
 
