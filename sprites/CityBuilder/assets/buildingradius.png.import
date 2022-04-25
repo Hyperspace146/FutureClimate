@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/map.png-659e88586eefd66127a1dc6c44095341.stex"
+path="res://.import/buildingradius.png-3e8be0451e0ee9e24412e2eafe2e855c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/map.png"
-dest_files=[ "res://.import/map.png-659e88586eefd66127a1dc6c44095341.stex" ]
+source_file="res://sprites/CityBuilder/assets/buildingradius.png"
+dest_files=[ "res://.import/buildingradius.png-3e8be0451e0ee9e24412e2eafe2e855c.stex" ]
 
 [params]
 
