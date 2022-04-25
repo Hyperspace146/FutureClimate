@@ -99,7 +99,9 @@ func _ready():
 
 func set_heating():
 	heating = sqrFt.value * insulation.value/pplpRes.value/8.76 #kilo-hours per year
-
+	if (htClMethod.value == 1): 
+		heating = heating/5.0
+	get_node("CanvasLayer/UICity/Label2").text = "Heat: " + str("%3.1f" % heating) + " W"
 
 func set_homeEmbodied():
 	if (bldngMaterial.value == 1): #timber
@@ -108,7 +110,7 @@ func set_homeEmbodied():
 		homeEmbodied = sqrFt.value * 50.0*80.0/bldngLifetime.value/pplpRes.value/31.536
 	if (bldngMaterial.value == 3): #steel
 		homeEmbodied = sqrFt.value * 100.0*80.0/bldngLifetime.value/pplpRes.value/31.536
-	get_node("CanvasLayer/ConstructionPopUp/Construction").text = str("%3.1f" % homeEmbodied) + " watts/cap"
+	get_node("CanvasLayer/UICity/Label1").text = "Home: " + str("%3.1f" % homeEmbodied) + " W"
 	
 	
 func set_illumination():
@@ -158,6 +160,18 @@ func _on_Insolation_value_changed(value):
 
 
 func _on_HeatCoolMethod_value_changed(value):
+	if (htClMethod.value == 1): 
+		set_heating()
+		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod/Label").text = "Heat pump"
+	if (htClMethod.value == 2): 
+		set_heating()
+		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod/Label").text = "Electrical resistance"
+	if (htClMethod.value == 3): 
+		set_heating()
+		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod/Label").text = "Gas heat"
+	if (htClMethod.value == 4): 
+		set_heating()
+		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod/Label").text = "Wood heat"
 	#affects climate
 	pass # Replace with function body.
 
@@ -169,12 +183,12 @@ func _on_Battery_value_changed(value):
 func _on_ToGrocery_pressed():
 	get_node("CanvasLayer/ConstructionPopUp").visible = false
 	get_node("CanvasLayer/GroceryPopUp").visible = true
-	get_node("CanvasLayer/GroceryPopUp").rect_position = Vector2(29,121)
+	get_node("CanvasLayer/GroceryPopUp").rect_position = Vector2(29,180)
 
 
 
 func _on_ToResidence_pressed():
 	get_node("CanvasLayer/GroceryPopUp").visible = false
 	get_node("CanvasLayer/ResidencePopUp").visible = true
-	get_node("CanvasLayer/ResidencePopUp").rect_position = Vector2(29,121)
+	get_node("CanvasLayer/ResidencePopUp").rect_position = Vector2(29,180)
 	pass # Replace with function body.
