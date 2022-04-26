@@ -19,13 +19,13 @@ onready var hotWater = get_node("CanvasLayer/ResidencePopUp/ResidenceSliders/Hea
 
 # GROCERY
 #onready var CalorieFractVege = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractVege")
-onready var localFood = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal")
+onready var localFoodRatio = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal")
 onready var CalorieFractBeef = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractBeef")
 onready var CalorieFractPoultry = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractPoultry")
 onready var CalorieFractDairy =  get_node("CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractDairy")
 onready var FractWaste = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractWaste")
 #onready var PTD = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed") # Sum of Processing, Transporting and Distribution
-onready var processedFood = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed")
+onready var processedFoodRatio = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed")
 
 #Calculated quantities
 var heating = 0
@@ -82,9 +82,9 @@ func _ready():
 	hotWater.max_value = 200 # liters / day
 		
 	#GROCERY
-	localFood.min_value = 0
-	localFood.max_value = 100
-	localFood.value = 15
+	localFoodRatio.min_value = 50.0
+	localFoodRatio.max_value = 200.0
+	localFoodRatio.value = 100.0
 	CalorieFractBeef.min_value = 0 # %
 	CalorieFractBeef.max_value = 20 # %
 	CalorieFractBeef.value = 4
@@ -92,21 +92,19 @@ func _ready():
 	CalorieFractPoultry.max_value = 20 # %
 	CalorieFractPoultry.value = 6
 	CalorieFractDairy.min_value = 0 # %
-	CalorieFractDairy.max_value = 20 # %
-	CalorieFractDairy.value = 5
-	FractWaste.min_value = 10 # %
-	FractWaste.max_value = 70 # %
+	CalorieFractDairy.max_value = 20.0 # %
+	CalorieFractDairy.value = 5.0
+	FractWaste.min_value = 7.0 # %
+	FractWaste.max_value = 70.0 # %
 	FractWaste.value = 50.0
-
-
+	processedFoodRatio.min_value = 35.0
+	processedFoodRatio.max_value = 200.0
+	processedFoodRatio.value = 100.0
 	
 func set_energyForFoodChoice():
-	#Food waste
-	#var	CalorieFractVege = 100.0 - CalorieFractBeef.value - CalorieFractDairy.value - CalorieFractPoultry.value
-	#(1 + fwaste) * (100 W * 0.2 Cal/Cal veg * (1 + 23*fbeef + 10*fpoultry + 5*fdairy)
-	#energyForFoodChoice = (1 + FractWaste.value/100.0) * ((100.0 * ((CalorieFractVege * 0.2) + (CalorieFractBeef.value * 4.8) + (CalorieFractPoultry.value * 2.2) + (CalorieFractDairy.value * 1.2))) + (0.23 Cal/Cal all food* PTD.value))
-	var PTDFract = 300.0
-	energyForFoodChoice = (1 + FractWaste.value/100.0) * (100.0 * 0.2 * (1.0 + 23.0*CalorieFractBeef.value/100.0 + 10.0*CalorieFractPoultry.value/100.0 + 5.0*CalorieFractDairy.value/100.0) + 100.0 * 0.23 * (PTDFract)/100.0)
+	var PTDFract = 150.0 + 20.0*100.0/get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal").value + 130.0/100.0*get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed").value
+	print(PTDFract)
+	energyForFoodChoice = (1.0 + FractWaste.value/100.0) * (100.0 * 0.2 * (1.0 + 23.0*CalorieFractBeef.value/100.0 + 10.0*CalorieFractPoultry.value/100.0 + 5.0*CalorieFractDairy.value/100.0) + 100.0 * 0.23 * (PTDFract)/100.0)
 	get_node("CanvasLayer/UICity/Label3").text = "Food: " + str("%3.1f" % energyForFoodChoice) + " W"
 
 func _on_CalorieFractBeef_value_changed(value):
@@ -125,9 +123,17 @@ func _on_FractWaste_value_changed(value):
 	set_energyForFoodChoice()
 	get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractWaste/Label2").text = str("%3.1f" % FractWaste.value) + "%"
 
-func _on_PTD_value_changed(value):
-	set_energyForFoodChoice()
 
+
+func _on_FractLocal_value_changed(value):
+	set_energyForFoodChoice()
+	get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal/Label2").text = str("%3.1f" % localFoodRatio.value) + "% of today's"
+
+
+func _on_FractProcessed_value_changed(value):
+	set_energyForFoodChoice()
+	get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed/Label2").text = str("%3.1f" % processedFoodRatio.value) + "% of today's"
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
