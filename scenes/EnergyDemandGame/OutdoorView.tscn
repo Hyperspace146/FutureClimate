@@ -391,8 +391,6 @@ __meta__ = {
 }
 
 [node name="HeatCoolMethod" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
-anchor_left = 0.00182815
-anchor_right = 0.00182815
 margin_top = 230.0
 margin_right = 547.0
 margin_bottom = 246.0
@@ -406,12 +404,13 @@ anchor_left = 1.0
 anchor_right = 1.0
 margin_right = 40.0
 margin_bottom = 28.0
-text = "Heat cool method"
+text = "Gas heating"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BatterySize" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
+visible = false
 margin_top = 276.0
 margin_right = 547.0
 margin_bottom = 292.0
@@ -431,9 +430,10 @@ __meta__ = {
 }
 
 [node name="SolarPanelSize" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
-margin_top = 322.0
+visible = false
+margin_top = 276.0
 margin_right = 547.0
-margin_bottom = 338.0
+margin_bottom = 292.0
 value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -558,7 +558,17 @@ __meta__ = {
 margin_left = -1.0
 margin_top = -34.0
 margin_right = 520.0
-text = "Fraction of food that is local:                           10%"
+text = "Fraction of food that is local: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal"]
+margin_left = 450.0
+margin_top = -34.0
+margin_right = 490.0
+margin_bottom = -6.0
+text = "50%"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -577,7 +587,17 @@ margin_left = -1.0
 margin_top = -35.0
 margin_right = 520.0
 margin_bottom = -1.0
-text = "Fraction of Calories that is Beef:                      5%"
+text = "Fraction of Calories from beef:  "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractBeef"]
+margin_left = 450.0
+margin_top = -34.0
+margin_right = 490.0
+margin_bottom = -6.0
+text = "5%"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -596,7 +616,17 @@ margin_left = -1.0
 margin_top = -35.0
 margin_right = 520.0
 margin_bottom = -2.0
-text = "Fraction of Calories that is Poultry:                15%"
+text = "Fraction of Calories from poultry: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractPoultry"]
+margin_left = 450.0
+margin_top = -34.0
+margin_right = 490.0
+margin_bottom = -6.0
+text = "10%"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -615,7 +645,17 @@ margin_left = -1.0
 margin_top = -34.0
 margin_right = 520.0
 margin_bottom = 5.0
-text = "Fraction of Calories that is Dairy:                    20%"
+text = "Fraction of Calories from dairy: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractDairy"]
+margin_left = 450.0
+margin_top = -34.0
+margin_right = 499.0
+margin_bottom = -6.0
+text = "10%"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -634,7 +674,17 @@ margin_left = -1.0
 margin_top = -36.0
 margin_right = 520.0
 margin_bottom = 13.0
-text = "Fraction of Food that is Wasted:                     25%"
+text = "Fraction of food that is wasted: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/FractWaste"]
+margin_left = 450.0
+margin_top = -34.0
+margin_right = 499.0
+margin_bottom = -6.0
+text = "50%"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -653,7 +703,17 @@ margin_left = -1.0
 margin_top = -35.0
 margin_right = 521.0
 margin_bottom = 15.0
-text = "Fraction of Food that is Processed:                 55%"
+text = "Fraction of food that is processed: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed"]
+margin_left = 450.0
+margin_top = -34.0
+margin_right = 499.0
+margin_bottom = -6.0
+text = "40%"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -922,4 +982,8 @@ __meta__ = {
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/BatterySize" to="." method="_on_Battery_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/SolarPanelSize" to="." method="_on_Battery_value_changed"]
 [connection signal="pressed" from="CanvasLayer/ConstructionPopUp/ToGrocery" to="." method="_on_ToGrocery_pressed"]
+[connection signal="value_changed" from="CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractBeef" to="." method="_on_CalorieFractBeef_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractPoultry" to="." method="_on_CalorieFractPoultry_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractDairy" to="." method="_on_CalorieFractDairy_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/GroceryPopUp/GrocerySliders/FractWaste" to="." method="_on_FractWaste_value_changed"]
 [connection signal="pressed" from="CanvasLayer/GroceryPopUp/ToResidence" to="." method="_on_ToResidence_pressed"]

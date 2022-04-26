@@ -118,6 +118,7 @@ __meta__ = {
 position = Vector2( 36, 38 )
 frames = ExtResource( 25 )
 animation = "on"
+frame = 6
 playing = true
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/Nuclear"]
@@ -155,7 +156,7 @@ __meta__ = {
 position = Vector2( 37, 13 )
 frames = ExtResource( 13 )
 animation = "on"
-frame = 5
+frame = 1
 playing = true
 offset = Vector2( 0, 24 )
 
@@ -193,6 +194,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ColorRect/VBoxContainer/Wind"]
 position = Vector2( 15, 8 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
 centered = false
 

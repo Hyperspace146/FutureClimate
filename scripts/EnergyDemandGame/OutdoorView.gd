@@ -18,18 +18,20 @@ onready var water = get_node("CanvasLayer/ResidencePopUp/ResidenceSliders/WaterU
 onready var hotWater = get_node("CanvasLayer/ResidencePopUp/ResidenceSliders/HeatedWater")
 
 # GROCERY
-# removing vegCal slider so total is 100%
+#onready var CalorieFractVege = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractVege")
 onready var localFood = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal")
-onready var beefCal = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractBeef")
-onready var poultryCal = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractPoultry")
-onready var dairyCal =  get_node("CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractDairy")
-onready var foodWaste = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractWaste")
+onready var CalorieFractBeef = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractBeef")
+onready var CalorieFractPoultry = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractPoultry")
+onready var CalorieFractDairy =  get_node("CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractDairy")
+onready var FractWaste = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractWaste")
+#onready var PTD = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed") # Sum of Processing, Transporting and Distribution
 onready var processedFood = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed")
 
 #Calculated quantities
 var heating = 0
 var illumination = 0
 var homeEmbodied = 0
+var energyForFoodChoice = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -78,20 +80,53 @@ func _ready():
 	water.max_value = 500 # liters / day
 	hotWater.min_value = 20 # liters / day
 	hotWater.max_value = 200 # liters / day
-	
+		
 	#GROCERY
-	beefCal.min_value = 0 # %
-	beefCal.max_value = 33 # %
-	poultryCal.min_value = 0 # %
-	poultryCal.max_value = 33 # %
-	dairyCal.min_value = 0 # %
-	dairyCal.max_value = 33 # %
-	foodWaste.min_value = 7.5 # %
-	foodWaste.max_value = 75 # %
-	processedFood.min_value = 0 # %
-	processedFood.max_value = 100 # %
+	localFood.min_value = 0
+	localFood.max_value = 100
+	localFood.value = 15
+	CalorieFractBeef.min_value = 0 # %
+	CalorieFractBeef.max_value = 20 # %
+	CalorieFractBeef.value = 4
+	CalorieFractPoultry.min_value = 0 # %
+	CalorieFractPoultry.max_value = 20 # %
+	CalorieFractPoultry.value = 6
+	CalorieFractDairy.min_value = 0 # %
+	CalorieFractDairy.max_value = 20 # %
+	CalorieFractDairy.value = 5
+	FractWaste.min_value = 10 # %
+	FractWaste.max_value = 70 # %
+	FractWaste.value = 50.0
 
 
+	
+func set_energyForFoodChoice():
+	#Food waste
+	#var	CalorieFractVege = 100.0 - CalorieFractBeef.value - CalorieFractDairy.value - CalorieFractPoultry.value
+	#(1 + fwaste) * (100 W * 0.2 Cal/Cal veg * (1 + 23*fbeef + 10*fpoultry + 5*fdairy)
+	#energyForFoodChoice = (1 + FractWaste.value/100.0) * ((100.0 * ((CalorieFractVege * 0.2) + (CalorieFractBeef.value * 4.8) + (CalorieFractPoultry.value * 2.2) + (CalorieFractDairy.value * 1.2))) + (0.23 Cal/Cal all food* PTD.value))
+	var PTDFract = 300.0
+	energyForFoodChoice = (1 + FractWaste.value/100.0) * (100.0 * 0.2 * (1.0 + 23.0*CalorieFractBeef.value/100.0 + 10.0*CalorieFractPoultry.value/100.0 + 5.0*CalorieFractDairy.value/100.0) + 100.0 * 0.23 * (PTDFract)/100.0)
+	get_node("CanvasLayer/UICity/Label3").text = "Food: " + str("%3.1f" % energyForFoodChoice) + " W"
+
+func _on_CalorieFractBeef_value_changed(value):
+	set_energyForFoodChoice()
+	get_node("CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractBeef/Label2").text = str("%3.1f" % CalorieFractBeef.value) + "%"
+
+func _on_CalorieFractPoultry_value_changed(value):
+	set_energyForFoodChoice()
+	get_node("CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractPoultry/Label2").text = str("%3.1f" % CalorieFractPoultry.value) + "%"
+	
+func _on_CalorieFractDairy_value_changed(value):
+	set_energyForFoodChoice()
+	get_node("CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractDairy/Label2").text = str("%3.1f" % CalorieFractDairy.value) + "%"
+
+func _on_FractWaste_value_changed(value):
+	set_energyForFoodChoice()
+	get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractWaste/Label2").text = str("%3.1f" % FractWaste.value) + "%"
+
+func _on_PTD_value_changed(value):
+	set_energyForFoodChoice()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -99,7 +134,7 @@ func _ready():
 
 func set_heating():
 	heating = sqrFt.value * insulation.value/pplpRes.value/8.76 #kilo-hours per year
-	if (htClMethod.value == 1): 
+	if (htClMethod.value == 4): 
 		heating = heating/5.0
 	get_node("CanvasLayer/UICity/Label2").text = "Heat: " + str("%3.1f" % heating) + " W"
 
@@ -155,23 +190,23 @@ func _on_BuildingMaterial_value_changed(value):
 func _on_Insolation_value_changed(value):
 	#affects climate
 	set_heating() #kilo-hours per year
-	get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/Insulation/Label").text = str(value) + " kWh/m2/yr for heating/cooling"
+	get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/Insulation/Label").text = str(value) + " kWh/m2/yr for heat/cool"
 
 
 
 func _on_HeatCoolMethod_value_changed(value):
 	if (htClMethod.value == 1): 
 		set_heating()
-		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod/Label").text = "Heat pump"
+		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod/Label").text = "Gas heat"
 	if (htClMethod.value == 2): 
 		set_heating()
-		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod/Label").text = "Electrical resistance"
+		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod/Label").text = "Electrical resistance heat"
 	if (htClMethod.value == 3): 
 		set_heating()
-		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod/Label").text = "Gas heat"
+		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod/Label").text = "Wood heat"
 	if (htClMethod.value == 4): 
 		set_heating()
-		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod/Label").text = "Wood heat"
+		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod/Label").text = "Heat pump"
 	#affects climate
 	pass # Replace with function body.
 
