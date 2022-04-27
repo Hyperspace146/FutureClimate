@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scripts/EnergyDemandGame/OutdoorView.gd" type="Script" id=1]
 [ext_resource path="res://sprites/EnergyDemandGame/building 3.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://fonts/Ubuntu24.tres" type="DynamicFont" id=17]
 [ext_resource path="res://scenes/EnergyDemandGame/ButtonStyle.tres" type="StyleBox" id=18]
 [ext_resource path="res://scenes/UICity.tscn" type="PackedScene" id=19]
+[ext_resource path="res://fonts/smallfont.tres" type="DynamicFont" id=20]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.258824, 0.513726, 0.270588, 1 )
@@ -270,9 +271,9 @@ zoom = Vector2( 2, 2 )
 
 [node name="ConstructionPopUp" type="Button" parent="CanvasLayer"]
 margin_left = 29.0
-margin_top = 180.0
+margin_top = 160.0
 margin_right = 999.0
-margin_bottom = 603.0
+margin_bottom = 600.0
 theme = SubResource( 3 )
 custom_styles/disabled = ExtResource( 18 )
 disabled = true
@@ -282,9 +283,9 @@ __meta__ = {
 
 [node name="ConstructionSliders" type="VBoxContainer" parent="CanvasLayer/ConstructionPopUp"]
 margin_left = 46.0
-margin_top = 42.0
+margin_top = 25.0
 margin_right = 593.0
-margin_bottom = 383.0
+margin_bottom = 419.0
 rect_min_size = Vector2( 500, 300 )
 custom_constants/separation = 30
 __meta__ = {
@@ -292,13 +293,14 @@ __meta__ = {
 }
 
 [node name="Building7" type="Sprite" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
-position = Vector2( 727, 169 )
+position = Vector2( 727, 185 )
 scale = Vector2( 0.9, 0.9 )
 texture = ExtResource( 3 )
 
 [node name="SquareFootage" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
 margin_right = 547.0
-margin_bottom = 16.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
 value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -307,18 +309,35 @@ __meta__ = {
 [node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/SquareFootage"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_right = 40.0
+margin_left = 10.0
+margin_right = 179.0
 margin_bottom = 28.0
 text = "Square footage"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SizeLabel" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/SquareFootage"]
+margin_top = 30.0
+margin_right = 601.0
+margin_bottom = 58.0
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 20 )
+text = "Small apartment                                                                                            Mansion"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PeoplePerResidence" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
-margin_top = 46.0
+margin_top = 62.0
 margin_right = 547.0
-margin_bottom = 62.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 0, 32 )
+min_value = 1.0
+max_value = 6.0
 value = 1.0
+tick_count = 7
+ticks_on_borders = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -326,17 +345,29 @@ __meta__ = {
 [node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/PeoplePerResidence"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_right = 40.0
+margin_left = 10.0
+margin_right = 238.0
 margin_bottom = 28.0
 text = "People per residence"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label2" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/PeoplePerResidence"]
+margin_top = 30.0
+margin_right = 564.0
+margin_bottom = 58.0
+custom_fonts/font = ExtResource( 20 )
+text = "1                        2                        3                        4                         5                          6"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="BuildingLifetime" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
-margin_top = 92.0
+margin_top = 124.0
 margin_right = 547.0
-margin_bottom = 108.0
+margin_bottom = 148.0
+rect_min_size = Vector2( 0, 24 )
 value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -345,36 +376,53 @@ __meta__ = {
 [node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/BuildingLifetime"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_right = 40.0
+margin_left = 10.0
+margin_right = 191.0
 margin_bottom = 28.0
 text = "Building lifetime"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BuildingMaterial" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
-margin_top = 138.0
-margin_right = 547.0
-margin_bottom = 154.0
-value = 1.0
+[node name="Label2" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/BuildingLifetime"]
+margin_top = 28.0
+margin_right = 553.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 20 )
+text = "20 yr                                                                                                                      100 yr"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BuildingMaterial" type="OptionButton" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
+margin_top = 178.0
+margin_right = 547.0
+margin_bottom = 212.0
+text = "Concrete"
+items = [ "Timber", null, false, 0, null, "Concrete", null, false, 1, null, "Steel", null, false, 2, null ]
+selected = 1
+
 [node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/BuildingMaterial"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_right = 40.0
+margin_left = 557.0
+margin_right = 754.0
 margin_bottom = 28.0
 text = "Building material"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Insulation" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
-margin_top = 184.0
+[node name="HeatCoolMethod" type="OptionButton" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
+margin_top = 242.0
 margin_right = 547.0
-margin_bottom = 200.0
+margin_bottom = 276.0
+text = "Gas heating"
+items = [ "Gas heating", null, false, 0, null, "Electric resistance heating", null, false, 1, null, "Wood heating", null, false, 2, null, "Heat pump", null, false, 3, null ]
+selected = 0
+
+[node name="Insulation" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
+margin_top = 306.0
+margin_right = 547.0
+margin_bottom = 322.0
 value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -383,121 +431,39 @@ __meta__ = {
 [node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/Insulation"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_right = 40.0
+margin_left = 10.0
+margin_right = 119.0
 margin_bottom = 28.0
 text = "Insulation"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HeatCoolMethod" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
-margin_top = 230.0
+[node name="ClimateZone" type="OptionButton" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
+margin_top = 352.0
 margin_right = 547.0
-margin_bottom = 246.0
-value = 1.0
+margin_bottom = 386.0
+text = "Tropical"
+items = [ "Tropical", null, false, 0, null, "Subtropical", null, false, 1, null, "Temperate", null, false, 2, null, "Cold", null, false, 3, null ]
+selected = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_right = 40.0
+[node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/ClimateZone"]
+margin_left = 557.0
+margin_right = 700.0
 margin_bottom = 28.0
-text = "Gas heating"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BatterySize" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
-visible = false
-margin_top = 276.0
-margin_right = 547.0
-margin_bottom = 292.0
-value = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/BatterySize"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_right = 40.0
-margin_bottom = 28.0
-text = "Battery size (off)"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SolarPanelSize" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
-visible = false
-margin_top = 276.0
-margin_right = 547.0
-margin_bottom = 292.0
-value = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/SolarPanelSize"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_right = 40.0
-margin_bottom = 28.0
-text = "Solar panel size (off)"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SchoolSlider" type="VBoxContainer" parent="CanvasLayer/ConstructionPopUp"]
-visible = false
-margin_left = 74.0
-margin_top = 97.0
-margin_right = 914.0
-margin_bottom = 524.0
-rect_min_size = Vector2( 840, 427 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TransportationSlider" type="VBoxContainer" parent="CanvasLayer/ConstructionPopUp"]
-visible = false
-margin_left = 74.0
-margin_top = 97.0
-margin_right = 914.0
-margin_bottom = 524.0
-rect_min_size = Vector2( 840, 427 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MedicalSliders" type="VBoxContainer" parent="CanvasLayer/ConstructionPopUp"]
-visible = false
-margin_left = 74.0
-margin_top = 97.0
-margin_right = 914.0
-margin_bottom = 524.0
-rect_min_size = Vector2( 840, 427 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="IlluminationSliders" type="VBoxContainer" parent="CanvasLayer/ConstructionPopUp"]
-visible = false
-margin_left = 74.0
-margin_top = 97.0
-margin_right = 914.0
-margin_bottom = 524.0
-rect_min_size = Vector2( 840, 427 )
+text = "Climate zone"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ToGrocery" type="Button" parent="CanvasLayer/ConstructionPopUp"]
 margin_left = 724.1
-margin_top = -107.0
+margin_top = -90.0
 margin_right = 972.1
-margin_bottom = -9.0
+margin_bottom = -4.00001
 theme = SubResource( 3 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
@@ -511,9 +477,9 @@ __meta__ = {
 
 [node name="Construction" type="Button" parent="CanvasLayer/ConstructionPopUp"]
 margin_left = 5.0
-margin_top = -120.0
+margin_top = -100.0
 margin_right = 505.0
-margin_bottom = -22.0
+margin_bottom = -2.00001
 theme = SubResource( 3 )
 custom_styles/disabled = ExtResource( 18 )
 custom_fonts/font = ExtResource( 16 )
@@ -524,10 +490,10 @@ __meta__ = {
 }
 
 [node name="GroceryPopUp" type="Button" parent="CanvasLayer"]
-margin_left = -644.208
-margin_top = 700.0
-margin_right = 325.792
-margin_bottom = 1123.0
+margin_left = -657.644
+margin_top = 793.153
+margin_right = 312.356
+margin_bottom = 1216.15
 theme = SubResource( 3 )
 custom_styles/disabled = ExtResource( 18 )
 disabled = true
@@ -558,7 +524,7 @@ __meta__ = {
 margin_left = -1.0
 margin_top = -34.0
 margin_right = 520.0
-text = "Fraction of food that is local: "
+text = "Local food compared with today: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -566,9 +532,9 @@ __meta__ = {
 [node name="Label2" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal"]
 margin_left = 450.0
 margin_top = -34.0
-margin_right = 490.0
+margin_right = 641.0
 margin_bottom = -6.0
-text = "50%"
+text = "0.5 X"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -703,7 +669,7 @@ margin_left = -1.0
 margin_top = -35.0
 margin_right = 521.0
 margin_bottom = 15.0
-text = "Fraction of food that is processed: "
+text = "Processed food compared with today: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -711,9 +677,9 @@ __meta__ = {
 [node name="Label2" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed"]
 margin_left = 450.0
 margin_top = -34.0
-margin_right = 499.0
+margin_right = 641.0
 margin_bottom = -6.0
-text = "40%"
+text = "0.5 X"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -976,11 +942,10 @@ __meta__ = {
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/SquareFootage" to="." method="_on_SquareFootage_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/PeoplePerResidence" to="." method="_on_PeoplePerResidence_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/BuildingLifetime" to="." method="_on_BuildingLifetime_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/BuildingMaterial" to="." method="_on_BuildingMaterial_value_changed"]
+[connection signal="item_selected" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/BuildingMaterial" to="." method="_on_BuildingMaterial_item_selected"]
+[connection signal="item_selected" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod" to="." method="_on_HeatCoolMethod_item_selected"]
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/Insulation" to="." method="_on_Insolation_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod" to="." method="_on_HeatCoolMethod_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/BatterySize" to="." method="_on_Battery_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/SolarPanelSize" to="." method="_on_Battery_value_changed"]
+[connection signal="item_selected" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/ClimateZone" to="." method="_on_ClimateZone_item_selected"]
 [connection signal="pressed" from="CanvasLayer/ConstructionPopUp/ToGrocery" to="." method="_on_ToGrocery_pressed"]
 [connection signal="value_changed" from="CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal" to="." method="_on_FractLocal_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractBeef" to="." method="_on_CalorieFractBeef_value_changed"]

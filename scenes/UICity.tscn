@@ -118,7 +118,6 @@ __meta__ = {
 position = Vector2( 36, 38 )
 frames = ExtResource( 25 )
 animation = "on"
-frame = 6
 playing = true
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/Nuclear"]

@@ -7,8 +7,8 @@ onready var bldngLifetime = get_node("CanvasLayer/ConstructionPopUp/Construction
 onready var bldngMaterial = get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/BuildingMaterial")
 onready var insulation = get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/Insulation")
 onready var htClMethod = get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod")
-onready var battery = get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/BatterySize")
-onready var solarPanelSize = get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/SolarPanelSize")
+#onready var battery = get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/BatterySize")
+#onready var solarPanelSize = get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/SolarPanelSize")
 
 # RESIDENCE
 onready var stove = get_node("CanvasLayer/ResidencePopUp/ResidenceSliders/StoveType")
@@ -51,23 +51,23 @@ func _ready():
 	bldngLifetime.max_value = 100 # years
 	bldngLifetime.value = 50
 	var bldngLifetime0 = 50
-	bldngMaterial.min_value = 1
-	bldngMaterial.max_value = 3 # 1 = timber, 2 = concrete, 3 = steel
-	bldngMaterial.value = 2
-	var bldngMaterial0 = 2
+	#bldngMaterial.min_value = 1
+	#bldngMaterial.max_value = 3 # 1 = timber, 2 = concrete, 3 = steel
+	#bldngMaterial.value = 2
+	#var bldngMaterial0 = 2
 	insulation.min_value = 10 # kW hr / m^2 / year
 	insulation.max_value = 200 # kW hr / m^2 / year
 	insulation.value = 100
 	var insulation0 = 100
-	htClMethod.min_value = 1 
-	htClMethod.max_value = 4 # 1 = heat pump, 2 = electrical resistance, 3 = gas, 4 = wood
-	var htClMethod0 = 3
-	battery.min_value = 0 # kW hr
-	battery.max_value = 100 # kW hr
-	var battery0 = 0
-	solarPanelSize.min_value = 0 #  kW
-	solarPanelSize.max_value = 25 # kW
-	var solarPanelSize0 = 0
+	#htClMethod.min_value = 1 
+	#htClMethod.max_value = 4 # 1 = heat pump, 2 = electrical resistance, 3 = gas, 4 = wood
+	#var htClMethod0 = 3
+	#battery.min_value = 0 # kW hr
+	#battery.max_value = 100 # kW hr
+	#var battery0 = 0
+	#solarPanelSize.min_value = 0 #  kW
+	#solarPanelSize.max_value = 25 # kW
+	#var solarPanelSize0 = 0
 	
 	# RESIDENCE
 	stove.min_value = 1
@@ -103,9 +103,8 @@ func _ready():
 	
 func set_energyForFoodChoice():
 	var PTDFract = 150.0 + 20.0*100.0/get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal").value + 130.0/100.0*get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed").value
-	print(PTDFract)
 	energyForFoodChoice = (1.0 + FractWaste.value/100.0) * (100.0 * 0.2 * (1.0 + 23.0*CalorieFractBeef.value/100.0 + 10.0*CalorieFractPoultry.value/100.0 + 5.0*CalorieFractDairy.value/100.0) + 100.0 * 0.23 * (PTDFract)/100.0)
-	get_node("CanvasLayer/UICity/Label3").text = "Food: " + str("%3.1f" % energyForFoodChoice) + " W"
+	get_node("CanvasLayer/UICity/Label3").text = "Food: " + str("%3.0f" % energyForFoodChoice) + " W"
 
 func _on_CalorieFractBeef_value_changed(value):
 	set_energyForFoodChoice()
@@ -123,16 +122,14 @@ func _on_FractWaste_value_changed(value):
 	set_energyForFoodChoice()
 	get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractWaste/Label2").text = str("%3.1f" % FractWaste.value) + "%"
 
-
-
 func _on_FractLocal_value_changed(value):
 	set_energyForFoodChoice()
-	get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal/Label2").text = str("%3.1f" % localFoodRatio.value) + "% of today's"
+	get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal/Label2").text = str("%1.2f" % (localFoodRatio.value/100.0)) + " X"
 
 
 func _on_FractProcessed_value_changed(value):
 	set_energyForFoodChoice()
-	get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed/Label2").text = str("%3.1f" % processedFoodRatio.value) + "% of today's"
+	get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed/Label2").text = str("%1.2f" % (processedFoodRatio.value/100.0)) + " X"
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -140,18 +137,18 @@ func _on_FractProcessed_value_changed(value):
 
 func set_heating():
 	heating = sqrFt.value * insulation.value/pplpRes.value/8.76 #kilo-hours per year
-	if (htClMethod.value == 4): 
+	if (htClMethod.selected == 3): 
 		heating = heating/5.0
-	get_node("CanvasLayer/UICity/Label2").text = "Heat: " + str("%3.1f" % heating) + " W"
+	get_node("CanvasLayer/UICity/Label2").text = "Heat: " + str("%3.0f" % heating) + " W"
 
 func set_homeEmbodied():
-	if (bldngMaterial.value == 1): #timber
+	if (bldngMaterial.selected == 0): #timber
 		homeEmbodied = sqrFt.value * 30.0*80.0/bldngLifetime.value/pplpRes.value/31.536
-	if (bldngMaterial.value == 2): #concrete
+	if (bldngMaterial.selected == 1): #concrete
 		homeEmbodied = sqrFt.value * 50.0*80.0/bldngLifetime.value/pplpRes.value/31.536
-	if (bldngMaterial.value == 3): #steel
+	if (bldngMaterial.selected == 2): #steel
 		homeEmbodied = sqrFt.value * 100.0*80.0/bldngLifetime.value/pplpRes.value/31.536
-	get_node("CanvasLayer/UICity/Label1").text = "Home: " + str("%3.1f" % homeEmbodied) + " W"
+	get_node("CanvasLayer/UICity/Label1").text = "Home: " + str("%3.0f" % homeEmbodied) + " W"
 	
 	
 func set_illumination():
@@ -171,7 +168,8 @@ func _on_PeoplePerResidence_value_changed(value):
 	set_illumination()
 	set_homeEmbodied()
 	get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/PeoplePerResidence/Label").text = str(pplpRes.value) + " people per residence"
-
+	if value == 1: 
+			get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/PeoplePerResidence/Label").text = str(pplpRes.value) + " person per residence"
 
 
 func _on_BuildingLifetime_value_changed(value):
@@ -181,44 +179,12 @@ func _on_BuildingLifetime_value_changed(value):
 
 
 func _on_BuildingMaterial_value_changed(value):
-	#affects embodied energy of home
-	if (bldngMaterial.value == 1): #timber
-		set_homeEmbodied()
-		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/BuildingMaterial/Label").text = "Best timber building"
-	if (bldngMaterial.value == 2): #concrete
-		set_homeEmbodied()
-		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/BuildingMaterial/Label").text = "Best concrete building"
-	if (bldngMaterial.value == 3): #steel
-		set_homeEmbodied()
-		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/BuildingMaterial/Label").text = "Best steel building"
-
+	set_homeEmbodied()
 
 func _on_Insolation_value_changed(value):
 	#affects climate
 	set_heating() #kilo-hours per year
 	get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/Insulation/Label").text = str(value) + " kWh/m2/yr for heat/cool"
-
-
-
-func _on_HeatCoolMethod_value_changed(value):
-	if (htClMethod.value == 1): 
-		set_heating()
-		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod/Label").text = "Gas heat"
-	if (htClMethod.value == 2): 
-		set_heating()
-		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod/Label").text = "Electrical resistance heat"
-	if (htClMethod.value == 3): 
-		set_heating()
-		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod/Label").text = "Wood heat"
-	if (htClMethod.value == 4): 
-		set_heating()
-		get_node("CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod/Label").text = "Heat pump"
-	#affects climate
-	pass # Replace with function body.
-
-
-func _on_Battery_value_changed(value):
-	pass # Replace with function body.
 
 
 func _on_ToGrocery_pressed():
@@ -227,9 +193,18 @@ func _on_ToGrocery_pressed():
 	get_node("CanvasLayer/GroceryPopUp").rect_position = Vector2(29,180)
 
 
-
 func _on_ToResidence_pressed():
 	get_node("CanvasLayer/GroceryPopUp").visible = false
 	get_node("CanvasLayer/ResidencePopUp").visible = true
 	get_node("CanvasLayer/ResidencePopUp").rect_position = Vector2(29,180)
-	pass # Replace with function body.
+
+func _on_HeatCoolMethod_item_selected(id):
+	set_heating()
+	
+
+func _on_BuildingMaterial_item_selected(id):
+	set_homeEmbodied()
+
+
+func _on_ClimateZone_item_selected(id):
+	set_heating()
