@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scripts/EnergyDemandGame/OutdoorView.gd" type="Script" id=1]
 [ext_resource path="res://sprites/EnergyDemandGame/building 3.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://scenes/EnergyDemandGame/ButtonStyle.tres" type="StyleBox" id=18]
 [ext_resource path="res://scenes/UICity.tscn" type="PackedScene" id=19]
 [ext_resource path="res://fonts/smallfont.tres" type="DynamicFont" id=20]
+[ext_resource path="res://UITheme.tres" type="Theme" id=21]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.258824, 0.513726, 0.270588, 1 )
@@ -273,7 +274,7 @@ zoom = Vector2( 2, 2 )
 margin_left = 29.0
 margin_top = 160.0
 margin_right = 999.0
-margin_bottom = 600.0
+margin_bottom = 660.0
 theme = SubResource( 3 )
 custom_styles/disabled = ExtResource( 18 )
 disabled = true
@@ -297,9 +298,29 @@ position = Vector2( 727, 185 )
 scale = Vector2( 0.9, 0.9 )
 texture = ExtResource( 3 )
 
-[node name="SquareFootage" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
+[node name="ClimateZone" type="OptionButton" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
 margin_right = 547.0
-margin_bottom = 32.0
+margin_bottom = 34.0
+text = "Tropical"
+items = [ "Tropical", null, false, 0, null, "Subtropical", null, false, 1, null, "Temperate", null, false, 2, null, "Cold", null, false, 3, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/ClimateZone"]
+margin_left = 557.0
+margin_right = 700.0
+margin_bottom = 28.0
+text = "Climate zone"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SquareFootage" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
+margin_top = 64.0
+margin_right = 547.0
+margin_bottom = 96.0
 rect_min_size = Vector2( 0, 32 )
 value = 1.0
 __meta__ = {
@@ -329,9 +350,9 @@ __meta__ = {
 }
 
 [node name="PeoplePerResidence" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
-margin_top = 62.0
+margin_top = 126.0
 margin_right = 547.0
-margin_bottom = 94.0
+margin_bottom = 158.0
 rect_min_size = Vector2( 0, 32 )
 min_value = 1.0
 max_value = 6.0
@@ -364,9 +385,9 @@ __meta__ = {
 }
 
 [node name="BuildingLifetime" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
-margin_top = 124.0
+margin_top = 188.0
 margin_right = 547.0
-margin_bottom = 148.0
+margin_bottom = 212.0
 rect_min_size = Vector2( 0, 24 )
 value = 1.0
 __meta__ = {
@@ -395,9 +416,9 @@ __meta__ = {
 }
 
 [node name="BuildingMaterial" type="OptionButton" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
-margin_top = 178.0
+margin_top = 242.0
 margin_right = 547.0
-margin_bottom = 212.0
+margin_bottom = 276.0
 text = "Concrete"
 items = [ "Timber", null, false, 0, null, "Concrete", null, false, 1, null, "Steel", null, false, 2, null ]
 selected = 1
@@ -412,14 +433,26 @@ __meta__ = {
 }
 
 [node name="HeatCoolMethod" type="OptionButton" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
-margin_top = 242.0
+margin_top = 306.0
 margin_right = 547.0
-margin_bottom = 276.0
+margin_bottom = 340.0
 text = "Gas heating"
 items = [ "Gas heating", null, false, 0, null, "Electric resistance heating", null, false, 1, null, "Wood heating", null, false, 2, null, "Heat pump", null, false, 3, null ]
 selected = 0
 
+[node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 10.0
+margin_right = 119.0
+margin_bottom = 28.0
+text = "Heating"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Insulation" type="HSlider" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
+visible = false
 margin_top = 306.0
 margin_right = 547.0
 margin_bottom = 322.0
@@ -428,42 +461,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/Insulation"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = 10.0
-margin_right = 119.0
+[node name="Insulation2" type="OptionButton" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
+margin_top = 370.0
+margin_right = 547.0
+margin_bottom = 404.0
+text = "Poorly insulated"
+items = [ "Poorly insulated", null, false, 0, null, "Medium insulation", null, false, 1, null, "Well insulated", null, false, 2, null, "Best passive", null, false, 3, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/Insulation2"]
+margin_left = 557.0
+margin_right = 700.0
 margin_bottom = 28.0
 text = "Insulation"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ClimateZone" type="OptionButton" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders"]
-margin_top = 352.0
-margin_right = 547.0
-margin_bottom = 386.0
-text = "Tropical"
-items = [ "Tropical", null, false, 0, null, "Subtropical", null, false, 1, null, "Temperate", null, false, 2, null, "Cold", null, false, 3, null ]
-selected = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="CanvasLayer/ConstructionPopUp/ConstructionSliders/ClimateZone"]
-margin_left = 557.0
-margin_right = 700.0
-margin_bottom = 28.0
-text = "Climate zone"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ToGrocery" type="Button" parent="CanvasLayer/ConstructionPopUp"]
-margin_left = 724.1
-margin_top = -90.0
-margin_right = 972.1
-margin_bottom = -4.00001
+margin_left = 776.0
+margin_top = -95.0
+margin_right = 972.0
+margin_bottom = -9.0
 theme = SubResource( 3 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
@@ -479,7 +501,7 @@ __meta__ = {
 margin_left = 5.0
 margin_top = -100.0
 margin_right = 505.0
-margin_bottom = -2.00001
+margin_bottom = -9.99999
 theme = SubResource( 3 )
 custom_styles/disabled = ExtResource( 18 )
 custom_fonts/font = ExtResource( 16 )
@@ -493,7 +515,7 @@ __meta__ = {
 margin_left = -657.644
 margin_top = 793.153
 margin_right = 312.356
-margin_bottom = 1216.15
+margin_bottom = 1293.15
 theme = SubResource( 3 )
 custom_styles/disabled = ExtResource( 18 )
 disabled = true
@@ -689,55 +711,11 @@ position = Vector2( 713, 145 )
 scale = Vector2( -0.9, 0.9 )
 texture = ExtResource( 4 )
 
-[node name="SchoolSlider" type="VBoxContainer" parent="CanvasLayer/GroceryPopUp"]
-visible = false
-margin_left = 74.0
-margin_top = 97.0
-margin_right = 914.0
-margin_bottom = 524.0
-rect_min_size = Vector2( 840, 427 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TransportationSlider" type="VBoxContainer" parent="CanvasLayer/GroceryPopUp"]
-visible = false
-margin_left = 74.0
-margin_top = 97.0
-margin_right = 914.0
-margin_bottom = 524.0
-rect_min_size = Vector2( 840, 427 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MedicalSliders" type="VBoxContainer" parent="CanvasLayer/GroceryPopUp"]
-visible = false
-margin_left = 74.0
-margin_top = 97.0
-margin_right = 914.0
-margin_bottom = 524.0
-rect_min_size = Vector2( 840, 427 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="IlluminationSliders" type="VBoxContainer" parent="CanvasLayer/GroceryPopUp"]
-visible = false
-margin_left = 74.0
-margin_top = 97.0
-margin_right = 914.0
-margin_bottom = 524.0
-rect_min_size = Vector2( 840, 427 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ToResidence" type="Button" parent="CanvasLayer/GroceryPopUp"]
-margin_left = 724.0
-margin_top = -107.0
+margin_left = 776.0
+margin_top = -95.0
 margin_right = 972.0
-margin_bottom = -9.00001
+margin_bottom = -9.0
 theme = SubResource( 3 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
@@ -750,10 +728,10 @@ __meta__ = {
 }
 
 [node name="Grocery" type="Button" parent="CanvasLayer/GroceryPopUp"]
-margin_left = 6.20795
-margin_top = -110.944
+margin_left = 6.208
+margin_top = -100.0
 margin_right = 506.208
-margin_bottom = -12.9445
+margin_bottom = -10.0
 theme = SubResource( 3 )
 custom_styles/disabled = ExtResource( 18 )
 custom_fonts/font = ExtResource( 16 )
@@ -763,11 +741,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResidencePopUp" type="Button" parent="CanvasLayer"]
+[node name="WaterPopUp" type="Button" parent="CanvasLayer"]
 margin_left = 420.463
-margin_top = 700.0
+margin_top = 750.0
 margin_right = 1390.46
-margin_bottom = 1123.0
+margin_bottom = 1250.0
 theme = SubResource( 3 )
 custom_styles/disabled = ExtResource( 18 )
 disabled = true
@@ -775,144 +753,105 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResidenceSliders" type="VBoxContainer" parent="CanvasLayer/ResidencePopUp"]
-margin_left = 46.0
-margin_top = 87.0
-margin_right = 571.0
-margin_bottom = 394.0
+[node name="WaterSliders" type="VBoxContainer" parent="CanvasLayer/WaterPopUp"]
+margin_left = 54.957
+margin_top = 35.0
+margin_right = 579.957
+margin_bottom = 342.0
 rect_min_size = Vector2( 500, 300 )
 custom_constants/separation = 49
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StoveType" type="HSlider" parent="CanvasLayer/ResidencePopUp/ResidenceSliders"]
+[node name="Building9" type="Sprite" parent="CanvasLayer/WaterPopUp/WaterSliders"]
+position = Vector2( 707.73, 193.656 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 9 )
+
+[node name="HotWaterHeater" type="OptionButton" parent="CanvasLayer/WaterPopUp/WaterSliders"]
 margin_right = 525.0
-margin_bottom = 16.0
-value = 33.0
+margin_bottom = 34.0
+text = "Gas hot water"
+items = [ "Gas hot water", null, false, 0, null, "Electric hot water", null, false, 1, null ]
+selected = 0
 
-[node name="Label" type="Label" parent="CanvasLayer/ResidencePopUp/ResidenceSliders/StoveType"]
-margin_top = -34.0
-margin_right = 521.0
-margin_bottom = 3.0
-text = "Stove Type:                                                      Wood"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FractCooked" type="HSlider" parent="CanvasLayer/ResidencePopUp/ResidenceSliders"]
-margin_top = 65.0
+[node name="ShowerLength" type="HSlider" parent="CanvasLayer/WaterPopUp/WaterSliders"]
+margin_top = 83.0
 margin_right = 525.0
-margin_bottom = 81.0
-value = 50.0
-
-[node name="Label" type="Label" parent="CanvasLayer/ResidencePopUp/ResidenceSliders/FractCooked"]
-margin_top = -35.0
-margin_right = 521.0
-text = "Fraction of food bought that is cooked:       50%"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="WaterUsage" type="HSlider" parent="CanvasLayer/ResidencePopUp/ResidenceSliders"]
-margin_top = 130.0
-margin_right = 525.0
-margin_bottom = 146.0
-value = 24.0
-
-[node name="Label" type="Label" parent="CanvasLayer/ResidencePopUp/ResidenceSliders/WaterUsage"]
-margin_top = -34.0
-margin_right = 521.0
-margin_bottom = 1.0
-text = "Water Usage:                                     50 liters / day"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HeatedWater" type="HSlider" parent="CanvasLayer/ResidencePopUp/ResidenceSliders"]
-margin_top = 195.0
-margin_right = 525.0
-margin_bottom = 211.0
-value = 20.0
-
-[node name="Label" type="Label" parent="CanvasLayer/ResidencePopUp/ResidenceSliders/HeatedWater"]
-margin_top = -34.0
-margin_right = 523.0
-margin_bottom = 1.0
-text = "Heated Water:                                    20 liters / day"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FridgeEnergyUsage" type="HSlider" parent="CanvasLayer/ResidencePopUp/ResidenceSliders"]
-margin_top = 260.0
-margin_right = 525.0
-margin_bottom = 276.0
+margin_bottom = 99.0
 value = 10.0
 
-[node name="Label" type="Label" parent="CanvasLayer/ResidencePopUp/ResidenceSliders/FridgeEnergyUsage"]
+[node name="Label" type="Label" parent="CanvasLayer/WaterPopUp/WaterSliders/ShowerLength"]
 margin_top = -33.0
 margin_right = 526.0
 margin_bottom = -3.0
-text = "Fridge Energy Usage:                               14  Watts"
+text = "Shower length:                                  8 minutes"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Building9" type="Sprite" parent="CanvasLayer/ResidencePopUp/ResidenceSliders"]
-position = Vector2( 714, 122 )
-scale = Vector2( -1, 1 )
-texture = ExtResource( 9 )
-
-[node name="SchoolSlider" type="VBoxContainer" parent="CanvasLayer/ResidencePopUp"]
+[node name="Hotwatertemp" type="HSlider" parent="CanvasLayer/WaterPopUp/WaterSliders"]
 visible = false
-margin_left = 74.0
-margin_top = 97.0
-margin_right = 914.0
-margin_bottom = 524.0
-rect_min_size = Vector2( 840, 427 )
+margin_top = 148.0
+margin_right = 525.0
+margin_bottom = 164.0
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/WaterPopUp/WaterSliders/Hotwatertemp"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Hot water temperature:                  49 C (120 F)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TransportationSlider" type="VBoxContainer" parent="CanvasLayer/ResidencePopUp"]
+[node name="ClothesWashTemp" type="OptionButton" parent="CanvasLayer/WaterPopUp/WaterSliders"]
+margin_top = 148.0
+margin_right = 525.0
+margin_bottom = 182.0
+text = "Hot water wash"
+items = [ "Hot water wash", null, false, 0, null, "Warm water wash", null, false, 1, null, "Cold water wash", null, false, 2, null ]
+selected = 0
+
+[node name="WaterUsage" type="HSlider" parent="CanvasLayer/WaterPopUp/WaterSliders"]
+margin_top = 231.0
+margin_right = 525.0
+margin_bottom = 247.0
+value = 24.0
+
+[node name="Label" type="Label" parent="CanvasLayer/WaterPopUp/WaterSliders/WaterUsage"]
+margin_top = -34.0
+margin_right = 521.0
+margin_bottom = 1.0
+text = "Other water Usage:                          50 liters / day"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeatedWater" type="HSlider" parent="CanvasLayer/WaterPopUp/WaterSliders"]
 visible = false
-margin_left = 74.0
-margin_top = 97.0
-margin_right = 914.0
-margin_bottom = 524.0
-rect_min_size = Vector2( 840, 427 )
+margin_top = 296.0
+margin_right = 525.0
+margin_bottom = 312.0
+value = 20.0
+
+[node name="Label" type="Label" parent="CanvasLayer/WaterPopUp/WaterSliders/HeatedWater"]
+margin_top = -34.0
+margin_right = 523.0
+margin_bottom = 1.0
+text = "Other heated Water:                        20 liters / day"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MedicalSliders" type="VBoxContainer" parent="CanvasLayer/ResidencePopUp"]
-visible = false
-margin_left = 74.0
-margin_top = 97.0
-margin_right = 914.0
-margin_bottom = 524.0
-rect_min_size = Vector2( 840, 427 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="IlluminationSliders" type="VBoxContainer" parent="CanvasLayer/ResidencePopUp"]
-visible = false
-margin_left = 74.0
-margin_top = 97.0
-margin_right = 914.0
-margin_bottom = 524.0
-rect_min_size = Vector2( 840, 427 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ToResidence2" type="Button" parent="CanvasLayer/ResidencePopUp"]
-margin_left = 724.0
-margin_top = -107.0
+[node name="ToCooking" type="Button" parent="CanvasLayer/WaterPopUp"]
+margin_left = 776.0
+margin_top = -95.0
 margin_right = 972.0
-margin_bottom = -9.00001
+margin_bottom = -9.0
 theme = SubResource( 3 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
@@ -924,28 +863,308 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Residence" type="Button" parent="CanvasLayer/ResidencePopUp"]
-margin_left = 12.9908
-margin_top = -103.391
+[node name="Water" type="Button" parent="CanvasLayer/WaterPopUp"]
+margin_left = 12.991
+margin_top = -100.0
 margin_right = 512.991
-margin_bottom = -5.39075
+margin_bottom = -10.0
 theme = SubResource( 3 )
 custom_styles/disabled = ExtResource( 18 )
 custom_fonts/font = ExtResource( 16 )
 disabled = true
-text = "Residence"
+text = "Water"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CookingPopUp" type="Button" parent="CanvasLayer"]
+margin_left = 1400.0
+margin_top = 700.0
+margin_right = 2370.0
+margin_bottom = 1200.0
+theme = SubResource( 3 )
+custom_styles/disabled = ExtResource( 18 )
+disabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CookingSliders" type="VBoxContainer" parent="CanvasLayer/CookingPopUp"]
+margin_left = 48.6871
+margin_top = 30.5706
+margin_right = 573.687
+margin_bottom = 337.571
+rect_min_size = Vector2( 500, 300 )
+custom_constants/separation = 49
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Building9" type="Sprite" parent="CanvasLayer/CookingPopUp/CookingSliders"]
+position = Vector2( 714, 190.969 )
+texture = ExtResource( 9 )
+
+[node name="StoveType" type="OptionButton" parent="CanvasLayer/CookingPopUp/CookingSliders"]
+margin_right = 524.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( 281.638, 63.8712 )
+text = "Wood stove"
+items = [ "Wood stove", null, false, 0, null, "Gas stove", null, false, 1, null, "Electric stove", null, false, 2, null, "Induction stove", null, false, 3, null ]
+selected = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/StoveType"]
+margin_left = 548.172
+margin_top = -0.858887
+margin_right = 1069.17
+margin_bottom = 36.1411
+text = "Stove Type"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FractCooked" type="HSlider" parent="CanvasLayer/CookingPopUp/CookingSliders"]
+margin_top = 83.0
+margin_right = 524.0
+margin_bottom = 99.0
+value = 50.0
+
+[node name="Label" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/FractCooked"]
+margin_top = -35.0
+margin_right = 521.0
+text = "Fraction of food that is cooked:           50%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FridgeEnergyUsage" type="HSlider" parent="CanvasLayer/CookingPopUp/CookingSliders"]
+margin_top = 148.0
+margin_right = 524.0
+margin_bottom = 164.0
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/FridgeEnergyUsage"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Fridge Energy Usage:                               14  Watts"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnergyForCooking" type="HSlider" parent="CanvasLayer/CookingPopUp/CookingSliders"]
+margin_top = 213.0
+margin_right = 524.0
+margin_bottom = 229.0
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/EnergyForCooking"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Energy for Cooking:                               14  Watts"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToTech" type="Button" parent="CanvasLayer/CookingPopUp"]
+margin_left = 776.0
+margin_top = -95.0
+margin_right = 972.0
+margin_bottom = -9.0
+theme = SubResource( 3 )
+custom_styles/hover = ExtResource( 18 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/disabled = ExtResource( 18 )
+custom_styles/normal = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
+text = "Next"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cooking" type="Button" parent="CanvasLayer/CookingPopUp"]
+margin_left = 12.991
+margin_top = -100.0
+margin_right = 512.991
+margin_bottom = -10.0
+theme = SubResource( 3 )
+custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
+disabled = true
+text = "Cooking"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TechPopUp" type="Button" parent="CanvasLayer"]
+margin_left = 1400.0
+margin_top = 1400.0
+margin_right = 2370.0
+margin_bottom = 1900.0
+theme = SubResource( 3 )
+custom_styles/disabled = ExtResource( 18 )
+disabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TechSliders" type="VBoxContainer" parent="CanvasLayer/TechPopUp"]
+margin_left = 51.3744
+margin_top = 60.129
+margin_right = 576.374
+margin_bottom = 367.129
+rect_min_size = Vector2( 500, 300 )
+custom_constants/separation = 49
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Building9" type="Sprite" parent="CanvasLayer/TechPopUp/TechSliders"]
+position = Vector2( 725.644, 163.202 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 14 )
+
+[node name="PhoneUsage" type="HSlider" parent="CanvasLayer/TechPopUp/TechSliders"]
+margin_right = 524.0
+margin_bottom = 16.0
+value = 50.0
+
+[node name="Label" type="Label" parent="CanvasLayer/TechPopUp/TechSliders/PhoneUsage"]
+margin_top = -35.0
+margin_right = 521.0
+text = "Phone usage:                                          3 hrs/day"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PhoneUsageStandby" type="HSlider" parent="CanvasLayer/TechPopUp/TechSliders"]
+margin_top = 65.0
+margin_right = 524.0
+margin_bottom = 81.0
+value = 50.0
+
+[node name="Label" type="Label" parent="CanvasLayer/TechPopUp/TechSliders/PhoneUsageStandby"]
+margin_top = -35.0
+margin_right = 521.0
+text = "Phone usage (standby):                      12 hrs/day"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PhoneLifetime" type="HSlider" parent="CanvasLayer/TechPopUp/TechSliders"]
+margin_top = 130.0
+margin_right = 524.0
+margin_bottom = 146.0
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/TechPopUp/TechSliders/PhoneLifetime"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Phone lifetime:                                        1 year"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LaptopUsage" type="HSlider" parent="CanvasLayer/TechPopUp/TechSliders"]
+margin_top = 195.0
+margin_right = 524.0
+margin_bottom = 211.0
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/TechPopUp/TechSliders/LaptopUsage"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Laptop/TV usage :                                   4 hours"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LaptopLifetime" type="HSlider" parent="CanvasLayer/TechPopUp/TechSliders"]
+margin_top = 260.0
+margin_right = 524.0
+margin_bottom = 276.0
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/TechPopUp/TechSliders/LaptopLifetime"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Laptop lifetime:                                      5 years"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToResidence2" type="Button" parent="CanvasLayer/TechPopUp"]
+margin_left = 776.0
+margin_top = -95.0
+margin_right = 972.0
+margin_bottom = -9.0
+theme = SubResource( 3 )
+custom_styles/hover = ExtResource( 18 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/disabled = ExtResource( 18 )
+custom_styles/normal = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
+text = "Next"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tech" type="Button" parent="CanvasLayer/TechPopUp"]
+margin_left = 12.991
+margin_top = -100.0
+margin_right = 512.991
+margin_bottom = -10.0
+theme = SubResource( 3 )
+custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
+disabled = true
+text = "Tech"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="UICity" parent="CanvasLayer" instance=ExtResource( 19 )]
+
+[node name="CO2UICity" parent="CanvasLayer" instance=ExtResource( 19 )]
+visible = false
+
+[node name="CO2Button" type="Button" parent="CanvasLayer"]
+anchor_right = 1.0
+margin_left = 559.313
+margin_top = 78.8221
+margin_right = -364.687
+margin_bottom = 113.822
+theme = ExtResource( 21 )
+custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "CO2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PowerButton" type="Button" parent="CanvasLayer"]
+anchor_right = 1.0
+margin_left = 682.024
+margin_top = 78.8896
+margin_right = -241.976
+margin_bottom = 113.89
+theme = ExtResource( 21 )
+custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Power"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="item_selected" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/ClimateZone" to="." method="_on_ClimateZone_item_selected"]
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/SquareFootage" to="." method="_on_SquareFootage_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/PeoplePerResidence" to="." method="_on_PeoplePerResidence_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/BuildingLifetime" to="." method="_on_BuildingLifetime_value_changed"]
 [connection signal="item_selected" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/BuildingMaterial" to="." method="_on_BuildingMaterial_item_selected"]
 [connection signal="item_selected" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod" to="." method="_on_HeatCoolMethod_item_selected"]
-[connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/Insulation" to="." method="_on_Insolation_value_changed"]
-[connection signal="item_selected" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/ClimateZone" to="." method="_on_ClimateZone_item_selected"]
+[connection signal="item_selected" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/Insulation2" to="." method="_on_Insulation2_item_selected"]
 [connection signal="pressed" from="CanvasLayer/ConstructionPopUp/ToGrocery" to="." method="_on_ToGrocery_pressed"]
 [connection signal="value_changed" from="CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal" to="." method="_on_FractLocal_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractBeef" to="." method="_on_CalorieFractBeef_value_changed"]
@@ -954,3 +1173,18 @@ __meta__ = {
 [connection signal="value_changed" from="CanvasLayer/GroceryPopUp/GrocerySliders/FractWaste" to="." method="_on_FractWaste_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed" to="." method="_on_FractProcessed_value_changed"]
 [connection signal="pressed" from="CanvasLayer/GroceryPopUp/ToResidence" to="." method="_on_ToResidence_pressed"]
+[connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders/ShowerLength" to="." method="_on_ShowerLength_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders/Hotwatertemp" to="." method="_on_Hotwatertemp_value_changed"]
+[connection signal="item_selected" from="CanvasLayer/WaterPopUp/WaterSliders/ClothesWashTemp" to="." method="_on_ClothesWashTemp_item_selected"]
+[connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders/WaterUsage" to="." method="_on_WaterUsage_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders/HeatedWater" to="." method="_on_HeatedWater_value_changed"]
+[connection signal="pressed" from="CanvasLayer/WaterPopUp/ToCooking" to="." method="_on_ToCooking_pressed"]
+[connection signal="item_selected" from="CanvasLayer/CookingPopUp/CookingSliders/StoveType" to="." method="_on_StoveType_item_selected"]
+[connection signal="value_changed" from="CanvasLayer/CookingPopUp/CookingSliders/FractCooked" to="." method="_on_FractCooked_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/CookingPopUp/CookingSliders/FridgeEnergyUsage" to="." method="_on_FridgeEnergyUsage_value_changed"]
+[connection signal="pressed" from="CanvasLayer/CookingPopUp/ToTech" to="." method="_on_ToTech_pressed"]
+[connection signal="value_changed" from="CanvasLayer/TechPopUp/TechSliders/PhoneUsage" to="." method="_on_PhoneUsage_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/TechPopUp/TechSliders/PhoneUsageStandby" to="." method="_on_PhoneUsageStandby_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/TechPopUp/TechSliders/PhoneLifetime" to="." method="_on_PhoneLifetime_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/TechPopUp/TechSliders/LaptopUsage" to="." method="_on_LaptopUsage_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/TechPopUp/TechSliders/LaptopLifetime" to="." method="_on_LaptopLifetime_value_changed"]
