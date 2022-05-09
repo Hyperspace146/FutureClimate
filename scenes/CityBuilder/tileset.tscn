@@ -1,0 +1,311 @@
+[gd_scene load_steps=54 format=2]
+
+[ext_resource path="res://scenes/CityBuilder/assets/watertile.png" type="Texture" id=1]
+[ext_resource path="res://scenes/CityBuilder/assets/springgrasstile.png" type="Texture" id=2]
+[ext_resource path="res://scenes/CityBuilder/assets/citybuilding2.png" type="Texture" id=3]
+[ext_resource path="res://scenes/CityBuilder/assets/roadtile2.png" type="Texture" id=4]
+[ext_resource path="res://scenes/CityBuilder/assets/farmlandcorn.png" type="Texture" id=5]
+[ext_resource path="res://scenes/CityBuilder/assets/roadtile1.png" type="Texture" id=6]
+[ext_resource path="res://scenes/CityBuilder/assets/farmlandwatermelon.png" type="Texture" id=7]
+[ext_resource path="res://scenes/CityBuilder/assets/citybuilding1.png" type="Texture" id=8]
+[ext_resource path="res://scenes/CityBuilder/assets/citybuilding3.png" type="Texture" id=9]
+[ext_resource path="res://scenes/CityBuilder/assets/intersection.png" type="Texture" id=10]
+[ext_resource path="res://scenes/CityBuilder/assets/citybuilding5.png" type="Texture" id=11]
+[ext_resource path="res://scenes/CityBuilder/assets/concretetile.png" type="Texture" id=12]
+[ext_resource path="res://scenes/CityBuilder/assets/citybuilding6.png" type="Texture" id=13]
+[ext_resource path="res://scenes/CityBuilder/assets/citybuilding4.png" type="Texture" id=14]
+[ext_resource path="res://scenes/CityBuilder/assets/summergrasstile.png" type="Texture" id=15]
+[ext_resource path="res://scenes/CityBuilder/assets/farmlandbeets.png" type="Texture" id=16]
+[ext_resource path="res://scenes/CityBuilder/assets/autumngrasstile.png" type="Texture" id=17]
+[ext_resource path="res://scenes/CityBuilder/assets/farmlandcarrots.png" type="Texture" id=18]
+[ext_resource path="res://scenes/CityBuilder/assets/cargocontainers.png" type="Texture" id=19]
+[ext_resource path="res://scenes/CityBuilder/assets/onshorewind.png" type="Texture" id=20]
+[ext_resource path="res://scenes/CityBuilder/assets/bluedepot.png" type="Texture" id=21]
+[ext_resource path="res://scenes/CityBuilder/assets/cargoship.png" type="Texture" id=22]
+[ext_resource path="res://scenes/CityBuilder/assets/Offshorewind.png" type="Texture" id=23]
+[ext_resource path="res://scenes/CityBuilder/assets/reddepot.png" type="Texture" id=24]
+[ext_resource path="res://scenes/CityBuilder/assets/betterwatertile.png" type="Texture" id=25]
+[ext_resource path="res://scenes/CityBuilder/assets/crane.png" type="Texture" id=26]
+[ext_resource path="res://scenes/CityBuilder/assets/radiotowerbuilding.png" type="Texture" id=27]
+[ext_resource path="res://scenes/CityBuilder/assets/wooddock.png" type="Texture" id=28]
+[ext_resource path="res://scenes/CityBuilder/assets/runway.png" type="Texture" id=29]
+[ext_resource path="res://scenes/CityBuilder/assets/airplane.png" type="Texture" id=30]
+[ext_resource path="res://scenes/CityBuilder/assets/solarpanels.png" type="Texture" id=31]
+[ext_resource path="res://scenes/CityBuilder/assets/bestwatertile.png" type="Texture" id=32]
+[ext_resource path="res://scenes/CityBuilder/assets/aittrafficcontrol.png" type="Texture" id=33]
+[ext_resource path="res://scenes/CityBuilder/assets/factory.png" type="Texture" id=34]
+[ext_resource path="res://scenes/CityBuilder/assets/stonedock.png" type="Texture" id=35]
+[ext_resource path="res://scenes/CityBuilder/assets/highschool.png" type="Texture" id=36]
+[ext_resource path="res://scenes/CityBuilder/assets/hospital.png" type="Texture" id=37]
+[ext_resource path="res://scenes/CityBuilder/assets/largeapartmentbuilding.png" type="Texture" id=38]
+[ext_resource path="res://scenes/CityBuilder/assets/dormstylebuilding.png" type="Texture" id=39]
+[ext_resource path="res://scenes/CityBuilder/assets/largetruck.png" type="Texture" id=40]
+[ext_resource path="res://scenes/CityBuilder/assets/hangar.png" type="Texture" id=41]
+[ext_resource path="res://scenes/CityBuilder/assets/stonetile.png" type="Texture" id=42]
+[ext_resource path="res://scenes/CityBuilder/assets/smallvan.png" type="Texture" id=43]
+[ext_resource path="res://scenes/CityBuilder/assets/smallfirestation.png" type="Texture" id=44]
+[ext_resource path="res://scenes/CityBuilder/assets/satellitebuilding.png" type="Texture" id=45]
+[ext_resource path="res://scenes/CityBuilder/assets/silos.png" type="Texture" id=46]
+[ext_resource path="res://scenes/CityBuilder/assets/smalltruck.png" type="Texture" id=47]
+[ext_resource path="res://scenes/CityBuilder/assets/warehouse1.png" type="Texture" id=48]
+[ext_resource path="res://scenes/CityBuilder/assets/warehouse2.png" type="Texture" id=49]
+[ext_resource path="res://scenes/CityBuilder/assets/smallpolicestation.png" type="Texture" id=50]
+[ext_resource path="res://scenes/CityBuilder/assets/residentialwood.png" type="Texture" id=51]
+[ext_resource path="res://scenes/CityBuilder/assets/residentialwoodback.png" type="Texture" id=52]
+[ext_resource path="res://scenes/CityBuilder/assets/longgrass.png" type="Texture" id=53]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="water tile" type="Sprite" parent="."]
+position = Vector2( -41, 60 )
+texture = ExtResource( 1 )
+
+[node name="spring grass tile" type="Sprite" parent="."]
+position = Vector2( -48, -16 )
+texture = ExtResource( 2 )
+
+[node name="summer grass tile" type="Sprite" parent="."]
+position = Vector2( -47, 10 )
+texture = ExtResource( 15 )
+
+[node name="autumn grass tile" type="Sprite" parent="."]
+position = Vector2( -44, 35 )
+texture = ExtResource( 17 )
+
+[node name="farmland carrots tile" type="Sprite" parent="."]
+position = Vector2( -3, -23 )
+texture = ExtResource( 18 )
+
+[node name="farmland beets tile" type="Sprite" parent="."]
+position = Vector2( -1, 2 )
+texture = ExtResource( 16 )
+
+[node name="farmland corn tile" type="Sprite" parent="."]
+position = Vector2( -16, 19 )
+texture = ExtResource( 5 )
+centered = false
+offset = Vector2( 0, -4 )
+
+[node name="farmland watermelon tile" type="Sprite" parent="."]
+position = Vector2( 4, 54 )
+texture = ExtResource( 7 )
+
+[node name="road tile 1" type="Sprite" parent="."]
+position = Vector2( 41, 53 )
+texture = ExtResource( 6 )
+
+[node name="road tile 2" type="Sprite" parent="."]
+position = Vector2( 41, 29 )
+texture = ExtResource( 4 )
+
+[node name="intersection" type="Sprite" parent="."]
+position = Vector2( 40, 4 )
+texture = ExtResource( 10 )
+
+[node name="concrete tile" type="Sprite" parent="."]
+position = Vector2( 39, -20 )
+texture = ExtResource( 12 )
+
+[node name="city building 1" type="Sprite" parent="."]
+position = Vector2( 194, 65 )
+texture = ExtResource( 8 )
+centered = false
+offset = Vector2( 0, -42 )
+
+[node name="city building 2" type="Sprite" parent="."]
+position = Vector2( 200, -19 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( 0, -50 )
+
+[node name="city building 3" type="Sprite" parent="."]
+position = Vector2( 69, 67 )
+texture = ExtResource( 9 )
+centered = false
+offset = Vector2( 0, -49 )
+
+[node name="city building 4" type="Sprite" parent="."]
+position = Vector2( 138, 67 )
+texture = ExtResource( 14 )
+centered = false
+offset = Vector2( -19, -47 )
+
+[node name="city building 5" type="Sprite" parent="."]
+position = Vector2( 124, -18 )
+texture = ExtResource( 11 )
+centered = false
+offset = Vector2( 0, -32 )
+
+[node name="city building 6" type="Sprite" parent="."]
+position = Vector2( 82, -10 )
+texture = ExtResource( 13 )
+centered = false
+offset = Vector2( 0, -35 )
+
+[node name="wood dock" type="Sprite" parent="."]
+position = Vector2( 130, 145 )
+texture = ExtResource( 28 )
+
+[node name="offshore wind turbine" type="Sprite" parent="."]
+position = Vector2( -82, 49 )
+texture = ExtResource( 23 )
+offset = Vector2( -3, -46 )
+
+[node name="onshore wind turbine" type="Sprite" parent="."]
+position = Vector2( -126, 54 )
+texture = ExtResource( 20 )
+offset = Vector2( 2, -31 )
+
+[node name="cargo ship" type="Sprite" parent="."]
+position = Vector2( 66, 94 )
+texture = ExtResource( 22 )
+
+[node name="cargo container stack" type="Sprite" parent="."]
+position = Vector2( 108, 113 )
+texture = ExtResource( 19 )
+offset = Vector2( 0, -6 )
+
+[node name="blue depot" type="Sprite" parent="."]
+position = Vector2( 153, 116 )
+texture = ExtResource( 21 )
+offset = Vector2( 0, -5 )
+
+[node name="crane" type="Sprite" parent="."]
+position = Vector2( 35, 85 )
+texture = ExtResource( 26 )
+offset = Vector2( 0, -9 )
+
+[node name="stone docks" type="Sprite" parent="."]
+position = Vector2( 154, 148 )
+texture = ExtResource( 35 )
+
+[node name="solar panels" type="Sprite" parent="."]
+position = Vector2( -85, 60 )
+texture = ExtResource( 31 )
+offset = Vector2( 1, -5 )
+
+[node name="better water tile" type="Sprite" parent="."]
+position = Vector2( -29, 101 )
+texture = ExtResource( 32 )
+
+[node name="dark water tile" type="Sprite" parent="."]
+position = Vector2( -10, 74 )
+texture = ExtResource( 25 )
+
+[node name="red depot" type="Sprite" parent="."]
+position = Vector2( 79, 142 )
+texture = ExtResource( 24 )
+offset = Vector2( -1, -6 )
+
+[node name="air traffic control" type="Sprite" parent="."]
+position = Vector2( -130, 115 )
+texture = ExtResource( 33 )
+offset = Vector2( 7, -30 )
+
+[node name="factory" type="Sprite" parent="."]
+position = Vector2( 19, 134 )
+texture = ExtResource( 34 )
+offset = Vector2( 0, -10 )
+
+[node name="dorm style building" type="Sprite" parent="."]
+position = Vector2( 280, -14 )
+texture = ExtResource( 39 )
+offset = Vector2( 0, -14 )
+
+[node name="high school" type="Sprite" parent="."]
+position = Vector2( 284, 49 )
+texture = ExtResource( 36 )
+offset = Vector2( 0, -18 )
+
+[node name="hangar" type="Sprite" parent="."]
+position = Vector2( -110, 155 )
+texture = ExtResource( 41 )
+offset = Vector2( 5, -8 )
+
+[node name="air plane" type="Sprite" parent="."]
+position = Vector2( -96, 124 )
+texture = ExtResource( 30 )
+offset = Vector2( 3, -4 )
+
+[node name="hospital" type="Sprite" parent="."]
+position = Vector2( 360, 50 )
+texture = ExtResource( 37 )
+offset = Vector2( 0, -17 )
+
+[node name="large apartments" type="Sprite" parent="."]
+position = Vector2( 354, -29 )
+texture = ExtResource( 38 )
+offset = Vector2( 0, -53 )
+
+[node name="large truck" type="Sprite" parent="."]
+position = Vector2( 41, 55 )
+texture = ExtResource( 40 )
+offset = Vector2( 0, -7 )
+
+[node name="radio tower building" type="Sprite" parent="."]
+position = Vector2( -172, 108 )
+texture = ExtResource( 27 )
+offset = Vector2( 0, -42 )
+
+[node name="runway" type="Sprite" parent="."]
+position = Vector2( -171, 169 )
+texture = ExtResource( 29 )
+
+[node name="satellite building" type="Sprite" parent="."]
+position = Vector2( -206, 118 )
+texture = ExtResource( 45 )
+offset = Vector2( 5, -4 )
+
+[node name="silos" type="Sprite" parent="."]
+position = Vector2( -29, -54 )
+texture = ExtResource( 46 )
+offset = Vector2( 0, -11 )
+
+[node name="small firestation" type="Sprite" parent="."]
+position = Vector2( 275, 96 )
+texture = ExtResource( 44 )
+offset = Vector2( 0, -8 )
+
+[node name="small policestation" type="Sprite" parent="."]
+position = Vector2( 325, 98 )
+texture = ExtResource( 50 )
+offset = Vector2( 0, -8 )
+
+[node name="small truck" type="Sprite" parent="."]
+position = Vector2( 209, 141 )
+texture = ExtResource( 47 )
+offset = Vector2( 9, -2 )
+
+[node name="small van" type="Sprite" parent="."]
+position = Vector2( 238, 142 )
+texture = ExtResource( 43 )
+offset = Vector2( 10, 1 )
+
+[node name="stone tile" type="Sprite" parent="."]
+position = Vector2( 11, 106 )
+texture = ExtResource( 42 )
+
+[node name="warehouse 1" type="Sprite" parent="."]
+position = Vector2( 54, 174 )
+texture = ExtResource( 48 )
+offset = Vector2( 0, -8 )
+
+[node name="warehouse 2" type="Sprite" parent="."]
+position = Vector2( 95, 171 )
+texture = ExtResource( 49 )
+offset = Vector2( 0, -7 )
+
+[node name="reseidential wood" type="Sprite" parent="."]
+position = Vector2( 56, -63 )
+texture = ExtResource( 51 )
+offset = Vector2( 0, -6 )
+
+[node name="long grass" type="Sprite" parent="."]
+position = Vector2( -41, 150 )
+texture = ExtResource( 53 )
+offset = Vector2( 0, -7 )
+
+[node name="residential wood back view" type="Sprite" parent="."]
+position = Vector2( 15, -69 )
+texture = ExtResource( 52 )
+offset = Vector2( 0, -5 )
