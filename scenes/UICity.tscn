@@ -95,6 +95,7 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+visible = false
 margin_left = 930.0
 margin_top = -240.0
 margin_right = 1004.0
@@ -118,7 +119,7 @@ __meta__ = {
 position = Vector2( 36, 38 )
 frames = ExtResource( 25 )
 animation = "on"
-frame = 6
+frame = 8
 playing = true
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/Nuclear"]
@@ -156,7 +157,7 @@ __meta__ = {
 position = Vector2( 37, 13 )
 frames = ExtResource( 13 )
 animation = "on"
-frame = 1
+frame = 5
 playing = true
 offset = Vector2( 0, 24 )
 
@@ -194,7 +195,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ColorRect/VBoxContainer/Wind"]
 position = Vector2( 15, 8 )
 frames = SubResource( 1 )
-frame = 2
 playing = true
 centered = false
 
@@ -228,6 +228,7 @@ scale = Vector2( 0.548568, 0.380706 )
 texture = ExtResource( 29 )
 
 [node name="ElectricityLabel2" type="TextureButton" parent="ColorRect"]
+visible = false
 margin_left = 930.0
 margin_right = 995.0
 margin_bottom = 71.0
@@ -272,72 +273,104 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label1" type="Label" parent="."]
+[node name="HomeLabel" type="Label" parent="."]
 margin_right = 100.0
 margin_bottom = 34.0
+hint_tooltip = "Energy for building divided by lifetime"
+mouse_filter = 0
 custom_fonts/font = ExtResource( 11 )
-text = "Test"
+text = "Home"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="."]
+[node name="HeatLabel" type="Label" parent="."]
 margin_top = 34.0
 margin_right = 100.0
 margin_bottom = 68.0
+hint_tooltip = "In-home heating"
+mouse_filter = 0
 custom_fonts/font = ExtResource( 11 )
-text = "Test"
+text = "Heat"
 
-[node name="Label3" type="Label" parent="."]
+[node name="FoodLabel" type="Label" parent="."]
 margin_left = 200.0
 margin_right = 319.0
 margin_bottom = 34.0
+hint_tooltip = "Energy for food outside the home"
+mouse_filter = 0
 custom_fonts/font = ExtResource( 11 )
 text = "Food"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label4" type="Label" parent="."]
+[node name="MobilityLabel" type="Label" parent="."]
 margin_left = 200.0
 margin_top = 34.0
 margin_right = 300.0
 margin_bottom = 68.0
+hint_tooltip = "Direct usage by transportation"
+mouse_filter = 0
 custom_fonts/font = ExtResource( 11 )
 text = "Mobility"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label5" type="Label" parent="."]
+[node name="ServicesLabel" type="Label" parent="."]
 margin_left = 400.0
 margin_right = 500.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 11 )
-text = "Test"
+text = "Services"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label6" type="Label" parent="."]
+[node name="AppliancesLabel" type="Label" parent="."]
 margin_left = 400.0
 margin_top = 34.0
 margin_right = 500.0
 margin_bottom = 68.0
 custom_fonts/font = ExtResource( 11 )
-text = "Test"
+text = "Appliances"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label7" type="Label" parent="."]
+[node name="EmbodiedLabel" type="Label" parent="."]
 margin_left = 600.0
 margin_right = 719.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 11 )
-text = "Test"
+text = "Embodied"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label8" type="Label" parent="."]
+[node name="HotWaterCookLabel" type="Label" parent="."]
 margin_left = 600.0
 margin_top = 34.0
 margin_right = 700.0
 margin_bottom = 68.0
+hint_tooltip = "Includes cooking"
+mouse_filter = 0
 custom_fonts/font = ExtResource( 11 )
-text = "Test"
+text = "Hot H2O"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Total" type="Label" parent="."]
+margin_left = 841.897
+margin_top = 7.20522
+margin_right = 1000.9
+margin_bottom = 53.2052
+hint_tooltip = "Includes cooking"
+mouse_filter = 0
+custom_fonts/font = ExtResource( 14 )
+text = "2000 W"
 __meta__ = {
 "_edit_use_anchors_": false
 }
