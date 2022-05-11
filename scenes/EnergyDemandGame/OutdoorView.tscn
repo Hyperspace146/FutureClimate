@@ -831,18 +831,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HeatedWater" type="HSlider" parent="CanvasLayer/WaterPopUp/WaterSliders"]
-visible = false
+[node name="ClothesBought" type="HSlider" parent="CanvasLayer/WaterPopUp/WaterSliders"]
 margin_top = 296.0
 margin_right = 525.0
 margin_bottom = 312.0
 value = 20.0
 
-[node name="Label" type="Label" parent="CanvasLayer/WaterPopUp/WaterSliders/HeatedWater"]
+[node name="Label" type="Label" parent="CanvasLayer/WaterPopUp/WaterSliders/ClothesBought"]
 margin_top = -34.0
 margin_right = 523.0
 margin_bottom = 1.0
-text = "Other heated Water:                        20 liters / day"
+text = "Clothes bought/yr: 2 outfits"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -872,7 +871,7 @@ theme = SubResource( 3 )
 custom_styles/disabled = ExtResource( 18 )
 custom_fonts/font = ExtResource( 16 )
 disabled = true
-text = "Water"
+text = "Water & Clothes"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -952,6 +951,7 @@ __meta__ = {
 }
 
 [node name="EnergyForCooking" type="HSlider" parent="CanvasLayer/CookingPopUp/CookingSliders"]
+visible = false
 margin_top = 213.0
 margin_right = 524.0
 margin_bottom = 229.0
@@ -1096,7 +1096,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ToResidence2" type="Button" parent="CanvasLayer/TechPopUp"]
+[node name="ToSchool" type="Button" parent="CanvasLayer/TechPopUp"]
 margin_left = 776.0
 margin_top = -95.0
 margin_right = 972.0
@@ -1126,6 +1126,462 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SchoolPopUp" type="Button" parent="CanvasLayer"]
+margin_left = 400.0
+margin_top = 1400.0
+margin_right = 1370.0
+margin_bottom = 1900.0
+theme = SubResource( 3 )
+custom_styles/disabled = ExtResource( 18 )
+disabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SchoolSliders" type="VBoxContainer" parent="CanvasLayer/SchoolPopUp"]
+margin_left = 54.5145
+margin_top = 63.0794
+margin_right = 579.514
+margin_bottom = 422.079
+rect_min_size = Vector2( 500, 300 )
+custom_constants/separation = 49
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Building9" type="Sprite" parent="CanvasLayer/SchoolPopUp/SchoolSliders"]
+position = Vector2( 719.285, 167.653 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 5 )
+
+[node name="PercentWellInsulated" type="HSlider" parent="CanvasLayer/SchoolPopUp/SchoolSliders"]
+margin_right = 524.0
+margin_bottom = 16.0
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/SchoolPopUp/SchoolSliders/PercentWellInsulated"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Well-insulated buildings w/ heat pumps:  "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SchoolHeating" type="OptionButton" parent="CanvasLayer/SchoolPopUp/SchoolSliders"]
+visible = false
+margin_right = 524.0
+margin_bottom = 34.0
+text = "School/hospital poorly insulated"
+items = [ "School/hospital poorly insulated", null, false, 0, null, "School/hospital medium-insulated", null, false, 1, null, "School/hospital well-insulated", null, false, 2, null, "School/hospital well-insulated + heat pump", null, false, 3, null ]
+selected = 0
+
+[node name="PercentKids" type="HSlider" parent="CanvasLayer/SchoolPopUp/SchoolSliders"]
+margin_top = 65.0
+margin_right = 524.0
+margin_bottom = 81.0
+value = 50.0
+
+[node name="Label" type="Label" parent="CanvasLayer/SchoolPopUp/SchoolSliders/PercentKids"]
+margin_top = -35.0
+margin_right = 521.0
+text = "Percent of population in school"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SchoolsqrFtPerStudent" type="HSlider" parent="CanvasLayer/SchoolPopUp/SchoolSliders"]
+margin_top = 130.0
+margin_right = 524.0
+margin_bottom = 146.0
+value = 50.0
+
+[node name="Label" type="Label" parent="CanvasLayer/SchoolPopUp/SchoolSliders/SchoolsqrFtPerStudent"]
+margin_top = -35.0
+margin_right = 521.0
+text = "Floor area per student: 10 m/2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SchoolEnergyUsageForOther" type="HSlider" parent="CanvasLayer/SchoolPopUp/SchoolSliders"]
+margin_top = 195.0
+margin_right = 524.0
+margin_bottom = 211.0
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/SchoolPopUp/SchoolSliders/SchoolEnergyUsageForOther"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Extra energy usage for schools"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HospsqrFtPerPerson" type="HSlider" parent="CanvasLayer/SchoolPopUp/SchoolSliders"]
+margin_top = 260.0
+margin_right = 524.0
+margin_bottom = 276.0
+step = 0.1
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/SchoolPopUp/SchoolSliders/HospsqrFtPerPerson"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Medical floor area per person"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HospExtra" type="HSlider" parent="CanvasLayer/SchoolPopUp/SchoolSliders"]
+margin_top = 325.0
+margin_right = 524.0
+margin_bottom = 341.0
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/SchoolPopUp/SchoolSliders/HospExtra"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Medical extra energy usage"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SchoolHeating2" type="OptionButton" parent="CanvasLayer/SchoolPopUp/SchoolSliders"]
+visible = false
+margin_top = 408.0
+margin_right = 524.0
+margin_bottom = 442.0
+text = "Poorly insulated"
+items = [ "Poorly insulated", null, false, 0, null, "", null, false, 1, null, "", null, false, 2, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToResidence2" type="Button" parent="CanvasLayer/SchoolPopUp"]
+margin_left = 776.0
+margin_top = -95.0
+margin_right = 972.0
+margin_bottom = -9.0
+theme = SubResource( 3 )
+custom_styles/hover = ExtResource( 18 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/disabled = ExtResource( 18 )
+custom_styles/normal = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
+text = "Next"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="School" type="Button" parent="CanvasLayer/SchoolPopUp"]
+margin_left = 12.991
+margin_top = -100.0
+margin_right = 512.991
+margin_bottom = -10.0
+theme = SubResource( 3 )
+custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
+disabled = true
+text = "School/Medical"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CommercialPopUp" type="Button" parent="CanvasLayer"]
+margin_left = -600.0
+margin_top = 1400.0
+margin_right = 370.0
+margin_bottom = 1900.0
+theme = SubResource( 3 )
+custom_styles/disabled = ExtResource( 18 )
+disabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CommercialSliders" type="VBoxContainer" parent="CanvasLayer/CommercialPopUp"]
+margin_left = 52.5579
+margin_top = 52.318
+margin_right = 577.557
+margin_bottom = 411.318
+rect_min_size = Vector2( 500, 300 )
+custom_constants/separation = 49
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Building9" type="Sprite" parent="CanvasLayer/CommercialPopUp/CommercialSliders"]
+position = Vector2( 723.687, 175.968 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 10 )
+
+[node name="CommercialHeating" type="OptionButton" parent="CanvasLayer/CommercialPopUp/CommercialSliders"]
+visible = false
+margin_right = 524.0
+margin_bottom = 34.0
+text = "School poorly insulated"
+items = [ "School poorly insulated", null, false, 0, null, "School medium-insulated", null, false, 1, null, "School well-insulated", null, false, 2, null, "School well-insulated + heat pump", null, false, 3, null ]
+selected = 0
+
+[node name="CommercialArea" type="HSlider" parent="CanvasLayer/CommercialPopUp/CommercialSliders"]
+margin_right = 524.0
+margin_bottom = 16.0
+value = 50.0
+
+[node name="Label" type="Label" parent="CanvasLayer/CommercialPopUp/CommercialSliders/CommercialArea"]
+margin_top = -35.0
+margin_right = 521.0
+text = "Commercial area per person: 25 m/2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShippingBoat" type="HSlider" parent="CanvasLayer/CommercialPopUp/CommercialSliders"]
+margin_top = 65.0
+margin_right = 524.0
+margin_bottom = 81.0
+value = 50.0
+
+[node name="Label" type="Label" parent="CanvasLayer/CommercialPopUp/CommercialSliders/ShippingBoat"]
+margin_top = -35.0
+margin_right = 521.0
+text = "Shipping by boat: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShippingTrain" type="HSlider" parent="CanvasLayer/CommercialPopUp/CommercialSliders"]
+margin_top = 130.0
+margin_right = 524.0
+margin_bottom = 146.0
+value = 50.0
+
+[node name="Label" type="Label" parent="CanvasLayer/CommercialPopUp/CommercialSliders/ShippingTrain"]
+margin_top = -35.0
+margin_right = 521.0
+text = "Shipping by rail: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShippingRoad" type="HSlider" parent="CanvasLayer/CommercialPopUp/CommercialSliders"]
+margin_top = 195.0
+margin_right = 524.0
+margin_bottom = 211.0
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/CommercialPopUp/CommercialSliders/ShippingRoad"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Shipping by road: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToMobility" type="Button" parent="CanvasLayer/CommercialPopUp"]
+margin_left = 776.0
+margin_top = -95.0
+margin_right = 972.0
+margin_bottom = -9.0
+theme = SubResource( 3 )
+custom_styles/hover = ExtResource( 18 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/disabled = ExtResource( 18 )
+custom_styles/normal = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
+text = "Next"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="School" type="Button" parent="CanvasLayer/CommercialPopUp"]
+margin_left = 12.991
+margin_top = -100.0
+margin_right = 512.991
+margin_bottom = -10.0
+theme = SubResource( 3 )
+custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
+disabled = true
+text = "Commercial"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MobilityPopUp" type="Button" parent="CanvasLayer"]
+margin_left = 400.0
+margin_top = 1400.0
+margin_right = 1370.0
+margin_bottom = 1900.0
+theme = SubResource( 3 )
+custom_styles/disabled = ExtResource( 18 )
+disabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MobilitySliders" type="VBoxContainer" parent="CanvasLayer/MobilityPopUp"]
+margin_left = 54.5145
+margin_top = 63.0794
+margin_right = 579.514
+margin_bottom = 422.079
+rect_min_size = Vector2( 500, 300 )
+custom_constants/separation = 49
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Building9" type="Sprite" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
+position = Vector2( 719.285, 167.653 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 5 )
+
+[node name="MobilityAir" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
+margin_right = 524.0
+margin_bottom = 16.0
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Distance travelled by air: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SchoolHeating" type="OptionButton" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
+visible = false
+margin_right = 524.0
+margin_bottom = 34.0
+text = "School/hospital poorly insulated"
+items = [ "School/hospital poorly insulated", null, false, 0, null, "School/hospital medium-insulated", null, false, 1, null, "School/hospital well-insulated", null, false, 2, null, "School/hospital well-insulated + heat pump", null, false, 3, null ]
+selected = 0
+
+[node name="MobilityBus" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
+margin_top = 65.0
+margin_right = 524.0
+margin_bottom = 81.0
+value = 50.0
+
+[node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus"]
+margin_top = -35.0
+margin_right = 521.0
+text = "Distance travelled by bus
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MobilityRail" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
+margin_top = 130.0
+margin_right = 524.0
+margin_bottom = 146.0
+value = 50.0
+
+[node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail"]
+margin_top = -35.0
+margin_right = 521.0
+text = "Distance travelled by rail"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MobilityCar" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
+margin_top = 195.0
+margin_right = 524.0
+margin_bottom = 211.0
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Distance travelled by car
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Car sharing" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
+margin_top = 260.0
+margin_right = 524.0
+margin_bottom = 276.0
+step = 0.1
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/Car sharing"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Number of people per car"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Car fuel efficiency" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
+margin_top = 325.0
+margin_right = 524.0
+margin_bottom = 341.0
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/Car fuel efficiency"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Car fuel efficiency"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SchoolHeating2" type="OptionButton" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
+visible = false
+margin_top = 408.0
+margin_right = 524.0
+margin_bottom = 442.0
+text = "Poorly insulated"
+items = [ "Poorly insulated", null, false, 0, null, "", null, false, 1, null, "", null, false, 2, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToBeginning" type="Button" parent="CanvasLayer/MobilityPopUp"]
+margin_left = 776.0
+margin_top = -95.0
+margin_right = 972.0
+margin_bottom = -9.0
+theme = SubResource( 3 )
+custom_styles/hover = ExtResource( 18 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/disabled = ExtResource( 18 )
+custom_styles/normal = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
+text = "Next"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="School" type="Button" parent="CanvasLayer/MobilityPopUp"]
+margin_left = 12.991
+margin_top = -100.0
+margin_right = 512.991
+margin_bottom = -10.0
+theme = SubResource( 3 )
+custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
+disabled = true
+text = "Transportation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="UICity" parent="CanvasLayer" instance=ExtResource( 19 )]
 
 [node name="CO2UICity" parent="CanvasLayer" instance=ExtResource( 19 )]
@@ -1133,10 +1589,10 @@ visible = false
 
 [node name="CO2Button" type="Button" parent="CanvasLayer"]
 anchor_right = 1.0
-margin_left = 559.313
-margin_top = 78.8221
-margin_right = -364.687
-margin_bottom = 113.822
+margin_left = 560.496
+margin_top = 110.0
+margin_right = -363.504
+margin_bottom = 145.0
 theme = ExtResource( 21 )
 custom_fonts/font = ExtResource( 17 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -1147,10 +1603,10 @@ __meta__ = {
 
 [node name="PowerButton" type="Button" parent="CanvasLayer"]
 anchor_right = 1.0
-margin_left = 682.024
-margin_top = 78.8896
-margin_right = -241.976
-margin_bottom = 113.89
+margin_left = 683.207
+margin_top = 110.0
+margin_right = -240.793
+margin_bottom = 145.0
 theme = ExtResource( 21 )
 custom_fonts/font = ExtResource( 17 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -1177,7 +1633,7 @@ __meta__ = {
 [connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders/Hotwatertemp" to="." method="_on_Hotwatertemp_value_changed"]
 [connection signal="item_selected" from="CanvasLayer/WaterPopUp/WaterSliders/ClothesWashTemp" to="." method="_on_ClothesWashTemp_item_selected"]
 [connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders/WaterUsage" to="." method="_on_WaterUsage_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders/HeatedWater" to="." method="_on_HeatedWater_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders/ClothesBought" to="." method="_on_ClothesBought_value_changed"]
 [connection signal="pressed" from="CanvasLayer/WaterPopUp/ToCooking" to="." method="_on_ToCooking_pressed"]
 [connection signal="item_selected" from="CanvasLayer/CookingPopUp/CookingSliders/StoveType" to="." method="_on_StoveType_item_selected"]
 [connection signal="value_changed" from="CanvasLayer/CookingPopUp/CookingSliders/FractCooked" to="." method="_on_FractCooked_value_changed"]
@@ -1188,3 +1644,14 @@ __meta__ = {
 [connection signal="value_changed" from="CanvasLayer/TechPopUp/TechSliders/PhoneLifetime" to="." method="_on_PhoneLifetime_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/TechPopUp/TechSliders/LaptopUsage" to="." method="_on_LaptopUsage_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/TechPopUp/TechSliders/LaptopLifetime" to="." method="_on_LaptopLifetime_value_changed"]
+[connection signal="pressed" from="CanvasLayer/TechPopUp/ToSchool" to="." method="_on_ToSchool_pressed"]
+[connection signal="value_changed" from="CanvasLayer/SchoolPopUp/SchoolSliders/PercentWellInsulated" to="." method="_on_PercentWellInsulated_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/SchoolPopUp/SchoolSliders/PercentKids" to="." method="_on_PercentKids_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/SchoolPopUp/SchoolSliders/SchoolsqrFtPerStudent" to="." method="_on_SchoolsqrFtPerStudent_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/SchoolPopUp/SchoolSliders/SchoolEnergyUsageForOther" to="." method="_on_SchoolEnergyUsageForOther_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/SchoolPopUp/SchoolSliders/HospsqrFtPerPerson" to="." method="_on_HospsqrFtPerPerson_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/SchoolPopUp/SchoolSliders/HospExtra" to="." method="_on_HospExtra_value_changed"]
+[connection signal="pressed" from="CanvasLayer/SchoolPopUp/ToResidence2" to="." method="_on_ToResidence2_pressed"]
+[connection signal="value_changed" from="CanvasLayer/CommercialPopUp/CommercialSliders/CommercialArea" to="." method="_on_CommercialArea_value_changed"]
+[connection signal="pressed" from="CanvasLayer/CommercialPopUp/ToMobility" to="." method="_on_ToMobility_pressed"]
+[connection signal="pressed" from="CanvasLayer/MobilityPopUp/ToBeginning" to="." method="_on_ToBeginning_pressed"]

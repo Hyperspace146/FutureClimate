@@ -49,8 +49,8 @@ __meta__ = {
 [node name="Label" type="Label" parent="Control/ByGHGButton"]
 margin_right = 242.0
 margin_bottom = 79.0
-custom_colors/font_color = Color( 0.345098, 0.0784314, 0.666667, 1 )
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.345098, 0.0784314, 0.666667, 1 )
 text = "By  Gas"
 align = 1
 valign = 1
@@ -73,8 +73,8 @@ __meta__ = {
 [node name="Label2" type="Label" parent="Control/BySectorButton"]
 margin_right = 245.0
 margin_bottom = 79.0
-custom_colors/font_color = Color( 0.345098, 0.0784314, 0.666667, 1 )
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.345098, 0.0784314, 0.666667, 1 )
 text = "By Sector"
 align = 1
 valign = 1
@@ -97,8 +97,8 @@ __meta__ = {
 [node name="Label3" type="Label" parent="Control/OneBarButton"]
 margin_right = 287.0
 margin_bottom = 79.0
-custom_colors/font_color = Color( 0.345098, 0.0784314, 0.666667, 1 )
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.345098, 0.0784314, 0.666667, 1 )
 text = "Simple Mode"
 align = 1
 valign = 1
@@ -122,8 +122,8 @@ __meta__ = {
 [node name="Label4" type="Label" parent="Control/PlayGame"]
 margin_right = 290.0
 margin_bottom = 79.0
-custom_colors/font_color = Color( 0.345098, 0.0784314, 0.666667, 1 )
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.345098, 0.0784314, 0.666667, 1 )
 text = "Game Mode"
 align = 1
 valign = 1
@@ -148,7 +148,6 @@ __meta__ = {
 }
 
 [node name="Tween" type="Tween" parent="Music"]
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Control/ByGHGButton" to="." method="_on_ByGHGButton_pressed"]
 [connection signal="pressed" from="Control/BySectorButton" to="." method="_on_BySectorButton_pressed"]
