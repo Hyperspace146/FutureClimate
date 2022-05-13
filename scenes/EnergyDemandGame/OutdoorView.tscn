@@ -57,9 +57,6 @@ HSlider/styles/slider = SubResource( 2 )
 [node name="OutdoorView" type="Control"]
 theme = SubResource( 3 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -102,9 +99,6 @@ margin_right = 2316.0
 margin_bottom = 2627.0
 rect_rotation = -30.0
 color = Color( 0.2, 0.537255, 0.0627451, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect12" type="ColorRect" parent="Node2D"]
 margin_left = -1284.0
@@ -487,11 +481,11 @@ margin_top = -95.0
 margin_right = 972.0
 margin_bottom = -9.0
 theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 16 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
 custom_styles/disabled = ExtResource( 18 )
 custom_styles/normal = ExtResource( 18 )
-custom_fonts/font = ExtResource( 16 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -503,8 +497,8 @@ margin_top = -100.0
 margin_right = 505.0
 margin_bottom = -9.99999
 theme = SubResource( 3 )
-custom_styles/disabled = ExtResource( 18 )
 custom_fonts/font = ExtResource( 16 )
+custom_styles/disabled = ExtResource( 18 )
 disabled = true
 text = "Construction"
 __meta__ = {
@@ -717,11 +711,11 @@ margin_top = -95.0
 margin_right = 972.0
 margin_bottom = -9.0
 theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 16 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
 custom_styles/disabled = ExtResource( 18 )
 custom_styles/normal = ExtResource( 18 )
-custom_fonts/font = ExtResource( 16 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -733,8 +727,8 @@ margin_top = -100.0
 margin_right = 506.208
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_styles/disabled = ExtResource( 18 )
 custom_fonts/font = ExtResource( 16 )
+custom_styles/disabled = ExtResource( 18 )
 disabled = true
 text = "Grocery"
 __meta__ = {
@@ -788,9 +782,6 @@ margin_top = -33.0
 margin_right = 526.0
 margin_bottom = -3.0
 text = "Shower length:                                  8 minutes"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Hotwatertemp" type="HSlider" parent="CanvasLayer/WaterPopUp/WaterSliders"]
 visible = false
@@ -842,9 +833,6 @@ margin_top = -34.0
 margin_right = 523.0
 margin_bottom = 1.0
 text = "Clothes bought/yr: 2 outfits"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ToCooking" type="Button" parent="CanvasLayer/WaterPopUp"]
 margin_left = 776.0
@@ -852,11 +840,11 @@ margin_top = -95.0
 margin_right = 972.0
 margin_bottom = -9.0
 theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 16 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
 custom_styles/disabled = ExtResource( 18 )
 custom_styles/normal = ExtResource( 18 )
-custom_fonts/font = ExtResource( 16 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -868,8 +856,8 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_styles/disabled = ExtResource( 18 )
 custom_fonts/font = ExtResource( 16 )
+custom_styles/disabled = ExtResource( 18 )
 disabled = true
 text = "Water & Clothes"
 __meta__ = {
@@ -972,11 +960,11 @@ margin_top = -95.0
 margin_right = 972.0
 margin_bottom = -9.0
 theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 16 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
 custom_styles/disabled = ExtResource( 18 )
 custom_styles/normal = ExtResource( 18 )
-custom_fonts/font = ExtResource( 16 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -988,8 +976,8 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_styles/disabled = ExtResource( 18 )
 custom_fonts/font = ExtResource( 16 )
+custom_styles/disabled = ExtResource( 18 )
 disabled = true
 text = "Cooking"
 __meta__ = {
@@ -1102,11 +1090,11 @@ margin_top = -95.0
 margin_right = 972.0
 margin_bottom = -9.0
 theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 16 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
 custom_styles/disabled = ExtResource( 18 )
 custom_styles/normal = ExtResource( 18 )
-custom_fonts/font = ExtResource( 16 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1118,8 +1106,8 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_styles/disabled = ExtResource( 18 )
 custom_fonts/font = ExtResource( 16 )
+custom_styles/disabled = ExtResource( 18 )
 disabled = true
 text = "Tech"
 __meta__ = {
@@ -1268,11 +1256,11 @@ margin_top = -95.0
 margin_right = 972.0
 margin_bottom = -9.0
 theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 16 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
 custom_styles/disabled = ExtResource( 18 )
 custom_styles/normal = ExtResource( 18 )
-custom_fonts/font = ExtResource( 16 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1284,8 +1272,8 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_styles/disabled = ExtResource( 18 )
 custom_fonts/font = ExtResource( 16 )
+custom_styles/disabled = ExtResource( 18 )
 disabled = true
 text = "School/Medical"
 __meta__ = {
@@ -1390,11 +1378,11 @@ margin_top = -95.0
 margin_right = 972.0
 margin_bottom = -9.0
 theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 16 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
 custom_styles/disabled = ExtResource( 18 )
 custom_styles/normal = ExtResource( 18 )
-custom_fonts/font = ExtResource( 16 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1406,8 +1394,8 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_styles/disabled = ExtResource( 18 )
 custom_fonts/font = ExtResource( 16 )
+custom_styles/disabled = ExtResource( 18 )
 disabled = true
 text = "Commercial"
 __meta__ = {
@@ -1422,9 +1410,6 @@ margin_bottom = 1900.0
 theme = SubResource( 3 )
 custom_styles/disabled = ExtResource( 18 )
 disabled = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MobilitySliders" type="VBoxContainer" parent="CanvasLayer/MobilityPopUp"]
 margin_left = 54.5145
@@ -1433,12 +1418,9 @@ margin_right = 579.514
 margin_bottom = 422.079
 rect_min_size = Vector2( 500, 300 )
 custom_constants/separation = 49
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Building9" type="Sprite" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
-position = Vector2( 719.285, 167.653 )
+position = Vector2( 726.285, 167.653 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 5 )
 
@@ -1452,9 +1434,23 @@ margin_top = -33.0
 margin_right = 526.0
 margin_bottom = -3.0
 text = "Distance travelled by air: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="SizeLabel" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir"]
+margin_left = 1.0
+margin_top = 21.0
+margin_right = 602.0
+margin_bottom = 62.0
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 20 )
+text = "0km                                                                                                            3000 km
+"
+
+[node name="Label2" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir"]
+margin_left = 558.485
+margin_top = -6.07935
+margin_right = 598.485
+margin_bottom = 21.9207
+text = "0 % total distance traveled"
 
 [node name="SchoolHeating" type="OptionButton" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
 visible = false
@@ -1465,6 +1461,8 @@ items = [ "School/hospital poorly insulated", null, false, 0, null, "School/hosp
 selected = 0
 
 [node name="MobilityBus" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
+anchor_top = 0.0417828
+anchor_bottom = 0.0417828
 margin_top = 65.0
 margin_right = 524.0
 margin_bottom = 81.0
@@ -1472,14 +1470,22 @@ value = 50.0
 
 [node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus"]
 margin_top = -35.0
-margin_right = 521.0
+margin_right = 282.0
+margin_bottom = 24.0
 text = "Distance travelled by bus
 "
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="SizeLabel" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus"]
+margin_top = 22.0
+margin_right = 601.0
+margin_bottom = 50.0
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 20 )
+text = "0 km                                                                                                        20000 km"
 
 [node name="MobilityRail" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
+anchor_top = 0.0891366
+anchor_bottom = 0.0891366
 margin_top = 130.0
 margin_right = 524.0
 margin_bottom = 146.0
@@ -1489,27 +1495,42 @@ value = 50.0
 margin_top = -35.0
 margin_right = 521.0
 text = "Distance travelled by rail"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="SizeLabel" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail"]
+margin_top = 22.0
+margin_right = 601.0
+margin_bottom = 50.0
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 20 )
+text = "0 km                                                                                                          1500 km"
 
 [node name="MobilityCar" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
+anchor_top = 0.133705
+anchor_bottom = 0.133705
 margin_top = 195.0
 margin_right = 524.0
 margin_bottom = 211.0
 value = 10.0
 
 [node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
+margin_top = -37.0
+margin_right = 276.0
+margin_bottom = 22.0
 text = "Distance travelled by car
 "
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="SizeLabel" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar"]
+margin_left = -2.0
+margin_top = 22.0
+margin_right = 599.0
+margin_bottom = 50.0
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 20 )
+text = "0 km                                                                                                         20000 km"
 
 [node name="Car sharing" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
+anchor_top = 0.172702
+anchor_bottom = 0.172702
 margin_top = 260.0
 margin_right = 524.0
 margin_bottom = 276.0
@@ -1521,11 +1542,10 @@ margin_top = -33.0
 margin_right = 526.0
 margin_bottom = -3.0
 text = "Number of people per car"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Car fuel efficiency" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
+anchor_top = 0.16156
+anchor_bottom = 0.16156
 margin_top = 325.0
 margin_right = 524.0
 margin_bottom = 341.0
@@ -1558,11 +1578,11 @@ margin_top = -95.0
 margin_right = 972.0
 margin_bottom = -9.0
 theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 16 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
 custom_styles/disabled = ExtResource( 18 )
 custom_styles/normal = ExtResource( 18 )
-custom_fonts/font = ExtResource( 16 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1574,8 +1594,8 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_styles/disabled = ExtResource( 18 )
 custom_fonts/font = ExtResource( 16 )
+custom_styles/disabled = ExtResource( 18 )
 disabled = true
 text = "Transportation"
 __meta__ = {
@@ -1594,8 +1614,8 @@ margin_top = 110.0
 margin_right = -363.504
 margin_bottom = 145.0
 theme = ExtResource( 21 )
-custom_fonts/font = ExtResource( 17 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 17 )
 text = "CO2"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1608,12 +1628,13 @@ margin_top = 110.0
 margin_right = -240.793
 margin_bottom = 145.0
 theme = ExtResource( 21 )
-custom_fonts/font = ExtResource( 17 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 17 )
 text = "Power"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="item_selected" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/ClimateZone" to="." method="_on_ClimateZone_item_selected"]
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/SquareFootage" to="." method="_on_SquareFootage_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/PeoplePerResidence" to="." method="_on_PeoplePerResidence_value_changed"]

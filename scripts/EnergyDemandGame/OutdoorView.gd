@@ -53,6 +53,14 @@ onready var ShippingBoat = get_node("CanvasLayer/CommercialPopUp/CommercialSlide
 onready var ShippingTrain = get_node("CanvasLayer/CommercialPopUp/CommercialSliders/ShippingTrain")
 onready var ShippingRoad = get_node("CanvasLayer/CommercialPopUp/CommercialSliders/ShippingRoad")
 
+#mobility - Carmen
+onready var distAIR = get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir")
+onready var distBUS = get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus")
+onready var distRAIL = get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail")
+onready var distCAR = get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar")
+#onready var PeoplePerCar = get_node("CanvasLayer/MobilityPopUp/MobilitySliders/Car sharing") 
+#onready var CarEff. = get_node("CanvasLayer/MobilityPopUp/MobilitySliders/Car Fuel efficiency")
+
 #Calculated quantities
 var heating = 0
 var illumination = 0
@@ -69,6 +77,8 @@ var energyForSchool = 0
 var energyForHospital = 0
 onready var totalPower = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 onready var sumVector = [1, 1, 1, 1, 1, 1, 1, 1]
+# Calculated quantities mobility - Carmen
+var percentAirTravel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -190,6 +200,7 @@ func _ready():
 	#ShippingIntensity.value = 
 	#ShippingIntensity.min_value = 
 	#ShippingIntensity.max_value = 
+	
 	#MEDICAL
 	#1.6 m2/cap * 3 for other medical space
 	HospsqrFtPerPerson.min_value = 0.0
@@ -198,6 +209,21 @@ func _ready():
 	HospExtra.min_value = 0
 	HospExtra.max_value = 45
 	HospExtra.value = 15
+	
+	#MOBILITY - Carmen
+	distAIR.min_value = 0.0 #km
+	distAIR.max_value = 3000 #km
+	distAIR.value = 2197 #km
+	distRAIL.min_value = 0.0 #km
+	distRAIL.max_value = 1500 #km
+	distRAIL.value = 152 #km
+	distBUS.min_value = 0.0 #km
+	distBUS.max_value = 20000 #km
+	distBUS.value = 1089 #km
+	distCAR.min_value = 0.0 #km
+	distCAR.max_value = 20000 #km
+	distCAR.value = 19103 #km
+	var totalmobility = 22677 #km
 	set_waterheatingcooking()
 	set_energyForFoodChoice()
 	set_heating()
@@ -531,7 +557,15 @@ func _on_ToMobility_pressed():
 	get_node("CanvasLayer/CommercialPopUp").visible = false
 	get_node("CanvasLayer/MobilityPopUp").visible = true
 	get_node("CanvasLayer/MobilityPopUp").rect_position = Vector2(29,160)
-
+	
+	#MOBILITY LABELS - Carmen
+func on_MobilityAir_value_changed(value):
+	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value
+	var percentAirTravel = distAIR.value / totalmobility
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir/Label2").text = str(percentAirTravel) + "% total distance traveled"
+	
+	
+	
 func _on_ToBeginning_pressed():
 	get_node("CanvasLayer/MobilityPopUp").visible = false
 	get_node("CanvasLayer/ConstructionPopUp").visible = true
