@@ -215,7 +215,7 @@ func totalpowercalc():
 func set_energyForFoodChoice():
 	var PTDFract = 150.0 + 20.0*100.0/get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal").value + 130.0/100.0*get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed").value
 	energyForFoodChoice = (1.0 + FractWaste.value/100.0) * (100.0 * 0.2 * (1.0 + 23.0*CalorieFractBeef.value/100.0 + 10.0*CalorieFractPoultry.value/100.0 + 5.0*CalorieFractDairy.value/100.0) + 100.0 * 0.23 * (PTDFract)/100.0)
-	get_node("CanvasLayer/UICity/FoodLabel").text = "Food: " + str("%3.0f" % energyForFoodChoice) + " W"
+	get_node("CanvasLayer/UICity/FoodLabel").text = "Food:   " + str("%3.0f" % energyForFoodChoice) + " W"
 	totalPower[0] = energyForFoodChoice
 	totalpowercalc()
 
@@ -324,7 +324,7 @@ func set_services():
 	var med = (schmedEmb* HospsqrFtPerPerson.value +HospExtra.value + 9.0 * HospsqrFtPerPerson.value * 40.0*80.0/70.0/31.536)
 	var comm = (schmedEmb* 2.0* CommercialArea.value + 3.0 * CommercialArea.value * 40.0*80.0/70.0/31.536)*percentKids.value/100.0
 	services = 6.0 + (WaterUsage.value + showerLength.value * 8.0 + 20.0)*0.056*waterfactor + 5.0 + 25.0 + school + med + comm
-	get_node("CanvasLayer/UICity/ServicesLabel").text = "Services: " + str("%3.0f" % services) + " W"
+	get_node("CanvasLayer/UICity/ServicesLabel").text = "Services:   " + str("%3.0f" % services) + " W"
 	totalPower[5] = services
 	totalpowercalc()
 	

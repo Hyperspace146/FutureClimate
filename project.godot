@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="Climate_model"
 config/description="Calculates future warming based emissions. "
-run/main_scene="res://scenes/MainScene.tscn"
+run/main_scene="res://scenes/EnergyDemandGame/OutdoorView.tscn"
 boot_splash/image="res://sprites/logo.png"
 config/icon="res://sprites/FutureClimateIcon.png"
 
