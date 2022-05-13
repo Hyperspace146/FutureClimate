@@ -481,11 +481,11 @@ margin_top = -95.0
 margin_right = 972.0
 margin_bottom = -9.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
 custom_styles/disabled = ExtResource( 18 )
 custom_styles/normal = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -497,8 +497,8 @@ margin_top = -100.0
 margin_right = 505.0
 margin_bottom = -9.99999
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 disabled = true
 text = "Construction"
 __meta__ = {
@@ -711,11 +711,11 @@ margin_top = -95.0
 margin_right = 972.0
 margin_bottom = -9.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
 custom_styles/disabled = ExtResource( 18 )
 custom_styles/normal = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -727,8 +727,8 @@ margin_top = -100.0
 margin_right = 506.208
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 disabled = true
 text = "Grocery"
 __meta__ = {
@@ -840,11 +840,11 @@ margin_top = -95.0
 margin_right = 972.0
 margin_bottom = -9.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
 custom_styles/disabled = ExtResource( 18 )
 custom_styles/normal = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -856,8 +856,8 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 disabled = true
 text = "Water & Clothes"
 __meta__ = {
@@ -960,11 +960,11 @@ margin_top = -95.0
 margin_right = 972.0
 margin_bottom = -9.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
 custom_styles/disabled = ExtResource( 18 )
 custom_styles/normal = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -976,8 +976,8 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 disabled = true
 text = "Cooking"
 __meta__ = {
@@ -1090,11 +1090,11 @@ margin_top = -95.0
 margin_right = 972.0
 margin_bottom = -9.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
 custom_styles/disabled = ExtResource( 18 )
 custom_styles/normal = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1106,8 +1106,8 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 disabled = true
 text = "Tech"
 __meta__ = {
@@ -1256,11 +1256,11 @@ margin_top = -95.0
 margin_right = 972.0
 margin_bottom = -9.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
 custom_styles/disabled = ExtResource( 18 )
 custom_styles/normal = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1272,8 +1272,8 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 disabled = true
 text = "School/Medical"
 __meta__ = {
@@ -1378,11 +1378,11 @@ margin_top = -95.0
 margin_right = 972.0
 margin_bottom = -9.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
 custom_styles/disabled = ExtResource( 18 )
 custom_styles/normal = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1394,8 +1394,8 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 disabled = true
 text = "Commercial"
 __meta__ = {
@@ -1434,6 +1434,9 @@ margin_top = -33.0
 margin_right = 526.0
 margin_bottom = -3.0
 text = "Distance travelled by air: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SizeLabel" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir"]
 margin_left = 1.0
@@ -1442,15 +1445,21 @@ margin_right = 602.0
 margin_bottom = 62.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
-text = "0km                                                                                                            3000 km
+text = "0km                                                                                                         20000 km
 "
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label2" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir"]
-margin_left = 558.485
+margin_left = 553.594
 margin_top = -6.07935
-margin_right = 598.485
+margin_right = 849.594
 margin_bottom = 21.9207
 text = "0 % total distance traveled"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SchoolHeating" type="OptionButton" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
 visible = false
@@ -1461,8 +1470,6 @@ items = [ "School/hospital poorly insulated", null, false, 0, null, "School/hosp
 selected = 0
 
 [node name="MobilityBus" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
-anchor_top = 0.0417828
-anchor_bottom = 0.0417828
 margin_top = 65.0
 margin_right = 524.0
 margin_bottom = 81.0
@@ -1483,9 +1490,17 @@ size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
 text = "0 km                                                                                                        20000 km"
 
+[node name="Label2" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus"]
+margin_left = 553.593
+margin_top = -3.57605
+margin_right = 849.593
+margin_bottom = 24.424
+text = "0 % total distance traveled"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MobilityRail" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
-anchor_top = 0.0891366
-anchor_bottom = 0.0891366
 margin_top = 130.0
 margin_right = 524.0
 margin_bottom = 146.0
@@ -1502,11 +1517,19 @@ margin_right = 601.0
 margin_bottom = 50.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
-text = "0 km                                                                                                          1500 km"
+text = "0 km                                                                                                        20000 km"
+
+[node name="Label2" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail"]
+margin_left = 555.061
+margin_top = -6.45312
+margin_right = 851.061
+margin_bottom = 21.5469
+text = "0 % total distance traveled"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MobilityCar" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
-anchor_top = 0.133705
-anchor_bottom = 0.133705
 margin_top = 195.0
 margin_right = 524.0
 margin_bottom = 211.0
@@ -1528,9 +1551,17 @@ size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
 text = "0 km                                                                                                         20000 km"
 
+[node name="Label2" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar"]
+margin_left = 556.039
+margin_top = -4.92798
+margin_right = 852.039
+margin_bottom = 23.0721
+text = "0 % total distance traveled"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Car sharing" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
-anchor_top = 0.172702
-anchor_bottom = 0.172702
 margin_top = 260.0
 margin_right = 524.0
 margin_bottom = 276.0
@@ -1544,8 +1575,6 @@ margin_bottom = -3.0
 text = "Number of people per car"
 
 [node name="Car fuel efficiency" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
-anchor_top = 0.16156
-anchor_bottom = 0.16156
 margin_top = 325.0
 margin_right = 524.0
 margin_bottom = 341.0
@@ -1555,7 +1584,7 @@ value = 10.0
 margin_top = -33.0
 margin_right = 526.0
 margin_bottom = -3.0
-text = "Car fuel efficiency"
+text = "Car efficiency"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1578,11 +1607,11 @@ margin_top = -95.0
 margin_right = 972.0
 margin_bottom = -9.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 18 )
 custom_styles/disabled = ExtResource( 18 )
 custom_styles/normal = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1594,8 +1623,8 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 disabled = true
 text = "Transportation"
 __meta__ = {
@@ -1614,8 +1643,8 @@ margin_top = 110.0
 margin_right = -363.504
 margin_bottom = 145.0
 theme = ExtResource( 21 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "CO2"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1628,13 +1657,12 @@ margin_top = 110.0
 margin_right = -240.793
 margin_bottom = 145.0
 theme = ExtResource( 21 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Power"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="item_selected" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/ClimateZone" to="." method="_on_ClimateZone_item_selected"]
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/SquareFootage" to="." method="_on_SquareFootage_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/PeoplePerResidence" to="." method="_on_PeoplePerResidence_value_changed"]
@@ -1675,4 +1703,10 @@ __meta__ = {
 [connection signal="pressed" from="CanvasLayer/SchoolPopUp/ToResidence2" to="." method="_on_ToResidence2_pressed"]
 [connection signal="value_changed" from="CanvasLayer/CommercialPopUp/CommercialSliders/CommercialArea" to="." method="_on_CommercialArea_value_changed"]
 [connection signal="pressed" from="CanvasLayer/CommercialPopUp/ToMobility" to="." method="_on_ToMobility_pressed"]
+[connection signal="value_changed" from="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir" to="." method="_on_MobilityAir_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus" to="." method="_on_MobilityBus_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail" to="." method="_on_MobilityRail_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar" to="." method="_on_MobilityCar_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/MobilityPopUp/MobilitySliders/Car sharing" to="." method="_on_Car_sharing_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/MobilityPopUp/MobilitySliders/Car fuel efficiency" to="." method="_on_Car_fuel_efficiency_value_changed"]
 [connection signal="pressed" from="CanvasLayer/MobilityPopUp/ToBeginning" to="." method="_on_ToBeginning_pressed"]

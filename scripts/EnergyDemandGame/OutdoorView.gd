@@ -76,7 +76,6 @@ var clotheshotwater = 0
 var energyForSchool = 0
 var energyForHospital = 0
 onready var totalPower = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-onready var sumVector = [1, 1, 1, 1, 1, 1, 1, 1]
 # Calculated quantities mobility - Carmen
 var percentAirTravel
 
@@ -212,10 +211,10 @@ func _ready():
 	
 	#MOBILITY - Carmen
 	distAIR.min_value = 0.0 #km
-	distAIR.max_value = 3000 #km
+	distAIR.max_value = 20000 #km
 	distAIR.value = 2197 #km
 	distRAIL.min_value = 0.0 #km
-	distRAIL.max_value = 1500 #km
+	distRAIL.max_value = 20000 #km
 	distRAIL.value = 152 #km
 	distBUS.min_value = 0.0 #km
 	distBUS.max_value = 20000 #km
@@ -355,7 +354,7 @@ func set_services():
 	totalpowercalc()
 	
 func set_mobility(): 
-	var mobility = 0
+	var mobility = distAIR.value * 0.0 + distBUS.value * 0.0 + distRAIL.value * 0.0 + distCAR.value * 0.0
 	get_node("CanvasLayer/UICity/MobilityLabel").text = "Mobility: " + str(mobility) + " W"
 	totalPower[6] = mobility
 	totalpowercalc()
@@ -558,13 +557,6 @@ func _on_ToMobility_pressed():
 	get_node("CanvasLayer/MobilityPopUp").visible = true
 	get_node("CanvasLayer/MobilityPopUp").rect_position = Vector2(29,160)
 	
-	#MOBILITY LABELS - Carmen
-func on_MobilityAir_value_changed(value):
-	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value
-	var percentAirTravel = distAIR.value / totalmobility
-	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir/Label2").text = str(percentAirTravel) + "% total distance traveled"
-	
-	
 	
 func _on_ToBeginning_pressed():
 	get_node("CanvasLayer/MobilityPopUp").visible = false
@@ -576,3 +568,69 @@ func _on_ClothesBought_value_changed(value):
 	set_embodied()
 	get_node("CanvasLayer/WaterPopUp/WaterSliders/ClothesBought/Label").text = "Clothes bought: " + str(value) + " outfits per year"
 	pass # Replace with function body.
+
+	#MOBILITY LABELS - Carmen
+func _on_MobilityAir_value_changed(value):
+	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value
+	var percentAirTravel = distAIR.value / totalmobility * 100.0
+	var percentBusTravel = distBUS.value / totalmobility * 100.0
+	var percentRailTravel = distRAIL.value /totalmobility * 100.0
+	var percentCarTravel = distCAR.value / totalmobility * 100.0
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir/Label2").text = str("%1.2f" % percentAirTravel) + "% total distance traveled"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus/Label2").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail/Label2").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar/Label2").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir/Label").text = "Distance travelled by air: " + str(value) + " km"
+	set_mobility()
+
+
+func _on_MobilityBus_value_changed(value):
+	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value
+	var percentAirTravel = distAIR.value / totalmobility * 100.0
+	var percentBusTravel = distBUS.value / totalmobility * 100.0
+	var percentRailTravel = distRAIL.value /totalmobility * 100.0
+	var percentCarTravel = distCAR.value / totalmobility * 100.0
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir/Label2").text = str("%1.2f" % percentAirTravel) + "% total distance traveled"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus/Label2").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail/Label2").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar/Label2").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus/Label").text = "Distance travelled by bus: " + str(value) + " km"
+	set_mobility()
+
+
+func _on_MobilityRail_value_changed(value):
+	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value
+	var percentAirTravel = distAIR.value / totalmobility * 100.0
+	var percentBusTravel = distBUS.value / totalmobility * 100.0
+	var percentRailTravel = distRAIL.value /totalmobility * 100.0
+	var percentCarTravel = distCAR.value / totalmobility * 100.0
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir/Label2").text = str("%1.2f" % percentAirTravel) + "% total distance traveled"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus/Label2").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail/Label2").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar/Label2").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail/Label").text = "Distance travelled by rail: " + str(value) + " km"
+	set_mobility()
+
+
+
+func _on_MobilityCar_value_changed(value):
+	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value
+	var percentAirTravel = distAIR.value / totalmobility * 100.0
+	var percentBusTravel = distBUS.value / totalmobility * 100.0
+	var percentRailTravel = distRAIL.value /totalmobility * 100.0
+	var percentCarTravel = distCAR.value / totalmobility * 100.0
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir/Label2").text = str("%1.2f" % percentAirTravel) + "% total distance traveled"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus/Label2").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail/Label2").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar/Label2").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar/Label").text = "Distance travelled by car: " + str(value) + " km"
+	set_mobility()
+
+func _on_Car_sharing_value_changed(value):
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/Car sharing/Label").text = "Number of people per car: " + str(value)
+	set_mobility()
+
+func _on_Car_fuel_efficiency_value_changed(value):
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/Car fuel efficiency/Label").text = "Car efficiency: " + str(value)
+	set_mobility()
+
