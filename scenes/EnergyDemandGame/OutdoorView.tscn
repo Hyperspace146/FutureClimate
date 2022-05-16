@@ -1733,9 +1733,9 @@ items = [ "School/hospital poorly insulated", null, false, 0, null, "School/hosp
 selected = 0
 
 [node name="MobilityBus" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
-margin_top = 80.0
+margin_top = 65.0
 margin_right = 524.0
-margin_bottom = 96.0
+margin_bottom = 81.0
 value = 50.0
 
 [node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus"]
@@ -1764,9 +1764,9 @@ __meta__ = {
 }
 
 [node name="MobilityRail" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
-margin_top = 160.0
+margin_top = 130.0
 margin_right = 524.0
-margin_bottom = 176.0
+margin_bottom = 146.0
 value = 50.0
 
 [node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail"]
@@ -1793,9 +1793,9 @@ __meta__ = {
 }
 
 [node name="MobilityCar" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
-margin_top = 240.0
+margin_top = 195.0
 margin_right = 524.0
-margin_bottom = 256.0
+margin_bottom = 211.0
 value = 10.0
 
 [node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar"]
@@ -1825,9 +1825,9 @@ __meta__ = {
 }
 
 [node name="MobilityNonMotorized" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
-margin_top = 320.0
+margin_top = 260.0
 margin_right = 524.0
-margin_bottom = 336.0
+margin_bottom = 276.0
 value = 10.0
 
 [node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityNonMotorized"]
@@ -2229,7 +2229,7 @@ __meta__ = {
 position = Vector2( 37, 13 )
 frames = ExtResource( 33 )
 animation = "on"
-frame = 3
+frame = 5
 playing = true
 offset = Vector2( 0, 24 )
 
@@ -2540,6 +2540,7 @@ __meta__ = {
 [connection signal="value_changed" from="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus" to="." method="_on_MobilityBus_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail" to="." method="_on_MobilityRail_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar" to="." method="_on_MobilityCar_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityNonMotorized" to="." method="_on_MobilityNonMotorized_value_changed"]
 [connection signal="pressed" from="CanvasLayer/MobilityPopUp/ToBeginning" to="." method="_on_ToBeginning_pressed"]
 [connection signal="pressed" from="CanvasLayer/MobilityPopUp/ToCommercial2" to="." method="_on_ToCommercial2_pressed"]
 [connection signal="pressed" from="CanvasLayer/ReductionsPopUp/ToBeginning" to="." method="_on_ToBeginning_pressed"]
