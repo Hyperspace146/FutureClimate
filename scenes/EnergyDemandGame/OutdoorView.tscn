@@ -1711,7 +1711,7 @@ margin_right = 602.0
 margin_bottom = 62.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
-text = "0km                                                                                                         20000 km
+text = "0km                                                                                                         25000 km
 "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1754,7 +1754,7 @@ margin_right = 601.0
 margin_bottom = 50.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
-text = "0 km                                                                                                        20000 km"
+text = "0 km                                                                                                        25000 km"
 
 [node name="Label2" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus"]
 margin_left = 553.593
@@ -1783,7 +1783,7 @@ margin_right = 601.0
 margin_bottom = 50.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
-text = "0 km                                                                                                        20000 km"
+text = "0 km                                                                                                        25000 km"
 
 [node name="Label2" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail"]
 margin_left = 555.061
@@ -1815,7 +1815,7 @@ margin_right = 599.0
 margin_bottom = 50.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
-text = "0 km                                                                                                         20000 km"
+text = "0 km                                                                                                         25000 km"
 
 [node name="Label2" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar"]
 margin_left = 556.039
@@ -1955,7 +1955,7 @@ __meta__ = {
 position = Vector2( 36, 38 )
 frames = ExtResource( 25 )
 animation = "on"
-frame = 9
+frame = 1
 playing = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/UICity/ColorRect/VBoxContainer/Nuclear"]
@@ -1993,6 +1993,7 @@ __meta__ = {
 position = Vector2( 37, 13 )
 frames = ExtResource( 33 )
 animation = "on"
+frame = 5
 playing = true
 offset = Vector2( 0, 24 )
 
@@ -2030,7 +2031,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/UICity/ColorRect/VBoxContainer/Wind"]
 position = Vector2( 15, 8 )
 frames = SubResource( 9 )
-frame = 1
 playing = true
 centered = false
 

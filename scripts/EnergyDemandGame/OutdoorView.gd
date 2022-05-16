@@ -218,18 +218,18 @@ func _ready():
 	
 	#MOBILITY - Carmen
 	distAIR.min_value = 0.0 #km
-	distAIR.max_value = 20000 #km
-	distAIR.value = 2197 #km
+	distAIR.max_value = 25000 #km
+	distAIR.value = 3679 #km
 	distRAIL.min_value = 0.0 #km
-	distRAIL.max_value = 20000 #km
-	distRAIL.value = 152 #km
+	distRAIL.max_value = 25000 #km
+	distRAIL.value = 191 #km
 	distBUS.min_value = 0.0 #km
-	distBUS.max_value = 20000 #km
-	distBUS.value = 1089 #km
+	distBUS.max_value = 25000 #km
+	distBUS.value = 1855 #km
 	distCAR.min_value = 0.0 #km
-	distCAR.max_value = 20000 #km
-	distCAR.value = 19103 #km
-	var totalmobility = 22677 #km
+	distCAR.max_value = 25000 #km
+	distCAR.value = 23980 #km
+	var totalmobility = 29706 #km
 	set_waterheatingcooking()
 	set_energyForFoodChoice()
 	set_heating()
