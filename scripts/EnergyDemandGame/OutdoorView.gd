@@ -24,9 +24,11 @@ onready var processedFoodRatio = get_node("CanvasLayer/GroceryPopUp/GrocerySlide
 onready var FractCooked = get_node("CanvasLayer/CookingPopUp/CookingSliders/FractCooked")
 onready var FridgeEnergyUsage = get_node("CanvasLayer/CookingPopUp/CookingSliders/FridgeEnergyUsage")
 onready var WaterUsage = get_node("CanvasLayer/WaterPopUp/WaterSliders/WaterUsage")
+onready var HotWater = get_node("CanvasLayer/WaterPopUp/WaterSliders/HotWaterHeater")
 #onready var HeatedWater = get_node("CanvasLayer/WaterPopUp/WaterSliders/HeatedWater")
 #onready var EnergyForCooking = get_node("CanvasLayer/CookingPopUp/CookingSliders/EnergyForCooking")
 onready var stove = get_node("CanvasLayer/CookingPopUp/CookingSliders/StoveType")
+onready var elecType = get_node("CanvasLayer/CookingPopUp/CookingSliders/Electricity")
 onready var showerLength = get_node("CanvasLayer/WaterPopUp/WaterSliders/ShowerLength")
 onready var ClothesWashTemp = get_node("CanvasLayer/WaterPopUp/WaterSliders/ClothesWashTemp")
 onready var ClothesBought = get_node("CanvasLayer/WaterPopUp/WaterSliders/ClothesBought")
@@ -76,6 +78,10 @@ var clotheshotwater = 0
 var energyForSchool = 0
 var energyForHospital = 0
 onready var totalPower = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+onready var totalCO2 = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+onready var totalElec = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+var coalco2 = 8.76/1000.0 #1 kg/kWh = 8.76 kg/W
+var gasco2 = 0.433 * 8.76/1000.0
 # Calculated quantities mobility - Carmen
 var percentAirTravel
 
@@ -101,7 +107,8 @@ func _ready():
 #	insulation.value = 100
 #	var insulation0 = 100
 	climateZone.selected = 2
-	insulation.selected = 0
+	insulation.selected = 1
+	elecType.selected = 1
 	#battery.min_value = 0 # kW hr
 	#battery.max_value = 100 # kW hr
 	#var battery0 = 0
@@ -236,6 +243,10 @@ func totalpowercalc():
 	#crank up 15% for energy infrastructure
 	var total = 1.15*(totalPower[0] + totalPower[1] + totalPower[2] + totalPower[3] + totalPower[4] + totalPower[5] + totalPower[6] + totalPower[7])
 	get_node("CanvasLayer/UICity/Total").text = str("%3.0f" % total) + " W"
+	var totalel = (totalElec[0] + totalElec[1] + totalElec[2] + totalElec[3] + totalElec[4] + totalElec[5])
+	var elecCO2 = 0.0
+	var totalc = (totalCO2[0] + totalCO2[1] + totalCO2[2] + totalCO2[3] + totalCO2[4] + totalCO2[5]) 
+	get_node("CanvasLayer/CO2UICity/Total").text = str("%3.1f" % totalc) + " tons"
 
 func set_energyForFoodChoice():
 	var PTDFract = 150.0 + 20.0*100.0/get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal").value + 130.0/100.0*get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed").value
@@ -251,6 +262,8 @@ func set_energyForFoodChoice():
 #	get_node("CanvasLayer/UICity/AppliancesLabel").text = "Res: " + str("%3.1f" % energyForResidence) + " Watts"
 
 func set_heating():
+	var CO2heating = 0
+	var elecheating = 0
 	if (climateZone.selected == 0): #tropical
 		heating = sqrFt.value * 60.0/pplpRes.value/8.76 #kilo-hours per year
 	if (climateZone.selected == 1): #subtropical 
@@ -265,21 +278,43 @@ func set_heating():
 		heating = heating/4.0
 	if (insulation.selected == 3): #passivehouas
 		heating = heating/6.0
-	if (htClMethod.selected == 3): 
+	if (htClMethod.selected == 0): 
+		CO2heating = 1.778 * heating/1000.0
+	if (htClMethod.selected == 1): 
+		elecheating = heating
+	if (htClMethod.selected == 2): 
 		heating = heating/5.0
+		elecheating = heating
 	get_node("CanvasLayer/UICity/HeatLabel").text = "Heat: " + str("%3.0f" % heating) + " W"
 	totalPower[1] = heating
+	totalElec[1] = elecheating
+	if (elecType.selected == 0): #coal
+		CO2heating = CO2heating + coalco2 * elecheating
+	if (elecType.selected == 1): #gas
+		CO2heating = CO2heating + gasco2 * elecheating
+	if (elecType.selected == 2): #renewable
+		CO2heating = CO2heating
+	totalCO2[1] = CO2heating
+	get_node("CanvasLayer/CO2UICity/HeatLabel").text = "Heat: " + str("%3.1f" % CO2heating) + " t"
 	totalpowercalc()
 
 func set_homeEmbodied():
+	#CO2 footprint from 
+	#https://www.napier.ac.uk/~/media/worktribe/output-2753394/whole-life-embodied-carbon-in-multi-storey-buildings-steel-concrete-and-timber.pdf
+	var CO2homeEmbodied = 0.0
 	if (bldngMaterial.selected == 0): #timber
 		homeEmbodied = sqrFt.value * 30.0*80.0/bldngLifetime.value/pplpRes.value/31.536
+		CO2homeEmbodied = sqrFt.value * 0.119/bldngLifetime.value/pplpRes.value
 	if (bldngMaterial.selected == 1): #concrete
 		homeEmbodied = sqrFt.value * 50.0*80.0/bldngLifetime.value/pplpRes.value/31.536
+		CO2homeEmbodied = sqrFt.value * 0.185/bldngLifetime.value/pplpRes.value
 	if (bldngMaterial.selected == 2): #steel
 		homeEmbodied = sqrFt.value * 100.0*80.0/bldngLifetime.value/pplpRes.value/31.536
+		CO2homeEmbodied = sqrFt.value * 0.228/bldngLifetime.value/pplpRes.value
 	get_node("CanvasLayer/UICity/HomeLabel").text = "Home: " + str("%3.0f" % homeEmbodied) + " W"
 	totalPower[2] = homeEmbodied
+	totalCO2[2] = CO2homeEmbodied
+	get_node("CanvasLayer/CO2UICity/HomeLabel").text = "Home: " + str("%3.1f" % CO2homeEmbodied) + " t"
 	totalpowercalc()
 	
 func set_illumination():
@@ -291,14 +326,19 @@ func set_illumination():
 	
 func set_waterheatingcooking():
 	var calories = (1.0 + FractWaste.value/100.0 )* (100.0) #Calories per day in watts
-	if (stove.selected == 0): #wood
-		cooking = calories * FractCooked.value/100.0 * 1.5 #approx 10 MJ/kg
-	if (stove.selected == 1): #gas
+	var CO2cooking = 0.0
+	var electriccooking = 0.0
+#	if (stove.selected == 0): #wood
+#		cooking = calories * FractCooked.value/100.0 * 1.5 #approx 10 MJ/kg
+	if (stove.selected == 0): #gas
 		cooking = calories * FractCooked.value/100.0 * 0.956 #world average
-	if (stove.selected == 2): #electric
+		CO2cooking = cooking * 1.778/1000.0
+	if (stove.selected == 1): #electric
 		cooking = calories * FractCooked.value/100.0 * 0.7 #higher efficiency
-	if (stove.selected == 3): #induction/pressure cooker
+		electriccooking = cooking
+	if (stove.selected == 2): #induction/pressure cooker
 		cooking = calories * FractCooked.value /100.0* 0.4 #induction
+		electriccooking = cooking
 	if (ClothesWashTemp.selected == 0): 
 		clotheshotwater = 40.0/2.0
 	if (ClothesWashTemp.selected == 1): 
@@ -313,12 +353,20 @@ func set_waterheatingcooking():
 		waterheating = (showerLength.value*6.0 + clotheshotwater + 10.0)* (50.0 - 10.0)/20.0
 	if (climateZone.selected == 3): 
 		waterheating = (showerLength.value*6.0 + clotheshotwater + 10.0)* (50.0 - 0.0)/20.0
+	if (HotWater.selected == 0): #gas hot water
+		CO2cooking = CO2cooking + 1.778 * waterheating/1000.0
+	if (HotWater.selected == 1): #electric hot water
+		electriccooking = electriccooking + waterheating
 	hotwatercook = waterheating + cooking
 	get_node("CanvasLayer/UICity/HotWaterCookLabel").text = "Hot H2O: " + str("%3.0f" % hotwatercook) + " W"
+	get_node("CanvasLayer/CO2UICity/HotWaterCookLabel").text = "Hot H2O: " + str("%3.1f" % CO2cooking) + " t"
 	totalPower[3] = hotwatercook
+	totalCO2[3] = CO2cooking
+	totalElec[3] = electriccooking
 	totalpowercalc()	
 	
 func set_embodied(): 
+	var CO2embodied = 0.0
 	#shared: 8 W for a fridge with 14 year lifetime, 1.6 W for cooking with 20 year lifetime)
 	#indiv: 7 W-yr for phone
 	# assuming 30 W for new clothes based on current numbers (not best)
@@ -326,43 +374,69 @@ func set_embodied():
 	var embodied = (8.0+ 1.6)/pplpRes.value + 7.0/phoneLife.value + 120.0/laptopLife.value +clothesemb
 	get_node("CanvasLayer/UICity/EmbodiedLabel").text = "Embodied: " + str("%3.0f" % embodied) + " W"
 	totalPower[4] = embodied
+	totalElec[4] = embodied
+	if (elecType.selected == 0): 
+		CO2embodied = embodied * coalco2
+	if (elecType.selected == 1): 
+		CO2embodied = embodied * gasco2
+	totalCO2[4] = CO2embodied
 	totalpowercalc()
+	get_node("CanvasLayer/CO2UICity/EmbodiedLabel").text = "Embodied: " + str("%3.1f" % CO2embodied) + " t"
 	
 func set_services(): 
-	#6 W for waste management, 5 W for cell phone networks, 25 W for laptop network
-	#water: 20 L for clothes washing
+	#6 W for waste management, 5 W for cell phone networks, 25 W for laptop network -- all assumed electric
+	#water: 20 L for clothes washing, plus shower. (this category measures delivery, we assume electric)
 	#8 L/min shower * 10 min avg = 80 L
+	var CO2services = 0.0
 	var schmedEmb
 	var waterfactor = 1
 	if(climateZone.selected == 0): 
-		schmedEmb = 1.4 * 60.0/8.76 
+		schmedEmb = 1.4 * 60.0/8.76
 	if(climateZone.selected == 1): 
 		schmedEmb = 1.4 * 100.0/8.76
 		waterfactor = 2.0
 	if(climateZone.selected == 2): 
-		schmedEmb = 1.4 * 150.0/8.76 
+		schmedEmb = 1.4 * 150.0/8.76
 	if(climateZone.selected == 3): 
-		schmedEmb = 1.4 * 200.0/8.76 
+		schmedEmb = 1.4 * 200.0/8.76
+	#at this point schmedEmb is watts of heating/cooling. 
 	schmedEmb = schmedEmb * (1 - 0.9 * PercentInsulated.value/100.0)
+	
 	#assumed a 70 year lifetime for schools and 3 times the construction cost
+	#hospital 3x square footage but otherwise the same as school? plus extra usage
+	#comm
 	var school = (schmedEmb* SchoolsqrFtPerStudent.value + SchoolEnergyUsageForOther.value + 3.0 * SchoolsqrFtPerStudent.value * 40.0*80.0/70.0/31.536)*percentKids.value/100.0
 	var med = (schmedEmb* HospsqrFtPerPerson.value +HospExtra.value + 9.0 * HospsqrFtPerPerson.value * 40.0*80.0/70.0/31.536)
-	var comm = (schmedEmb* 2.0* CommercialArea.value + 3.0 * CommercialArea.value * 40.0*80.0/70.0/31.536)*percentKids.value/100.0
+	var comm = (schmedEmb* CommercialArea.value + 3.0 * CommercialArea.value * 40.0*80.0/70.0/31.536)*percentKids.value/100.0
 	services = 6.0 + (WaterUsage.value + showerLength.value * 8.0 + 20.0)*0.056*waterfactor + 5.0 + 25.0 + school + med + comm
 	get_node("CanvasLayer/UICity/ServicesLabel").text = "Services:   " + str("%3.0f" % services) + " W"
 	totalPower[5] = services
+	if (elecType.selected == 0): 
+		CO2services = coalco2*services
+	if (elecType.selected == 1): 
+		CO2services = gasco2*services
 	totalpowercalc()
 	
 func set_mobility(): 
+	var co2mobility = 0.0
 	var mobility = distAIR.value * 0.0 + distBUS.value * 0.0 + distRAIL.value * 0.0 + distCAR.value * 0.0
-	get_node("CanvasLayer/UICity/MobilityLabel").text = "Mobility: " + str(mobility) + " W"
+	get_node("CanvasLayer/UICity/MobilityLabel").text = "Mobility: " + str("%3.0f" % mobility) + " W"
 	totalPower[6] = mobility
 	totalpowercalc()
+	get_node("CanvasLayer/CO2UICity/MobilityLabel").text = "Mobility: " + str("%3.1f" % co2mobility) + " t"
 	
 func set_appliances(): 
+	var CO2appliances = 0.0
 	var appliances = FridgeEnergyUsage.value/pplpRes.value + phoneUse.value*5.0/24.0 + phoneStandby.value*1.0/24.0 + laptopUse.value*100.0/24.0
 	get_node("CanvasLayer/UICity/AppliancesLabel").text = "Appliance: " + str("%3.0f" % appliances) + " W"
 	totalPower[7] = appliances
+	totalElec[7] = appliances
+	if (elecType.selected == 0): 
+		CO2appliances = appliances * coalco2
+	if (elecType.selected == 1): 
+		CO2appliances = appliances * gasco2
+	get_node("CanvasLayer/CO2UICity/AppliancesLabel").text = "Appliance: " + str("%3.1f" % CO2appliances) + " t"
+	totalCO2[7] = CO2appliances
 	totalpowercalc()
 
 func _on_CalorieFractBeef_value_changed(value):
@@ -580,7 +654,7 @@ func _on_MobilityAir_value_changed(value):
 	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus/Label2").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
 	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail/Label2").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
 	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar/Label2").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
-	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir/Label").text = "Distance travelled by air: " + str(value) + " km"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir/Label").text = "Distance travelled by air: " + str(value) + " km/year"
 	set_mobility()
 
 
@@ -594,7 +668,7 @@ func _on_MobilityBus_value_changed(value):
 	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus/Label2").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
 	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail/Label2").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
 	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar/Label2").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
-	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus/Label").text = "Distance travelled by bus: " + str(value) + " km"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus/Label").text = "Distance travelled by bus: " + str(value) + " km/year"
 	set_mobility()
 
 
@@ -608,7 +682,7 @@ func _on_MobilityRail_value_changed(value):
 	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus/Label2").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
 	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail/Label2").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
 	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar/Label2").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
-	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail/Label").text = "Distance travelled by rail: " + str(value) + " km"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail/Label").text = "Distance travelled by rail: " + str(value) + " km/year"
 	set_mobility()
 
 
@@ -623,7 +697,7 @@ func _on_MobilityCar_value_changed(value):
 	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus/Label2").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
 	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail/Label2").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
 	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar/Label2").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
-	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar/Label").text = "Distance travelled by car: " + str(value) + " km"
+	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar/Label").text = "Distance travelled by car: " + str(value) + " km/year"
 	set_mobility()
 
 func _on_Car_sharing_value_changed(value):
@@ -634,3 +708,70 @@ func _on_Car_fuel_efficiency_value_changed(value):
 	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/Car fuel efficiency/Label").text = "Car efficiency: " + str(value)
 	set_mobility()
 
+
+
+func _on_CO2Button_pressed():
+	get_node("CanvasLayer/CO2UICity").visible = true
+	get_node("CanvasLayer/UICity").visible = false
+
+
+func _on_PowerButton_pressed():
+	get_node("CanvasLayer/CO2UICity").visible = false
+	get_node("CanvasLayer/UICity").visible = true
+
+
+func _on_ToMobility2_pressed():
+	get_node("CanvasLayer/MobilityPopUp").visible = true
+	get_node("CanvasLayer/MobilityPopUp").rect_position = Vector2(29,160)
+	get_node("CanvasLayer/ConstructionPopUp").visible = false
+	
+
+
+func _on_ToConstruction2_pressed():
+	get_node("CanvasLayer/ConstructionPopUp").visible = true
+	get_node("CanvasLayer/ConstructionPopUp").rect_position = Vector2(29,160)
+	get_node("CanvasLayer/GroceryPopUp").visible = false
+	
+
+
+func _on_ToGrocery2_pressed():
+	get_node("CanvasLayer/GroceryPopUp").visible = true
+	get_node("CanvasLayer/GroceryPopUp").rect_position = Vector2(29,160)
+	get_node("CanvasLayer/WaterPopUp").visible = false
+	
+func _on_ToWater2_pressed():
+	get_node("CanvasLayer/WaterPopUp").visible = true
+	get_node("CanvasLayer/WaterPopUp").rect_position = Vector2(29,160)
+	get_node("CanvasLayer/CookingPopUp").visible = false
+
+func _on_ToCooking2_pressed():
+	get_node("CanvasLayer/CookingPopUp").visible = true
+	get_node("CanvasLayer/CookingPopUp").rect_position = Vector2(29,160)
+	get_node("CanvasLayer/TechPopUp").visible = false
+
+func _on_ToTech2_pressed():
+	get_node("CanvasLayer/TechPopUp").visible = true
+	get_node("CanvasLayer/TechPopUp").rect_position = Vector2(29,160)
+	get_node("CanvasLayer/SchoolPopUp").visible = false
+
+func _on_ToSchool2_pressed():
+	get_node("CanvasLayer/SchoolPopUp").visible = true
+	get_node("CanvasLayer/SchoolPopUp").rect_position = Vector2(29,160)
+	get_node("CanvasLayer/CommercialPopUp").visible = false
+	
+func _on_ToCommercial2_pressed():
+	get_node("CanvasLayer/CommercialPopUp").visible = true
+	get_node("CanvasLayer/CommercialPopUp").rect_position = Vector2(29,160)
+	get_node("CanvasLayer/MobilityPopUp").visible = false
+	
+
+
+func _on_Electricity_item_selected(id):
+	set_heating()
+	set_appliances()
+	set_embodied()
+	set_mobility()
+	set_waterheatingcooking()
+	set_energyForFoodChoice()
+	set_homeEmbodied()
+	set_services()
