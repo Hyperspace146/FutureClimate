@@ -60,8 +60,8 @@ onready var distAIR = get_node("CanvasLayer/MobilityPopUp/MobilitySliders/Mobili
 onready var distBUS = get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus")
 onready var distRAIL = get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail")
 onready var distCAR = get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar")
-#onready var PeoplePerCar = get_node("CanvasLayer/MobilityPopUp/MobilitySliders/Car sharing") 
-#onready var CarEff. = get_node("CanvasLayer/MobilityPopUp/MobilitySliders/Car Fuel efficiency")
+onready var distNON = get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityNonMotorized") 
+
 
 #Calculated quantities
 var heating = 0
@@ -82,8 +82,6 @@ onready var totalCO2 = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 onready var totalElec = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 var coalco2 = 8.76/1000.0 #1 kg/kWh = 8.76 kg/W
 var gasco2 = 0.433 * 8.76/1000.0
-# Calculated quantities mobility - Carmen
-var percentAirTravel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -229,7 +227,16 @@ func _ready():
 	distCAR.min_value = 0.0 #km
 	distCAR.max_value = 25000 #km
 	distCAR.value = 23980 #km
-	var totalmobility = 29706 #km
+	distNON.min_value = 0 #km
+	distNON.max_value = 2500 #km
+	distNON.value = 137 #km
+	# emfAIR = 1.17 #MJ
+	# emfRAIL =  0.287 #MJ
+	# emfBUS = 0.27 #MJ
+	# emfCAR = 0.56 #MJ
+	# emfNON = 0 #MJ
+	
+	
 	set_waterheatingcooking()
 	set_energyForFoodChoice()
 	set_heating()
@@ -419,7 +426,18 @@ func set_services():
 	
 func set_mobility(): 
 	var co2mobility = 0.0
-	var mobility = distAIR.value * 0.0 + distBUS.value * 0.0 + distRAIL.value * 0.0 + distCAR.value * 0.0
+	#energy multiplicative factors (emf) defined as constants below until reductions section done
+	var emfAIR = 1.17 #MJ
+	var emfRAIL =  0.287 #MJ
+	var emfBUS = 0.27 #MJ
+	var emfCAR = 0.56 #MJ
+	var emfNON = 0 #MJ
+	var EngrAIR = distAIR.value*emfAIR*0.03173516
+	var EngrRAIL = distRAIL.value*emfRAIL*0.03173516
+	var EngrBUS = distBUS.value*emfBUS*0.03173516
+	var EngrCAR = distCAR.value*emfCAR*0.03173516
+	var EngrNON = distNON.value*emfNON*0.03173516
+	var mobility = EngrAIR + EngrRAIL + EngrBUS + EngrCAR + EngrNON
 	get_node("CanvasLayer/UICity/MobilityLabel").text = "Mobility: " + str("%3.0f" % mobility) + " W"
 	totalPower[6] = mobility
 	totalpowercalc()
@@ -645,7 +663,7 @@ func _on_ClothesBought_value_changed(value):
 
 	#MOBILITY LABELS - Carmen
 func _on_MobilityAir_value_changed(value):
-	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value
+	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value + distNON.value
 	var percentAirTravel = distAIR.value / totalmobility * 100.0
 	var percentBusTravel = distBUS.value / totalmobility * 100.0
 	var percentRailTravel = distRAIL.value /totalmobility * 100.0
@@ -659,7 +677,7 @@ func _on_MobilityAir_value_changed(value):
 
 
 func _on_MobilityBus_value_changed(value):
-	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value
+	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value + distNON.value
 	var percentAirTravel = distAIR.value / totalmobility * 100.0
 	var percentBusTravel = distBUS.value / totalmobility * 100.0
 	var percentRailTravel = distRAIL.value /totalmobility * 100.0
@@ -673,7 +691,7 @@ func _on_MobilityBus_value_changed(value):
 
 
 func _on_MobilityRail_value_changed(value):
-	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value
+	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value + distNON.value
 	var percentAirTravel = distAIR.value / totalmobility * 100.0
 	var percentBusTravel = distBUS.value / totalmobility * 100.0
 	var percentRailTravel = distRAIL.value /totalmobility * 100.0
@@ -688,7 +706,7 @@ func _on_MobilityRail_value_changed(value):
 
 
 func _on_MobilityCar_value_changed(value):
-	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value
+	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value + distNON.value
 	var percentAirTravel = distAIR.value / totalmobility * 100.0
 	var percentBusTravel = distBUS.value / totalmobility * 100.0
 	var percentRailTravel = distRAIL.value /totalmobility * 100.0
