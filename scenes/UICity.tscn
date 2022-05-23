@@ -1,0 +1,377 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://sprites/UI/electricity.png" type="Texture" id=1]
+[ext_resource path="res://sprites/UI/electricityWhite.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Winmill/wind-3.png" type="Texture" id=6]
+[ext_resource path="res://scenes/UICity.gd" type="Script" id=8]
+[ext_resource path="res://UITheme.tres" type="Theme" id=9]
+[ext_resource path="res://fonts/Ubuntu-Regular.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://fonts/Ubuntu24.tres" type="DynamicFont" id=11]
+[ext_resource path="res://sprites/Animations/Solar.tres" type="SpriteFrames" id=13]
+[ext_resource path="res://fonts/Ubuntu40.tres" type="DynamicFont" id=14]
+[ext_resource path="res://sprites/Winmill/wind-1.png" type="Texture" id=15]
+[ext_resource path="res://sprites/Winmill/wind-4.png" type="Texture" id=23]
+[ext_resource path="res://sprites/Winmill/wind-2.png" type="Texture" id=24]
+[ext_resource path="res://sprites/Animations/Nuclear.tres" type="SpriteFrames" id=25]
+[ext_resource path="res://sprites/UI/blank.png" type="Texture" id=29]
+[ext_resource path="res://sprites/UI/blankHover.png" type="Texture" id=30]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 24 ), ExtResource( 6 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=10]
+resource_name = "GPower"
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 930, -240 ), Vector2( 930, 69 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.929412, 0.2, 0.101961, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.898039, 0.662745, 0.25098, 1 )
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+expand_margin_left = 12.0
+expand_margin_right = 12.0
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.87451, 0.890196, 0.552941, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.870588, 0.458824, 0.129412, 1 )
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+expand_margin_left = 12.0
+expand_margin_right = 12.0
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+outline_size = 2
+outline_color = Color( 0.0980392, 0.109804, 0.290196, 1 )
+font_data = ExtResource( 10 )
+
+[node name="UICity" type="Control"]
+mouse_filter = 2
+theme = ExtResource( 9 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 71.0
+mouse_filter = 1
+color = Color( 0.423529, 0.603922, 0.686275, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+visible = false
+margin_left = 930.0
+margin_top = -240.0
+margin_right = 1004.0
+margin_bottom = 160.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nuclear" type="TextureButton" parent="ColorRect/VBoxContainer"]
+margin_right = 74.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 60, 80 )
+texture_normal = ExtResource( 29 )
+texture_hover = ExtResource( 30 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ColorRect/VBoxContainer/Nuclear"]
+position = Vector2( 36, 38 )
+frames = ExtResource( 25 )
+animation = "on"
+frame = 10
+playing = true
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/Nuclear"]
+margin_left = 58.0
+margin_top = 37.0
+margin_right = 100.0
+margin_bottom = 80.0
+texture = ExtResource( 29 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/Nuclear/TextureRect"]
+margin_left = 10.0
+margin_top = -2.0
+margin_right = 50.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 14 )
+text = "5"
+
+[node name="Solar" type="TextureButton" parent="ColorRect/VBoxContainer"]
+margin_top = 84.0
+margin_right = 74.0
+margin_bottom = 154.0
+rect_min_size = Vector2( 60, 70 )
+texture_normal = ExtResource( 29 )
+texture_hover = ExtResource( 30 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ColorRect/VBoxContainer/Solar"]
+position = Vector2( 37, 13 )
+frames = ExtResource( 13 )
+animation = "on"
+frame = 1
+playing = true
+offset = Vector2( 0, 24 )
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/Solar"]
+margin_left = 58.0
+margin_top = 37.0
+margin_right = 100.0
+margin_bottom = 80.0
+texture = ExtResource( 29 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/Solar/TextureRect"]
+margin_left = 10.0
+margin_top = -2.0
+margin_right = 50.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 14 )
+text = "5"
+
+[node name="Wind" type="TextureButton" parent="ColorRect/VBoxContainer"]
+margin_top = 158.0
+margin_right = 74.0
+margin_bottom = 228.0
+rect_min_size = Vector2( 40, 70 )
+texture_normal = ExtResource( 29 )
+texture_hover = ExtResource( 30 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ColorRect/VBoxContainer/Wind"]
+position = Vector2( 15, 8 )
+frames = SubResource( 9 )
+playing = true
+centered = false
+
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/VBoxContainer/Wind"]
+margin_left = 58.0
+margin_top = 38.0
+margin_right = 100.0
+margin_bottom = 81.0
+texture = ExtResource( 29 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/Wind/TextureRect2"]
+margin_left = 10.0
+margin_top = -2.0
+margin_right = 50.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 14 )
+text = "5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="blank" type="Sprite" parent="ColorRect/VBoxContainer"]
+show_behind_parent = true
+position = Vector2( 37.5205, 73.3313 )
+rotation = 1.5708
+scale = Vector2( 0.548568, 0.380706 )
+texture = ExtResource( 29 )
+
+[node name="ElectricityLabel2" type="TextureButton" parent="ColorRect"]
+visible = false
+margin_left = 930.0
+margin_right = 995.0
+margin_bottom = 71.0
+rect_min_size = Vector2( 65, 0 )
+hint_tooltip = "Resources in alternative power sources"
+mouse_filter = 1
+toggle_mode = true
+texture_normal = ExtResource( 1 )
+texture_hover = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+anims/GPower = SubResource( 10 )
+
+[node name="ProgressBar2" type="ProgressBar" parent="."]
+visible = false
+margin_left = 15.0
+margin_top = 14.0
+margin_right = 88.0
+margin_bottom = 58.0
+hint_tooltip = "Percentage of Energy produced that is green."
+custom_styles/fg = SubResource( 11 )
+custom_styles/bg = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+max_value = 2.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ProgressBar2"]
+margin_left = 413.0
+margin_top = -10.0
+margin_right = 653.0
+margin_bottom = 58.0
+custom_fonts/font = ExtResource( 11 )
+text = "Keep below 2 degrees warming"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HomeLabel" type="Label" parent="."]
+margin_right = 100.0
+margin_bottom = 34.0
+hint_tooltip = "Energy for building divided by lifetime"
+mouse_filter = 0
+custom_fonts/font = ExtResource( 11 )
+text = "Home"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeatLabel" type="Label" parent="."]
+margin_top = 34.0
+margin_right = 100.0
+margin_bottom = 68.0
+hint_tooltip = "In-home heating"
+mouse_filter = 0
+custom_fonts/font = ExtResource( 11 )
+text = "Heat"
+
+[node name="FoodLabel" type="Label" parent="."]
+margin_left = 200.0
+margin_right = 319.0
+margin_bottom = 34.0
+hint_tooltip = "Energy for food outside the home"
+mouse_filter = 0
+custom_fonts/font = ExtResource( 11 )
+text = "Food"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MobilityLabel" type="Label" parent="."]
+margin_left = 200.0
+margin_top = 34.0
+margin_right = 300.0
+margin_bottom = 68.0
+hint_tooltip = "Direct usage by transportation"
+mouse_filter = 0
+custom_fonts/font = ExtResource( 11 )
+text = "Mobility"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ServicesLabel" type="Label" parent="."]
+margin_left = 400.0
+margin_right = 500.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 11 )
+text = "Services"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AppliancesLabel" type="Label" parent="."]
+margin_left = 400.0
+margin_top = 34.0
+margin_right = 500.0
+margin_bottom = 68.0
+custom_fonts/font = ExtResource( 11 )
+text = "Appliances"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EmbodiedLabel" type="Label" parent="."]
+margin_left = 600.0
+margin_right = 719.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 11 )
+text = "Embodied"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HotWaterCookLabel" type="Label" parent="."]
+margin_left = 600.0
+margin_top = 34.0
+margin_right = 700.0
+margin_bottom = 68.0
+hint_tooltip = "Includes cooking"
+mouse_filter = 0
+custom_fonts/font = ExtResource( 11 )
+text = "Hot H2O"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Total" type="Label" parent="."]
+margin_left = 841.897
+margin_top = 7.20522
+margin_right = 1000.9
+margin_bottom = 53.2052
+hint_tooltip = "Includes cooking"
+mouse_filter = 0
+custom_fonts/font = ExtResource( 14 )
+text = "2000 W"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="toggled" from="ColorRect/ElectricityLabel2" to="." method="_on_ElectricityLabel2_toggled"]

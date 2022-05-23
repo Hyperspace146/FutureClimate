@@ -291,8 +291,8 @@ __meta__ = {
 [node name="Label" type="Label" parent="VBoxContainer/GlobEmit/Container"]
 margin_right = 672.0
 margin_bottom = 46.0
-custom_colors/font_color = Color( 0.0117647, 0.137255, 0.517647, 1 )
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.0117647, 0.137255, 0.517647, 1 )
 text = " Global Forcings: "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -315,8 +315,8 @@ margin_top = 50.0
 margin_right = 672.0
 margin_bottom = 96.0
 rect_min_size = Vector2( 672, 0 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "  CO2 = 415 ppm  FCO2 = 2.10 W/m2"
 
 [node name="CH4TLabel" type="Label" parent="VBoxContainer/GlobEmit/Container"]
@@ -324,8 +324,8 @@ margin_top = 100.0
 margin_right = 672.0
 margin_bottom = 146.0
 rect_min_size = Vector2( 672, 0 )
-custom_colors/font_color = Color( 0.541176, 0.894118, 0.403922, 1 )
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.541176, 0.894118, 0.403922, 1 )
 text = "  CH4 = 2.20 ppm  FCH4 = 0.54 W/m2"
 
 [node name="N2OTLabel" type="Label" parent="VBoxContainer/GlobEmit/Container"]
@@ -333,8 +333,8 @@ margin_top = 150.0
 margin_right = 672.0
 margin_bottom = 196.0
 rect_min_size = Vector2( 672, 0 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "  N2O = 0.40 ppm  FN2O = 0.20 W/m2"
 
 [node name="AerTLabel" type="Label" parent="VBoxContainer/GlobEmit/Container"]
@@ -342,8 +342,8 @@ margin_top = 200.0
 margin_right = 672.0
 margin_bottom = 246.0
 rect_min_size = Vector2( 672, 0 )
-custom_colors/font_color = Color( 0, 0.847059, 0.933333, 1 )
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0.847059, 0.933333, 1 )
 text = "  Aerosol cooling = -1.10 W/m2"
 
 [node name="GlobSeaLev" type="Sprite" parent="VBoxContainer"]
@@ -365,8 +365,8 @@ margin_left = 296.0
 margin_top = 81.0
 margin_right = 719.0
 margin_bottom = 165.0
-custom_colors/font_color = Color( 0.0117647, 0.137255, 0.517647, 1 )
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.0117647, 0.137255, 0.517647, 1 )
 text = "Global Sea Level: "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -401,8 +401,8 @@ margin_left = 291.0
 margin_top = 77.0
 margin_right = 801.0
 margin_bottom = 194.0
-custom_colors/font_color = Color( 0.0117647, 0.137255, 0.517647, 1 )
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.0117647, 0.137255, 0.517647, 1 )
 text = "Global Temperature Change (since 1980): "
 autowrap = true
 __meta__ = {
@@ -440,7 +440,6 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="pressed" from="blank/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="blank/Pause" to="." method="_on_Pause_pressed"]
 [connection signal="pressed" from="blank/ResetButton" to="blank/ResetButton" method="_on_Button_pressed"]
