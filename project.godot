@@ -29,6 +29,13 @@ GlobalVariables="*res://GlobalVariables.gd"
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
+[importer_defaults]
+
+texture={
+"detect_3d": false,
+"flags/filter": false
+}
+
 [input]
 
 ui_select={

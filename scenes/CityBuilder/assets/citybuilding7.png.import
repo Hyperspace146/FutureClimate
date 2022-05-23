@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/highlight.png-a043052ccbd5fba5d058fd6b7f1cf474.stex"
+path="res://.import/citybuilding7.png-f91bb232596a2af7e69de3fa3ba1bef7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/CityBuilder/assets/highlight.png"
-dest_files=[ "res://.import/highlight.png-a043052ccbd5fba5d058fd6b7f1cf474.stex" ]
+source_file="res://scenes/CityBuilder/assets/citybuilding7.png"
+dest_files=[ "res://.import/citybuilding7.png-f91bb232596a2af7e69de3fa3ba1bef7.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
