@@ -18,6 +18,7 @@
 [ext_resource path="res://scenes/PopupGraph2.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/PopupGraph.tscn" type="PackedScene" id=17]
 
+
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.406897, 1 )
 colors = PoolColorArray( 0.409668, 0.409668, 0.409668, 1, 0.65098, 0.65098, 0.65098, 0.862745, 1, 1, 1, 0 )

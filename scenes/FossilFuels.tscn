@@ -29,7 +29,7 @@ __meta__ = {
 position = Vector2( 32, 13 )
 frames = SubResource( 1 )
 animation = "on"
-frame = 3
+frame = 5
 speed_scale = 0.4
 playing = true
 
@@ -37,5 +37,6 @@ playing = true
 visible = false
 position = Vector2( 32, 13 )
 texture = ExtResource( 5 )
+
 [connection signal="gui_input" from="." to="." method="_on_TextureButton_gui_input"]
 [connection signal="toggled" from="." to="." method="_on_TextureButton_toggled"]

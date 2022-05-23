@@ -65,9 +65,6 @@ margin_left = 450.0
 margin_top = 65.0
 margin_right = 884.0
 margin_bottom = 130.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AerRect" type="ColorRect" parent="CanvasLayer/ForcingBox2"]
 margin_right = 434.0
@@ -112,9 +109,6 @@ margin_left = 827.0
 margin_right = 1011.0
 margin_bottom = 600.0
 color = Color( 1, 1, 1, 0.54902 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
 margin_right = 1024.0
@@ -158,9 +152,6 @@ __meta__ = {
 margin_right = 1024.0
 margin_bottom = 600.0
 theme = ExtResource( 19 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CurrentLine" type="Line2D" parent="CanvasLayer/Sliders"]
 position = Vector2( 0, -48 )
@@ -175,13 +166,10 @@ margin_right = 93.0
 margin_bottom = 457.0
 hint_tooltip = "Drag to change emissions"
 mouse_filter = 1
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "Emissions 
   in 2020"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ZeroLine" type="Line2D" parent="CanvasLayer/Sliders"]
 points = PoolVector2Array( 75, 540, 465, 540 )
@@ -194,8 +182,8 @@ margin_left = 60.0
 margin_top = 525.0
 margin_right = 100.0
 margin_bottom = 553.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -242,9 +230,6 @@ custom_icons/grabber = ExtResource( 11 )
 value = 70.0
 tick_count = 11
 ticks_on_borders = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="IndustryLabel" type="TextureButton" parent="CanvasLayer/Sliders/IndustrySlider"]
 anchor_top = 1.0
@@ -368,8 +353,8 @@ margin_top = 10.0
 margin_right = 65.0
 margin_bottom = 55.0
 hint_tooltip = "Agriculture/forestry emits carbon dioxide, methane and nitrous oxide."
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "Waste"
 flat = true
 __meta__ = {
@@ -395,8 +380,8 @@ text = "  Year: 2020
 margin_left = 181.0
 margin_right = 388.0
 margin_bottom = 59.0
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "CO2 = 415 ppm  
 FCO2 = 2.10 W/m2"
 
@@ -404,8 +389,8 @@ FCO2 = 2.10 W/m2"
 margin_left = 412.0
 margin_right = 617.0
 margin_bottom = 59.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.541176, 0.894118, 0.403922, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "CH4 = 2.20 ppm  
 FCH4 = 0.54 W/m2"
 
@@ -415,8 +400,8 @@ margin_left = 477.0
 margin_top = 2.0
 margin_right = 649.0
 margin_bottom = 51.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "N2O = 0.40 ppm  
 FN2O = 0.20 W/m2"
 
@@ -424,8 +409,8 @@ FN2O = 0.20 W/m2"
 margin_left = 641.0
 margin_right = 880.0
 margin_bottom = 59.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0.847059, 0.933333, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "Short-lived pollutants
   = -1.10 W/m2"
 
@@ -576,8 +561,8 @@ margin_left = 100.0
 margin_top = 10.0
 margin_right = 599.0
 margin_bottom = 47.0
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "Temperature Increase (C) vs Years"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -593,8 +578,8 @@ margin_left = 28.0
 margin_top = 362.0
 margin_right = 72.0
 margin_bottom = 385.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "2020"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -605,8 +590,8 @@ margin_left = 148.0
 margin_top = 362.0
 margin_right = 188.0
 margin_bottom = 393.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "2040"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -617,8 +602,8 @@ margin_left = 268.0
 margin_top = 362.0
 margin_right = 308.0
 margin_bottom = 376.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "2060"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -629,8 +614,8 @@ margin_left = 388.0
 margin_top = 362.0
 margin_right = 428.0
 margin_bottom = 376.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "2080"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -641,8 +626,8 @@ margin_left = 508.0
 margin_top = 362.0
 margin_right = 548.0
 margin_bottom = 376.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "2100"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -653,8 +638,8 @@ margin_left = 628.0
 margin_top = 362.0
 margin_right = 668.0
 margin_bottom = 376.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "2120"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -670,8 +655,8 @@ margin_left = 5.0
 margin_top = 338.0
 margin_right = 49.0
 margin_bottom = 361.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "0 C"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -682,8 +667,8 @@ margin_left = 5.0
 margin_top = 263.0
 margin_right = 45.0
 margin_bottom = 286.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "1 C"
 
 [node name="2CLabel" type="Label" parent="CanvasLayer/PopupGraph/TempLine"]
@@ -691,8 +676,8 @@ margin_left = 5.0
 margin_top = 188.0
 margin_right = 45.0
 margin_bottom = 211.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "2 C"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -703,8 +688,8 @@ margin_left = 5.0
 margin_top = 113.0
 margin_right = 45.0
 margin_bottom = 136.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "3 C"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -715,8 +700,8 @@ margin_left = 5.0
 margin_top = 38.0
 margin_right = 45.0
 margin_bottom = 61.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "4 C"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -755,8 +740,8 @@ margin_left = 100.0
 margin_top = 10.0
 margin_right = 599.0
 margin_bottom = 47.0
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "F (W/m2) vs Years"
 align = 1
 __meta__ = {
@@ -773,8 +758,8 @@ margin_left = 28.0
 margin_top = 362.0
 margin_right = 72.0
 margin_bottom = 385.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "2020"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -785,8 +770,8 @@ margin_left = 148.0
 margin_top = 362.0
 margin_right = 188.0
 margin_bottom = 393.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "2040"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -797,8 +782,8 @@ margin_left = 268.0
 margin_top = 362.0
 margin_right = 308.0
 margin_bottom = 376.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "2060"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -809,8 +794,8 @@ margin_left = 388.0
 margin_top = 362.0
 margin_right = 428.0
 margin_bottom = 376.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "2080"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -821,8 +806,8 @@ margin_left = 508.0
 margin_top = 362.0
 margin_right = 548.0
 margin_bottom = 376.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "2100"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -833,8 +818,8 @@ margin_left = 628.0
 margin_top = 362.0
 margin_right = 668.0
 margin_bottom = 376.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "2120"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -850,8 +835,8 @@ margin_left = 5.0
 margin_top = 338.0
 margin_right = 49.0
 margin_bottom = 361.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "-2.0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -862,8 +847,8 @@ margin_left = 5.0
 margin_top = 288.0
 margin_right = 45.0
 margin_bottom = 311.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "-1.0"
 
 [node name="0Label" type="Label" parent="CanvasLayer/PopupGraph2/FLine"]
@@ -871,8 +856,8 @@ margin_left = 5.0
 margin_top = 238.0
 margin_right = 45.0
 margin_bottom = 261.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "0.0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -883,8 +868,8 @@ margin_left = 5.0
 margin_top = 188.0
 margin_right = 45.0
 margin_bottom = 211.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "1.0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -895,8 +880,8 @@ margin_left = 5.0
 margin_top = 138.0
 margin_right = 45.0
 margin_bottom = 161.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "2.0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -907,8 +892,8 @@ margin_left = 5.0
 margin_top = 88.0
 margin_right = 45.0
 margin_bottom = 111.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "3.0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -919,8 +904,8 @@ margin_left = 5.0
 margin_top = 38.0
 margin_right = 45.0
 margin_bottom = 61.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "4.0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1171,8 +1156,8 @@ margin_left = -89.0
 margin_top = -12.0
 margin_right = -28.0
 margin_bottom = 16.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = " 1.0 C"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1185,8 +1170,8 @@ margin_left = -89.0
 margin_top = -62.0
 margin_right = 11.0
 margin_bottom = -13.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = " 1.5 C"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1199,8 +1184,8 @@ margin_left = -89.0
 margin_top = -112.0
 margin_right = -28.0
 margin_bottom = -84.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = " 2.0 C"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1213,8 +1198,8 @@ margin_left = -89.0
 margin_top = -162.0
 margin_right = -28.0
 margin_bottom = -134.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = " 2.5 C"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1227,8 +1212,8 @@ margin_left = -89.0
 margin_top = -212.0
 margin_right = -28.0
 margin_bottom = -184.0
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
 text = " 3.0 C"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1282,8 +1267,8 @@ margin_right = -61.0
 margin_bottom = 75.0
 hint_tooltip = "Warming since preindustrial"
 mouse_filter = 1
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.886275, 0.32549, 0.141176, 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "T = 1.0 C"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1359,6 +1344,7 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="value_changed" from="CanvasLayer/Sliders/ElectricitySlider" to="CanvasLayer/ElectricityParticles2D" method="_on_ElectricitySlider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Sliders/IndustrySlider" to="CanvasLayer/IndustryParticles2D" method="_on_IndustrySlider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Sliders/TransportationSlider" to="CanvasLayer/TransportParticles2D" method="_on_TransportationSlider_value_changed"]

@@ -19,6 +19,7 @@
 [ext_resource path="res://sprites/Gas/gas1.png" type="Texture" id=17]
 [ext_resource path="res://fonts/Ubuntu-Regular.ttf" type="DynamicFontData" id=18]
 
+
 [sub_resource type="DynamicFont" id=1]
 size = 24
 font_data = ExtResource( 18 )
