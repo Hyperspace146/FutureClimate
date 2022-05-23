@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/farmlandcarrots.png-b01c091bcfff4cec280bfe804e945b89.stex"
+path="res://.import/modernbuidling2.png-2dc23361a41a3042608e28abcbb7ec02.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/CityBuilder/assets/farmlandcarrots.png"
-dest_files=[ "res://.import/farmlandcarrots.png-b01c091bcfff4cec280bfe804e945b89.stex" ]
+source_file="res://scenes/CityBuilder/assets/modernbuidling2.png"
+dest_files=[ "res://.import/modernbuidling2.png-2dc23361a41a3042608e28abcbb7ec02.stex" ]
 
 [params]
 

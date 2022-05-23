@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/intersection.png-087bbba11c4832cf84e82a6e3252491b.stex"
+path="res://.import/skyscraper.png-0edc5fb5d433ceb250e1efeae91d7e2d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/CityBuilder/assets/intersection.png"
-dest_files=[ "res://.import/intersection.png-087bbba11c4832cf84e82a6e3252491b.stex" ]
+source_file="res://scenes/CityBuilder/assets/skyscraper.png"
+dest_files=[ "res://.import/skyscraper.png-0edc5fb5d433ceb250e1efeae91d7e2d.stex" ]
 
 [params]
 
