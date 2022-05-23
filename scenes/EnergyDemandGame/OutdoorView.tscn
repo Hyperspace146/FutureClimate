@@ -633,9 +633,6 @@ custom_styles/pressed = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
 text = "Prev"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Construction" type="Button" parent="CanvasLayer/ConstructionPopUp"]
 margin_left = 5.0
@@ -1929,167 +1926,120 @@ position = Vector2( 726.285, 167.653 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 5 )
 
-[node name="MobilityAir" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
+[node name="EfficiencyAir" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
 margin_right = 524.0
 margin_bottom = 16.0
-value = 10.0
+value = 1.0
 
-[node name="Label" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/MobilityAir"]
+[node name="Label" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyAir"]
 margin_top = -33.0
 margin_right = 526.0
 margin_bottom = -3.0
-text = "Distance travelled by air: "
+text = "Travel by Air:"
 
-[node name="SizeLabel" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/MobilityAir"]
+[node name="SizeLabel" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyAir"]
 margin_left = 1.0
 margin_top = 21.0
 margin_right = 602.0
 margin_bottom = 62.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
-text = "0km                                                                                                         25000 km
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "0%                                                                                                                  100%
 
-[node name="Label2" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/MobilityAir"]
+"
+
+[node name="Label2" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyAir"]
 margin_left = 553.594
 margin_top = -6.07935
 margin_right = 849.594
 margin_bottom = 21.9207
-text = "0 % total distance traveled"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "0 % reduction in energy use"
 
-[node name="SchoolHeating" type="OptionButton" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
-visible = false
-margin_right = 524.0
-margin_bottom = 34.0
-text = "School/hospital poorly insulated"
-items = [ "School/hospital poorly insulated", null, false, 0, null, "School/hospital medium-insulated", null, false, 1, null, "School/hospital well-insulated", null, false, 2, null, "School/hospital well-insulated + heat pump", null, false, 3, null ]
-selected = 0
-
-[node name="MobilityBus" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
+[node name="EfficiencyBus" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
 margin_top = 65.0
 margin_right = 524.0
 margin_bottom = 81.0
-value = 50.0
+value = 1.0
 
-[node name="Label" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/MobilityBus"]
+[node name="Label" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyBus"]
 margin_top = -35.0
 margin_right = 282.0
 margin_bottom = 24.0
-text = "Distance travelled by bus
+text = "Travel by Bus:
 "
 
-[node name="SizeLabel" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/MobilityBus"]
+[node name="SizeLabel" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyBus"]
 margin_top = 22.0
 margin_right = 601.0
 margin_bottom = 50.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
-text = "0 km                                                                                                        25000 km"
+text = "0%                                                                                                                  100%"
 
-[node name="Label2" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/MobilityBus"]
+[node name="Label2" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyBus"]
 margin_left = 553.593
 margin_top = -3.57605
 margin_right = 849.593
 margin_bottom = 24.424
-text = "0 % total distance traveled"
+text = "0 % reduction in energy use"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MobilityRail" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
+[node name="EfficiencyRail" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
 margin_top = 130.0
 margin_right = 524.0
 margin_bottom = 146.0
-value = 50.0
+value = 1.0
 
-[node name="Label" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/MobilityRail"]
+[node name="Label" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyRail"]
 margin_top = -35.0
 margin_right = 521.0
-text = "Distance travelled by rail"
+text = "Travel by Rail:"
 
-[node name="SizeLabel" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/MobilityRail"]
+[node name="SizeLabel" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyRail"]
 margin_top = 22.0
 margin_right = 601.0
 margin_bottom = 50.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
-text = "0 km                                                                                                        25000 km"
+text = "0%                                                                                                                  100%"
 
-[node name="Label2" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/MobilityRail"]
+[node name="Label2" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyRail"]
 margin_left = 555.061
 margin_top = -6.45312
 margin_right = 851.061
 margin_bottom = 21.5469
-text = "0 % total distance traveled"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "0 % reduction in energy use"
 
-[node name="MobilityCar" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
+[node name="EfficiencyCar" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
 margin_top = 195.0
 margin_right = 524.0
 margin_bottom = 211.0
-value = 10.0
+value = 1.0
 
-[node name="Label" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/MobilityCar"]
+[node name="Label" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar"]
 margin_top = -37.0
 margin_right = 276.0
 margin_bottom = 22.0
-text = "Distance travelled by car
+text = "Travel by Car:
 "
 
-[node name="SizeLabel" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/MobilityCar"]
+[node name="SizeLabel" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar"]
 margin_left = -2.0
 margin_top = 22.0
 margin_right = 599.0
 margin_bottom = 50.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
-text = "0 km                                                                                                         25000 km"
+text = "0%                                                                                                                  100%"
 
-[node name="Label2" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/MobilityCar"]
+[node name="Label2" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar"]
 margin_left = 556.039
 margin_top = -4.92798
 margin_right = 852.039
 margin_bottom = 23.0721
-text = "0 % total distance traveled"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Car sharing" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
-margin_top = 260.0
-margin_right = 524.0
-margin_bottom = 276.0
-step = 0.1
-value = 10.0
-
-[node name="Label" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/Car sharing"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Number of people per car"
-
-[node name="Car fuel efficiency" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
-margin_top = 325.0
-margin_right = 524.0
-margin_bottom = 341.0
-value = 10.0
-
-[node name="Label" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/Car fuel efficiency"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Car efficiency"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "0 % reduction in energy use"
 
 [node name="SchoolHeating2" type="OptionButton" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
 visible = false
@@ -2144,10 +2094,7 @@ theme = SubResource( 3 )
 custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
 disabled = true
-text = "Transportation"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "Efficiencies"
 
 [node name="UICity" type="Control" parent="CanvasLayer"]
 mouse_filter = 2
@@ -2191,7 +2138,7 @@ __meta__ = {
 position = Vector2( 36, 38 )
 frames = ExtResource( 25 )
 animation = "on"
-frame = 6
+frame = 2
 playing = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/UICity/ColorRect/VBoxContainer/Nuclear"]
@@ -2229,7 +2176,7 @@ __meta__ = {
 position = Vector2( 37, 13 )
 frames = ExtResource( 33 )
 animation = "on"
-frame = 5
+frame = 4
 playing = true
 offset = Vector2( 0, 24 )
 
@@ -2267,6 +2214,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/UICity/ColorRect/VBoxContainer/Wind"]
 position = Vector2( 15, 8 )
 frames = SubResource( 9 )
+frame = 1
 playing = true
 centered = false
 
@@ -2543,6 +2491,10 @@ __meta__ = {
 [connection signal="value_changed" from="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityNonMotorized" to="." method="_on_MobilityNonMotorized_value_changed"]
 [connection signal="pressed" from="CanvasLayer/MobilityPopUp/ToBeginning" to="." method="_on_ToBeginning_pressed"]
 [connection signal="pressed" from="CanvasLayer/MobilityPopUp/ToCommercial2" to="." method="_on_ToCommercial2_pressed"]
+[connection signal="value_changed" from="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyAir" to="." method="_on_EfficiencyAir_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyBus" to="." method="_on_EfficiencyBus_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyRail" to="." method="_on_EfficiencyRail_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar" to="." method="_on_EfficiencyCar_value_changed"]
 [connection signal="pressed" from="CanvasLayer/ReductionsPopUp/ToBeginning" to="." method="_on_ToBeginning_pressed"]
 [connection signal="pressed" from="CanvasLayer/ReductionsPopUp/ToCommercial2" to="." method="_on_ToCommercial2_pressed"]
 [connection signal="toggled" from="CanvasLayer/UICity/ColorRect/ElectricityLabel2" to="CanvasLayer/UICity" method="_on_ElectricityLabel2_toggled"]

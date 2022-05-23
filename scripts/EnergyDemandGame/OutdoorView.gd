@@ -62,6 +62,11 @@ onready var distRAIL = get_node("CanvasLayer/MobilityPopUp/MobilitySliders/Mobil
 onready var distCAR = get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar")
 onready var distNON = get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityNonMotorized") 
 
+#efficiencies - Carmen
+onready var perAIR = get_node("CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyAir")
+onready var perBUS = get_node("CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyBus")
+onready var perRAIL = get_node("CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyRail")
+onready var perCAR = get_node("CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar")
 
 #Calculated quantities
 var heating = 0
@@ -230,13 +235,21 @@ func _ready():
 	distNON.min_value = 0 #km
 	distNON.max_value = 25000 #km
 	distNON.value = 137 #km
-	# emfAIR = 1.17 #MJ
-	# emfRAIL =  0.287 #MJ
-	# emfBUS = 0.27 #MJ
-	# emfCAR = 0.56 #MJ
-	# emfNON = 0 #MJ
 	
-	
+	#EFFICIENCIES - Carmen
+	perAIR.min_value = 1
+	perAIR.max_value = 100
+	perAIR.value = 75
+	perRAIL.min_value = 1
+	perRAIL.max_value = 100
+	perRAIL.value = 75
+	perBUS.min_value = 1
+	perBUS.max_value = 100
+	perBUS.value = 75
+	perCAR.min_value = 1
+	perCAR.max_value = 100
+	perCAR.value = 75
+		
 	set_waterheatingcooking()
 	set_energyForFoodChoice()
 	set_heating()
@@ -426,16 +439,16 @@ func set_services():
 	
 func set_mobility(): 
 	var co2mobility = 0.0
-	#energy multiplicative factors (emf) defined as constants below until reductions section done
+	
 	var emfAIR = 1.17 #MJ
 	var emfRAIL =  0.287 #MJ
 	var emfBUS = 0.27 #MJ
 	var emfCAR = 0.56 #MJ
 	var emfNON = 0 #MJ
-	var EngrAIR = distAIR.value*emfAIR*0.03173516
-	var EngrRAIL = distRAIL.value*emfRAIL*0.03173516
-	var EngrBUS = distBUS.value*emfBUS*0.03173516
-	var EngrCAR = distCAR.value*emfCAR*0.03173516
+	var EngrAIR = distAIR.value*emfAIR*0.03173516 /(perAIR.value/100)
+	var EngrRAIL = distRAIL.value*emfRAIL*0.03173516 /(perRAIL.value/100)
+	var EngrBUS = distBUS.value*emfBUS*0.03173516 /(perBUS.value/100)
+	var EngrCAR = distCAR.value*emfCAR*0.03173516 /(perCAR.value/100) #code breaks when perCAR is added
 	var EngrNON = distNON.value*emfNON*0.03173516
 	var mobility = EngrAIR + EngrRAIL + EngrBUS + EngrCAR + EngrNON
 	get_node("CanvasLayer/UICity/MobilityLabel").text = "Mobility: " + str("%3.0f" % mobility) + " W"
@@ -652,8 +665,8 @@ func _on_ToMobility_pressed():
 	
 func _on_ToBeginning_pressed():
 	get_node("CanvasLayer/MobilityPopUp").visible = false
-	get_node("CanvasLayer/ConstructionPopUp").visible = true
-	get_node("CanvasLayer/ConstructionPopUp").rect_position = Vector2(29,160)
+	get_node("CanvasLayer/ReductionsPopUp").visible = true
+	get_node("CanvasLayer/ReductionsPopUp").rect_position = Vector2(29,160)
 
 
 func _on_ClothesBought_value_changed(value):
@@ -741,6 +754,23 @@ func _on_MobilityNonMotorized_value_changed(value):
 	get_node("CanvasLayer/MobilityPopUp/MobilitySliders/MobilityNonMotorized/Label").text = "Distance travelled by non-motorized vehicle: " + str(value) + " km/year"
 	set_mobility()
 
+#EFFICIENCY labels - Carmen
+func _on_EfficiencyAir_value_changed(value):
+	get_node("CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyAir/Label2").text = str("%1.1f" %value) + "% reduction in energy use"
+	set_mobility()
+
+func _on_EfficiencyBus_value_changed(value):
+	get_node("CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyBus/Label2").text = str("%1.1f" %value) + "% reduction in energy use"
+	set_mobility()
+
+func _on_EfficiencyRail_value_changed(value):
+	get_node("CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyRail/Label2").text = str("%1.1f" %value) + "% reduction in energy use"
+	set_mobility()
+	
+func _on_EfficiencyCar_value_changed(value):
+	get_node("CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar/Label2").text = str("%1.1f" %value) + "% reduction in energy use"
+	set_mobility()
+	
 func _on_CO2Button_pressed():
 	get_node("CanvasLayer/CO2UICity").visible = true
 	get_node("CanvasLayer/UICity").visible = false
@@ -793,7 +823,7 @@ func _on_ToSchool2_pressed():
 func _on_ToCommercial2_pressed():
 	get_node("CanvasLayer/CommercialPopUp").visible = true
 	get_node("CanvasLayer/CommercialPopUp").rect_position = Vector2(29,160)
-	get_node("CanvasLayer/MobilityPopUp").visible = false
+	get_node("CanvasLayer/ReductionsPopUp").visible = false
 
 func _on_Electricity_item_selected(id):
 	set_heating()
@@ -804,6 +834,3 @@ func _on_Electricity_item_selected(id):
 	set_energyForFoodChoice()
 	set_homeEmbodied()
 	set_services()
-
-
-
