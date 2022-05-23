@@ -50,7 +50,6 @@ func iterate_over_radius(tile_pos, rad, function: FuncRef):
 	# Iterate over the square containing the radius
 	for y in range(cy - rad, cy + rad + 1):
 		for x in range(cx - rad, cx + rad + 1):
-			print(x, y)
 			var isInCircle = (x - cx) * (x - cx) + (y - cy) * (y - cy) < rad * rad;
 			if isInCircle:
 				function.call_func(Vector2(x, y))
@@ -120,8 +119,6 @@ func _create_building(tile_pos):
 	if tile_pos in _buildings:
 		print("error: building already exists at position", tile_pos)
 		return
-		
-	print("place at ", tile_pos)
 	
 	# Create the building sprite and object at the given tile position
 	set_cellv(tile_pos, building_tile_index)

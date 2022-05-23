@@ -11,12 +11,13 @@ func _purchase_tech():
 	if _selected_tech == null:
 		return
 	
-	var purchase_successful = $"/root/Node2D/CanvasLayer/TabContainer/City/VBoxContainer/WealthPanel/WealthLabel".spend_wealth(_selected_tech.cost)
+	var purchase_successful = $"/root/Node2D/CanvasLayer/TabContainer/City/StatsContainer/EnergyPanel/EnergyLabel".spend_energy(_selected_tech.cost)
 	print(purchase_successful)
 	if not purchase_successful:
 		_set_tooltip("Not enough funds.")
 		return false
-	_selected_tech._unlock_children()
+	_selected_tech.unlock_children()
+	_selected_tech.item_effect()
 	_selected_tech.disabled = true
 	_selected_tech = null
 

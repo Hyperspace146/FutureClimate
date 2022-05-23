@@ -5,6 +5,15 @@ export var tooltip = "No tooltip"
 export var cost = -1
 
 
+# Should be overridden in subclasses.
+func item_effect():
+	print("Error: item_effect() method not overridden.")
+
+func unlock_children():
+	for child in get_children():
+		child.disabled = false
+
+
 func _ready():
 	_draw_lines_to_children()
 
@@ -20,6 +29,3 @@ func _draw_lines_to_children():
 func _pressed():
 	$"/root/Node2D/CanvasLayer/TabContainer/Tech"._select_tech(self)
 	
-func _unlock_children():
-	for child in get_children():
-		child.disabled = false

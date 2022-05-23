@@ -10,7 +10,6 @@ func end_turn():
 	turn_num += 1
 	_update_turn_label()
 
-
 func _ready():
 	_update_turn_label()
 

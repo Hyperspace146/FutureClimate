@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/CityBuilder/BuildingGrid.gd" type="Script" id=1]
 [ext_resource path="res://sprites/CityBuilder/citytileset.tres" type="TileSet" id=2]
@@ -12,15 +12,22 @@
 [ext_resource path="res://sprites/CityBuilder/assets/citybuilding3.png" type="Texture" id=10]
 [ext_resource path="res://sprites/CityBuilder/UITheme.tres" type="Theme" id=11]
 [ext_resource path="res://scripts/CityBuilder/TurnManager.gd" type="Script" id=12]
-[ext_resource path="res://scenes/CityBuilder/WealthManager.gd" type="Script" id=13]
-[ext_resource path="res://scripts/CityBuilder/TechTreeItem.gd" type="Script" id=14]
+[ext_resource path="res://scripts/CityBuilder/EnergyManager.gd" type="Script" id=13]
+[ext_resource path="res://scripts/CityBuilder/TechTreeItems/TechTreeItem.gd" type="Script" id=14]
 [ext_resource path="res://scripts/CityBuilder/TechManager.gd" type="Script" id=15]
 [ext_resource path="res://scenes/CityBuilder/TechTreeItem.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/CityBuilder/PowerCO2Output.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scripts/CityBuilder/TechTreeItems/ElectricStoves.gd" type="Script" id=18]
+[ext_resource path="res://scenes/CityBuilder/Events.gd" type="Script" id=19]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0941176, 0.121569, 0.109804, 1 )
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Events" type="Node2D" parent="."]
+position = Vector2( 0, -1 )
+script = ExtResource( 19 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -49,20 +56,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 11 )
 
-[node name="NotUI" type="Panel" parent="CanvasLayer/TabContainer"]
-modulate = Color( 1, 1, 1, 0 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 27.0
-__meta__ = {
-"_editor_description_": "Encompasses the entire screen, but lies under the normal UI controls. Used to know whether the user's cursor is hovering over the UI or not."
-}
-
 [node name="City" type="Control" parent="CanvasLayer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 27.0
+
+[node name="NotUI" type="Panel" parent="CanvasLayer/TabContainer/City"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -27.0
+__meta__ = {
+"_editor_description_": "Encompasses the entire screen, but lies under the normal UI controls. Used to know whether the user's cursor is hovering over the UI or not."
+}
 
 [node name="TilePosLabel" type="Label" parent="CanvasLayer/TabContainer/City"]
 anchor_top = 1.0
@@ -78,12 +85,11 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -40.0
-margin_top = -31.0
+margin_top = -35.0
 margin_right = 40.0
-margin_bottom = 4.0
 theme = ExtResource( 11 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel"]
+[node name="BuildingSelectContainer" type="HBoxContainer" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -92,13 +98,13 @@ margin_bottom = 12.0
 custom_constants/separation = 20
 alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer"]
+[node name="Button" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer"]
 margin_left = 10.0
 margin_right = 30.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 20, 20 )
 
-[node name="Panel" type="Panel" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button"]
+[node name="Panel" type="Panel" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button"]
 visible = false
 margin_left = -87.0
 margin_top = -112.5
@@ -106,7 +112,7 @@ margin_right = 106.0
 margin_bottom = -18.5
 script = ExtResource( 4 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button/Panel"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -116,30 +122,30 @@ grow_vertical = 2
 custom_constants/separation = 20
 alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button/Panel/HBoxContainer"]
+[node name="Button" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button/Panel/HBoxContainer"]
 margin_right = 44.0
 margin_bottom = 76.0
 icon = ExtResource( 6 )
 
-[node name="Button2" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button/Panel/HBoxContainer"]
+[node name="Button2" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button/Panel/HBoxContainer"]
 margin_left = 64.0
 margin_right = 108.0
 margin_bottom = 76.0
 icon = ExtResource( 8 )
 
-[node name="Button3" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button/Panel/HBoxContainer"]
+[node name="Button3" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button/Panel/HBoxContainer"]
 margin_left = 128.0
 margin_right = 172.0
 margin_bottom = 76.0
 icon = ExtResource( 10 )
 
-[node name="Button2" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer"]
+[node name="Button2" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer"]
 margin_left = 50.0
 margin_right = 70.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 20, 20 )
 
-[node name="Panel" type="Panel" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button2"]
+[node name="Panel" type="Panel" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button2"]
 visible = false
 margin_left = -107.0
 margin_top = -112.5
@@ -147,7 +153,7 @@ margin_right = 117.0
 margin_bottom = -18.5
 script = ExtResource( 4 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button2/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button2/Panel"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -157,38 +163,39 @@ grow_vertical = 2
 custom_constants/separation = 20
 alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button2/Panel/HBoxContainer"]
+[node name="Button" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button2/Panel/HBoxContainer"]
 margin_right = 62.0
 margin_bottom = 73.0
 icon = ExtResource( 9 )
 
-[node name="Button2" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button2/Panel/HBoxContainer"]
+[node name="Button2" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button2/Panel/HBoxContainer"]
 margin_left = 82.0
 margin_right = 144.0
 margin_bottom = 73.0
 icon = ExtResource( 5 )
 
-[node name="Button3" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button2/Panel/HBoxContainer"]
+[node name="Button3" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button2/Panel/HBoxContainer"]
 margin_left = 164.0
 margin_right = 208.0
 margin_bottom = 73.0
 icon = ExtResource( 7 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TabContainer/City"]
+[node name="StatsContainer" type="VBoxContainer" parent="CanvasLayer/TabContainer/City"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 6.0
 margin_top = -96.0
 margin_right = 127.0
 margin_bottom = -4.0
+size_flags_vertical = 2
 theme = ExtResource( 11 )
 
-[node name="WealthPanel" type="Panel" parent="CanvasLayer/TabContainer/City/VBoxContainer"]
+[node name="EnergyPanel" type="Panel" parent="CanvasLayer/TabContainer/City/StatsContainer"]
 margin_right = 121.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 0, 30 )
 
-[node name="WealthLabel" type="Label" parent="CanvasLayer/TabContainer/City/VBoxContainer/WealthPanel"]
+[node name="EnergyLabel" type="Label" parent="CanvasLayer/TabContainer/City/StatsContainer/EnergyPanel"]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 10.0
@@ -198,14 +205,15 @@ margin_bottom = 8.5
 text = "Wealth:"
 script = ExtResource( 13 )
 
-[node name="TurnPanel" type="Panel" parent="CanvasLayer/TabContainer/City/VBoxContainer"]
+[node name="TurnPanel" type="Panel" parent="CanvasLayer/TabContainer/City/StatsContainer"]
+visible = false
 margin_top = 34.0
 margin_right = 121.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 100, 30 )
 theme = ExtResource( 11 )
 
-[node name="TurnLabel" type="Label" parent="CanvasLayer/TabContainer/City/VBoxContainer/TurnPanel"]
+[node name="TurnLabel" type="Label" parent="CanvasLayer/TabContainer/City/StatsContainer/TurnPanel"]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 10.0
@@ -215,13 +223,13 @@ margin_bottom = 8.5
 text = "Turn: "
 script = ExtResource( 12 )
 
-[node name="NextTurnButton" type="Button" parent="CanvasLayer/TabContainer/City/VBoxContainer"]
-margin_top = 68.0
+[node name="NextTurnButton" type="Button" parent="CanvasLayer/TabContainer/City/StatsContainer"]
+margin_top = 34.0
 margin_right = 121.0
-margin_bottom = 95.0
+margin_bottom = 61.0
 theme = ExtResource( 11 )
 
-[node name="Label" type="Label" parent="CanvasLayer/TabContainer/City/VBoxContainer/NextTurnButton"]
+[node name="Label" type="Label" parent="CanvasLayer/TabContainer/City/StatsContainer/NextTurnButton"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -231,7 +239,6 @@ text = "NEXT TURN"
 align = 1
 
 [node name="Tech" type="Control" parent="CanvasLayer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 27.0
@@ -258,10 +265,10 @@ size_flags_horizontal = 2
 size_flags_vertical = 2
 
 [node name="FoodTreePanel" type="Panel" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food"]
-margin_right = 100.0
+margin_right = 984.0
 margin_bottom = 516.0
 rect_min_size = Vector2( 100, 100 )
-size_flags_horizontal = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel"]
@@ -273,7 +280,7 @@ margin_right = 105.0
 margin_bottom = -9.0
 text = "Food"
 script = ExtResource( 14 )
-tooltip = "food."
+tooltip = "Open the food tech tree."
 cost = 100
 
 [node name="Button2" type="Button" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Button"]
@@ -284,10 +291,10 @@ margin_top = -95.5
 margin_right = 224.0
 margin_bottom = -68.5
 disabled = true
-text = "Meat tax"
-script = ExtResource( 14 )
-tooltip = "no more steak"
-cost = 1200
+text = "Electric stoves"
+script = ExtResource( 18 )
+tooltip = "Electric stoves"
+cost = 1000
 
 [node name="Button4" type="Button" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Button/Button2"]
 anchor_top = 0.5
@@ -334,6 +341,7 @@ margin_left = 165.0
 margin_top = -92.5
 margin_right = 247.0
 margin_bottom = -65.5
+disabled = true
 text = "Policy: Fuelless Fridays"
 tooltip = "Work from home."
 cost = 2000
@@ -343,6 +351,7 @@ margin_left = 252.0
 margin_top = -88.5
 margin_right = 334.0
 margin_bottom = -61.5
+disabled = true
 text = "No fly zone"
 tooltip = "Less air travel."
 cost = 3000
@@ -352,6 +361,7 @@ margin_left = 269.0
 margin_top = 30.5
 margin_right = 351.0
 margin_bottom = 57.5
+disabled = true
 text = "Building: Train station"
 tooltip = "idk"
 cost = 5000
@@ -361,6 +371,7 @@ margin_left = 165.0
 margin_top = 62.5
 margin_right = 347.0
 margin_bottom = 89.5
+disabled = true
 text = "Building: Bus terminal"
 tooltip = "Buses"
 cost = 1200
@@ -390,18 +401,28 @@ margin_right = 50.0
 margin_bottom = 17.0
 text = "No tooltip"
 
-[connection signal="mouse_entered" from="CanvasLayer/TabContainer/NotUI" to="BuildingGrid" method="_on_Panel_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/TabContainer/NotUI" to="BuildingGrid" method="_on_Panel_mouse_exited"]
-[connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button" to="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button/Panel" method="_on_Button_pressed"]
-[connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button/Panel/HBoxContainer/Button" to="BuildingGrid" method="_on_Button_pressed" binds= [ 12 ]]
-[connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button/Panel/HBoxContainer/Button2" to="BuildingGrid" method="_on_Button_pressed" binds= [ 13 ]]
-[connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button/Panel/HBoxContainer/Button3" to="BuildingGrid" method="_on_Button_pressed" binds= [ 14 ]]
-[connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button2" to="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button2/Panel" method="_on_Button_pressed"]
-[connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button2/Panel/HBoxContainer/Button" to="BuildingGrid" method="_on_Button_pressed" binds= [ 15 ]]
-[connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button2/Panel/HBoxContainer/Button2" to="BuildingGrid" method="_on_Button_pressed" binds= [ 16 ]]
-[connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/HBoxContainer/Button2/Panel/HBoxContainer/Button3" to="BuildingGrid" method="_on_Button_pressed" binds= [ 17 ]]
-[connection signal="pressed" from="CanvasLayer/TabContainer/City/VBoxContainer/NextTurnButton" to="CanvasLayer/TabContainer/City/VBoxContainer/WealthPanel/WealthLabel" method="gain_income"]
-[connection signal="pressed" from="CanvasLayer/TabContainer/City/VBoxContainer/NextTurnButton" to="CanvasLayer/TabContainer/City/VBoxContainer/TurnPanel/TurnLabel" method="end_turn"]
+[node name="Output" parent="CanvasLayer/TabContainer" instance=ExtResource( 17 )]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 27.0
+margin_right = 0.0
+margin_bottom = 0.0
+theme = ExtResource( 11 )
+
+[connection signal="end_turn" from="Events" to="CanvasLayer/TabContainer/City/StatsContainer/EnergyPanel/EnergyLabel" method="reset_energy"]
+[connection signal="end_turn" from="Events" to="CanvasLayer/TabContainer/City/StatsContainer/TurnPanel/TurnLabel" method="end_turn"]
+[connection signal="mouse_entered" from="CanvasLayer/TabContainer/City/NotUI" to="BuildingGrid" method="_on_Panel_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/TabContainer/City/NotUI" to="BuildingGrid" method="_on_Panel_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button" to="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button/Panel" method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button/Panel/HBoxContainer/Button" to="BuildingGrid" method="_on_Button_pressed" binds= [ 12 ]]
+[connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button/Panel/HBoxContainer/Button2" to="BuildingGrid" method="_on_Button_pressed" binds= [ 13 ]]
+[connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button/Panel/HBoxContainer/Button3" to="BuildingGrid" method="_on_Button_pressed" binds= [ 14 ]]
+[connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button2" to="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button2/Panel" method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button2/Panel/HBoxContainer/Button" to="BuildingGrid" method="_on_Button_pressed" binds= [ 15 ]]
+[connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button2/Panel/HBoxContainer/Button2" to="BuildingGrid" method="_on_Button_pressed" binds= [ 16 ]]
+[connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button2/Panel/HBoxContainer/Button3" to="BuildingGrid" method="_on_Button_pressed" binds= [ 17 ]]
+[connection signal="pressed" from="CanvasLayer/TabContainer/City/StatsContainer/NextTurnButton" to="Events" method="_emit_signal_end_turn"]
 [connection signal="pressed" from="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Button" to="CanvasLayer/TabContainer/Tech" method="_select_tech"]
 [connection signal="pressed" from="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Button/Button2" to="CanvasLayer/TabContainer/Tech" method="_select_tech"]
 [connection signal="pressed" from="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Button/Button2/Button4" to="CanvasLayer/TabContainer/Tech" method="_select_tech"]
