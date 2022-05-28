@@ -1,11 +1,7 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=35 format=2]
 
-[ext_resource path="res://sprites/EnergyDemandGame/building 9.png" type="Texture" id=1]
 [ext_resource path="res://sprites/Winmill/wind-3.png" type="Texture" id=2]
 [ext_resource path="res://sprites/UI/electricity.png" type="Texture" id=3]
-[ext_resource path="res://sprites/EnergyDemandGame/building 1.png" type="Texture" id=4]
-[ext_resource path="res://sprites/EnergyDemandGame/city 3.png" type="Texture" id=5]
-[ext_resource path="res://sprites/EnergyDemandGame/building 8.png" type="Texture" id=6]
 [ext_resource path="res://sprites/Winmill/wind-1.png" type="Texture" id=7]
 [ext_resource path="res://sprites/UI/electricityWhite.png" type="Texture" id=8]
 [ext_resource path="res://sprites/Winmill/wind-4.png" type="Texture" id=9]
@@ -17,48 +13,14 @@
 [ext_resource path="res://scenes/UICity.tscn" type="PackedScene" id=15]
 [ext_resource path="res://fonts/Ubuntu-Regular.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://scenes/EnergyDemandGame/ButtonStyle.tres" type="StyleBox" id=17]
-[ext_resource path="res://smallbuttonstyle.tres" type="StyleBox" id=18]
 [ext_resource path="res://powerbutton.tres" type="StyleBox" id=19]
 [ext_resource path="res://UITheme.tres" type="Theme" id=20]
 [ext_resource path="res://scenes/UICity.gd" type="Script" id=21]
-[ext_resource path="res://sprites/EnergyDemandGame/building 7.png" type="Texture" id=22]
-[ext_resource path="res://sprites/EnergyDemandGame/building 6.png" type="Texture" id=23]
 [ext_resource path="res://fonts/Ubuntu40.tres" type="DynamicFont" id=24]
 [ext_resource path="res://fonts/Ubuntu24.tres" type="DynamicFont" id=25]
 [ext_resource path="res://fonts/smallfont.tres" type="DynamicFont" id=26]
 [ext_resource path="res://scripts/CityBuilder/PowerCO2Output.gd" type="Script" id=27]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.258824, 0.513726, 0.270588, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 4
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-expand_margin_top = 12.0
-expand_margin_bottom = 12.0
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.231373, 0.309804, 0.235294, 1 )
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color( 0.00784314, 0.266667, 0.0235294, 1 )
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-expand_margin_top = 12.0
-expand_margin_bottom = 12.0
-
-[sub_resource type="Theme" id=3]
-default_font = ExtResource( 25 )
-HSlider/styles/grabber_area = SubResource( 1 )
-HSlider/styles/slider = SubResource( 2 )
+[ext_resource path="res://scenes/CityBuilder/UITheme.tres" type="Theme" id=28]
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -121,6 +83,38 @@ expand_margin_right = 12.0
 expand_margin_top = 8.0
 expand_margin_bottom = 8.0
 
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.258824, 0.513726, 0.270588, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 4
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_top = 12.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.231373, 0.309804, 0.235294, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.00784314, 0.266667, 0.0235294, 1 )
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_top = 12.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="Theme" id=3]
+default_font = ExtResource( 25 )
+HSlider/styles/grabber_area = SubResource( 1 )
+HSlider/styles/slider = SubResource( 2 )
+
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.423529, 0.603922, 0.686275, 1 )
 border_width_left = 8
@@ -177,1736 +171,40 @@ corner_radius_bottom_right = 60
 corner_radius_bottom_left = 60
 
 [node name="PowerCO2Output" type="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 28 )
 script = ExtResource( 27 )
 
-[node name="ConstructionPopUp" type="Button" parent="."]
-margin_left = 29.0
-margin_top = 160.0
-margin_right = 999.0
-margin_bottom = 660.0
-theme = SubResource( 3 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-
-[node name="ConstructionSliders" type="VBoxContainer" parent="ConstructionPopUp"]
-margin_left = 46.0
-margin_top = 25.0
-margin_right = 593.0
-margin_bottom = 419.0
-rect_min_size = Vector2( 500, 300 )
-custom_constants/separation = 30
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Building7" type="Sprite" parent="ConstructionPopUp/ConstructionSliders"]
-position = Vector2( 727, 185 )
-scale = Vector2( 0.9, 0.9 )
-texture = ExtResource( 22 )
-
-[node name="ClimateZone" type="OptionButton" parent="ConstructionPopUp/ConstructionSliders"]
-margin_right = 547.0
-margin_bottom = 34.0
-text = "Tropical"
-items = [ "Tropical", null, false, 0, null, "Subtropical", null, false, 1, null, "Temperate", null, false, 2, null, "Cold", null, false, 3, null ]
-selected = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="ConstructionPopUp/ConstructionSliders/ClimateZone"]
-margin_left = 557.0
-margin_right = 700.0
-margin_bottom = 28.0
-text = "Climate zone"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SquareFootage" type="HSlider" parent="ConstructionPopUp/ConstructionSliders"]
-margin_top = 64.0
-margin_right = 547.0
-margin_bottom = 96.0
-rect_min_size = Vector2( 0, 32 )
-value = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="ConstructionPopUp/ConstructionSliders/SquareFootage"]
-anchor_left = 1.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
-margin_left = 10.0
-margin_right = 179.0
-margin_bottom = 28.0
-text = "Square footage"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+anchor_bottom = 1.0
 
-[node name="SizeLabel" type="Label" parent="ConstructionPopUp/ConstructionSliders/SquareFootage"]
-margin_top = 30.0
-margin_right = 601.0
-margin_bottom = 58.0
-size_flags_vertical = 8
-custom_fonts/font = ExtResource( 26 )
-text = "Small apartment                                                                                            Mansion"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="OutputUI" type="Control" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 0, 70 )
 
-[node name="PeoplePerResidence" type="HSlider" parent="ConstructionPopUp/ConstructionSliders"]
-margin_top = 126.0
-margin_right = 547.0
-margin_bottom = 158.0
-rect_min_size = Vector2( 0, 32 )
-min_value = 1.0
-max_value = 6.0
-value = 1.0
-tick_count = 7
-ticks_on_borders = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="CO2UICity" parent="VBoxContainer/OutputUI" instance=ExtResource( 15 )]
+visible = false
+margin_top = 74.0
+margin_right = 500.0
+margin_bottom = 74.0
 
-[node name="Label" type="Label" parent="ConstructionPopUp/ConstructionSliders/PeoplePerResidence"]
-anchor_left = 1.0
+[node name="UICity" type="Control" parent="VBoxContainer/OutputUI"]
 anchor_right = 1.0
-margin_left = 10.0
-margin_right = 238.0
-margin_bottom = 28.0
-text = "People per residence"
-
-[node name="Label2" type="Label" parent="ConstructionPopUp/ConstructionSliders/PeoplePerResidence"]
-margin_top = 30.0
-margin_right = 564.0
-margin_bottom = 58.0
-custom_fonts/font = ExtResource( 26 )
-text = "1                        2                        3                        4                         5                          6"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BuildingLifetime" type="HSlider" parent="ConstructionPopUp/ConstructionSliders"]
-margin_top = 188.0
-margin_right = 547.0
-margin_bottom = 212.0
-rect_min_size = Vector2( 0, 24 )
-value = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="ConstructionPopUp/ConstructionSliders/BuildingLifetime"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = 10.0
-margin_right = 191.0
-margin_bottom = 28.0
-text = "Building lifetime"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="ConstructionPopUp/ConstructionSliders/BuildingLifetime"]
-margin_top = 28.0
-margin_right = 553.0
-margin_bottom = 56.0
-custom_fonts/font = ExtResource( 26 )
-text = "20 yr                                                                                                                      100 yr"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BuildingMaterial" type="OptionButton" parent="ConstructionPopUp/ConstructionSliders"]
-margin_top = 242.0
-margin_right = 547.0
-margin_bottom = 276.0
-text = "Concrete"
-items = [ "Timber", null, false, 0, null, "Concrete", null, false, 1, null, "Steel", null, false, 2, null ]
-selected = 1
-
-[node name="Label" type="Label" parent="ConstructionPopUp/ConstructionSliders/BuildingMaterial"]
-margin_left = 557.0
-margin_right = 754.0
-margin_bottom = 28.0
-text = "Building material"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HeatCoolMethod" type="OptionButton" parent="ConstructionPopUp/ConstructionSliders"]
-margin_top = 306.0
-margin_right = 547.0
-margin_bottom = 340.0
-text = "Gas heating"
-items = [ "Gas heating", null, false, 0, null, "Electric resistance heating", null, false, 1, null, "Heat pump", null, false, 2, null ]
-selected = 0
-
-[node name="Label" type="Label" parent="ConstructionPopUp/ConstructionSliders/HeatCoolMethod"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = 10.0
-margin_right = 119.0
-margin_bottom = 28.0
-text = "Heating"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Insulation" type="HSlider" parent="ConstructionPopUp/ConstructionSliders"]
-visible = false
-margin_top = 370.0
-margin_right = 547.0
-margin_bottom = 386.0
-value = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Insulation2" type="OptionButton" parent="ConstructionPopUp/ConstructionSliders"]
-margin_top = 370.0
-margin_right = 547.0
-margin_bottom = 404.0
-text = "Poorly insulated"
-items = [ "Poorly insulated", null, false, 0, null, "Medium insulation", null, false, 1, null, "Well insulated", null, false, 2, null, "Best passive", null, false, 3, null ]
-selected = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="ConstructionPopUp/ConstructionSliders/Insulation2"]
-margin_left = 557.0
-margin_right = 700.0
-margin_bottom = 28.0
-text = "Insulation"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ToGrocery" type="Button" parent="ConstructionPopUp"]
-margin_left = 880.0
-margin_top = -57.0
-margin_right = 978.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Next"
-
-[node name="ToMobility2" type="Button" parent="ConstructionPopUp"]
-margin_left = 777.0
-margin_top = -57.0
-margin_right = 875.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Prev"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Construction" type="Button" parent="ConstructionPopUp"]
-margin_left = 5.0
-margin_top = -100.0
-margin_right = 505.0
-margin_bottom = -9.99999
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 24 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-text = "Construction"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GroceryPopUp" type="Button" parent="."]
-margin_left = -657.644
-margin_top = 793.153
-margin_right = 312.356
-margin_bottom = 1293.15
-theme = SubResource( 3 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-
-[node name="GrocerySliders" type="VBoxContainer" parent="GroceryPopUp"]
-margin_left = 47.0
-margin_top = 69.0
-margin_right = 573.0
-margin_bottom = 402.0
-rect_min_size = Vector2( 500, 300 )
-custom_constants/separation = 43
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FractLocal" type="HSlider" parent="GroceryPopUp/GrocerySliders"]
-margin_right = 526.0
-margin_bottom = 16.0
-value = 10.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="GroceryPopUp/GrocerySliders/FractLocal"]
-margin_left = -1.0
-margin_top = -34.0
-margin_right = 520.0
-text = "Local food compared with today: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="GroceryPopUp/GrocerySliders/FractLocal"]
-margin_left = 450.0
-margin_top = -34.0
-margin_right = 641.0
-margin_bottom = -6.0
-text = "0.5 X"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CalorieFractBeef" type="HSlider" parent="GroceryPopUp/GrocerySliders"]
-margin_top = 59.0
-margin_right = 526.0
-margin_bottom = 75.0
-value = 5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="GroceryPopUp/GrocerySliders/CalorieFractBeef"]
-margin_left = -1.0
-margin_top = -35.0
-margin_right = 520.0
-margin_bottom = -1.0
-text = "Fraction of Calories from beef:  "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="GroceryPopUp/GrocerySliders/CalorieFractBeef"]
-margin_left = 450.0
-margin_top = -34.0
-margin_right = 490.0
-margin_bottom = -6.0
-text = "5%"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CalorieFractPoultry" type="HSlider" parent="GroceryPopUp/GrocerySliders"]
-margin_top = 118.0
-margin_right = 526.0
-margin_bottom = 134.0
-value = 15.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="GroceryPopUp/GrocerySliders/CalorieFractPoultry"]
-margin_left = -1.0
-margin_top = -35.0
-margin_right = 520.0
-margin_bottom = -2.0
-text = "Fraction of Calories from poultry: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="GroceryPopUp/GrocerySliders/CalorieFractPoultry"]
-margin_left = 450.0
-margin_top = -34.0
-margin_right = 490.0
-margin_bottom = -6.0
-text = "10%"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CalorieFractDairy" type="HSlider" parent="GroceryPopUp/GrocerySliders"]
-margin_top = 177.0
-margin_right = 526.0
-margin_bottom = 193.0
-value = 20.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="GroceryPopUp/GrocerySliders/CalorieFractDairy"]
-margin_left = -1.0
-margin_top = -34.0
-margin_right = 520.0
-margin_bottom = 5.0
-text = "Fraction of Calories from dairy: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="GroceryPopUp/GrocerySliders/CalorieFractDairy"]
-margin_left = 450.0
-margin_top = -34.0
-margin_right = 499.0
-margin_bottom = -6.0
-text = "10%"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FractWaste" type="HSlider" parent="GroceryPopUp/GrocerySliders"]
-margin_top = 236.0
-margin_right = 526.0
-margin_bottom = 252.0
-value = 25.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="GroceryPopUp/GrocerySliders/FractWaste"]
-margin_left = -1.0
-margin_top = -36.0
-margin_right = 520.0
-margin_bottom = 13.0
-text = "Fraction of food that is wasted: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="GroceryPopUp/GrocerySliders/FractWaste"]
-margin_left = 450.0
-margin_top = -34.0
-margin_right = 499.0
-margin_bottom = -6.0
-text = "50%"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FractProcessed" type="HSlider" parent="GroceryPopUp/GrocerySliders"]
-margin_top = 295.0
-margin_right = 526.0
-margin_bottom = 311.0
-value = 55.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="GroceryPopUp/GrocerySliders/FractProcessed"]
-margin_left = -1.0
-margin_top = -35.0
-margin_right = 521.0
-margin_bottom = 15.0
-text = "Processed food compared with today: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="GroceryPopUp/GrocerySliders/FractProcessed"]
-margin_left = 450.0
-margin_top = -34.0
-margin_right = 641.0
-margin_bottom = -6.0
-text = "0.5 X"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Building6" type="Sprite" parent="GroceryPopUp/GrocerySliders"]
-position = Vector2( 713, 145 )
-scale = Vector2( -0.9, 0.9 )
-texture = ExtResource( 23 )
-
-[node name="ToResidence" type="Button" parent="GroceryPopUp"]
-margin_left = 880.0
-margin_top = -57.0
-margin_right = 978.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/focus = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Next"
-
-[node name="ToConstruction2" type="Button" parent="GroceryPopUp"]
-margin_left = 777.0
-margin_top = -57.0
-margin_right = 875.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/focus = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Prev"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Grocery" type="Button" parent="GroceryPopUp"]
-margin_left = 6.208
-margin_top = -100.0
-margin_right = 506.208
-margin_bottom = -10.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 24 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-text = "Grocery"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="WaterPopUp" type="Button" parent="."]
-margin_left = 420.463
-margin_top = 750.0
-margin_right = 1390.46
-margin_bottom = 1250.0
-theme = SubResource( 3 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="WaterSliders" type="VBoxContainer" parent="WaterPopUp"]
-margin_left = 54.957
-margin_top = 35.0
-margin_right = 579.957
-margin_bottom = 342.0
-rect_min_size = Vector2( 500, 300 )
-custom_constants/separation = 49
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Building9" type="Sprite" parent="WaterPopUp/WaterSliders"]
-position = Vector2( 707.73, 193.656 )
-rotation = -3.14159
-scale = Vector2( 1, -1 )
-texture = ExtResource( 1 )
-
-[node name="HotWaterHeater" type="OptionButton" parent="WaterPopUp/WaterSliders"]
-margin_right = 525.0
-margin_bottom = 34.0
-text = "Gas hot water"
-items = [ "Gas hot water", null, false, 0, null, "Electric hot water", null, false, 1, null ]
-selected = 0
-
-[node name="ShowerLength" type="HSlider" parent="WaterPopUp/WaterSliders"]
-margin_top = 83.0
-margin_right = 525.0
-margin_bottom = 99.0
-value = 10.0
-
-[node name="Label" type="Label" parent="WaterPopUp/WaterSliders/ShowerLength"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Shower length:                                  8 minutes"
-
-[node name="Hotwatertemp" type="HSlider" parent="WaterPopUp/WaterSliders"]
-visible = false
-margin_top = 148.0
-margin_right = 525.0
-margin_bottom = 164.0
-value = 10.0
-
-[node name="Label" type="Label" parent="WaterPopUp/WaterSliders/Hotwatertemp"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Hot water temperature:                  49 C (120 F)"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ClothesWashTemp" type="OptionButton" parent="WaterPopUp/WaterSliders"]
-margin_top = 148.0
-margin_right = 525.0
-margin_bottom = 182.0
-text = "Hot water wash"
-items = [ "Hot water wash", null, false, 0, null, "Warm water wash", null, false, 1, null, "Cold water wash", null, false, 2, null ]
-selected = 0
-
-[node name="WaterUsage" type="HSlider" parent="WaterPopUp/WaterSliders"]
-margin_top = 231.0
-margin_right = 525.0
-margin_bottom = 247.0
-value = 24.0
-
-[node name="Label" type="Label" parent="WaterPopUp/WaterSliders/WaterUsage"]
-margin_top = -34.0
-margin_right = 521.0
-margin_bottom = 1.0
-text = "Other water Usage:                          50 liters / day"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ClothesBought" type="HSlider" parent="WaterPopUp/WaterSliders"]
-margin_top = 296.0
-margin_right = 525.0
-margin_bottom = 312.0
-value = 20.0
-
-[node name="Label" type="Label" parent="WaterPopUp/WaterSliders/ClothesBought"]
-margin_top = -34.0
-margin_right = 523.0
-margin_bottom = 1.0
-text = "Clothes bought/yr: 2 outfits"
-
-[node name="ToCooking" type="Button" parent="WaterPopUp"]
-margin_left = 880.0
-margin_top = -57.0
-margin_right = 978.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Next"
-
-[node name="ToGrocery2" type="Button" parent="WaterPopUp"]
-margin_left = 777.0
-margin_top = -57.0
-margin_right = 875.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Prev"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Water" type="Button" parent="WaterPopUp"]
-margin_left = 12.991
-margin_top = -100.0
-margin_right = 512.991
-margin_bottom = -10.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 24 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-text = "Water & Clothes"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CookingPopUp" type="Button" parent="."]
-margin_left = 1400.0
-margin_top = 700.0
-margin_right = 2370.0
-margin_bottom = 1200.0
-theme = SubResource( 3 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CookingSliders" type="VBoxContainer" parent="CookingPopUp"]
-margin_left = 48.6871
-margin_top = 30.5706
-margin_right = 573.687
-margin_bottom = 337.571
-rect_min_size = Vector2( 500, 300 )
-custom_constants/separation = 49
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Building9" type="Sprite" parent="CookingPopUp/CookingSliders"]
-position = Vector2( 714, 190.969 )
-texture = ExtResource( 1 )
-
-[node name="Electricity" type="OptionButton" parent="CookingPopUp/CookingSliders"]
-margin_right = 524.0
-margin_bottom = 34.0
-rect_pivot_offset = Vector2( 281.638, 63.8712 )
-text = "Coal"
-items = [ "Coal", null, false, 0, null, "Fossil gas", null, false, 1, null, "Renewables", null, false, 2, null ]
-selected = 0
-
-[node name="Label" type="Label" parent="CookingPopUp/CookingSliders/Electricity"]
-margin_left = 548.172
-margin_top = -0.858887
-margin_right = 1069.17
-margin_bottom = 36.1411
-text = "Electricity Source"
-
-[node name="StoveType" type="OptionButton" parent="CookingPopUp/CookingSliders"]
-margin_top = 83.0
-margin_right = 524.0
-margin_bottom = 117.0
-rect_pivot_offset = Vector2( 281.638, 63.8712 )
-text = "Gas stove"
-items = [ "Gas stove", null, false, 0, null, "Electric stove", null, false, 1, null, "Induction stove", null, false, 2, null ]
-selected = 0
-
-[node name="Label" type="Label" parent="CookingPopUp/CookingSliders/StoveType"]
-margin_left = 548.172
-margin_top = -0.858887
-margin_right = 1069.17
-margin_bottom = 36.1411
-text = "Stove Type"
-
-[node name="FractCooked" type="HSlider" parent="CookingPopUp/CookingSliders"]
-margin_top = 166.0
-margin_right = 524.0
-margin_bottom = 182.0
-value = 50.0
-
-[node name="Label" type="Label" parent="CookingPopUp/CookingSliders/FractCooked"]
-margin_top = -35.0
-margin_right = 521.0
-text = "Fraction of food that is cooked:           50%"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FridgeEnergyUsage" type="HSlider" parent="CookingPopUp/CookingSliders"]
-margin_top = 231.0
-margin_right = 524.0
-margin_bottom = 247.0
-value = 10.0
-
-[node name="Label" type="Label" parent="CookingPopUp/CookingSliders/FridgeEnergyUsage"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Fridge Energy Usage:                               14  Watts"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="EnergyForCooking" type="HSlider" parent="CookingPopUp/CookingSliders"]
-visible = false
-margin_top = 213.0
-margin_right = 524.0
-margin_bottom = 229.0
-value = 10.0
-
-[node name="Label" type="Label" parent="CookingPopUp/CookingSliders/EnergyForCooking"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Energy for Cooking:                               14  Watts"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ToTech" type="Button" parent="CookingPopUp"]
-margin_left = 880.0
-margin_top = -57.0
-margin_right = 978.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Next"
-
-[node name="ToWater2" type="Button" parent="CookingPopUp"]
-margin_left = 777.0
-margin_top = -57.0
-margin_right = 875.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Prev"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Cooking" type="Button" parent="CookingPopUp"]
-margin_left = 12.991
-margin_top = -100.0
-margin_right = 512.991
-margin_bottom = -10.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 24 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-text = "Cooking"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TechPopUp" type="Button" parent="."]
-margin_left = 1400.0
-margin_top = 1400.0
-margin_right = 2370.0
-margin_bottom = 1900.0
-theme = SubResource( 3 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TechSliders" type="VBoxContainer" parent="TechPopUp"]
-margin_left = 51.3744
-margin_top = 60.129
-margin_right = 576.374
-margin_bottom = 367.129
-rect_min_size = Vector2( 500, 300 )
-custom_constants/separation = 49
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Building9" type="Sprite" parent="TechPopUp/TechSliders"]
-position = Vector2( 725.644, 163.202 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 5 )
-
-[node name="PhoneUsage" type="HSlider" parent="TechPopUp/TechSliders"]
-margin_right = 524.0
-margin_bottom = 16.0
-value = 50.0
-
-[node name="Label" type="Label" parent="TechPopUp/TechSliders/PhoneUsage"]
-margin_top = -35.0
-margin_right = 521.0
-text = "Phone usage:                                          3 hrs/day"
-
-[node name="PhoneUsageStandby" type="HSlider" parent="TechPopUp/TechSliders"]
-margin_top = 65.0
-margin_right = 524.0
-margin_bottom = 81.0
-value = 50.0
-
-[node name="Label" type="Label" parent="TechPopUp/TechSliders/PhoneUsageStandby"]
-margin_top = -35.0
-margin_right = 521.0
-text = "Phone usage (standby):                      12 hrs/day"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PhoneLifetime" type="HSlider" parent="TechPopUp/TechSliders"]
-margin_top = 130.0
-margin_right = 524.0
-margin_bottom = 146.0
-value = 10.0
-
-[node name="Label" type="Label" parent="TechPopUp/TechSliders/PhoneLifetime"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Phone lifetime:                                        1 year"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LaptopUsage" type="HSlider" parent="TechPopUp/TechSliders"]
-margin_top = 195.0
-margin_right = 524.0
-margin_bottom = 211.0
-value = 10.0
-
-[node name="Label" type="Label" parent="TechPopUp/TechSliders/LaptopUsage"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Laptop/TV usage :                                   4 hours"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LaptopLifetime" type="HSlider" parent="TechPopUp/TechSliders"]
-margin_top = 260.0
-margin_right = 524.0
-margin_bottom = 276.0
-value = 10.0
-
-[node name="Label" type="Label" parent="TechPopUp/TechSliders/LaptopLifetime"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Laptop lifetime:                                      5 years"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ToSchool" type="Button" parent="TechPopUp"]
-margin_left = 880.0
-margin_top = -57.0
-margin_right = 978.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Next"
-
-[node name="ToCooking2" type="Button" parent="TechPopUp"]
-margin_left = 777.0
-margin_top = -57.0
-margin_right = 875.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Prev"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Tech" type="Button" parent="TechPopUp"]
-margin_left = 12.991
-margin_top = -100.0
-margin_right = 512.991
-margin_bottom = -10.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 24 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-text = "Tech"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SchoolPopUp" type="Button" parent="."]
-margin_left = 400.0
-margin_top = 1400.0
-margin_right = 1370.0
-margin_bottom = 1900.0
-theme = SubResource( 3 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SchoolSliders" type="VBoxContainer" parent="SchoolPopUp"]
-margin_left = 54.5145
-margin_top = 63.0794
-margin_right = 579.514
-margin_bottom = 422.079
-rect_min_size = Vector2( 500, 300 )
-custom_constants/separation = 49
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Building9" type="Sprite" parent="SchoolPopUp/SchoolSliders"]
-position = Vector2( 719.285, 167.653 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 6 )
-
-[node name="PercentWellInsulated" type="HSlider" parent="SchoolPopUp/SchoolSliders"]
-margin_right = 524.0
-margin_bottom = 16.0
-value = 10.0
-
-[node name="Label" type="Label" parent="SchoolPopUp/SchoolSliders/PercentWellInsulated"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Well-insulated buildings w/ heat pumps:  "
-
-[node name="SchoolHeating" type="OptionButton" parent="SchoolPopUp/SchoolSliders"]
-visible = false
-margin_top = 65.0
-margin_right = 524.0
-margin_bottom = 99.0
-text = "School/hospital poorly insulated"
-items = [ "School/hospital poorly insulated", null, false, 0, null, "School/hospital medium-insulated", null, false, 1, null, "School/hospital well-insulated", null, false, 2, null, "School/hospital well-insulated + heat pump", null, false, 3, null ]
-selected = 0
-
-[node name="PercentKids" type="HSlider" parent="SchoolPopUp/SchoolSliders"]
-margin_top = 65.0
-margin_right = 524.0
-margin_bottom = 81.0
-value = 50.0
-
-[node name="Label" type="Label" parent="SchoolPopUp/SchoolSliders/PercentKids"]
-margin_top = -35.0
-margin_right = 521.0
-text = "Percent of population in school"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SchoolsqrFtPerStudent" type="HSlider" parent="SchoolPopUp/SchoolSliders"]
-margin_top = 130.0
-margin_right = 524.0
-margin_bottom = 146.0
-value = 50.0
-
-[node name="Label" type="Label" parent="SchoolPopUp/SchoolSliders/SchoolsqrFtPerStudent"]
-margin_top = -35.0
-margin_right = 521.0
-text = "Floor area per student: 10 m/2"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SchoolEnergyUsageForOther" type="HSlider" parent="SchoolPopUp/SchoolSliders"]
-margin_top = 195.0
-margin_right = 524.0
-margin_bottom = 211.0
-value = 10.0
-
-[node name="Label" type="Label" parent="SchoolPopUp/SchoolSliders/SchoolEnergyUsageForOther"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Extra energy usage for schools"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HospsqrFtPerPerson" type="HSlider" parent="SchoolPopUp/SchoolSliders"]
-margin_top = 260.0
-margin_right = 524.0
-margin_bottom = 276.0
-step = 0.1
-value = 10.0
-
-[node name="Label" type="Label" parent="SchoolPopUp/SchoolSliders/HospsqrFtPerPerson"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Medical floor area per person"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HospExtra" type="HSlider" parent="SchoolPopUp/SchoolSliders"]
-margin_top = 325.0
-margin_right = 524.0
-margin_bottom = 341.0
-value = 10.0
-
-[node name="Label" type="Label" parent="SchoolPopUp/SchoolSliders/HospExtra"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Medical extra energy usage"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SchoolHeating2" type="OptionButton" parent="SchoolPopUp/SchoolSliders"]
-visible = false
-margin_top = 408.0
-margin_right = 524.0
-margin_bottom = 442.0
-text = "Poorly insulated"
-items = [ "Poorly insulated", null, false, 0, null, "", null, false, 1, null, "", null, false, 2, null ]
-selected = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ToResidence2" type="Button" parent="SchoolPopUp"]
-margin_left = 880.0
-margin_top = -57.0
-margin_right = 978.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Next"
-
-[node name="ToTech2" type="Button" parent="SchoolPopUp"]
-margin_left = 777.0
-margin_top = -57.0
-margin_right = 875.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Prev"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="School" type="Button" parent="SchoolPopUp"]
-margin_left = 12.991
-margin_top = -100.0
-margin_right = 512.991
-margin_bottom = -10.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 24 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-text = "School/Medical"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CommercialPopUp" type="Button" parent="."]
-margin_left = -600.0
-margin_top = 1400.0
-margin_right = 370.0
-margin_bottom = 1900.0
-theme = SubResource( 3 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-
-[node name="CommercialSliders" type="VBoxContainer" parent="CommercialPopUp"]
-margin_left = 52.5579
-margin_top = 52.318
-margin_right = 577.557
-margin_bottom = 411.318
-rect_min_size = Vector2( 500, 300 )
-custom_constants/separation = 49
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Building9" type="Sprite" parent="CommercialPopUp/CommercialSliders"]
-position = Vector2( 723.687, 175.968 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 4 )
-
-[node name="CommercialHeating" type="OptionButton" parent="CommercialPopUp/CommercialSliders"]
-visible = false
-margin_right = 524.0
-margin_bottom = 34.0
-text = "School poorly insulated"
-items = [ "School poorly insulated", null, false, 0, null, "School medium-insulated", null, false, 1, null, "School well-insulated", null, false, 2, null, "School well-insulated + heat pump", null, false, 3, null ]
-selected = 0
-
-[node name="CommercialArea" type="HSlider" parent="CommercialPopUp/CommercialSliders"]
-margin_right = 524.0
-margin_bottom = 16.0
-value = 50.0
-
-[node name="Label" type="Label" parent="CommercialPopUp/CommercialSliders/CommercialArea"]
-margin_top = -35.0
-margin_right = 521.0
-text = "Commercial area per person: 25 m/2"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ShippingBoat" type="HSlider" parent="CommercialPopUp/CommercialSliders"]
-margin_top = 65.0
-margin_right = 524.0
-margin_bottom = 81.0
-value = 50.0
-
-[node name="Label" type="Label" parent="CommercialPopUp/CommercialSliders/ShippingBoat"]
-margin_top = -35.0
-margin_right = 521.0
-text = "Shipping by boat: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ShippingTrain" type="HSlider" parent="CommercialPopUp/CommercialSliders"]
-margin_top = 130.0
-margin_right = 524.0
-margin_bottom = 146.0
-value = 50.0
-
-[node name="Label" type="Label" parent="CommercialPopUp/CommercialSliders/ShippingTrain"]
-margin_top = -35.0
-margin_right = 521.0
-text = "Shipping by rail: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ShippingRoad" type="HSlider" parent="CommercialPopUp/CommercialSliders"]
-margin_top = 195.0
-margin_right = 524.0
-margin_bottom = 211.0
-value = 10.0
-
-[node name="Label" type="Label" parent="CommercialPopUp/CommercialSliders/ShippingRoad"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Shipping by road: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ToMobility" type="Button" parent="CommercialPopUp"]
-margin_left = 880.0
-margin_top = -57.0
-margin_right = 978.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Next"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ToSchool2" type="Button" parent="CommercialPopUp"]
-margin_left = 777.0
-margin_top = -57.0
-margin_right = 875.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Prev"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="School" type="Button" parent="CommercialPopUp"]
-margin_left = 12.991
-margin_top = -100.0
-margin_right = 512.991
-margin_bottom = -10.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 24 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-text = "Commercial"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MobilityPopUp" type="Button" parent="."]
-margin_left = 400.0
-margin_top = 2000.0
-margin_right = 1370.0
-margin_bottom = 2500.0
-theme = SubResource( 3 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-
-[node name="MobilitySliders" type="VBoxContainer" parent="MobilityPopUp"]
-margin_left = 54.5145
-margin_top = 63.0794
-margin_right = 579.514
-margin_bottom = 422.079
-rect_min_size = Vector2( 500, 300 )
-custom_constants/separation = 49
-
-[node name="Building9" type="Sprite" parent="MobilityPopUp/MobilitySliders"]
-position = Vector2( 726.285, 167.653 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 6 )
-
-[node name="MobilityAir" type="HSlider" parent="MobilityPopUp/MobilitySliders"]
-margin_right = 524.0
-margin_bottom = 16.0
-value = 10.0
-
-[node name="Label" type="Label" parent="MobilityPopUp/MobilitySliders/MobilityAir"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Distance travelled by air: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SizeLabel" type="Label" parent="MobilityPopUp/MobilitySliders/MobilityAir"]
-margin_left = 1.0
-margin_top = 21.0
-margin_right = 602.0
-margin_bottom = 62.0
-size_flags_vertical = 8
-custom_fonts/font = ExtResource( 26 )
-text = "0km                                                                                                         25000 km
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="MobilityPopUp/MobilitySliders/MobilityAir"]
-margin_left = 553.594
-margin_top = -6.07935
-margin_right = 849.594
-margin_bottom = 21.9207
-text = "0 % total distance traveled"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SchoolHeating" type="OptionButton" parent="MobilityPopUp/MobilitySliders"]
-visible = false
-margin_right = 524.0
-margin_bottom = 34.0
-text = "School/hospital poorly insulated"
-items = [ "School/hospital poorly insulated", null, false, 0, null, "School/hospital medium-insulated", null, false, 1, null, "School/hospital well-insulated", null, false, 2, null, "School/hospital well-insulated + heat pump", null, false, 3, null ]
-selected = 0
-
-[node name="MobilityBus" type="HSlider" parent="MobilityPopUp/MobilitySliders"]
-margin_top = 65.0
-margin_right = 524.0
-margin_bottom = 81.0
-value = 50.0
-
-[node name="Label" type="Label" parent="MobilityPopUp/MobilitySliders/MobilityBus"]
-margin_top = -35.0
-margin_right = 282.0
-margin_bottom = 24.0
-text = "Distance travelled by bus
-"
-
-[node name="SizeLabel" type="Label" parent="MobilityPopUp/MobilitySliders/MobilityBus"]
-margin_top = 22.0
-margin_right = 601.0
-margin_bottom = 50.0
-size_flags_vertical = 8
-custom_fonts/font = ExtResource( 26 )
-text = "0 km                                                                                                        25000 km"
-
-[node name="Label2" type="Label" parent="MobilityPopUp/MobilitySliders/MobilityBus"]
-margin_left = 553.593
-margin_top = -3.57605
-margin_right = 849.593
-margin_bottom = 24.424
-text = "0 % total distance traveled"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MobilityRail" type="HSlider" parent="MobilityPopUp/MobilitySliders"]
-margin_top = 130.0
-margin_right = 524.0
-margin_bottom = 146.0
-value = 50.0
-
-[node name="Label" type="Label" parent="MobilityPopUp/MobilitySliders/MobilityRail"]
-margin_top = -35.0
-margin_right = 521.0
-text = "Distance travelled by rail"
-
-[node name="SizeLabel" type="Label" parent="MobilityPopUp/MobilitySliders/MobilityRail"]
-margin_top = 22.0
-margin_right = 601.0
-margin_bottom = 50.0
-size_flags_vertical = 8
-custom_fonts/font = ExtResource( 26 )
-text = "0 km                                                                                                        25000 km"
-
-[node name="Label2" type="Label" parent="MobilityPopUp/MobilitySliders/MobilityRail"]
-margin_left = 555.061
-margin_top = -6.45312
-margin_right = 851.061
-margin_bottom = 21.5469
-text = "0 % total distance traveled"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MobilityCar" type="HSlider" parent="MobilityPopUp/MobilitySliders"]
-margin_top = 195.0
-margin_right = 524.0
-margin_bottom = 211.0
-value = 10.0
-
-[node name="Label" type="Label" parent="MobilityPopUp/MobilitySliders/MobilityCar"]
-margin_top = -37.0
-margin_right = 276.0
-margin_bottom = 22.0
-text = "Distance travelled by car
-"
-
-[node name="SizeLabel" type="Label" parent="MobilityPopUp/MobilitySliders/MobilityCar"]
-margin_left = -2.0
-margin_top = 22.0
-margin_right = 599.0
-margin_bottom = 50.0
-size_flags_vertical = 8
-custom_fonts/font = ExtResource( 26 )
-text = "0 km                                                                                                         25000 km"
-
-[node name="Label2" type="Label" parent="MobilityPopUp/MobilitySliders/MobilityCar"]
-margin_left = 556.039
-margin_top = -4.92798
-margin_right = 852.039
-margin_bottom = 23.0721
-text = "0 % total distance traveled"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MobilityNonMotorized" type="HSlider" parent="MobilityPopUp/MobilitySliders"]
-margin_top = 260.0
-margin_right = 524.0
-margin_bottom = 276.0
-value = 10.0
-
-[node name="Label" type="Label" parent="MobilityPopUp/MobilitySliders/MobilityNonMotorized"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Distance travelled by non-motorized"
-
-[node name="SizeLabel" type="Label" parent="MobilityPopUp/MobilitySliders/MobilityNonMotorized"]
-margin_left = -2.0
-margin_top = 22.0
-margin_right = 599.0
-margin_bottom = 50.0
-size_flags_vertical = 8
-custom_fonts/font = ExtResource( 26 )
-text = "0 km                                                                                                         25000 km"
-
-[node name="Label2" type="Label" parent="MobilityPopUp/MobilitySliders/MobilityNonMotorized"]
-margin_left = 556.039
-margin_top = -4.92798
-margin_right = 852.039
-margin_bottom = 23.0721
-text = "0 % total distance traveled"
-
-[node name="SchoolHeating2" type="OptionButton" parent="MobilityPopUp/MobilitySliders"]
-visible = false
-margin_top = 408.0
-margin_right = 524.0
-margin_bottom = 442.0
-text = "Poorly insulated"
-items = [ "Poorly insulated", null, false, 0, null, "", null, false, 1, null, "", null, false, 2, null ]
-selected = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ToBeginning" type="Button" parent="MobilityPopUp"]
-margin_left = 880.0
-margin_top = -57.0
-margin_right = 978.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Next"
-
-[node name="ToCommercial2" type="Button" parent="MobilityPopUp"]
-margin_left = 777.0
-margin_top = -57.0
-margin_right = 875.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Prev"
-
-[node name="School" type="Button" parent="MobilityPopUp"]
-margin_left = 12.991
-margin_top = -100.0
-margin_right = 512.991
-margin_bottom = -10.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 24 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-text = "Transportation"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ReductionsPopUp" type="Button" parent="."]
-margin_left = 1400.0
-margin_top = 2000.0
-margin_right = 2370.0
-margin_bottom = 2500.0
-theme = SubResource( 3 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-
-[node name="ReductionsSliders" type="VBoxContainer" parent="ReductionsPopUp"]
-margin_left = 54.5145
-margin_top = 63.0794
-margin_right = 579.514
-margin_bottom = 422.079
-rect_min_size = Vector2( 500, 300 )
-custom_constants/separation = 49
-
-[node name="Building9" type="Sprite" parent="ReductionsPopUp/ReductionsSliders"]
-position = Vector2( 726.285, 167.653 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 6 )
-
-[node name="MobilityAir" type="HSlider" parent="ReductionsPopUp/ReductionsSliders"]
-margin_right = 524.0
-margin_bottom = 16.0
-value = 10.0
-
-[node name="Label" type="Label" parent="ReductionsPopUp/ReductionsSliders/MobilityAir"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Distance travelled by air: "
-
-[node name="SizeLabel" type="Label" parent="ReductionsPopUp/ReductionsSliders/MobilityAir"]
-margin_left = 1.0
-margin_top = 21.0
-margin_right = 602.0
-margin_bottom = 62.0
-size_flags_vertical = 8
-custom_fonts/font = ExtResource( 26 )
-text = "0km                                                                                                         25000 km
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="ReductionsPopUp/ReductionsSliders/MobilityAir"]
-margin_left = 553.594
-margin_top = -6.07935
-margin_right = 849.594
-margin_bottom = 21.9207
-text = "0 % total distance traveled"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SchoolHeating" type="OptionButton" parent="ReductionsPopUp/ReductionsSliders"]
-visible = false
-margin_right = 524.0
-margin_bottom = 34.0
-text = "School/hospital poorly insulated"
-items = [ "School/hospital poorly insulated", null, false, 0, null, "School/hospital medium-insulated", null, false, 1, null, "School/hospital well-insulated", null, false, 2, null, "School/hospital well-insulated + heat pump", null, false, 3, null ]
-selected = 0
-
-[node name="MobilityBus" type="HSlider" parent="ReductionsPopUp/ReductionsSliders"]
-margin_top = 65.0
-margin_right = 524.0
-margin_bottom = 81.0
-value = 50.0
-
-[node name="Label" type="Label" parent="ReductionsPopUp/ReductionsSliders/MobilityBus"]
-margin_top = -35.0
-margin_right = 282.0
-margin_bottom = 24.0
-text = "Distance travelled by bus
-"
-
-[node name="SizeLabel" type="Label" parent="ReductionsPopUp/ReductionsSliders/MobilityBus"]
-margin_top = 22.0
-margin_right = 601.0
-margin_bottom = 50.0
-size_flags_vertical = 8
-custom_fonts/font = ExtResource( 26 )
-text = "0 km                                                                                                        25000 km"
-
-[node name="Label2" type="Label" parent="ReductionsPopUp/ReductionsSliders/MobilityBus"]
-margin_left = 553.593
-margin_top = -3.57605
-margin_right = 849.593
-margin_bottom = 24.424
-text = "0 % total distance traveled"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MobilityRail" type="HSlider" parent="ReductionsPopUp/ReductionsSliders"]
-margin_top = 130.0
-margin_right = 524.0
-margin_bottom = 146.0
-value = 50.0
-
-[node name="Label" type="Label" parent="ReductionsPopUp/ReductionsSliders/MobilityRail"]
-margin_top = -35.0
-margin_right = 521.0
-text = "Distance travelled by rail"
-
-[node name="SizeLabel" type="Label" parent="ReductionsPopUp/ReductionsSliders/MobilityRail"]
-margin_top = 22.0
-margin_right = 601.0
-margin_bottom = 50.0
-size_flags_vertical = 8
-custom_fonts/font = ExtResource( 26 )
-text = "0 km                                                                                                        25000 km"
-
-[node name="Label2" type="Label" parent="ReductionsPopUp/ReductionsSliders/MobilityRail"]
-margin_left = 555.061
-margin_top = -6.45312
-margin_right = 851.061
-margin_bottom = 21.5469
-text = "0 % total distance traveled"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MobilityCar" type="HSlider" parent="ReductionsPopUp/ReductionsSliders"]
-margin_top = 195.0
-margin_right = 524.0
-margin_bottom = 211.0
-value = 10.0
-
-[node name="Label" type="Label" parent="ReductionsPopUp/ReductionsSliders/MobilityCar"]
-margin_top = -37.0
-margin_right = 276.0
-margin_bottom = 22.0
-text = "Distance travelled by car
-"
-
-[node name="SizeLabel" type="Label" parent="ReductionsPopUp/ReductionsSliders/MobilityCar"]
-margin_left = -2.0
-margin_top = 22.0
-margin_right = 599.0
-margin_bottom = 50.0
-size_flags_vertical = 8
-custom_fonts/font = ExtResource( 26 )
-text = "0 km                                                                                                         25000 km"
-
-[node name="Label2" type="Label" parent="ReductionsPopUp/ReductionsSliders/MobilityCar"]
-margin_left = 556.039
-margin_top = -4.92798
-margin_right = 852.039
-margin_bottom = 23.0721
-text = "0 % total distance traveled"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Car sharing" type="HSlider" parent="ReductionsPopUp/ReductionsSliders"]
-margin_top = 260.0
-margin_right = 524.0
-margin_bottom = 276.0
-step = 0.1
-value = 10.0
-
-[node name="Label" type="Label" parent="ReductionsPopUp/ReductionsSliders/Car sharing"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Number of people per car"
-
-[node name="Car fuel efficiency" type="HSlider" parent="ReductionsPopUp/ReductionsSliders"]
-margin_top = 325.0
-margin_right = 524.0
-margin_bottom = 341.0
-value = 10.0
-
-[node name="Label" type="Label" parent="ReductionsPopUp/ReductionsSliders/Car fuel efficiency"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Car efficiency"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SchoolHeating2" type="OptionButton" parent="ReductionsPopUp/ReductionsSliders"]
-visible = false
-margin_top = 408.0
-margin_right = 524.0
-margin_bottom = 442.0
-text = "Poorly insulated"
-items = [ "Poorly insulated", null, false, 0, null, "", null, false, 1, null, "", null, false, 2, null ]
-selected = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ToBeginning" type="Button" parent="ReductionsPopUp"]
-margin_left = 880.0
-margin_top = -57.0
-margin_right = 978.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Next"
-
-[node name="ToCommercial2" type="Button" parent="ReductionsPopUp"]
-margin_left = 777.0
-margin_top = -57.0
-margin_right = 875.0
-margin_bottom = -7.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 25 )
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/disabled = ExtResource( 18 )
-custom_styles/normal = ExtResource( 18 )
-text = "Prev"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="School" type="Button" parent="ReductionsPopUp"]
-margin_left = 12.991
-margin_top = -100.0
-margin_right = 512.991
-margin_bottom = -10.0
-theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 24 )
-custom_styles/disabled = ExtResource( 17 )
-disabled = true
-text = "Transportation"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="UICity" type="Control" parent="."]
+rect_min_size = Vector2( 0, 70 )
 mouse_filter = 2
 theme = ExtResource( 20 )
 script = ExtResource( 21 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ColorRect" type="ColorRect" parent="UICity"]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/OutputUI/UICity"]
 margin_right = 1024.0
 margin_bottom = 71.0
 mouse_filter = 1
 color = Color( 0.0352941, 0.337255, 0.470588, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UICity/ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/OutputUI/UICity/ColorRect"]
 visible = false
 margin_left = 930.0
 margin_top = -240.0
@@ -1916,7 +214,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Nuclear" type="TextureButton" parent="UICity/ColorRect/VBoxContainer"]
+[node name="Nuclear" type="TextureButton" parent="VBoxContainer/OutputUI/UICity/ColorRect/VBoxContainer"]
 margin_right = 74.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 60, 80 )
@@ -1927,14 +225,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="UICity/ColorRect/VBoxContainer/Nuclear"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="VBoxContainer/OutputUI/UICity/ColorRect/VBoxContainer/Nuclear"]
 position = Vector2( 36, 38 )
 frames = ExtResource( 14 )
 animation = "on"
-frame = 4
+frame = 2
 playing = true
 
-[node name="TextureRect" type="TextureRect" parent="UICity/ColorRect/VBoxContainer/Nuclear"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/OutputUI/UICity/ColorRect/VBoxContainer/Nuclear"]
 margin_left = 58.0
 margin_top = 37.0
 margin_right = 100.0
@@ -1945,7 +243,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UICity/ColorRect/VBoxContainer/Nuclear/TextureRect"]
+[node name="Label" type="Label" parent="VBoxContainer/OutputUI/UICity/ColorRect/VBoxContainer/Nuclear/TextureRect"]
 margin_left = 10.0
 margin_top = -2.0
 margin_right = 50.0
@@ -1953,7 +251,7 @@ margin_bottom = 44.0
 custom_fonts/font = ExtResource( 24 )
 text = "5"
 
-[node name="Solar" type="TextureButton" parent="UICity/ColorRect/VBoxContainer"]
+[node name="Solar" type="TextureButton" parent="VBoxContainer/OutputUI/UICity/ColorRect/VBoxContainer"]
 margin_top = 84.0
 margin_right = 74.0
 margin_bottom = 154.0
@@ -1965,15 +263,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="UICity/ColorRect/VBoxContainer/Solar"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="VBoxContainer/OutputUI/UICity/ColorRect/VBoxContainer/Solar"]
 position = Vector2( 37, 13 )
 frames = ExtResource( 13 )
 animation = "on"
-frame = 4
+frame = 1
 playing = true
 offset = Vector2( 0, 24 )
 
-[node name="TextureRect" type="TextureRect" parent="UICity/ColorRect/VBoxContainer/Solar"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/OutputUI/UICity/ColorRect/VBoxContainer/Solar"]
 margin_left = 58.0
 margin_top = 37.0
 margin_right = 100.0
@@ -1984,7 +282,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UICity/ColorRect/VBoxContainer/Solar/TextureRect"]
+[node name="Label" type="Label" parent="VBoxContainer/OutputUI/UICity/ColorRect/VBoxContainer/Solar/TextureRect"]
 margin_left = 10.0
 margin_top = -2.0
 margin_right = 50.0
@@ -1992,7 +290,7 @@ margin_bottom = 44.0
 custom_fonts/font = ExtResource( 24 )
 text = "5"
 
-[node name="Wind" type="TextureButton" parent="UICity/ColorRect/VBoxContainer"]
+[node name="Wind" type="TextureButton" parent="VBoxContainer/OutputUI/UICity/ColorRect/VBoxContainer"]
 margin_top = 158.0
 margin_right = 74.0
 margin_bottom = 228.0
@@ -2004,14 +302,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="UICity/ColorRect/VBoxContainer/Wind"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="VBoxContainer/OutputUI/UICity/ColorRect/VBoxContainer/Wind"]
 position = Vector2( 15, 8 )
 frames = SubResource( 4 )
-frame = 1
 playing = true
 centered = false
 
-[node name="TextureRect2" type="TextureRect" parent="UICity/ColorRect/VBoxContainer/Wind"]
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/OutputUI/UICity/ColorRect/VBoxContainer/Wind"]
 margin_left = 58.0
 margin_top = 38.0
 margin_right = 100.0
@@ -2022,7 +319,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UICity/ColorRect/VBoxContainer/Wind/TextureRect2"]
+[node name="Label" type="Label" parent="VBoxContainer/OutputUI/UICity/ColorRect/VBoxContainer/Wind/TextureRect2"]
 margin_left = 10.0
 margin_top = -2.0
 margin_right = 50.0
@@ -2033,14 +330,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="blank" type="Sprite" parent="UICity/ColorRect/VBoxContainer"]
+[node name="blank" type="Sprite" parent="VBoxContainer/OutputUI/UICity/ColorRect/VBoxContainer"]
 show_behind_parent = true
 position = Vector2( 37.5205, 73.3313 )
 rotation = 1.5708
 scale = Vector2( 0.548568, 0.380706 )
 texture = ExtResource( 11 )
 
-[node name="ElectricityLabel2" type="TextureButton" parent="UICity/ColorRect"]
+[node name="ElectricityLabel2" type="TextureButton" parent="VBoxContainer/OutputUI/UICity/ColorRect"]
 visible = false
 margin_left = 930.0
 margin_right = 995.0
@@ -2056,10 +353,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UICity/ColorRect"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/OutputUI/UICity/ColorRect"]
 anims/GPower = SubResource( 5 )
 
-[node name="ProgressBar2" type="ProgressBar" parent="UICity"]
+[node name="ProgressBar2" type="ProgressBar" parent="VBoxContainer/OutputUI/UICity"]
 visible = false
 margin_left = 15.0
 margin_top = 14.0
@@ -2074,7 +371,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UICity/ProgressBar2"]
+[node name="Label" type="Label" parent="VBoxContainer/OutputUI/UICity/ProgressBar2"]
 margin_left = 413.0
 margin_top = -10.0
 margin_right = 653.0
@@ -2086,7 +383,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HomeLabel" type="Label" parent="UICity"]
+[node name="HomeLabel" type="Label" parent="VBoxContainer/OutputUI/UICity"]
 margin_right = 100.0
 margin_bottom = 34.0
 hint_tooltip = "Energy for building divided by lifetime"
@@ -2097,7 +394,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HeatLabel" type="Label" parent="UICity"]
+[node name="HeatLabel" type="Label" parent="VBoxContainer/OutputUI/UICity"]
 margin_top = 34.0
 margin_right = 100.0
 margin_bottom = 68.0
@@ -2106,7 +403,7 @@ mouse_filter = 0
 custom_fonts/font = ExtResource( 25 )
 text = "Heat"
 
-[node name="FoodLabel" type="Label" parent="UICity"]
+[node name="FoodLabel" type="Label" parent="VBoxContainer/OutputUI/UICity"]
 margin_left = 200.0
 margin_right = 319.0
 margin_bottom = 34.0
@@ -2118,7 +415,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MobilityLabel" type="Label" parent="UICity"]
+[node name="MobilityLabel" type="Label" parent="VBoxContainer/OutputUI/UICity"]
 margin_left = 200.0
 margin_top = 34.0
 margin_right = 300.0
@@ -2131,7 +428,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ServicesLabel" type="Label" parent="UICity"]
+[node name="ServicesLabel" type="Label" parent="VBoxContainer/OutputUI/UICity"]
 margin_left = 400.0
 margin_right = 500.0
 margin_bottom = 34.0
@@ -2141,7 +438,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AppliancesLabel" type="Label" parent="UICity"]
+[node name="AppliancesLabel" type="Label" parent="VBoxContainer/OutputUI/UICity"]
 margin_left = 400.0
 margin_top = 34.0
 margin_right = 500.0
@@ -2152,7 +449,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EmbodiedLabel" type="Label" parent="UICity"]
+[node name="EmbodiedLabel" type="Label" parent="VBoxContainer/OutputUI/UICity"]
 margin_left = 600.0
 margin_right = 719.0
 margin_bottom = 34.0
@@ -2162,7 +459,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HotWaterCookLabel" type="Label" parent="UICity"]
+[node name="HotWaterCookLabel" type="Label" parent="VBoxContainer/OutputUI/UICity"]
 margin_left = 600.0
 margin_top = 34.0
 margin_right = 700.0
@@ -2175,7 +472,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Total" type="Label" parent="UICity"]
+[node name="Total" type="Label" parent="VBoxContainer/OutputUI/UICity"]
 margin_left = 841.897
 margin_top = 7.20522
 margin_right = 1000.9
@@ -2188,15 +485,1969 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CO2UICity" parent="." instance=ExtResource( 15 )]
+[node name="SectorTabContainer" type="TabContainer" parent="VBoxContainer"]
+margin_top = 74.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+theme = ExtResource( 28 )
+
+[node name="Construction" type="Panel" parent="VBoxContainer/SectorTabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 27.0
+
+[node name="Construction" type="Button" parent="VBoxContainer/SectorTabContainer/Construction"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -170.0
+margin_right = 400.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 24 )
+custom_styles/disabled = ExtResource( 17 )
+disabled = true
+text = "Construction"
+
+[node name="ConstructionSettingContainer" type="GridContainer" parent="VBoxContainer/SectorTabContainer/Construction"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -570.0
+margin_top = -169.5
+margin_right = -20.0
+margin_bottom = 233.5
+rect_min_size = Vector2( 500, 300 )
+size_flags_horizontal = 3
+columns = 2
+
+[node name="ClimateZoneLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer"]
+margin_top = 23.0
+margin_right = 273.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Climate zone"
+align = 2
+valign = 1
+
+[node name="ClimateZone" type="OptionButton" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer"]
+margin_left = 277.0
+margin_top = 18.0
+margin_right = 550.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Tropical"
+items = [ "Tropical", null, false, 0, null, "Subtropical", null, false, 1, null, "Temperate", null, false, 2, null, "Cold", null, false, 3, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuildingMaterialLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer"]
+margin_top = 90.0
+margin_right = 273.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Building material"
+align = 2
+
+[node name="BuildingMaterial" type="OptionButton" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer"]
+margin_left = 277.0
+margin_top = 85.0
+margin_right = 550.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Concrete"
+items = [ "Timber", null, false, 0, null, "Concrete", null, false, 1, null, "Steel", null, false, 2, null ]
+selected = 1
+
+[node name="InsulationLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer"]
+margin_top = 157.0
+margin_right = 273.0
+margin_bottom = 174.0
+text = "Insulation"
+align = 2
+
+[node name="Insulation" type="OptionButton" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer"]
+margin_left = 277.0
+margin_top = 152.0
+margin_right = 550.0
+margin_bottom = 179.0
+size_flags_vertical = 6
+text = "Poorly insulated"
+items = [ "Poorly insulated", null, false, 0, null, "Medium insulation", null, false, 1, null, "Well insulated", null, false, 2, null, "Best passive", null, false, 3, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PeoplePerResidenceLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer"]
+margin_top = 224.0
+margin_right = 273.0
+margin_bottom = 241.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "People per residence"
+align = 2
+
+[node name="PeoplePerResidence" type="HSlider" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer"]
+margin_left = 277.0
+margin_top = 216.0
+margin_right = 550.0
+margin_bottom = 248.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+min_value = 1.0
+max_value = 6.0
+value = 1.0
+tick_count = 7
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer/PeoplePerResidence"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = 12.0
+margin_right = 65.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0"
+
+[node name="Label6" type="Label" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer/PeoplePerResidence"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -83.0
+margin_top = 12.0
+margin_bottom = 8.5
+size_flags_vertical = 1
+text = "6"
+align = 2
+
+[node name="BuildingLifetimeLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer"]
+margin_top = 291.0
+margin_right = 273.0
+margin_bottom = 308.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Building lifetime"
+align = 2
+
+[node name="BuildingLifetime" type="HSlider" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer"]
+margin_left = 277.0
+margin_top = 287.0
+margin_right = 550.0
+margin_bottom = 311.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer/BuildingLifetime"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = 12.0
+margin_right = 553.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 26 )
+text = "20 yr"
+clip_text = true
+
+[node name="Label3" type="Label" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer/BuildingLifetime"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -553.0
+margin_top = 12.0
+margin_bottom = 9.5
+custom_fonts/font = ExtResource( 26 )
+text = "100 yr"
+align = 2
+clip_text = true
+
+[node name="SquareFootageLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer"]
+margin_top = 358.0
+margin_right = 273.0
+margin_bottom = 375.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Square footage"
+align = 2
+
+[node name="SquareFootage" type="HSlider" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer"]
+margin_left = 277.0
+margin_top = 350.0
+margin_right = 550.0
+margin_bottom = 382.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer/SquareFootage"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = 12.0
+margin_right = 134.0
+margin_bottom = 8.5
+text = "Small apartment"
+
+[node name="Label2" type="Label" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer/SquareFootage"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -66.0
+margin_top = 12.0
+margin_bottom = 8.5
+text = "Mansion"
+align = 2
+
+[node name="SquareFootageValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer/SquareFootage"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -296.0
+margin_top = -25.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1 sq meters per residence"
+align = 2
+
+[node name="Grocery" type="Panel" parent="VBoxContainer/SectorTabContainer"]
 visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 27.0
+theme = ExtResource( 28 )
+
+[node name="Grocery" type="Button" parent="VBoxContainer/SectorTabContainer/Grocery"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -154.0
+margin_right = 400.0
+margin_bottom = 154.0
+size_flags_horizontal = 3
+theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 24 )
+custom_styles/disabled = ExtResource( 17 )
+disabled = true
+text = "Grocery"
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/SectorTabContainer/Grocery"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -600.0
+margin_top = -154.0
+margin_right = -20.0
+margin_bottom = 154.0
+size_flags_horizontal = 3
+columns = 2
+
+[node name="FractLocalLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer"]
+margin_top = 15.0
+margin_right = 333.0
+margin_bottom = 32.0
+size_flags_vertical = 6
+text = "Local food compared with today: "
+align = 2
+
+[node name="FractLocal" type="HSlider" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer"]
+margin_left = 337.0
+margin_top = 16.0
+margin_right = 580.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 10.0
+
+[node name="FractLocalValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer/FractLocal"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -191.0
+margin_top = 12.0
+margin_bottom = -15.0
+text = "0.5 X"
+align = 2
+
+[node name="CalorieFractBeefLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer"]
+margin_top = 67.0
+margin_right = 333.0
+margin_bottom = 84.0
+size_flags_vertical = 6
+text = "Fraction of calories from beef:  "
+align = 2
+
+[node name="CalorieFractBeef" type="HSlider" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer"]
+margin_left = 337.0
+margin_top = 68.0
+margin_right = 580.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CalorieFractBeefValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer/CalorieFractBeef"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = 12.0
+margin_bottom = 14.0
+text = "5%"
+align = 2
+
+[node name="CalorieFractPoultryLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer"]
+margin_top = 119.0
+margin_right = 333.0
+margin_bottom = 136.0
+size_flags_vertical = 6
+text = "Fraction of calories from poultry: "
+align = 2
+
+[node name="CalorieFractPoultry" type="HSlider" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer"]
+margin_left = 337.0
+margin_top = 120.0
+margin_right = 580.0
+margin_bottom = 136.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 15.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CalorieFractPoultryValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer/CalorieFractPoultry"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = 12.0
+margin_bottom = 14.0
+text = "10%"
+align = 2
+
+[node name="CalorieFractDairyLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer"]
+margin_top = 171.0
+margin_right = 333.0
+margin_bottom = 188.0
+size_flags_vertical = 6
+text = "Fraction of calories from dairy: "
+align = 2
+
+[node name="CalorieFractDairy" type="HSlider" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer"]
+margin_left = 337.0
+margin_top = 172.0
+margin_right = 580.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CalorieFractDairyValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer/CalorieFractDairy"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -49.0
+margin_top = 12.0
+margin_bottom = 14.0
+size_flags_vertical = 6
+text = "10%"
+align = 2
+
+[node name="FractWasteLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer"]
+margin_top = 223.0
+margin_right = 333.0
+margin_bottom = 240.0
+size_flags_vertical = 6
+text = "Fraction of food that is wasted: "
+align = 2
+
+[node name="FractWaste" type="HSlider" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer"]
+margin_left = 337.0
+margin_top = 224.0
+margin_right = 580.0
+margin_bottom = 240.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 25.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FractWasteValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer/FractWaste"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -49.0
+margin_top = 12.0
+margin_bottom = 14.0
+text = "50%"
+align = 2
+
+[node name="FractProcessedLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer"]
+margin_top = 275.0
+margin_right = 333.0
+margin_bottom = 292.0
+size_flags_vertical = 6
+text = "Processed food compared with today: "
+align = 2
+
+[node name="FractProcessed" type="HSlider" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer"]
+margin_left = 337.0
+margin_top = 276.0
+margin_right = 580.0
+margin_bottom = 292.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 55.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FractProcessedValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer/FractProcessed"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -191.0
+margin_top = 12.0
+margin_bottom = 14.0
+size_flags_vertical = 6
+text = "0.5 X"
+align = 2
+
+[node name="Water" type="Panel" parent="VBoxContainer/SectorTabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 27.0
+theme = ExtResource( 28 )
+
+[node name="Water" type="Button" parent="VBoxContainer/SectorTabContainer/Water"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -45.0
+margin_right = 400.0
+margin_bottom = 45.0
+theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 24 )
+custom_styles/disabled = ExtResource( 17 )
+disabled = true
+text = "Water & Clothes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/SectorTabContainer/Water"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -600.0
+margin_top = -154.0
+margin_right = -20.0
+margin_bottom = 154.0
+columns = 2
+
+[node name="HotWaterHeaterLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Water/GridContainer"]
+margin_top = 20.0
+margin_right = 288.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Water heating type"
+align = 2
+
+[node name="HotWaterHeater" type="OptionButton" parent="VBoxContainer/SectorTabContainer/Water/GridContainer"]
+margin_left = 292.0
+margin_top = 15.0
+margin_right = 580.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Gas hot water"
+items = [ "Gas hot water", null, false, 0, null, "Electric hot water", null, false, 1, null ]
+selected = 0
+
+[node name="ShowerLengthLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Water/GridContainer"]
+margin_top = 82.0
+margin_right = 288.0
+margin_bottom = 99.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Shower length:"
+align = 2
+
+[node name="ShowerLength" type="HSlider" parent="VBoxContainer/SectorTabContainer/Water/GridContainer"]
+margin_left = 292.0
+margin_top = 83.0
+margin_right = 580.0
+margin_bottom = 99.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 10.0
+
+[node name="ShowerLengthValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Water/GridContainer/ShowerLength"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -308.0
+margin_top = 12.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1 min"
+align = 2
+
+[node name="ClothesWashTempLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Water/GridContainer"]
+margin_top = 144.0
+margin_right = 288.0
+margin_bottom = 161.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Hot water temperature:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClothesWashTemp" type="OptionButton" parent="VBoxContainer/SectorTabContainer/Water/GridContainer"]
+margin_left = 292.0
+margin_top = 139.0
+margin_right = 580.0
+margin_bottom = 166.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Hot water wash"
+items = [ "Hot water wash", null, false, 0, null, "Warm water wash", null, false, 1, null, "Cold water wash", null, false, 2, null ]
+selected = 0
+
+[node name="WaterUsageLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Water/GridContainer"]
+margin_top = 206.0
+margin_right = 288.0
+margin_bottom = 223.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Other water Usage:"
+align = 2
+
+[node name="WaterUsage" type="HSlider" parent="VBoxContainer/SectorTabContainer/Water/GridContainer"]
+margin_left = 292.0
+margin_top = 207.0
+margin_right = 580.0
+margin_bottom = 223.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 24.0
+
+[node name="WaterUsageValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Water/GridContainer/WaterUsage"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 12.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1 L"
+align = 2
+
+[node name="ClothesBoughtLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Water/GridContainer"]
+margin_top = 268.0
+margin_right = 288.0
+margin_bottom = 285.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Clothes bought/yr:"
+align = 2
+
+[node name="ClothesBought" type="HSlider" parent="VBoxContainer/SectorTabContainer/Water/GridContainer"]
+margin_left = 292.0
+margin_top = 269.0
+margin_right = 580.0
+margin_bottom = 285.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 20.0
+
+[node name="ClothesBoughtValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Water/GridContainer/ClothesBought"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 15.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1 outfits per year"
+align = 2
+
+[node name="Cooking" type="Panel" parent="VBoxContainer/SectorTabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 27.0
+theme = SubResource( 3 )
+
+[node name="Cooking" type="Button" parent="VBoxContainer/SectorTabContainer/Cooking"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -45.0
+margin_right = 400.0
+margin_bottom = 45.0
+theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 24 )
+custom_styles/disabled = ExtResource( 17 )
+disabled = true
+text = "Cooking"
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/SectorTabContainer/Cooking"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -600.0
+margin_top = -140.0
+margin_right = -20.0
+margin_bottom = 140.0
+theme = ExtResource( 28 )
+columns = 2
+
+[node name="ElectricityLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Cooking/GridContainer"]
+margin_top = 24.0
+margin_right = 288.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Electricity source"
+align = 2
+
+[node name="Electricity" type="OptionButton" parent="VBoxContainer/SectorTabContainer/Cooking/GridContainer"]
+margin_left = 292.0
+margin_top = 19.0
+margin_right = 580.0
+margin_bottom = 46.0
+rect_pivot_offset = Vector2( 281.638, 63.8712 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Coal"
+items = [ "Coal", null, false, 0, null, "Fossil gas", null, false, 1, null, "Renewables", null, false, 2, null ]
+selected = 0
+
+[node name="StoveTypeLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Cooking/GridContainer"]
+margin_top = 94.0
+margin_right = 288.0
+margin_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Stove type"
+align = 2
+
+[node name="StoveType" type="OptionButton" parent="VBoxContainer/SectorTabContainer/Cooking/GridContainer"]
+margin_left = 292.0
+margin_top = 89.0
+margin_right = 580.0
+margin_bottom = 116.0
+rect_pivot_offset = Vector2( 281.638, 63.8712 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Gas stove"
+items = [ "Gas stove", null, false, 0, null, "Electric stove", null, false, 1, null, "Induction stove", null, false, 2, null ]
+selected = 0
+
+[node name="FractCookedLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Cooking/GridContainer"]
+margin_top = 164.0
+margin_right = 288.0
+margin_bottom = 181.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Fraction of food that is cooked:"
+align = 2
+
+[node name="FractCooked" type="HSlider" parent="VBoxContainer/SectorTabContainer/Cooking/GridContainer"]
+margin_left = 292.0
+margin_top = 165.0
+margin_right = 580.0
+margin_bottom = 181.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 50.0
+
+[node name="FractCookedValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Cooking/GridContainer/FractCooked"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 12.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1%"
+align = 2
+
+[node name="FridgeEnergyUsageLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Cooking/GridContainer"]
+margin_top = 234.0
+margin_right = 288.0
+margin_bottom = 251.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Fridge Energy Usage:"
+align = 2
+
+[node name="FridgeEnergyUsage" type="HSlider" parent="VBoxContainer/SectorTabContainer/Cooking/GridContainer"]
+margin_left = 292.0
+margin_top = 235.0
+margin_right = 580.0
+margin_bottom = 251.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme = ExtResource( 28 )
+value = 10.0
+
+[node name="FridgeEnergyUsageValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Cooking/GridContainer/FridgeEnergyUsage"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 12.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1 Watts"
+align = 2
+
+[node name="EnergyForCookingLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Cooking/GridContainer"]
+visible = false
+margin_top = 241.0
+margin_right = 288.0
+margin_bottom = 258.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Energy for Cooking:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnergyForCooking" type="HSlider" parent="VBoxContainer/SectorTabContainer/Cooking/GridContainer"]
+visible = false
+margin_left = 292.0
+margin_top = 242.0
+margin_right = 580.0
+margin_bottom = 258.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 10.0
+
+[node name="Tech" type="Panel" parent="VBoxContainer/SectorTabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 27.0
+theme = SubResource( 3 )
+
+[node name="Tech" type="Button" parent="VBoxContainer/SectorTabContainer/Tech"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -45.0
+margin_right = 400.0
+margin_bottom = 45.0
+theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 24 )
+custom_styles/disabled = ExtResource( 17 )
+disabled = true
+text = "Tech"
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/SectorTabContainer/Tech"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -600.0
+margin_top = -128.0
+margin_right = -20.0
+margin_bottom = 128.0
+theme = ExtResource( 28 )
+columns = 2
+
+[node name="PhoneUsageLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Tech/GridContainer"]
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Phone usage:"
+align = 2
+
+[node name="PhoneUsage" type="HSlider" parent="VBoxContainer/SectorTabContainer/Tech/GridContainer"]
+margin_left = 292.0
+margin_top = 16.0
+margin_right = 580.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 50.0
+
+[node name="PhoneUsageValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Tech/GridContainer/PhoneUsage"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 15.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1 hrs/day"
+align = 2
+
+[node name="PhoneUsageStandbyLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Tech/GridContainer"]
+margin_top = 67.0
+margin_right = 288.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Phone usage (standby):"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PhoneUsageStandby" type="HSlider" parent="VBoxContainer/SectorTabContainer/Tech/GridContainer"]
+margin_left = 292.0
+margin_top = 68.0
+margin_right = 580.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 50.0
+
+[node name="PhoneUsageStandbyValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Tech/GridContainer/PhoneUsageStandby"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 15.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "12 hrs/day"
+align = 2
+
+[node name="PhoneLifetimeLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Tech/GridContainer"]
+margin_top = 119.0
+margin_right = 288.0
+margin_bottom = 136.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Phone lifetime:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PhoneLifetime" type="HSlider" parent="VBoxContainer/SectorTabContainer/Tech/GridContainer"]
+margin_left = 292.0
+margin_top = 120.0
+margin_right = 580.0
+margin_bottom = 136.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 10.0
+
+[node name="PhoneLifetimeValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Tech/GridContainer/PhoneLifetime"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 15.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1 year"
+align = 2
+
+[node name="LaptopUsageLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Tech/GridContainer"]
+margin_top = 171.0
+margin_right = 288.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Laptop/TV usage:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LaptopUsage" type="HSlider" parent="VBoxContainer/SectorTabContainer/Tech/GridContainer"]
+margin_left = 292.0
+margin_top = 172.0
+margin_right = 580.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 10.0
+
+[node name="LaptopUsageValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Tech/GridContainer/LaptopUsage"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 15.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1 hours"
+align = 2
+
+[node name="LaptopLifetimeLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Tech/GridContainer"]
+margin_top = 223.0
+margin_right = 288.0
+margin_bottom = 240.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Laptop lifetime:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LaptopLifetime" type="HSlider" parent="VBoxContainer/SectorTabContainer/Tech/GridContainer"]
+margin_left = 292.0
+margin_top = 224.0
+margin_right = 580.0
+margin_bottom = 240.0
+rect_pivot_offset = Vector2( -1179, -61.5 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 10.0
+
+[node name="LaptopLifetimeValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Tech/GridContainer/LaptopLifetime"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 15.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1 years"
+align = 2
+
+[node name="School" type="Panel" parent="VBoxContainer/SectorTabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 27.0
+theme = SubResource( 3 )
+
+[node name="School" type="Button" parent="VBoxContainer/SectorTabContainer/School"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -45.0
+margin_right = 400.0
+margin_bottom = 45.0
+theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 24 )
+custom_styles/disabled = ExtResource( 17 )
+disabled = true
+text = "School/Medical"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/SectorTabContainer/School"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -600.0
+margin_top = -154.0
+margin_right = -20.0
+margin_bottom = 154.0
+theme = ExtResource( 28 )
+columns = 2
+
+[node name="SchoolHeating2" type="OptionButton" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
+visible = false
+margin_left = 54.5145
+margin_top = 471.079
+margin_right = 578.515
+margin_bottom = 509.079
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Poorly insulated"
+items = [ "Poorly insulated", null, false, 0, null, "", null, false, 1, null, "", null, false, 2, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PercentWellInsulatedLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
+margin_top = 15.0
+margin_right = 335.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Well-insulated buildings w/ heat pumps"
+align = 2
+
+[node name="PercentWellInsulated" type="HSlider" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
+margin_left = 339.0
+margin_top = 15.0
+margin_right = 580.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 10.0
+
+[node name="PercentWellInsulatedValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer/PercentWellInsulated"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 12.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1%"
+align = 2
+
+[node name="SchoolHeating" type="OptionButton" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
+visible = false
+margin_left = 54.5145
+margin_top = 128.079
+margin_right = 578.515
+margin_bottom = 166.079
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "School/hospital poorly insulated"
+items = [ "School/hospital poorly insulated", null, false, 0, null, "School/hospital medium-insulated", null, false, 1, null, "School/hospital well-insulated", null, false, 2, null, "School/hospital well-insulated + heat pump", null, false, 3, null ]
+selected = 0
+
+[node name="PercentKidsLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
+margin_top = 66.0
+margin_right = 335.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Percent of population in school"
+align = 2
+
+[node name="PercentKids" type="HSlider" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
+margin_left = 339.0
+margin_top = 66.0
+margin_right = 580.0
+margin_bottom = 82.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 50.0
+
+[node name="PercentKidsValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer/PercentKids"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 12.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1%"
+align = 2
+
+[node name="SchoolsqrFtPerStudentLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
+margin_top = 117.0
+margin_right = 335.0
+margin_bottom = 134.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Floor area per student: 10 m/2"
+align = 2
+
+[node name="SchoolsqrFtPerStudent" type="HSlider" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
+margin_left = 339.0
+margin_top = 117.0
+margin_right = 580.0
+margin_bottom = 133.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 50.0
+
+[node name="SchoolsqrFtPerStudentValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer/SchoolsqrFtPerStudent"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 12.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1 m/2"
+align = 2
+
+[node name="SchoolEnergyUsageForOtherLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
+margin_top = 168.0
+margin_right = 335.0
+margin_bottom = 185.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Extra energy usage for schools"
+align = 2
+
+[node name="SchoolEnergyUsageForOther" type="HSlider" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
+margin_left = 339.0
+margin_top = 168.0
+margin_right = 580.0
+margin_bottom = 184.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 10.0
+
+[node name="SchoolEnergyUsageForOtherValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer/SchoolEnergyUsageForOther"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 12.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1 W"
+align = 2
+
+[node name="HospsqrFtPerPersonLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
+margin_top = 219.0
+margin_right = 335.0
+margin_bottom = 236.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Medical floor area per person"
+align = 2
+
+[node name="HospsqrFtPerPerson" type="HSlider" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
+margin_left = 339.0
+margin_top = 219.0
+margin_right = 580.0
+margin_bottom = 235.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+step = 0.1
+value = 10.0
+
+[node name="HospsqrFtPerPersonValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer/HospsqrFtPerPerson"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 12.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1 square meters per person"
+align = 2
+
+[node name="HospExtraLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
+margin_top = 270.0
+margin_right = 335.0
+margin_bottom = 287.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Medical extra energy usage"
+align = 2
+
+[node name="HospExtra" type="HSlider" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
+margin_left = 339.0
+margin_top = 270.0
+margin_right = 580.0
+margin_bottom = 286.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 10.0
+
+[node name="HospExtraValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer/HospExtra"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 12.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1 W"
+align = 2
+
+[node name="Commercial" type="Panel" parent="VBoxContainer/SectorTabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 27.0
+theme = SubResource( 3 )
+
+[node name="Commercial" type="Button" parent="VBoxContainer/SectorTabContainer/Commercial"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -45.0
+margin_right = 400.0
+margin_bottom = 45.0
+theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 24 )
+custom_styles/disabled = ExtResource( 17 )
+disabled = true
+text = "Commercial"
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/SectorTabContainer/Commercial"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -600.0
+margin_top = -154.0
+margin_right = -20.0
+margin_bottom = 154.0
+theme = ExtResource( 28 )
+columns = 2
+
+[node name="CommercialHeating" type="OptionButton" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer"]
+visible = false
+margin_left = -371.442
+margin_top = -43.182
+margin_right = 152.558
+margin_bottom = -9.18201
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "School poorly insulated"
+items = [ "School poorly insulated", null, false, 0, null, "School medium-insulated", null, false, 1, null, "School well-insulated", null, false, 2, null, "School well-insulated + heat pump", null, false, 3, null ]
+selected = 0
+
+[node name="CommercialAreaLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer"]
+margin_top = 28.0
+margin_right = 302.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Commercial area per person: 25 m/2"
+align = 2
+
+[node name="CommercialArea" type="HSlider" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer"]
+margin_left = 306.0
+margin_top = 28.0
+margin_right = 580.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 50.0
+
+[node name="CommercialAreaValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer/CommercialArea"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -296.0
+margin_top = -35.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1 square meters"
+align = 2
+
+[node name="ShippingBoatLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer"]
+margin_top = 105.0
+margin_right = 302.0
+margin_bottom = 122.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Shipping by boat: "
+align = 2
+
+[node name="ShippingBoat" type="HSlider" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer"]
+margin_left = 306.0
+margin_top = 105.0
+margin_right = 580.0
+margin_bottom = 121.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 50.0
+
+[node name="ShippingTrainLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer"]
+margin_top = 182.0
+margin_right = 302.0
+margin_bottom = 199.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Shipping by rail: "
+align = 2
+
+[node name="ShippingTrain" type="HSlider" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer"]
+margin_left = 306.0
+margin_top = 182.0
+margin_right = 580.0
+margin_bottom = 198.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 50.0
+
+[node name="ShippingRoadLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer"]
+margin_top = 259.0
+margin_right = 302.0
+margin_bottom = 276.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Shipping by road: "
+align = 2
+
+[node name="ShippingRoad" type="HSlider" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer"]
+margin_left = 306.0
+margin_top = 259.0
+margin_right = 580.0
+margin_bottom = 275.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 10.0
+
+[node name="Mobility" type="Panel" parent="VBoxContainer/SectorTabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 27.0
+theme = SubResource( 3 )
+
+[node name="Mobility" type="Button" parent="VBoxContainer/SectorTabContainer/Mobility"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -45.0
+margin_right = 400.0
+margin_bottom = 45.0
+theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 24 )
+custom_styles/disabled = ExtResource( 17 )
+disabled = true
+text = "Mobility"
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/SectorTabContainer/Mobility"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -600.0
+margin_top = -171.5
+margin_right = -20.0
+margin_bottom = 208.5
+theme = ExtResource( 28 )
+columns = 2
+
+[node name="MobilityAirLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer"]
+margin_top = 27.0
+margin_right = 307.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Distance travelled by air"
+align = 2
+
+[node name="MobilityAir" type="HSlider" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer"]
+margin_left = 311.0
+margin_right = 580.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 28 )
+value = 10.0
+
+[node name="MobilityAirValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityAir"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -296.0
+margin_top = -35.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-1% total distance traveled"
+align = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityAir"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = 17.0
+margin_right = 65.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0 km"
+
+[node name="Label6" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityAir"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -83.0
+margin_top = 17.0
+margin_bottom = 8.5
+size_flags_vertical = 1
+text = "25000 km"
+align = 2
+
+[node name="MobilityBusLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer"]
+margin_top = 103.0
+margin_right = 307.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Distance travelled by bus"
+align = 2
+
+[node name="MobilityBus" type="HSlider" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer"]
+margin_left = 311.0
+margin_top = 76.0
+margin_right = 580.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 50.0
+
+[node name="MobilityBusValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityBus"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -296.0
+margin_top = -35.0
+text = "-1% total distance traveled"
+align = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityBus"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = 17.0
+margin_right = 65.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0 km"
+
+[node name="Label6" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityBus"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -83.0
+margin_top = 17.0
+margin_bottom = 8.5
+size_flags_vertical = 1
+text = "25000 km"
+align = 2
+
+[node name="MobilityRailLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer"]
+margin_top = 179.0
+margin_right = 307.0
+margin_bottom = 196.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Distance travelled by rail"
+align = 2
+
+[node name="MobilityRail" type="HSlider" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer"]
+margin_left = 311.0
+margin_top = 152.0
+margin_right = 580.0
+margin_bottom = 224.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 50.0
+
+[node name="MobilityRailValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityRail"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -296.0
+margin_top = -35.0
+margin_bottom = 17.5
+size_flags_vertical = 1
+text = "-1% total distance traveled"
+align = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityRail"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = 17.0
+margin_right = 65.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0 km"
+
+[node name="Label6" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityRail"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -83.0
+margin_top = 17.0
+margin_bottom = 8.5
+size_flags_vertical = 1
+text = "25000 km"
+align = 2
+
+[node name="MobilityCarLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer"]
+margin_top = 255.0
+margin_right = 307.0
+margin_bottom = 272.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Distance travelled by car"
+align = 2
+
+[node name="MobilityCar" type="HSlider" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer"]
+margin_left = 311.0
+margin_top = 228.0
+margin_right = 580.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 10.0
+
+[node name="MobilityCarValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityCar"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -296.0
+margin_top = -35.0
+margin_bottom = 17.5
+size_flags_vertical = 1
+text = "-1% total distance traveled"
+align = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityCar"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = 17.0
+margin_right = 65.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0 km"
+
+[node name="Label6" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityCar"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -83.0
+margin_top = 17.0
+margin_bottom = 8.5
+size_flags_vertical = 1
+text = "25000 km"
+align = 2
+
+[node name="MobilityNonMotorizedLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer"]
+margin_top = 331.0
+margin_right = 307.0
+margin_bottom = 348.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Distance travelled by non-motorized"
+align = 2
+
+[node name="MobilityNonMotorized" type="HSlider" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer"]
+margin_left = 311.0
+margin_top = 304.0
+margin_right = 580.0
+margin_bottom = 376.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 10.0
+
+[node name="MobilityNonMotorizedValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityNonMotorized"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -296.0
+margin_top = -35.0
+margin_bottom = 17.5
+size_flags_vertical = 1
+text = "-1% total distance traveled"
+align = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityNonMotorized"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = 17.0
+margin_right = 65.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0 km"
+
+[node name="Label6" type="Label" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityNonMotorized"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -83.0
+margin_top = 17.0
+margin_bottom = 8.5
+size_flags_vertical = 1
+text = "25000 km"
+align = 2
+
+[node name="SchoolHeating" type="OptionButton" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer"]
+visible = false
+margin_left = -369.485
+margin_top = -32.4206
+margin_right = 154.515
+margin_bottom = 1.57941
+text = "School/hospital poorly insulated"
+items = [ "School/hospital poorly insulated", null, false, 0, null, "School/hospital medium-insulated", null, false, 1, null, "School/hospital well-insulated", null, false, 2, null, "School/hospital well-insulated + heat pump", null, false, 3, null ]
+selected = 0
+
+[node name="SchoolHeating2" type="OptionButton" parent="VBoxContainer/SectorTabContainer/Mobility/GridContainer"]
+visible = false
+margin_left = -369.485
+margin_top = 375.579
+margin_right = 154.515
+margin_bottom = 409.579
+text = "Poorly insulated"
+items = [ "Poorly insulated", null, false, 0, null, "", null, false, 1, null, "", null, false, 2, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reductions" type="Panel" parent="VBoxContainer/SectorTabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 27.0
+theme = SubResource( 3 )
+
+[node name="Reductions" type="Button" parent="VBoxContainer/SectorTabContainer/Reductions"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -45.0
+margin_right = 400.0
+margin_bottom = 45.0
+theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 24 )
+custom_styles/disabled = ExtResource( 17 )
+disabled = true
+text = "Reductions"
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/SectorTabContainer/Reductions"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -600.0
+margin_top = -171.5
+margin_right = -20.0
+margin_bottom = 208.5
+theme = ExtResource( 28 )
+columns = 2
+
+[node name="MobilityAirLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer"]
+margin_top = 21.0
+margin_right = 288.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Distance travelled by air: "
+align = 2
+
+[node name="MobilityAir" type="HSlider" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer"]
+margin_left = 292.0
+margin_top = 22.0
+margin_right = 580.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 10.0
+
+[node name="MobilityAirValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer/MobilityAir"]
+margin_left = 553.594
+margin_top = -6.07935
+margin_right = 849.594
+margin_bottom = 21.9207
+text = "0 % total distance traveled"
+
+[node name="Label3" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer/MobilityAir"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = 17.0
+margin_right = 65.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0 km"
+
+[node name="Label6" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer/MobilityAir"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -83.0
+margin_top = 17.0
+margin_bottom = 8.5
+size_flags_vertical = 1
+text = "25000 km"
+align = 2
+
+[node name="MobilityBusLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer"]
+margin_top = 85.0
+margin_right = 288.0
+margin_bottom = 102.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Distance travelled by bus"
+align = 2
+
+[node name="MobilityBus" type="HSlider" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer"]
+margin_left = 292.0
+margin_top = 86.0
+margin_right = 580.0
+margin_bottom = 102.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 50.0
+
+[node name="MobilityBusValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer/MobilityBus"]
+margin_left = 553.593
+margin_top = -3.57605
+margin_right = 849.593
+margin_bottom = 24.424
+text = "0 % total distance traveled"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer/MobilityBus"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = 17.0
+margin_right = 65.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0 km"
+
+[node name="Label6" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer/MobilityBus"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -83.0
+margin_top = 17.0
+margin_bottom = 8.5
+size_flags_vertical = 1
+text = "25000 km"
+align = 2
+
+[node name="MobilityRailLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer"]
+margin_top = 149.0
+margin_right = 288.0
+margin_bottom = 166.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Distance travelled by rail"
+align = 2
+
+[node name="MobilityRail" type="HSlider" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer"]
+margin_left = 292.0
+margin_top = 150.0
+margin_right = 580.0
+margin_bottom = 166.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 50.0
+
+[node name="MobilityRailValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer/MobilityRail"]
+margin_left = 555.061
+margin_top = -6.45312
+margin_right = 851.061
+margin_bottom = 21.5469
+text = "0 % total distance traveled"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer/MobilityRail"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = 17.0
+margin_right = 65.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0 km"
+
+[node name="Label6" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer/MobilityRail"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -83.0
+margin_top = 17.0
+margin_bottom = 8.5
+size_flags_vertical = 1
+text = "25000 km"
+align = 2
+
+[node name="MobilityCarLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer"]
+margin_top = 213.0
+margin_right = 288.0
+margin_bottom = 230.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Distance travelled by car"
+align = 2
+
+[node name="MobilityCar" type="HSlider" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer"]
+margin_left = 292.0
+margin_top = 214.0
+margin_right = 580.0
+margin_bottom = 230.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 10.0
+
+[node name="MobilityCarValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer/MobilityCar"]
+margin_left = 556.039
+margin_top = -4.92798
+margin_right = 852.039
+margin_bottom = 23.0721
+text = "0 % total distance traveled"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer/MobilityCar"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = 17.0
+margin_right = 65.0
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0 km"
+
+[node name="Label6" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer/MobilityCar"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -83.0
+margin_top = 17.0
+margin_bottom = 8.5
+size_flags_vertical = 1
+text = "25000 km"
+align = 2
+
+[node name="CarSharingLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer"]
+margin_top = 277.0
+margin_right = 288.0
+margin_bottom = 294.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Number of people per car"
+align = 2
+
+[node name="CarSharing" type="HSlider" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer"]
+margin_left = 292.0
+margin_top = 278.0
+margin_right = 580.0
+margin_bottom = 294.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+step = 0.1
+value = 10.0
+
+[node name="CarFuelEfficiencyLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer"]
+margin_top = 341.0
+margin_right = 288.0
+margin_bottom = 358.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Car efficiency"
+align = 2
+
+[node name="CarFuelEfficiency" type="HSlider" parent="VBoxContainer/SectorTabContainer/Reductions/GridContainer"]
+margin_left = 292.0
+margin_top = 342.0
+margin_right = 580.0
+margin_bottom = 358.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 10.0
 
 [node name="CO2Button" type="Button" parent="."]
+anchor_left = 1.0
 anchor_right = 1.0
-margin_left = 559.772
-margin_top = 105.655
-margin_right = -364.228
-margin_bottom = 149.655
+margin_left = -238.0
+margin_top = 124.0
+margin_right = -138.0
+margin_bottom = 168.0
 theme = ExtResource( 20 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 25 )
@@ -2206,16 +2457,14 @@ custom_styles/focus = SubResource( 11 )
 custom_styles/disabled = SubResource( 12 )
 custom_styles/normal = SubResource( 13 )
 text = "CO2"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="PowerButton" type="Button" parent="."]
+anchor_left = 1.0
 anchor_right = 1.0
-margin_left = 678.862
-margin_top = 105.655
-margin_right = -245.138
-margin_bottom = 149.655
+margin_left = -123.0
+margin_top = 124.0
+margin_right = -23.0
+margin_bottom = 168.0
 theme = ExtResource( 20 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 25 )
@@ -2226,79 +2475,59 @@ custom_styles/disabled = ExtResource( 19 )
 custom_styles/normal = ExtResource( 19 )
 text = "Power"
 
-[connection signal="item_selected" from="ConstructionPopUp/ConstructionSliders/ClimateZone" to="." method="_on_ClimateZone_item_selected"]
-[connection signal="value_changed" from="ConstructionPopUp/ConstructionSliders/SquareFootage" to="." method="_on_SquareFootage_value_changed"]
-[connection signal="value_changed" from="ConstructionPopUp/ConstructionSliders/PeoplePerResidence" to="." method="_on_PeoplePerResidence_value_changed"]
-[connection signal="value_changed" from="ConstructionPopUp/ConstructionSliders/BuildingLifetime" to="." method="_on_BuildingLifetime_value_changed"]
-[connection signal="item_selected" from="ConstructionPopUp/ConstructionSliders/BuildingMaterial" to="." method="_on_BuildingMaterial_item_selected"]
-[connection signal="item_selected" from="ConstructionPopUp/ConstructionSliders/HeatCoolMethod" to="." method="_on_HeatCoolMethod_item_selected"]
-[connection signal="item_selected" from="ConstructionPopUp/ConstructionSliders/Insulation2" to="." method="_on_Insulation2_item_selected"]
-[connection signal="pressed" from="ConstructionPopUp/ToGrocery" to="." method="_on_ToGrocery_pressed"]
-[connection signal="pressed" from="ConstructionPopUp/ToMobility2" to="." method="_on_ToMobility2_pressed"]
-[connection signal="value_changed" from="GroceryPopUp/GrocerySliders/FractLocal" to="." method="_on_FractLocal_value_changed"]
-[connection signal="value_changed" from="GroceryPopUp/GrocerySliders/CalorieFractBeef" to="." method="_on_CalorieFractBeef_value_changed"]
-[connection signal="value_changed" from="GroceryPopUp/GrocerySliders/CalorieFractPoultry" to="." method="_on_CalorieFractPoultry_value_changed"]
-[connection signal="value_changed" from="GroceryPopUp/GrocerySliders/CalorieFractDairy" to="." method="_on_CalorieFractDairy_value_changed"]
-[connection signal="value_changed" from="GroceryPopUp/GrocerySliders/FractWaste" to="." method="_on_FractWaste_value_changed"]
-[connection signal="value_changed" from="GroceryPopUp/GrocerySliders/FractProcessed" to="." method="_on_FractProcessed_value_changed"]
-[connection signal="pressed" from="GroceryPopUp/ToResidence" to="." method="_on_ToResidence_pressed"]
-[connection signal="pressed" from="GroceryPopUp/ToConstruction2" to="." method="_on_ToConstruction2_pressed"]
-[connection signal="item_selected" from="WaterPopUp/WaterSliders/HotWaterHeater" to="." method="_on_HotWaterHeater_item_selected"]
-[connection signal="value_changed" from="WaterPopUp/WaterSliders/ShowerLength" to="." method="_on_ShowerLength_value_changed"]
-[connection signal="value_changed" from="WaterPopUp/WaterSliders/Hotwatertemp" to="." method="_on_Hotwatertemp_value_changed"]
-[connection signal="item_selected" from="WaterPopUp/WaterSliders/ClothesWashTemp" to="." method="_on_ClothesWashTemp_item_selected"]
-[connection signal="value_changed" from="WaterPopUp/WaterSliders/WaterUsage" to="." method="_on_WaterUsage_value_changed"]
-[connection signal="value_changed" from="WaterPopUp/WaterSliders/ClothesBought" to="." method="_on_ClothesBought_value_changed"]
-[connection signal="pressed" from="WaterPopUp/ToCooking" to="." method="_on_ToCooking_pressed"]
-[connection signal="pressed" from="WaterPopUp/ToGrocery2" to="." method="_on_ToGrocery2_pressed"]
-[connection signal="item_selected" from="CookingPopUp/CookingSliders/Electricity" to="." method="_on_Electricity_item_selected"]
-[connection signal="item_selected" from="CookingPopUp/CookingSliders/StoveType" to="." method="_on_StoveType_item_selected"]
-[connection signal="value_changed" from="CookingPopUp/CookingSliders/FractCooked" to="." method="_on_FractCooked_value_changed"]
-[connection signal="value_changed" from="CookingPopUp/CookingSliders/FridgeEnergyUsage" to="." method="_on_FridgeEnergyUsage_value_changed"]
-[connection signal="value_changed" from="CookingPopUp/CookingSliders/EnergyForCooking" to="." method="_on_EnergyForCooking_value_changed"]
-[connection signal="pressed" from="CookingPopUp/ToTech" to="." method="_on_ToTech_pressed"]
-[connection signal="pressed" from="CookingPopUp/ToWater2" to="." method="_on_ToWater2_pressed"]
-[connection signal="value_changed" from="TechPopUp/TechSliders/PhoneUsage" to="." method="_on_PhoneUsage_value_changed"]
-[connection signal="value_changed" from="TechPopUp/TechSliders/PhoneUsageStandby" to="." method="_on_PhoneUsageStandby_value_changed"]
-[connection signal="value_changed" from="TechPopUp/TechSliders/PhoneLifetime" to="." method="_on_PhoneLifetime_value_changed"]
-[connection signal="value_changed" from="TechPopUp/TechSliders/LaptopUsage" to="." method="_on_LaptopUsage_value_changed"]
-[connection signal="value_changed" from="TechPopUp/TechSliders/LaptopLifetime" to="." method="_on_LaptopLifetime_value_changed"]
-[connection signal="pressed" from="TechPopUp/ToSchool" to="." method="_on_ToSchool_pressed"]
-[connection signal="pressed" from="TechPopUp/ToCooking2" to="." method="_on_ToCooking2_pressed"]
-[connection signal="value_changed" from="SchoolPopUp/SchoolSliders/PercentWellInsulated" to="." method="_on_PercentWellInsulated_value_changed"]
-[connection signal="item_selected" from="SchoolPopUp/SchoolSliders/SchoolHeating" to="." method="_on_SchoolHeating_item_selected"]
-[connection signal="value_changed" from="SchoolPopUp/SchoolSliders/PercentKids" to="." method="_on_PercentKids_value_changed"]
-[connection signal="value_changed" from="SchoolPopUp/SchoolSliders/SchoolsqrFtPerStudent" to="." method="_on_SchoolsqrFtPerStudent_value_changed"]
-[connection signal="value_changed" from="SchoolPopUp/SchoolSliders/SchoolEnergyUsageForOther" to="." method="_on_SchoolEnergyUsageForOther_value_changed"]
-[connection signal="value_changed" from="SchoolPopUp/SchoolSliders/HospsqrFtPerPerson" to="." method="_on_HospsqrFtPerPerson_value_changed"]
-[connection signal="value_changed" from="SchoolPopUp/SchoolSliders/HospExtra" to="." method="_on_HospExtra_value_changed"]
-[connection signal="item_selected" from="SchoolPopUp/SchoolSliders/SchoolHeating2" to="." method="_on_SchoolHeating2_item_selected"]
-[connection signal="pressed" from="SchoolPopUp/ToResidence2" to="." method="_on_ToResidence2_pressed"]
-[connection signal="pressed" from="SchoolPopUp/ToTech2" to="." method="_on_ToTech2_pressed"]
-[connection signal="item_selected" from="CommercialPopUp/CommercialSliders/CommercialHeating" to="." method="_on_CommercialHeating_item_selected"]
-[connection signal="value_changed" from="CommercialPopUp/CommercialSliders/CommercialArea" to="." method="_on_CommercialArea_value_changed"]
-[connection signal="value_changed" from="CommercialPopUp/CommercialSliders/ShippingBoat" to="." method="_on_ShippingBoat_value_changed"]
-[connection signal="value_changed" from="CommercialPopUp/CommercialSliders/ShippingTrain" to="." method="_on_ShippingTrain_value_changed"]
-[connection signal="value_changed" from="CommercialPopUp/CommercialSliders/ShippingRoad" to="." method="_on_ShippingRoad_value_changed"]
-[connection signal="pressed" from="CommercialPopUp/ToMobility" to="." method="_on_ToMobility_pressed"]
-[connection signal="pressed" from="CommercialPopUp/ToSchool2" to="." method="_on_ToSchool2_pressed"]
-[connection signal="value_changed" from="MobilityPopUp/MobilitySliders/MobilityAir" to="." method="_on_MobilityAir_value_changed"]
-[connection signal="item_selected" from="MobilityPopUp/MobilitySliders/SchoolHeating" to="." method="_on_SchoolHeating_item_selected"]
-[connection signal="value_changed" from="MobilityPopUp/MobilitySliders/MobilityBus" to="." method="_on_MobilityBus_value_changed"]
-[connection signal="value_changed" from="MobilityPopUp/MobilitySliders/MobilityRail" to="." method="_on_MobilityRail_value_changed"]
-[connection signal="value_changed" from="MobilityPopUp/MobilitySliders/MobilityCar" to="." method="_on_MobilityCar_value_changed"]
-[connection signal="value_changed" from="MobilityPopUp/MobilitySliders/MobilityNonMotorized" to="." method="_on_MobilityNonMotorized_value_changed"]
-[connection signal="item_selected" from="MobilityPopUp/MobilitySliders/SchoolHeating2" to="." method="_on_SchoolHeating2_item_selected"]
-[connection signal="pressed" from="MobilityPopUp/ToBeginning" to="." method="_on_ToBeginning_pressed"]
-[connection signal="pressed" from="MobilityPopUp/ToCommercial2" to="." method="_on_ToCommercial2_pressed"]
-[connection signal="value_changed" from="ReductionsPopUp/ReductionsSliders/MobilityAir" to="." method="_on_MobilityAir_value_changed"]
-[connection signal="value_changed" from="ReductionsPopUp/ReductionsSliders/MobilityBus" to="." method="_on_MobilityBus_value_changed"]
-[connection signal="value_changed" from="ReductionsPopUp/ReductionsSliders/MobilityRail" to="." method="_on_MobilityRail_value_changed"]
-[connection signal="value_changed" from="ReductionsPopUp/ReductionsSliders/MobilityCar" to="." method="_on_MobilityCar_value_changed"]
-[connection signal="value_changed" from="ReductionsPopUp/ReductionsSliders/Car sharing" to="." method="_on_Car_sharing_value_changed"]
-[connection signal="value_changed" from="ReductionsPopUp/ReductionsSliders/Car fuel efficiency" to="." method="_on_Car_fuel_efficiency_value_changed"]
-[connection signal="pressed" from="ReductionsPopUp/ToBeginning" to="." method="_on_ToBeginning_pressed"]
-[connection signal="pressed" from="ReductionsPopUp/ToCommercial2" to="." method="_on_ToCommercial2_pressed"]
-[connection signal="toggled" from="UICity/ColorRect/ElectricityLabel2" to="UICity" method="_on_ElectricityLabel2_toggled"]
+[connection signal="toggled" from="VBoxContainer/OutputUI/UICity/ColorRect/ElectricityLabel2" to="VBoxContainer/OutputUI/UICity" method="_on_ElectricityLabel2_toggled"]
+[connection signal="item_selected" from="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer/ClimateZone" to="." method="_on_ClimateZone_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer/BuildingMaterial" to="." method="_on_BuildingMaterial_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer/Insulation" to="." method="_on_Insulation_item_selected"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer/PeoplePerResidence" to="." method="_on_PeoplePerResidence_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer/BuildingLifetime" to="." method="_on_BuildingLifetime_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer/SquareFootage" to="." method="_on_SquareFootage_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Grocery/GridContainer/FractLocal" to="." method="_on_FractLocal_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Grocery/GridContainer/CalorieFractBeef" to="." method="_on_CalorieFractBeef_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Grocery/GridContainer/CalorieFractPoultry" to="." method="_on_CalorieFractPoultry_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Grocery/GridContainer/CalorieFractDairy" to="." method="_on_CalorieFractDairy_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Grocery/GridContainer/FractWaste" to="." method="_on_FractWaste_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Grocery/GridContainer/FractProcessed" to="." method="_on_FractProcessed_value_changed"]
+[connection signal="item_selected" from="VBoxContainer/SectorTabContainer/Water/GridContainer/HotWaterHeater" to="." method="_on_HotWaterHeater_item_selected"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Water/GridContainer/ShowerLength" to="." method="_on_ShowerLength_value_changed"]
+[connection signal="item_selected" from="VBoxContainer/SectorTabContainer/Water/GridContainer/ClothesWashTemp" to="." method="_on_ClothesWashTemp_item_selected"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Water/GridContainer/WaterUsage" to="." method="_on_WaterUsage_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Water/GridContainer/ClothesBought" to="." method="_on_ClothesBought_value_changed"]
+[connection signal="item_selected" from="VBoxContainer/SectorTabContainer/Cooking/GridContainer/Electricity" to="." method="_on_Electricity_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/SectorTabContainer/Cooking/GridContainer/StoveType" to="." method="_on_StoveType_item_selected"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Cooking/GridContainer/FractCooked" to="." method="_on_FractCooked_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Cooking/GridContainer/FridgeEnergyUsage" to="." method="_on_FridgeEnergyUsage_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Cooking/GridContainer/EnergyForCooking" to="." method="_on_EnergyForCooking_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Tech/GridContainer/PhoneUsage" to="." method="_on_PhoneUsage_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Tech/GridContainer/PhoneUsageStandby" to="." method="_on_PhoneUsageStandby_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Tech/GridContainer/PhoneLifetime" to="." method="_on_PhoneLifetime_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Tech/GridContainer/LaptopUsage" to="." method="_on_LaptopUsage_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Tech/GridContainer/LaptopLifetime" to="." method="_on_LaptopLifetime_value_changed"]
+[connection signal="item_selected" from="VBoxContainer/SectorTabContainer/School/GridContainer/SchoolHeating2" to="." method="_on_SchoolHeating2_item_selected"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/School/GridContainer/PercentWellInsulated" to="." method="_on_PercentWellInsulated_value_changed"]
+[connection signal="item_selected" from="VBoxContainer/SectorTabContainer/School/GridContainer/SchoolHeating" to="." method="_on_SchoolHeating_item_selected"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/School/GridContainer/PercentKids" to="." method="_on_PercentKids_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/School/GridContainer/SchoolsqrFtPerStudent" to="." method="_on_SchoolsqrFtPerStudent_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/School/GridContainer/SchoolEnergyUsageForOther" to="." method="_on_SchoolEnergyUsageForOther_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/School/GridContainer/HospsqrFtPerPerson" to="." method="_on_HospsqrFtPerPerson_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/School/GridContainer/HospExtra" to="." method="_on_HospExtra_value_changed"]
+[connection signal="item_selected" from="VBoxContainer/SectorTabContainer/Commercial/GridContainer/CommercialHeating" to="." method="_on_CommercialHeating_item_selected"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Commercial/GridContainer/CommercialArea" to="." method="_on_CommercialArea_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Commercial/GridContainer/ShippingBoat" to="." method="_on_ShippingBoat_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Commercial/GridContainer/ShippingTrain" to="." method="_on_ShippingTrain_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Commercial/GridContainer/ShippingRoad" to="." method="_on_ShippingRoad_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityAir" to="." method="_on_MobilityAir_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityBus" to="." method="_on_MobilityBus_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityRail" to="." method="_on_MobilityRail_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityCar" to="." method="_on_MobilityCar_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Mobility/GridContainer/MobilityNonMotorized" to="." method="_on_MobilityNonMotorized_value_changed"]
+[connection signal="item_selected" from="VBoxContainer/SectorTabContainer/Mobility/GridContainer/SchoolHeating" to="." method="_on_SchoolHeating_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/SectorTabContainer/Mobility/GridContainer/SchoolHeating2" to="." method="_on_SchoolHeating2_item_selected"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Reductions/GridContainer/MobilityAir" to="." method="_on_MobilityAir_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Reductions/GridContainer/MobilityBus" to="." method="_on_MobilityBus_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Reductions/GridContainer/MobilityRail" to="." method="_on_MobilityRail_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Reductions/GridContainer/MobilityCar" to="." method="_on_MobilityCar_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Reductions/GridContainer/CarSharing" to="." method="_on_Car_sharing_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SectorTabContainer/Reductions/GridContainer/CarFuelEfficiency" to="." method="_on_Car_fuel_efficiency_value_changed"]
 [connection signal="pressed" from="CO2Button" to="." method="_on_CO2Button_pressed"]
 [connection signal="pressed" from="PowerButton" to="." method="_on_PowerButton_pressed"]

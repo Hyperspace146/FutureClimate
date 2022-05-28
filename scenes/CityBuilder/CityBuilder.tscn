@@ -1,16 +1,16 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/CityBuilder/BuildingGrid.gd" type="Script" id=1]
-[ext_resource path="res://sprites/CityBuilder/citytileset.tres" type="TileSet" id=2]
+[ext_resource path="res://scenes/CityBuilder/tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://scenes/CityBuilder/TileHighlight.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/CityBuilder/BuildingSelectPanel.gd" type="Script" id=4]
-[ext_resource path="res://sprites/CityBuilder/assets/citybuilding5.png" type="Texture" id=5]
-[ext_resource path="res://sprites/CityBuilder/assets/citybuilding1.png" type="Texture" id=6]
-[ext_resource path="res://sprites/CityBuilder/assets/citybuilding6.png" type="Texture" id=7]
-[ext_resource path="res://sprites/CityBuilder/assets/citybuilding2.png" type="Texture" id=8]
-[ext_resource path="res://sprites/CityBuilder/assets/citybuilding4.png" type="Texture" id=9]
-[ext_resource path="res://sprites/CityBuilder/assets/citybuilding3.png" type="Texture" id=10]
-[ext_resource path="res://sprites/CityBuilder/UITheme.tres" type="Theme" id=11]
+[ext_resource path="res://scenes/CityBuilder/assets/citybuilding5.png" type="Texture" id=5]
+[ext_resource path="res://scenes/CityBuilder/assets/citybuilding1.png" type="Texture" id=6]
+[ext_resource path="res://scenes/CityBuilder/assets/citybuilding6.png" type="Texture" id=7]
+[ext_resource path="res://scenes/CityBuilder/assets/citybuilding2.png" type="Texture" id=8]
+[ext_resource path="res://scenes/CityBuilder/assets/citybuilding4.png" type="Texture" id=9]
+[ext_resource path="res://scenes/CityBuilder/assets/citybuilding3.png" type="Texture" id=10]
+[ext_resource path="res://scenes/CityBuilder/UITheme.tres" type="Theme" id=11]
 [ext_resource path="res://scripts/CityBuilder/TurnManager.gd" type="Script" id=12]
 [ext_resource path="res://scripts/CityBuilder/EnergyManager.gd" type="Script" id=13]
 [ext_resource path="res://scripts/CityBuilder/TechTreeItems/TechTreeItem.gd" type="Script" id=14]
@@ -18,7 +18,7 @@
 [ext_resource path="res://scenes/CityBuilder/TechTreeItem.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/CityBuilder/PowerCO2Output.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scripts/CityBuilder/TechTreeItems/ElectricStoves.gd" type="Script" id=18]
-[ext_resource path="res://scenes/CityBuilder/Events.gd" type="Script" id=19]
+[ext_resource path="res://scripts/CityBuilder/Events.gd" type="Script" id=19]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0941176, 0.121569, 0.109804, 1 )
@@ -42,7 +42,6 @@ tile_data = PoolIntArray( -327686, 2, 0, -327685, 2, 0, -327684, 2, 0, -327683, 
 
 [node name="BuildingGrid" type="TileMap" parent="."]
 mode = 1
-tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 16 )
 format = 1
 script = ExtResource( 1 )
@@ -57,7 +56,6 @@ anchor_bottom = 1.0
 theme = ExtResource( 11 )
 
 [node name="City" type="Control" parent="CanvasLayer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 27.0
@@ -239,6 +237,7 @@ text = "NEXT TURN"
 align = 1
 
 [node name="Tech" type="Control" parent="CanvasLayer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 27.0
@@ -403,12 +402,7 @@ text = "No tooltip"
 
 [node name="Output" parent="CanvasLayer/TabContainer" instance=ExtResource( 17 )]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
 margin_top = 27.0
-margin_right = 0.0
-margin_bottom = 0.0
-theme = ExtResource( 11 )
 
 [connection signal="end_turn" from="Events" to="CanvasLayer/TabContainer/City/StatsContainer/EnergyPanel/EnergyLabel" method="reset_energy"]
 [connection signal="end_turn" from="Events" to="CanvasLayer/TabContainer/City/StatsContainer/TurnPanel/TurnLabel" method="end_turn"]

@@ -90,7 +90,6 @@ func _toggle_select_building(tile_pos):
 
 	# If this building is not the one that was currently selected, select it
 	if tile_pos != _currently_selected_tile_pos: 
-		_buildings[tile_pos].get_node("Radius").visible = true;
 		_deselect_building()  # Deselect any previously selected buildings
 		_currently_selected_tile_pos = tile_pos
 		
