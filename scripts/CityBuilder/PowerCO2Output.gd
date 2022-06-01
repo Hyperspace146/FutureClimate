@@ -94,7 +94,7 @@ func _ready():
 	sqrFt.min_value = 30 # square meters
 	sqrFt.step = 5
 	sqrFt.max_value = 750 # square meters
-	sqrFt.value = 300
+	sqrFt.value = 600
 	var sqrFt0 = 300
 	pplpRes.min_value = 1 # people
 	pplpRes.max_value = 6 # people
@@ -102,15 +102,14 @@ func _ready():
 	var pplpRes0 = 2
 	bldngLifetime.min_value = 20 # years
 	bldngLifetime.max_value = 100 # years
-	bldngLifetime.value = 50
+	bldngLifetime.value = 20
 	var bldngLifetime0 = 50
 #	insulation.min_value = 10 # kW hr / m^2 / year
 #	insulation.max_value = 200 # kW hr / m^2 / year
 #	insulation.value = 100
 #	var insulation0 = 100
 	climateZone.selected = 2
-	insulation.selected = 1
-	elecType.selected = 1
+	insulation.selected = 0
 	#battery.min_value = 0 # kW hr
 	#battery.max_value = 100 # kW hr
 	#var battery0 = 0
@@ -119,52 +118,58 @@ func _ready():
 	#var solarPanelSize0 = 0
 	
 		# RESIDENCE from simon
-	FractCooked.min_value = 0 # %
-	FractCooked.max_value = 100 # %
-	FractCooked.value = 50
-	FridgeEnergyUsage.min_value = 14 # Watts
-	FridgeEnergyUsage.max_value = 100 # Watts
-	FridgeEnergyUsage.value = 68
 	WaterUsage.min_value = 25 # liters / day
 	WaterUsage.max_value = 500 # liters / day
-	WaterUsage.value = 200
+	WaterUsage.value = 450
 #	HeatedWater.min_value = 5 # liters / day
 #	HeatedWater.max_value = 200 # liters / day
 #	HeatedWater.value = 200
 	showerLength.min_value = 0.0
 	showerLength.max_value = 20.0
-	showerLength.value = 8.0
-	ClothesBought.value = 4.0
+	showerLength.value = 16
+	ClothesBought.value = 10.0
 	ClothesBought.min_value = 0.0
 	ClothesBought.max_value = 12.0
 #	HotWaterTemp.min_value = 49.0
 #	HotWaterTemp.max_value = 65.0
 #	HotWaterTemp.value = 55.0
+	HotWater.selected = 0
+	ClothesWashTemp.selected = 0 
 		
-	#GROCERY
+	# GROCERY
 	localFoodRatio.min_value = 50.0
 	localFoodRatio.max_value = 200.0
-	localFoodRatio.value = 100.0
+	localFoodRatio.value = 50
 	CalorieFractBeef.min_value = 0 # %
 	CalorieFractBeef.max_value = 20 # %
-	CalorieFractBeef.value = 4
+	CalorieFractBeef.value = 20
 	CalorieFractPoultry.min_value = 0 # %
 	CalorieFractPoultry.max_value = 20 # %
-	CalorieFractPoultry.value = 6
+	CalorieFractPoultry.value = 20
 	CalorieFractDairy.min_value = 0 # %
 	CalorieFractDairy.max_value = 20.0 # %
-	CalorieFractDairy.value = 5.0
+	CalorieFractDairy.value = 20
 	FractWaste.min_value = 7.0 # %
 	FractWaste.max_value = 70.0 # %
-	FractWaste.value = 50.0
+	FractWaste.value = 60.0
 	processedFoodRatio.min_value = 35.0
 	processedFoodRatio.max_value = 200.0
-	processedFoodRatio.value = 100.0
+	processedFoodRatio.value = 25
 	
-	#Tech
+	# COOKING
+	elecType.selected = 0
+	stove.selected = 0
+	FractCooked.min_value = 0 # %
+	FractCooked.max_value = 100 # %
+	FractCooked.value = 80
+	FridgeEnergyUsage.min_value = 14 # Watts
+	FridgeEnergyUsage.max_value = 100 # Watts
+	FridgeEnergyUsage.value = 68
+	
+	# TECH
 	phoneUse.min_value = 0
 	phoneUse.max_value = 18
-	phoneUse.value = 4
+	phoneUse.value = 16
 	phoneStandby.min_value = 0
 	phoneStandby.max_value = 24
 	phoneStandby.value = 20
@@ -173,11 +178,12 @@ func _ready():
 	phoneLife.value = 2
 	laptopLife.min_value = 1
 	laptopLife.max_value = 12
-	laptopLife.value = 5
+	laptopLife.value = 4
 	laptopUse.min_value = 0
 	laptopUse.max_value = 24
 	laptopUse.value = 8
-		#SCHOOL
+	
+	# SCHOOL
 	SchoolsqrFtPerStudent.min_value = 2.0 # %
 	SchoolsqrFtPerStudent.max_value = 20.0 # %
 	SchoolsqrFtPerStudent.value = 10.0
@@ -186,13 +192,24 @@ func _ready():
 	#SchoolEmbodied.value = 4.0
 	SchoolEnergyUsageForOther.min_value = 0
 	SchoolEnergyUsageForOther.max_value = 100
-	SchoolEnergyUsageForOther.value = 20
+	SchoolEnergyUsageForOther.value = 80
 	percentKids.min_value = 10.0
 	percentKids.max_value = 30.0
 	percentKids.value = 20.0
 	PercentInsulated.value = 15.0
 	PercentInsulated.min_value = 0.0
 	PercentInsulated.max_value = 100.0
+	
+	#MEDICAL
+	#1.6 m2/cap * 3 for other medical space
+	HospsqrFtPerPerson.min_value = 0.0
+	HospsqrFtPerPerson.max_value = 20.0
+	HospsqrFtPerPerson.value = 5.0
+	HospExtra.min_value = 0
+	HospExtra.max_value = 45
+	HospExtra.value = 30
+	
+	# COMMERCIAL
 	CommercialArea.value = 25.0
 	CommercialArea.min_value = 0.0
 	CommercialArea.max_value = 30.0
@@ -209,19 +226,10 @@ func _ready():
 	#ShippingIntensity.min_value = 
 	#ShippingIntensity.max_value = 
 	
-	#MEDICAL
-	#1.6 m2/cap * 3 for other medical space
-	HospsqrFtPerPerson.min_value = 0.0
-	HospsqrFtPerPerson.max_value = 20.0
-	HospsqrFtPerPerson.value = 5.0
-	HospExtra.min_value = 0
-	HospExtra.max_value = 45
-	HospExtra.value = 15
-	
 	#MOBILITY - Carmen
 	distAIR.min_value = 0.0 #km
 	distAIR.max_value = 25000 #km
-	distAIR.value = 3679 #km
+	distAIR.value = 8000 #km
 	distRAIL.min_value = 0.0 #km
 	distRAIL.max_value = 25000 #km
 	distRAIL.value = 191 #km
@@ -239,7 +247,6 @@ func _ready():
 	# emfBUS = 0.27 #MJ
 	# emfCAR = 0.56 #MJ
 	# emfNON = 0 #MJ
-	
 	
 	set_waterheatingcooking()
 	set_energyForFoodChoice()

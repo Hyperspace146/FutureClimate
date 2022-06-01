@@ -229,7 +229,7 @@ __meta__ = {
 position = Vector2( 36, 38 )
 frames = ExtResource( 14 )
 animation = "on"
-frame = 2
+frame = 1
 playing = true
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/OutputUI/UICity/ColorRect/VBoxContainer/Nuclear"]
@@ -267,7 +267,7 @@ __meta__ = {
 position = Vector2( 37, 13 )
 frames = ExtResource( 13 )
 animation = "on"
-frame = 1
+frame = 4
 playing = true
 offset = Vector2( 0, 24 )
 
@@ -305,6 +305,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="VBoxContainer/OutputUI/UICity/ColorRect/VBoxContainer/Wind"]
 position = Vector2( 15, 8 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 centered = false
 
@@ -493,6 +494,7 @@ size_flags_vertical = 3
 theme = ExtResource( 28 )
 
 [node name="Construction" type="Panel" parent="VBoxContainer/SectorTabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 27.0
@@ -541,9 +543,9 @@ margin_right = 550.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "Tropical"
+text = "Temperate"
 items = [ "Tropical", null, false, 0, null, "Subtropical", null, false, 1, null, "Temperate", null, false, 2, null, "Cold", null, false, 3, null ]
-selected = 0
+selected = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -564,9 +566,9 @@ margin_right = 550.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "Concrete"
+text = "Steel"
 items = [ "Timber", null, false, 0, null, "Concrete", null, false, 1, null, "Steel", null, false, 2, null ]
-selected = 1
+selected = 2
 
 [node name="InsulationLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer"]
 margin_top = 157.0
@@ -607,8 +609,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 6
 min_value = 1.0
 max_value = 6.0
-value = 1.0
-tick_count = 7
+value = 2.0
+tick_count = 6
 ticks_on_borders = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -622,7 +624,7 @@ margin_right = 65.0
 margin_bottom = 8.5
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "0"
+text = "1"
 
 [node name="Label6" type="Label" parent="VBoxContainer/SectorTabContainer/Construction/ConstructionSettingContainer/PeoplePerResidence"]
 anchor_left = 1.0
@@ -653,7 +655,8 @@ margin_bottom = 311.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
-value = 1.0
+min_value = 20.0
+value = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -698,7 +701,7 @@ margin_bottom = 382.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
-value = 1.0
+value = 100.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -783,7 +786,7 @@ margin_right = 580.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-value = 10.0
+value = 50.0
 
 [node name="FractLocalValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer/FractLocal"]
 anchor_left = 1.0
@@ -793,7 +796,7 @@ anchor_bottom = 0.5
 margin_left = -191.0
 margin_top = 12.0
 margin_bottom = -15.0
-text = "0.5 X"
+text = "-1 X"
 align = 2
 
 [node name="CalorieFractBeefLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer"]
@@ -811,7 +814,7 @@ margin_right = 580.0
 margin_bottom = 84.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-value = 5.0
+value = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -824,7 +827,7 @@ anchor_bottom = 0.5
 margin_left = -40.0
 margin_top = 12.0
 margin_bottom = 14.0
-text = "5%"
+text = "-1%"
 align = 2
 
 [node name="CalorieFractPoultryLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer"]
@@ -842,7 +845,7 @@ margin_right = 580.0
 margin_bottom = 136.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-value = 15.0
+value = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -855,7 +858,7 @@ anchor_bottom = 0.5
 margin_left = -40.0
 margin_top = 12.0
 margin_bottom = 14.0
-text = "10%"
+text = "-1%"
 align = 2
 
 [node name="CalorieFractDairyLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer"]
@@ -887,7 +890,7 @@ margin_left = -49.0
 margin_top = 12.0
 margin_bottom = 14.0
 size_flags_vertical = 6
-text = "10%"
+text = "-1%"
 align = 2
 
 [node name="FractWasteLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer"]
@@ -905,7 +908,7 @@ margin_right = 580.0
 margin_bottom = 240.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-value = 25.0
+value = 60.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -918,7 +921,7 @@ anchor_bottom = 0.5
 margin_left = -49.0
 margin_top = 12.0
 margin_bottom = 14.0
-text = "50%"
+text = "-1%"
 align = 2
 
 [node name="FractProcessedLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Grocery/GridContainer"]
@@ -936,7 +939,7 @@ margin_right = 580.0
 margin_bottom = 292.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-value = 55.0
+value = 25.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -950,7 +953,7 @@ margin_left = -191.0
 margin_top = 12.0
 margin_bottom = 14.0
 size_flags_vertical = 6
-text = "0.5 X"
+text = "-1 X"
 align = 2
 
 [node name="Water" type="Panel" parent="VBoxContainer/SectorTabContainer"]
@@ -1023,7 +1026,7 @@ margin_right = 580.0
 margin_bottom = 99.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-value = 10.0
+value = 80.0
 
 [node name="ShowerLengthValueLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Water/GridContainer/ShowerLength"]
 anchor_left = 1.0
@@ -1161,7 +1164,7 @@ margin_right = 288.0
 margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "Electricity source"
+text = "Electricity source:"
 align = 2
 
 [node name="Electricity" type="OptionButton" parent="VBoxContainer/SectorTabContainer/Cooking/GridContainer"]
@@ -1182,7 +1185,7 @@ margin_right = 288.0
 margin_bottom = 111.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "Stove type"
+text = "Stove type:"
 align = 2
 
 [node name="StoveType" type="OptionButton" parent="VBoxContainer/SectorTabContainer/Cooking/GridContainer"]
@@ -1234,7 +1237,7 @@ margin_right = 288.0
 margin_bottom = 251.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "Fridge Energy Usage:"
+text = "Fridge energy usage:"
 align = 2
 
 [node name="FridgeEnergyUsage" type="HSlider" parent="VBoxContainer/SectorTabContainer/Cooking/GridContainer"]
@@ -1512,9 +1515,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = -600.0
-margin_top = -154.0
+margin_top = -153.5
 margin_right = -20.0
-margin_bottom = 154.0
+margin_bottom = 208.5
 theme = ExtResource( 28 )
 columns = 2
 
@@ -1534,19 +1537,19 @@ __meta__ = {
 }
 
 [node name="PercentWellInsulatedLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
-margin_top = 15.0
-margin_right = 335.0
-margin_bottom = 32.0
+margin_top = 19.0
+margin_right = 338.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "Well-insulated buildings w/ heat pumps"
+text = "Well-insulated buildings w/ heat pumps:"
 align = 2
 
 [node name="PercentWellInsulated" type="HSlider" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
-margin_left = 339.0
-margin_top = 15.0
+margin_left = 342.0
+margin_top = 20.0
 margin_right = 580.0
-margin_bottom = 31.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 value = 10.0
@@ -1577,19 +1580,19 @@ items = [ "School/hospital poorly insulated", null, false, 0, null, "School/hosp
 selected = 0
 
 [node name="PercentKidsLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
-margin_top = 66.0
-margin_right = 335.0
-margin_bottom = 83.0
+margin_top = 79.0
+margin_right = 338.0
+margin_bottom = 96.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "Percent of population in school"
+text = "Percent of population in school:"
 align = 2
 
 [node name="PercentKids" type="HSlider" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
-margin_left = 339.0
-margin_top = 66.0
+margin_left = 342.0
+margin_top = 80.0
 margin_right = 580.0
-margin_bottom = 82.0
+margin_bottom = 96.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 value = 50.0
@@ -1608,19 +1611,19 @@ text = "-1%"
 align = 2
 
 [node name="SchoolsqrFtPerStudentLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
-margin_top = 117.0
-margin_right = 335.0
-margin_bottom = 134.0
+margin_top = 139.0
+margin_right = 338.0
+margin_bottom = 156.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "Floor area per student: 10 m/2"
+text = "Floor area per student:"
 align = 2
 
 [node name="SchoolsqrFtPerStudent" type="HSlider" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
-margin_left = 339.0
-margin_top = 117.0
+margin_left = 342.0
+margin_top = 140.0
 margin_right = 580.0
-margin_bottom = 133.0
+margin_bottom = 156.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 value = 50.0
@@ -1639,19 +1642,19 @@ text = "-1 m/2"
 align = 2
 
 [node name="SchoolEnergyUsageForOtherLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
-margin_top = 168.0
-margin_right = 335.0
-margin_bottom = 185.0
+margin_top = 199.0
+margin_right = 338.0
+margin_bottom = 216.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "Extra energy usage for schools"
+text = "Extra energy usage for schools:"
 align = 2
 
 [node name="SchoolEnergyUsageForOther" type="HSlider" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
-margin_left = 339.0
-margin_top = 168.0
+margin_left = 342.0
+margin_top = 200.0
 margin_right = 580.0
-margin_bottom = 184.0
+margin_bottom = 216.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 value = 10.0
@@ -1670,19 +1673,19 @@ text = "-1 W"
 align = 2
 
 [node name="HospsqrFtPerPersonLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
-margin_top = 219.0
-margin_right = 335.0
-margin_bottom = 236.0
+margin_top = 259.0
+margin_right = 338.0
+margin_bottom = 276.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "Medical floor area per person"
+text = "Medical floor area per person:"
 align = 2
 
 [node name="HospsqrFtPerPerson" type="HSlider" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
-margin_left = 339.0
-margin_top = 219.0
+margin_left = 342.0
+margin_top = 260.0
 margin_right = 580.0
-margin_bottom = 235.0
+margin_bottom = 276.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 step = 0.1
@@ -1702,19 +1705,19 @@ text = "-1 square meters per person"
 align = 2
 
 [node name="HospExtraLabel" type="Label" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
-margin_top = 270.0
-margin_right = 335.0
-margin_bottom = 287.0
+margin_top = 319.0
+margin_right = 338.0
+margin_bottom = 336.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "Medical extra energy usage"
+text = "Medical extra energy usage:"
 align = 2
 
 [node name="HospExtra" type="HSlider" parent="VBoxContainer/SectorTabContainer/School/GridContainer"]
-margin_left = 339.0
-margin_top = 270.0
+margin_left = 342.0
+margin_top = 320.0
 margin_right = 580.0
-margin_bottom = 286.0
+margin_bottom = 336.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 value = 10.0
@@ -1778,15 +1781,15 @@ selected = 0
 
 [node name="CommercialAreaLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer"]
 margin_top = 28.0
-margin_right = 302.0
+margin_right = 288.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "Commercial area per person: 25 m/2"
+text = "Commercial area per person: "
 align = 2
 
 [node name="CommercialArea" type="HSlider" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer"]
-margin_left = 306.0
+margin_left = 292.0
 margin_top = 28.0
 margin_right = 580.0
 margin_bottom = 44.0
@@ -1809,7 +1812,7 @@ align = 2
 
 [node name="ShippingBoatLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer"]
 margin_top = 105.0
-margin_right = 302.0
+margin_right = 288.0
 margin_bottom = 122.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -1817,7 +1820,7 @@ text = "Shipping by boat: "
 align = 2
 
 [node name="ShippingBoat" type="HSlider" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer"]
-margin_left = 306.0
+margin_left = 292.0
 margin_top = 105.0
 margin_right = 580.0
 margin_bottom = 121.0
@@ -1827,7 +1830,7 @@ value = 50.0
 
 [node name="ShippingTrainLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer"]
 margin_top = 182.0
-margin_right = 302.0
+margin_right = 288.0
 margin_bottom = 199.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -1835,7 +1838,7 @@ text = "Shipping by rail: "
 align = 2
 
 [node name="ShippingTrain" type="HSlider" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer"]
-margin_left = 306.0
+margin_left = 292.0
 margin_top = 182.0
 margin_right = 580.0
 margin_bottom = 198.0
@@ -1845,7 +1848,7 @@ value = 50.0
 
 [node name="ShippingRoadLabel" type="Label" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer"]
 margin_top = 259.0
-margin_right = 302.0
+margin_right = 288.0
 margin_bottom = 276.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -1853,7 +1856,7 @@ text = "Shipping by road: "
 align = 2
 
 [node name="ShippingRoad" type="HSlider" parent="VBoxContainer/SectorTabContainer/Commercial/GridContainer"]
-margin_left = 306.0
+margin_left = 292.0
 margin_top = 259.0
 margin_right = 580.0
 margin_bottom = 275.0
@@ -1862,7 +1865,6 @@ size_flags_vertical = 6
 value = 10.0
 
 [node name="Mobility" type="Panel" parent="VBoxContainer/SectorTabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 27.0

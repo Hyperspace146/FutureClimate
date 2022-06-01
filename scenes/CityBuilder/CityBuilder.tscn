@@ -57,6 +57,7 @@ anchor_bottom = 1.0
 theme = ExtResource( 11 )
 
 [node name="City" type="Control" parent="CanvasLayer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 27.0
@@ -238,7 +239,6 @@ text = "NEXT TURN"
 align = 1
 
 [node name="Tech" type="Control" parent="CanvasLayer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 27.0
@@ -309,6 +309,14 @@ script = ExtResource( 14 )
 tooltip = "steel"
 cost = 3000
 
+[node name="Button" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Button/Button2/Button4" instance=ExtResource( 16 )]
+margin_left = 265.0
+margin_top = 61.5
+margin_right = 347.0
+margin_bottom = 88.5
+disabled = true
+text = "idk"
+
 [node name="Button3" type="Button" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Button"]
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -321,6 +329,14 @@ text = "Upscaled local farms"
 script = ExtResource( 14 )
 tooltip = "farms"
 cost = 700
+
+[node name="TechTreeItem" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Button/Button3" instance=ExtResource( 16 )]
+margin_left = 224.0
+margin_top = -86.5
+margin_right = 340.0
+margin_bottom = -59.5
+disabled = true
+script = ExtResource( 18 )
 
 [node name="Energy" type="Panel" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs"]
 visible = false

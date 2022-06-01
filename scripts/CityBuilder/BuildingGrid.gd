@@ -103,7 +103,6 @@ Deselects the currently selected building, removing information about the buildi
 """
 func _deselect_building():
 	if _currently_selected_tile_pos != null and _currently_selected_tile_pos in _buildings:
-		_buildings[_currently_selected_tile_pos].get_node("Radius").visible = false;
 		_currently_selected_tile_pos = null;
 
 

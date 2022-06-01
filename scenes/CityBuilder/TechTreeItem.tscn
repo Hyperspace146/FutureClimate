@@ -2,11 +2,11 @@
 
 [ext_resource path="res://scripts/CityBuilder/TechTreeItems/TechTreeItem.gd" type="Script" id=1]
 
-[node name="Button" type="Button"]
+[node name="TechTreeItem" type="Button"]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_top = -10.0
 margin_right = 73.0
 margin_bottom = 10.0
-text = "TechItem"
+text = "TechTreeItem"
 script = ExtResource( 1 )
