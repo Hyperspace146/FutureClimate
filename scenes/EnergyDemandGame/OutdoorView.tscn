@@ -2138,7 +2138,7 @@ __meta__ = {
 position = Vector2( 36, 38 )
 frames = ExtResource( 25 )
 animation = "on"
-frame = 2
+frame = 3
 playing = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/UICity/ColorRect/VBoxContainer/Nuclear"]
@@ -2176,7 +2176,7 @@ __meta__ = {
 position = Vector2( 37, 13 )
 frames = ExtResource( 33 )
 animation = "on"
-frame = 4
+frame = 3
 playing = true
 offset = Vector2( 0, 24 )
 
@@ -2214,7 +2214,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/UICity/ColorRect/VBoxContainer/Wind"]
 position = Vector2( 15, 8 )
 frames = SubResource( 9 )
-frame = 1
+frame = 2
 playing = true
 centered = false
 

@@ -237,16 +237,16 @@ func _ready():
 	distNON.value = 137 #km
 	
 	#EFFICIENCIES - Carmen
-	perAIR.min_value = 1
+	perAIR.min_value = 0
 	perAIR.max_value = 100
 	perAIR.value = 75
-	perRAIL.min_value = 1
+	perRAIL.min_value = 0
 	perRAIL.max_value = 100
 	perRAIL.value = 75
-	perBUS.min_value = 1
+	perBUS.min_value = 0
 	perBUS.max_value = 100
 	perBUS.value = 75
-	perCAR.min_value = 1
+	perCAR.min_value = 0
 	perCAR.max_value = 100
 	perCAR.value = 75
 		
@@ -440,16 +440,20 @@ func set_services():
 func set_mobility(): 
 	var co2mobility = 0.0
 	
-	var emfAIR = 1.17 #MJ
-	var emfRAIL =  0.287 #MJ
-	var emfBUS = 0.27 #MJ
-	var emfCAR = 0.56 #MJ
+	var emfAIRbest = 1.17 #MJ
+	var emfAIRworst = 2.05 #MJ
+	var emfRAILbest =  0.287 #MJ
+	var emfRAILworst = 1.12 #MJ
+	var emfBUSbest = 0.27 #MJ
+	var emfBUSworst = 1.61 #MJ
+	var emfCARbest = 0.56 #MJ
+	var emfCARworst = 2.8 #MJ
 	var emfNON = 0 #MJ
-	var EngrAIR = distAIR.value*emfAIR*0.03173516 /(perAIR.value/100)
-	var EngrRAIL = distRAIL.value*emfRAIL*0.03173516 /(perRAIL.value/100)
-	var EngrBUS = distBUS.value*emfBUS*0.03173516 /(perBUS.value/100)
-	var EngrCAR = distCAR.value*emfCAR*0.03173516 /(perCAR.value/100) #code breaks when perCAR is added
-	var EngrNON = distNON.value*emfNON*0.03173516
+	var EngrAIR = distAIR.value*0.03173516 *(((perAIR.value/100)*(emfAIRbest-emfAIRworst))+emfAIRworst)
+	var EngrRAIL = distRAIL.value*0.03173516 *(((perRAIL.value/100)*(emfRAILbest-emfRAILworst))+emfRAILworst)
+	var EngrBUS = distBUS.value*0.03173516 *(((perBUS.value/100)*(emfBUSbest-emfBUSworst))+emfBUSworst)
+	var EngrCAR = distCAR.value*0.03173516 *(((perCAR.value/100)*(emfCARbest-emfCARworst))+emfCARworst)
+	var EngrNON = distNON.value*0.03173516
 	var mobility = EngrAIR + EngrRAIL + EngrBUS + EngrCAR + EngrNON
 	get_node("CanvasLayer/UICity/MobilityLabel").text = "Mobility: " + str("%3.0f" % mobility) + " W"
 	totalPower[6] = mobility
