@@ -1,10 +1,7 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://sprites/CityBuilder/assets/highlight.png" type="Texture" id=1]
+[gd_scene format=2]
 
 [node name="TileHighlight" type="Node2D"]
 
 [node name="Highlight" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.741176 )
-texture = ExtResource( 1 )
 offset = Vector2( 0, 8 )

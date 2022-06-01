@@ -66,6 +66,7 @@ Button/styles/focus = null
 Button/styles/hover = SubResource( 1 )
 Button/styles/normal = SubResource( 2 )
 Button/styles/pressed = SubResource( 3 )
+HBoxContainer/constants/separation = 22
 Label/fonts/font = ExtResource( 1 )
 Panel/styles/panel = SubResource( 4 )
 TabContainer/constants/hseparation = 10

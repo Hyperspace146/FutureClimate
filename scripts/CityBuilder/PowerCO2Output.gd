@@ -5,66 +5,66 @@ onready var CO2_total = 0
 onready var power_total = 0
 
 # CONSTRUCTION
-onready var sqrFt = get_node("ConstructionPopUp/ConstructionSliders/SquareFootage")
-onready var pplpRes = get_node("ConstructionPopUp/ConstructionSliders/PeoplePerResidence")
-onready var bldngLifetime = get_node("ConstructionPopUp/ConstructionSliders/BuildingLifetime")
-onready var bldngMaterial = get_node("ConstructionPopUp/ConstructionSliders/BuildingMaterial")
-onready var insulation = get_node("ConstructionPopUp/ConstructionSliders/Insulation2")
-onready var htClMethod = get_node("ConstructionPopUp/ConstructionSliders/HeatCoolMethod")
-onready var climateZone = get_node("ConstructionPopUp/ConstructionSliders/ClimateZone")
-#onready var battery = get_node("ConstructionPopUp/ConstructionSliders/BatterySize")
-#onready var solarPanelSize = get_node("ConstructionPopUp/ConstructionSliders/SolarPanelSize")
+onready var sqrFt = find_node("SquareFootage")
+onready var pplpRes = find_node("PeoplePerResidence")
+onready var bldngLifetime = find_node("BuildingLifetime")
+onready var bldngMaterial = find_node("BuildingMaterial")
+onready var insulation = find_node("Insulation")
+onready var climateZone = find_node("ClimateZone")
+#onready var htClMethod = find_node("HeatCoolMethod")
+#onready var battery = find_node("ConstructionPopUp/ConstructionSliders/BatterySize")
+#onready var solarPanelSize = find_node("ConstructionPopUp/ConstructionSliders/SolarPanelSize")
 
 # GROCERY
-#onready var CalorieFractVege = get_node("GroceryPopUp/GrocerySliders/CalorieFractVege")
-onready var localFoodRatio = get_node("GroceryPopUp/GrocerySliders/FractLocal")
-onready var CalorieFractBeef = get_node("GroceryPopUp/GrocerySliders/CalorieFractBeef")
-onready var CalorieFractPoultry = get_node("GroceryPopUp/GrocerySliders/CalorieFractPoultry")
-onready var CalorieFractDairy =  get_node("GroceryPopUp/GrocerySliders/CalorieFractDairy")
-onready var FractWaste = get_node("GroceryPopUp/GrocerySliders/FractWaste")
-onready var processedFoodRatio = get_node("GroceryPopUp/GrocerySliders/FractProcessed")
+#onready var CalorieFractVege = find_node("CalorieFractVege")
+onready var localFoodRatio = find_node("FractLocal")
+onready var CalorieFractBeef = find_node("CalorieFractBeef")
+onready var CalorieFractPoultry = find_node("CalorieFractPoultry")
+onready var CalorieFractDairy =  find_node("CalorieFractDairy")
+onready var FractWaste = find_node("FractWaste")
+onready var processedFoodRatio = find_node("FractProcessed")
 
 # RESIDENCE from simon
-onready var FractCooked = get_node("CookingPopUp/CookingSliders/FractCooked")
-onready var FridgeEnergyUsage = get_node("CookingPopUp/CookingSliders/FridgeEnergyUsage")
-onready var WaterUsage = get_node("WaterPopUp/WaterSliders/WaterUsage")
-onready var HotWater = get_node("WaterPopUp/WaterSliders/HotWaterHeater")
-#onready var HeatedWater = get_node("WaterPopUp/WaterSliders/HeatedWater")
-#onready var EnergyForCooking = get_node("CookingPopUp/CookingSliders/EnergyForCooking")
-onready var stove = get_node("CookingPopUp/CookingSliders/StoveType")
-onready var elecType = get_node("CookingPopUp/CookingSliders/Electricity")
-onready var showerLength = get_node("WaterPopUp/WaterSliders/ShowerLength")
-onready var ClothesWashTemp = get_node("WaterPopUp/WaterSliders/ClothesWashTemp")
-onready var ClothesBought = get_node("WaterPopUp/WaterSliders/ClothesBought")
+onready var FractCooked = find_node("FractCooked")
+onready var FridgeEnergyUsage = find_node("FridgeEnergyUsage")
+onready var WaterUsage = find_node("WaterUsage")
+onready var HotWater = find_node("HotWaterHeater")
+#onready var HeatedWater = find_node("WaterPopUp/WaterSliders/HeatedWater")
+#onready var EnergyForCooking = find_node("CookingPopUp/CookingSliders/EnergyForCooking")
+onready var stove = find_node("StoveType")
+onready var elecType = find_node("Electricity")
+onready var showerLength = find_node("ShowerLength")
+onready var ClothesWashTemp = find_node("ClothesWashTemp")
+onready var ClothesBought = find_node("ClothesBought")
 #TECH 
-onready var phoneUse = get_node("TechPopUp/TechSliders/PhoneUsage")
-onready var phoneStandby = get_node("TechPopUp/TechSliders/PhoneUsageStandby")
-onready var phoneLife = get_node("TechPopUp/TechSliders/PhoneLifetime")
-onready var laptopUse = get_node("TechPopUp/TechSliders/LaptopUsage")
-onready var laptopLife = get_node("TechPopUp/TechSliders/LaptopLifetime")
+onready var phoneUse = find_node("PhoneUsage")
+onready var phoneStandby = find_node("PhoneUsageStandby")
+onready var phoneLife = find_node("PhoneLifetime")
+onready var laptopUse = find_node("LaptopUsage")
+onready var laptopLife = find_node("LaptopLifetime")
 
 # SCHOOL
-onready var percentKids = get_node("SchoolPopUp/SchoolSliders/PercentKids")
-onready var SchoolsqrFtPerStudent = get_node("SchoolPopUp/SchoolSliders/SchoolsqrFtPerStudent")
-onready var PercentInsulated = get_node("SchoolPopUp/SchoolSliders/PercentWellInsulated")
-onready var SchoolEnergyUsageForOther = get_node("SchoolPopUp/SchoolSliders/SchoolEnergyUsageForOther")
+onready var percentKids = find_node("PercentKids")
+onready var SchoolsqrFtPerStudent = find_node("SchoolsqrFtPerStudent")
+onready var PercentInsulated = find_node("PercentWellInsulated")
+onready var SchoolEnergyUsageForOther = find_node("SchoolEnergyUsageForOther")
 
 # HOSPITAL
-onready var HospsqrFtPerPerson = get_node("SchoolPopUp/SchoolSliders/HospsqrFtPerPerson")
-onready var HospExtra = get_node("SchoolPopUp/SchoolSliders/HospExtra")
+onready var HospsqrFtPerPerson = find_node("HospsqrFtPerPerson")
+onready var HospExtra = find_node("HospExtra")
 
-onready var CommercialArea = get_node("CommercialPopUp/CommercialSliders/CommercialArea")
-#onready var CommercialPercent = get_node("CommercialPopUp/CommercialSliders/CommercialPercent")
-onready var ShippingBoat = get_node("CommercialPopUp/CommercialSliders/ShippingBoat")
-onready var ShippingTrain = get_node("CommercialPopUp/CommercialSliders/ShippingTrain")
-onready var ShippingRoad = get_node("CommercialPopUp/CommercialSliders/ShippingRoad")
+onready var CommercialArea = find_node("CommercialArea")
+#onready var CommercialPercent = find_node("CommercialPopUp/CommercialSliders/CommercialPercent")
+onready var ShippingBoat = find_node("ShippingBoat")
+onready var ShippingTrain = find_node("ShippingTrain")
+onready var ShippingRoad = find_node("ShippingRoad")
 
 #mobility - Carmen
-onready var distAIR = get_node("MobilityPopUp/MobilitySliders/MobilityAir")
-onready var distBUS = get_node("MobilityPopUp/MobilitySliders/MobilityBus")
-onready var distRAIL = get_node("MobilityPopUp/MobilitySliders/MobilityRail")
-onready var distCAR = get_node("MobilityPopUp/MobilitySliders/MobilityCar")
-onready var distNON = get_node("MobilityPopUp/MobilitySliders/MobilityNonMotorized") 
+onready var distAIR = find_node("MobilityAir")
+onready var distBUS = find_node("MobilityBus")
+onready var distRAIL = find_node("MobilityRail")
+onready var distCAR = find_node("MobilityCar")
+onready var distNON = find_node("MobilityNonMotorized") 
 
 
 #Calculated quantities
@@ -256,16 +256,16 @@ func totalpowercalc():
 	#crank up 15% for energy infrastructure
 	power_total = 1.15*(totalPower[0] + totalPower[1] + totalPower[2] + totalPower[3] + totalPower[4] + totalPower[5] + totalPower[6] + totalPower[7])
 	
-	get_node("UICity/Total").text = str("%3.0f" % power_total) + " W"
+	get_node("VBoxContainer/OutputUI/UICity/Total").text = str("%3.0f" % power_total) + " W"
 	var totalel = (totalElec[0] + totalElec[1] + totalElec[2] + totalElec[3] + totalElec[4] + totalElec[5])
 	var elecCO2 = 0.0
 	CO2_total = (totalCO2[0] + totalCO2[1] + totalCO2[2] + totalCO2[3] + totalCO2[4] + totalCO2[5]) 
-	get_node("CO2UICity/Total").text = str("%3.1f" % CO2_total) + " tons"
+	get_node("VBoxContainer/OutputUI/CO2UICity/Total").text = str("%3.1f" % CO2_total) + " tons"
 
 func set_energyForFoodChoice():
-	var PTDFract = 150.0 + 20.0*100.0/get_node("GroceryPopUp/GrocerySliders/FractLocal").value + 130.0/100.0*get_node("GroceryPopUp/GrocerySliders/FractProcessed").value
+	var PTDFract = 150.0 + 20.0*100.0/find_node("FractLocal").value + 130.0/100.0*find_node("FractProcessed").value
 	energyForFoodChoice = (1.0 + FractWaste.value/100.0) * (100.0 * 0.2 * (1.0 + 23.0*CalorieFractBeef.value/100.0 + 10.0*CalorieFractPoultry.value/100.0 + 5.0*CalorieFractDairy.value/100.0) + 100.0 * 0.23 * (PTDFract)/100.0)
-	get_node("UICity/FoodLabel").text = "Food:   " + str("%3.0f" % energyForFoodChoice) + " W"
+	get_node("VBoxContainer/OutputUI/UICity/FoodLabel").text = "Food:   " + str("%3.0f" % energyForFoodChoice) + " W"
 	totalPower[0] = energyForFoodChoice
 	totalpowercalc()
 
@@ -273,7 +273,7 @@ func set_energyForFoodChoice():
 #	energyForResidence = (sqrFt.value/pplpRes.value)*6 + (WaterUsage.value * 0.365 * EnergyForWater.value) + (HeatedWater.value * 4.42) + (100 * FractCooked.value * EnergyForCooking.value) + (FridgeEnergyUsage.value / pplpRes.value) + 2 + 0.4 
 		# efficient heat pump not used
 		# making a fridge + induction cooker
-#	get_node("UICity/AppliancesLabel").text = "Res: " + str("%3.1f" % energyForResidence) + " Watts"
+#	find_node("UICity/AppliancesLabel").text = "Res: " + str("%3.1f" % energyForResidence) + " Watts"
 
 func set_heating():
 	var CO2heating = 0
@@ -292,14 +292,14 @@ func set_heating():
 		heating = heating/4.0
 	if (insulation.selected == 3): #passivehouas
 		heating = heating/6.0
-	if (htClMethod.selected == 0): 
-		CO2heating = 1.778 * heating/1000.0
-	if (htClMethod.selected == 1): 
-		elecheating = heating
-	if (htClMethod.selected == 2): 
-		heating = heating/5.0
-		elecheating = heating
-	get_node("UICity/HeatLabel").text = "Heat: " + str("%3.0f" % heating) + " W"
+	#if (htClMethod.selected == 0): 
+	#	CO2heating = 1.778 * heating/1000.0
+	#if (htClMethod.selected == 1): 
+	#	elecheating = heating
+	#if (htClMethod.selected == 2): 
+	#	heating = heating/5.0
+	#	elecheating = heating
+	get_node("VBoxContainer/OutputUI/UICity/HeatLabel").text = "Heat: " + str("%3.0f" % heating) + " W"
 	totalPower[1] = heating
 	totalElec[1] = elecheating
 	if (elecType.selected == 0): #coal
@@ -309,7 +309,7 @@ func set_heating():
 	if (elecType.selected == 2): #renewable
 		CO2heating = CO2heating
 	totalCO2[1] = CO2heating
-	get_node("CO2UICity/HeatLabel").text = "Heat: " + str("%3.1f" % CO2heating) + " t"
+	get_node("VBoxContainer/OutputUI/CO2UICity/HeatLabel").text = "Heat: " + str("%3.1f" % CO2heating) + " t"
 	totalpowercalc()
 
 func set_homeEmbodied():
@@ -325,10 +325,10 @@ func set_homeEmbodied():
 	if (bldngMaterial.selected == 2): #steel
 		homeEmbodied = sqrFt.value * 100.0*80.0/bldngLifetime.value/pplpRes.value/31.536
 		CO2homeEmbodied = sqrFt.value * 0.228/bldngLifetime.value/pplpRes.value
-	get_node("UICity/HomeLabel").text = "Home: " + str("%3.0f" % homeEmbodied) + " W"
+	get_node("VBoxContainer/OutputUI/UICity/HomeLabel").text = "Home: " + str("%3.0f" % homeEmbodied) + " W"
 	totalPower[2] = homeEmbodied
 	totalCO2[2] = CO2homeEmbodied
-	get_node("CO2UICity/HomeLabel").text = "Home: " + str("%3.1f" % CO2homeEmbodied) + " t"
+	get_node("VBoxContainer/OutputUI/CO2UICity/HomeLabel").text = "Home: " + str("%3.1f" % CO2homeEmbodied) + " t"
 	totalpowercalc()
 	
 func set_illumination():
@@ -372,8 +372,8 @@ func set_waterheatingcooking():
 	if (HotWater.selected == 1): #electric hot water
 		electriccooking = electriccooking + waterheating
 	hotwatercook = waterheating + cooking
-	get_node("UICity/HotWaterCookLabel").text = "Hot H2O: " + str("%3.0f" % hotwatercook) + " W"
-	get_node("CO2UICity/HotWaterCookLabel").text = "Hot H2O: " + str("%3.1f" % CO2cooking) + " t"
+	get_node("VBoxContainer/OutputUI/UICity/HotWaterCookLabel").text = "Hot H2O: " + str("%3.0f" % hotwatercook) + " W"
+	get_node("VBoxContainer/OutputUI/CO2UICity/HotWaterCookLabel").text = "Hot H2O: " + str("%3.1f" % CO2cooking) + " t"
 	totalPower[3] = hotwatercook
 	totalCO2[3] = CO2cooking
 	totalElec[3] = electriccooking
@@ -386,7 +386,7 @@ func set_embodied():
 	# assuming 30 W for new clothes based on current numbers (not best)
 	var clothesemb = ClothesBought.value /2.0 * 30.0 
 	var embodied = (8.0+ 1.6)/pplpRes.value + 7.0/phoneLife.value + 120.0/laptopLife.value +clothesemb
-	get_node("UICity/EmbodiedLabel").text = "Embodied: " + str("%3.0f" % embodied) + " W"
+	get_node("VBoxContainer/OutputUI/UICity/EmbodiedLabel").text = "Embodied: " + str("%3.0f" % embodied) + " W"
 	totalPower[4] = embodied
 	totalElec[4] = embodied
 	if (elecType.selected == 0): 
@@ -395,7 +395,7 @@ func set_embodied():
 		CO2embodied = embodied * gasco2
 	totalCO2[4] = CO2embodied
 	totalpowercalc()
-	get_node("CO2UICity/EmbodiedLabel").text = "Embodied: " + str("%3.1f" % CO2embodied) + " t"
+	get_node("VBoxContainer/OutputUI/CO2UICity/EmbodiedLabel").text = "Embodied: " + str("%3.1f" % CO2embodied) + " t"
 	
 func set_services(): 
 	#6 W for waste management, 5 W for cell phone networks, 25 W for laptop network -- all assumed electric
@@ -423,7 +423,7 @@ func set_services():
 	var med = (schmedEmb* HospsqrFtPerPerson.value +HospExtra.value + 9.0 * HospsqrFtPerPerson.value * 40.0*80.0/70.0/31.536)
 	var comm = (schmedEmb* CommercialArea.value + 3.0 * CommercialArea.value * 40.0*80.0/70.0/31.536)*percentKids.value/100.0
 	services = 6.0 + (WaterUsage.value + showerLength.value * 8.0 + 20.0)*0.056*waterfactor + 5.0 + 25.0 + school + med + comm
-	get_node("UICity/ServicesLabel").text = "Services:   " + str("%3.0f" % services) + " W"
+	get_node("VBoxContainer/OutputUI/UICity/ServicesLabel").text = "Services:   " + str("%3.0f" % services) + " W"
 	totalPower[5] = services
 	if (elecType.selected == 0): 
 		CO2services = coalco2*services
@@ -445,61 +445,59 @@ func set_mobility():
 	var EngrCAR = distCAR.value*emfCAR*0.03173516
 	var EngrNON = distNON.value*emfNON*0.03173516
 	var mobility = EngrAIR + EngrRAIL + EngrBUS + EngrCAR + EngrNON
-	get_node("UICity/MobilityLabel").text = "Mobility: " + str("%3.0f" % mobility) + " W"
+	get_node("VBoxContainer/OutputUI/UICity/MobilityLabel").text = "Mobility: " + str("%3.0f" % mobility) + " W"
 	totalPower[6] = mobility
 	totalpowercalc()
-	get_node("CO2UICity/MobilityLabel").text = "Mobility: " + str("%3.1f" % co2mobility) + " t"
+	get_node("VBoxContainer/OutputUI/CO2UICity/MobilityLabel").text = "Mobility: " + str("%3.1f" % co2mobility) + " t"
 	
 func set_appliances(): 
 	var CO2appliances = 0.0
 	var appliances = FridgeEnergyUsage.value/pplpRes.value + phoneUse.value*5.0/24.0 + phoneStandby.value*1.0/24.0 + laptopUse.value*100.0/24.0
-	get_node("UICity/AppliancesLabel").text = "Appliance: " + str("%3.0f" % appliances) + " W"
+	get_node("VBoxContainer/OutputUI/UICity/AppliancesLabel").text = "Appliance: " + str("%3.0f" % appliances) + " W"
 	totalPower[7] = appliances
 	totalElec[7] = appliances
 	if (elecType.selected == 0): 
 		CO2appliances = appliances * coalco2
 	if (elecType.selected == 1): 
 		CO2appliances = appliances * gasco2
-	get_node("CO2UICity/AppliancesLabel").text = "Appliance: " + str("%3.1f" % CO2appliances) + " t"
+	get_node("VBoxContainer/OutputUI/CO2UICity/AppliancesLabel").text = "Appliance: " + str("%3.1f" % CO2appliances) + " t"
 	totalCO2[7] = CO2appliances
 	totalpowercalc()
 
+
+# GROCERY LISTENERS
 func _on_CalorieFractBeef_value_changed(value):
 	set_energyForFoodChoice()
-	get_node("GroceryPopUp/GrocerySliders/CalorieFractBeef/Label2").text = str("%3.1f" % CalorieFractBeef.value) + "%"
+	find_node("CalorieFractBeefValueLabel").text = str("%3.1f" % CalorieFractBeef.value) + "%"
 
 func _on_CalorieFractPoultry_value_changed(value):
 	set_energyForFoodChoice()
-	get_node("GroceryPopUp/GrocerySliders/CalorieFractPoultry/Label2").text = str("%3.1f" % CalorieFractPoultry.value) + "%"
+	find_node("CalorieFractPoultryValueLabel").text = str("%3.1f" % CalorieFractPoultry.value) + "%"
 	
 func _on_CalorieFractDairy_value_changed(value):
 	set_energyForFoodChoice()
-	get_node("GroceryPopUp/GrocerySliders/CalorieFractDairy/Label2").text = str("%3.1f" % CalorieFractDairy.value) + "%"
+	find_node("CalorieFractDairyValueLabel").text = str("%3.1f" % CalorieFractDairy.value) + "%"
 
 func _on_FractWaste_value_changed(value):
 	set_energyForFoodChoice()
-	get_node("GroceryPopUp/GrocerySliders/FractWaste/Label2").text = str("%3.1f" % FractWaste.value) + "%"
+	find_node("FractWasteValueLabel").text = str("%3.1f" % FractWaste.value) + "%"
 
 func _on_FractLocal_value_changed(value):
 	set_energyForFoodChoice()
-	get_node("GroceryPopUp/GrocerySliders/FractLocal/Label2").text = str("%1.2f" % (localFoodRatio.value/100.0)) + " X"
-
+	find_node("FractLocalValueLabel").text = str("%1.2f" % (localFoodRatio.value/100.0)) + " X"
 
 func _on_FractProcessed_value_changed(value):
 	set_energyForFoodChoice()
-	get_node("GroceryPopUp/GrocerySliders/FractProcessed/Label2").text = str("%1.2f" % (processedFoodRatio.value/100.0)) + " X"
+	find_node("FractProcessedValueLabel").text = str("%1.2f" % (processedFoodRatio.value/100.0)) + " X"
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
+# CONSTRUCTION LISTENERS
 func _on_SquareFootage_value_changed(value):
 	#affects heating, home_embodied, illumination
 	set_heating()
 	set_illumination()
 	set_homeEmbodied()
-	get_node("ConstructionPopUp/ConstructionSliders/SquareFootage/Label").text = str(sqrFt.value) + " sq meters per residence"
-
+	find_node("SquareFootageValueLabel").text = str(sqrFt.value) + " sq meters per residence"
 
 func _on_PeoplePerResidence_value_changed(value):
 	#affects appliances: refrigerator, stove, embodied energy of home, 
@@ -507,26 +505,16 @@ func _on_PeoplePerResidence_value_changed(value):
 	set_illumination()
 	set_homeEmbodied()
 	set_appliances()
-	get_node("ConstructionPopUp/ConstructionSliders/PeoplePerResidence/Label").text = str(pplpRes.value) + " people per residence"
-	if value == 1: 
-		get_node("ConstructionPopUp/ConstructionSliders/PeoplePerResidence/Label").text = str(pplpRes.value) + " person per residence"
+#	find_node("PeoplePerResidenceLabel").text = str(pplpRes.value) + " people per residence"
+#	if value == 1: 
+#		find_node("PeoplePerResidenceLabel").text = str(pplpRes.value) + " person per residence"
 
 func _on_BuildingLifetime_value_changed(value):
 	#affect embodied energy of home
 	set_homeEmbodied()
-	get_node("ConstructionPopUp/ConstructionSliders/BuildingLifetime/Label").text = str(bldngLifetime.value) + " yr lifetime of building"
+	#find_node("BuildingLifetimeLabel").text = str(bldngLifetime.value) + " yr lifetime of building"
 
-func _on_ToGrocery_pressed():
-	get_node("ConstructionPopUp").visible = false
-	get_node("GroceryPopUp").visible = true
-	get_node("GroceryPopUp").rect_position = Vector2(29,160)
-
-func _on_ToResidence_pressed():
-	get_node("GroceryPopUp").visible = false
-	get_node("WaterPopUp").visible = true
-	get_node("WaterPopUp").rect_position = Vector2(29,160)
-
-func _on_HeatCoolMethod_item_selected(id):
+func _on_Insulation_item_selected(id):
 	set_heating()
 	
 func _on_BuildingMaterial_item_selected(id):
@@ -536,273 +524,52 @@ func _on_ClimateZone_item_selected(id):
 	set_heating()
 	set_waterheatingcooking()
 
-func _on_ToCooking_pressed():
-	get_node("WaterPopUp").visible = false
-	get_node("CookingPopUp").visible = true
-	get_node("CookingPopUp").rect_position = Vector2(29,160)
 
+# WATER LISTENERS
 func _on_WaterUsage_value_changed(value):
 	set_services()
-	get_node("WaterPopUp/WaterSliders/WaterUsage/Label").text = "Other water usage =         " + str(value) + " L"
+	find_node("WaterUsageValueLabel").text = str(value) + " L"
 
 func _on_HeatedWater_value_changed(value):
 	set_waterheatingcooking()
-	get_node("WaterPopUp/WaterSliders/HeatedWater/Label").text = "Other heated water =         " + str(value) + " L"
-
-func _on_FractCooked_value_changed(value):
-	set_waterheatingcooking()
-	get_node("CookingPopUp/CookingSliders/FractCooked/Label").text = "Fraction of food that is cooked =         " + str(value) + " %"
-
-func _on_StoveType_item_selected(id):
-	print("stove select")
-	set_waterheatingcooking()
-
-func _on_FridgeEnergyUsage_value_changed(value):
-	set_appliances()
-	get_node("CookingPopUp/CookingSliders/FridgeEnergyUsage/Label").text = "Fridge energy usage = " + str(value) + " W"
+	find_node("HeatedWaterValueLabel").text = str(value) + " L"
 
 func _on_ShowerLength_value_changed(value):
 	set_waterheatingcooking()
 	set_services()
-	get_node("WaterPopUp/WaterSliders/ShowerLength/Label").text = "Shower length = " + str(value) + " min"
-
-func _on_Insulation2_item_selected(id):
-	set_heating()
-
-func _on_Hotwatertemp_value_changed(value):
+	find_node("ShowerLengthValueLabel").text = str(value) + " min"
+	
+func _on_HotWaterHeater_item_selected(index):
 	set_waterheatingcooking()
-	var tempf = round(value*9.0/5.0 + 32.0)
-	get_node("WaterPopUp/WaterSliders/Hotwatertemp/Label").text = "Hot water temp = " + str(value) + " C (" + str(tempf) + ") F"
 
+#func _on_Hotwatertemp_value_changed(value):
+#	set_waterheatingcooking()
+#	var tempf = round(value*9.0/5.0 + 32.0)
+#	find_node("WaterPopUp/WaterSliders/Hotwatertemp/Label").text = "Hot water temp = " + str(value) + " C (" + str(tempf) + ") F"
 
 func _on_ClothesWashTemp_item_selected(id):
 	set_waterheatingcooking()
 
-func _on_ToTech_pressed():
-	get_node("CookingPopUp").visible = false
-	get_node("TechPopUp").visible = true
-	get_node("TechPopUp").rect_position = Vector2(29,160)
-
-func _on_PhoneUsage_value_changed(value):
-	set_appliances()
-	get_node("TechPopUp/TechSliders/PhoneUsage/Label").text = "Phone usage: " + str(value) + " hrs/day"
-	if (value == 1 ): 
-		get_node("TechPopUp/TechSliders/PhoneUsage/Label").text = "Phone usage: " + str(value) + " hr/day"
-
-func _on_PhoneUsageStandby_value_changed(value):
-	set_appliances()
-	get_node("TechPopUp/TechSliders/PhoneUsageStandby/Label").text = "Phone usage (standby): " + str(value) + " hrs/day"
-	if (value == 1 ): 
-			get_node("TechPopUp/TechSliders/PhoneUsageStandby/Label").text = "Phone usage (standby): " + str(value) + " hr/day"
-
-func _on_PhoneLifetime_value_changed(value):
-	set_embodied()
-	get_node("TechPopUp/TechSliders/PhoneLifetime/Label").text = "Phone lifetime: " + str(value) + " years"
-	if (value == 1): 
-		get_node("TechPopUp/TechSliders/PhoneLifetime/Label").text = "Phone lifetime: " + str(value) + " year"
-
-func _on_LaptopUsage_value_changed(value):
-	set_appliances()
-	get_node("TechPopUp/TechSliders/LaptopUsage/Label").text = "Laptop/TV usage: " + str(value) + " hrs/day"
-	if (value == 1): 
-		get_node("TechPopUp/TechSliders/LaptopUsage/Label").text = "Laptop/TV usage: " + str(value) + " hr/day"
-
-func _on_LaptopLifetime_value_changed(value):
-	set_embodied()
-	get_node("TechPopUp/TechSliders/LaptopLifetime/Label").text = "Laptop lifetime: " + str(value) + " years"
-	if (value == 1): 
-		get_node("TechPopUp/TechSliders/LaptopLifetime/Label").text = "Laptop lifetime: " + str(value) + " year"
-
-func _on_ToSchool_pressed():
-	get_node("TechPopUp").visible = false
-	get_node("SchoolPopUp").visible = true
-	get_node("SchoolPopUp").rect_position = Vector2(29,160)
-
-func _on_SchoolsqrFtPerStudent_value_changed(value):
-	set_services()
-	get_node("SchoolPopUp/SchoolSliders/SchoolsqrFtPerStudent/Label").text = str(value) + " square meters per student"
-
-func _on_PercentKids_value_changed(value):
-	set_services()
-	get_node("SchoolPopUp/SchoolSliders/PercentKids/Label").text = "Percent of population in school = " + str(value) + "%"
-
-func _on_ToResidence2_pressed():
-	get_node("SchoolPopUp").visible = false
-	get_node("CommercialPopUp").visible = true
-	get_node("CommercialPopUp").rect_position = Vector2(29,160)
-
-func _on_SchoolEnergyUsageForOther_value_changed(value):
-	set_services()
-	get_node("SchoolPopUp/SchoolSliders/SchoolEnergyUsageForOther/Label").text = "Extra energy usage for schools: " + str(value) + " W"
-
-func _on_HospsqrFtPerPerson_value_changed(value):
-	set_services()
-	get_node("SchoolPopUp/SchoolSliders/HospsqrFtPerPerson/Label").text = "Medical floor area: " + str(value) + " square meters per person"
-
-func _on_HospExtra_value_changed(value):
-	set_services()
-	get_node("SchoolPopUp/SchoolSliders/HospExtra/Label").text = "Extra energy usage for medical care: " + str(value) + " W"
-
-func _on_PercentWellInsulated_value_changed(value):
-	set_services()
-	get_node("SchoolPopUp/SchoolSliders/PercentWellInsulated/Label").text = "Well-insulated buildings w/ heat pumps: " + str(value) + "%"
-
-
-func _on_CommercialArea_value_changed(value):
-	set_services()
-	get_node("CommercialPopUp/CommercialSliders/CommercialArea/Label").text = "Commercial area per person: " + str(value) + " square meters"
-
-func _on_ToMobility_pressed():
-	get_node("CommercialPopUp").visible = false
-	get_node("MobilityPopUp").visible = true
-	get_node("MobilityPopUp").rect_position = Vector2(29,160)
-	
-	
-func _on_ToBeginning_pressed():
-	get_node("MobilityPopUp").visible = false
-	get_node("ConstructionPopUp").visible = true
-	get_node("ConstructionPopUp").rect_position = Vector2(29,160)
-
-
 func _on_ClothesBought_value_changed(value):
 	set_embodied()
-	get_node("WaterPopUp/WaterSliders/ClothesBought/Label").text = "Clothes bought: " + str(value) + " outfits per year"
+	find_node("ClothesBoughtValueLabel").text = str(value) + " outfits per year"
+
+
+# COOKING LISTENERS
+func _on_StoveType_item_selected(id):
+	set_waterheatingcooking()
+	
+func _on_FractCooked_value_changed(value):
+	set_waterheatingcooking()
+	find_node("FractCookedValueLabel").text = str(value) + " %"
+	
+func _on_FridgeEnergyUsage_value_changed(value):
+	set_appliances()
+	find_node("FridgeEnergyUsageValueLabel").text = str(value) + " W"
+	
+func _on_EnergyForCooking_value_changed(value):
 	pass # Replace with function body.
-
-	#MOBILITY LABELS - Carmen
-func _on_MobilityAir_value_changed(value):
-	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value + distNON.value
-	var percentAirTravel = distAIR.value / totalmobility * 100.0
-	var percentBusTravel = distBUS.value / totalmobility * 100.0
-	var percentRailTravel = distRAIL.value /totalmobility * 100.0
-	var percentCarTravel = distCAR.value / totalmobility * 100.0
-	var percentNonMotorizedTravel = distNON.value / totalmobility * 100.0
-	get_node("MobilityPopUp/MobilitySliders/MobilityAir/Label2").text = str("%1.2f" % percentAirTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityBus/Label2").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityRail/Label2").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityCar/Label2").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityNonMotorized/Label2").text = str("%1.2f" % percentNonMotorizedTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityAir/Label").text = "Distance travelled by air: " + str(value) + " km/year"
-	set_mobility()
-
-
-func _on_MobilityBus_value_changed(value):
-	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value + distNON.value
-	var percentAirTravel = distAIR.value / totalmobility * 100.0
-	var percentBusTravel = distBUS.value / totalmobility * 100.0
-	var percentRailTravel = distRAIL.value /totalmobility * 100.0
-	var percentCarTravel = distCAR.value / totalmobility * 100.0
-	var percentNonMotorizedTravel = distNON.value / totalmobility * 100.0
-	get_node("MobilityPopUp/MobilitySliders/MobilityAir/Label2").text = str("%1.2f" % percentAirTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityBus/Label2").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityRail/Label2").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityCar/Label2").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityNonMotorized/Label2").text = str("%1.2f" % percentNonMotorizedTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityBus/Label").text = "Distance travelled by bus: " + str(value) + " km/year"
-	set_mobility()
-
-
-func _on_MobilityRail_value_changed(value):
-	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value + distNON.value
-	var percentAirTravel = distAIR.value / totalmobility * 100.0
-	var percentBusTravel = distBUS.value / totalmobility * 100.0
-	var percentRailTravel = distRAIL.value /totalmobility * 100.0
-	var percentCarTravel = distCAR.value / totalmobility * 100.0
-	var percentNonMotorizedTravel = distNON.value / totalmobility * 100.0
-	get_node("MobilityPopUp/MobilitySliders/MobilityAir/Label2").text = str("%1.2f" % percentAirTravel) + "% total distance traveled"	
-	get_node("MobilityPopUp/MobilitySliders/MobilityBus/Label2").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityRail/Label2").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityCar/Label2").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityNonMotorized/Label2").text = str("%1.2f" % percentNonMotorizedTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityRail/Label").text = "Distance travelled by rail: " + str(value) + " km/year"
-	set_mobility()
-
-
-
-func _on_MobilityCar_value_changed(value):
-	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value + distNON.value
-	var percentAirTravel = distAIR.value / totalmobility * 100.0
-	var percentBusTravel = distBUS.value / totalmobility * 100.0
-	var percentRailTravel = distRAIL.value /totalmobility * 100.0
-	var percentCarTravel = distCAR.value / totalmobility * 100.0
-	var percentNonMotorizedTravel = distNON.value / totalmobility * 100.0
-	get_node("MobilityPopUp/MobilitySliders/MobilityAir/Label2").text = str("%1.2f" % percentAirTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityBus/Label2").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityRail/Label2").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityCar/Label2").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityNonMotorized/Label2").text = str("%1.2f" % percentNonMotorizedTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityCar/Label").text = "Distance travelled by car: " + str(value) + " km/year"
-	set_mobility()
-
-func _on_MobilityNonMotorized_value_changed(value):
-	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value + distNON.value
-	var percentAirTravel = distAIR.value / totalmobility * 100.0
-	var percentBusTravel = distBUS.value / totalmobility * 100.0
-	var percentRailTravel = distRAIL.value /totalmobility * 100.0
-	var percentCarTravel = distCAR.value / totalmobility * 100.0
-	var percentNonMotorizedTravel = distNON.value / totalmobility * 100.0
-	get_node("MobilityPopUp/MobilitySliders/MobilityAir/Label2").text = str("%1.2f" % percentAirTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityBus/Label2").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityRail/Label2").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityCar/Label2").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityNonMotorized/Label2").text = str("%1.2f" % percentNonMotorizedTravel) + "% total distance traveled"
-	get_node("MobilityPopUp/MobilitySliders/MobilityNonMotorized/Label").text = "Distance travelled by non-motorized vehicle: " + str(value) + " km/year"
-	set_mobility()
-
-func _on_CO2Button_pressed():
-	get_node("CO2UICity").visible = true
-	get_node("UICity").visible = false
-
-
-func _on_PowerButton_pressed():
-	get_node("CO2UICity").visible = false
-	get_node("UICity").visible = true
-
-
-func _on_ToMobility2_pressed():
-	get_node("MobilityPopUp").visible = true
-	get_node("MobilityPopUp").rect_position = Vector2(29,160)
-	get_node("ConstructionPopUp").visible = false
 	
-
-
-func _on_ToConstruction2_pressed():
-	get_node("ConstructionPopUp").visible = true
-	get_node("ConstructionPopUp").rect_position = Vector2(29,160)
-	get_node("GroceryPopUp").visible = false
-	
-
-
-func _on_ToGrocery2_pressed():
-	get_node("GroceryPopUp").visible = true
-	get_node("GroceryPopUp").rect_position = Vector2(29,160)
-	get_node("WaterPopUp").visible = false
-	
-func _on_ToWater2_pressed():
-	get_node("WaterPopUp").visible = true
-	get_node("WaterPopUp").rect_position = Vector2(29,160)
-	get_node("CookingPopUp").visible = false
-
-func _on_ToCooking2_pressed():
-	get_node("CookingPopUp").visible = true
-	get_node("CookingPopUp").rect_position = Vector2(29,160)
-	get_node("TechPopUp").visible = false
-
-func _on_ToTech2_pressed():
-	get_node("TechPopUp").visible = true
-	get_node("TechPopUp").rect_position = Vector2(29,160)
-	get_node("SchoolPopUp").visible = false
-
-func _on_ToSchool2_pressed():
-	get_node("SchoolPopUp").visible = true
-	get_node("SchoolPopUp").rect_position = Vector2(29,160)
-	get_node("CommercialPopUp").visible = false
-	
-func _on_ToCommercial2_pressed():
-	get_node("CommercialPopUp").visible = true
-	get_node("CommercialPopUp").rect_position = Vector2(29,160)
-	get_node("MobilityPopUp").visible = false
-
 func _on_Electricity_item_selected(id):
 	set_heating()
 	set_appliances()
@@ -814,11 +581,208 @@ func _on_Electricity_item_selected(id):
 	set_services()
 
 
+# TECH LISTENERS
+func _on_ToTech_pressed():
+	find_node("CookingPopUp").visible = false
+	find_node("TechPopUp").visible = true
+	find_node("TechPopUp").rect_position = Vector2(29,160)
+
+func _on_PhoneUsage_value_changed(value):
+	set_appliances()
+	find_node("PhoneUsageValueLabel").text = str(value) + " hrs/day"
+	if (value == 1): 
+		find_node("PhoneUsageValueLabel").text = str(value) + " hr/day"
+
+func _on_PhoneUsageStandby_value_changed(value):
+	set_appliances()
+	find_node("PhoneUsageStandbyValueLabel").text = str(value) + " hrs/day"
+	if (value == 1 ): 
+			find_node("PhoneUsageStandbyValueLabel").text = str(value) + " hr/day"
+
+func _on_PhoneLifetime_value_changed(value):
+	set_embodied()
+	find_node("PhoneLifetimeValueLabel").text = str(value) + " years"
+	if (value == 1): 
+		find_node("PhoneLifetimeValueLabel").text = str(value) + " year"
+
+func _on_LaptopUsage_value_changed(value):
+	set_appliances()
+	find_node("LaptopUsageValueLabel").text = str(value) + " hrs/day"
+	if (value == 1): 
+		find_node("LaptopUsageValueLabel").text = str(value) + " hr/day"
+
+func _on_LaptopLifetime_value_changed(value):
+	set_embodied()
+	find_node("LaptopLifetimeValueLabel").text = str(value) + " years"
+	if (value == 1): 
+		find_node("LaptopLifetimeValueLabel").text = str(value) + " year"
+
+
+# SCHOOL LISTENERS
+func _on_SchoolsqrFtPerStudent_value_changed(value):
+	set_services()
+	find_node("SchoolsqrFtPerStudentValueLabel").text = str(value) + " square meters per student"
+
+func _on_PercentKids_value_changed(value):
+	set_services()
+	find_node("PercentKidsValueLabel").text = str(value) + "%"
+
+func _on_SchoolEnergyUsageForOther_value_changed(value):
+	set_services()
+	find_node("SchoolEnergyUsageForOtherValueLabel").text = str(value) + " W"
+
+func _on_HospsqrFtPerPerson_value_changed(value):
+	set_services()
+	find_node("HospsqrFtPerPersonValueLabel").text = str(value) + " square meters per person"
+
+func _on_HospExtra_value_changed(value):
+	set_services()
+	find_node("HospExtraValueLabel").text = str(value) + " W"
+
+func _on_PercentWellInsulated_value_changed(value):
+	set_services()
+	find_node("PercentWellInsulatedValueLabel").text = str(value) + "%"
+
+
+# COMMERCIAL LISTENERS
+func _on_CommercialArea_value_changed(value):
+	set_services()
+	find_node("CommercialAreaValueLabel").text = str(value) + " square meters"
+
+
+# MOBILITY LABELS - Carmen
+func _on_MobilityAir_value_changed(value):
+	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value + distNON.value
+	var percentAirTravel = distAIR.value / totalmobility * 100.0
+	var percentBusTravel = distBUS.value / totalmobility * 100.0
+	var percentRailTravel = distRAIL.value /totalmobility * 100.0
+	var percentCarTravel = distCAR.value / totalmobility * 100.0
+	var percentNonMotorizedTravel = distNON.value / totalmobility * 100.0
+	find_node("MobilityAirValueLabel").text = str("%1.2f" % percentAirTravel) + "% total distance traveled"
+	find_node("MobilityBusValueLabel").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
+	find_node("MobilityRailValueLabel").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
+	find_node("MobilityCarValueLabel").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
+	find_node("MobilityNonMotorizedValueLabel").text = str("%1.2f" % percentNonMotorizedTravel) + "% total distance traveled"
+	find_node("MobilityAirValueLabel").text = str(value) + " km/year"
+	set_mobility()
+
+
+func _on_MobilityBus_value_changed(value):
+	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value + distNON.value
+	var percentAirTravel = distAIR.value / totalmobility * 100.0
+	var percentBusTravel = distBUS.value / totalmobility * 100.0
+	var percentRailTravel = distRAIL.value /totalmobility * 100.0
+	var percentCarTravel = distCAR.value / totalmobility * 100.0
+	var percentNonMotorizedTravel = distNON.value / totalmobility * 100.0
+	find_node("MobilityAirValueLabel").text = str("%1.2f" % percentAirTravel) + "% total distance traveled"
+	find_node("MobilityBusValueLabel").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
+	find_node("MobilityRailValueLabel").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
+	find_node("MobilityCarValueLabel").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
+	find_node("MobilityNonMotorizedValueLabel").text = str("%1.2f" % percentNonMotorizedTravel) + "% total distance traveled"
+	find_node("MobilityAirValueLabel").text = str(value) + " km/year"
+	set_mobility()
+
+
+func _on_MobilityRail_value_changed(value):
+	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value + distNON.value
+	var percentAirTravel = distAIR.value / totalmobility * 100.0
+	var percentBusTravel = distBUS.value / totalmobility * 100.0
+	var percentRailTravel = distRAIL.value /totalmobility * 100.0
+	var percentCarTravel = distCAR.value / totalmobility * 100.0
+	var percentNonMotorizedTravel = distNON.value / totalmobility * 100.0
+	find_node("MobilityAirValueLabel").text = str("%1.2f" % percentAirTravel) + "% total distance traveled"
+	find_node("MobilityBusValueLabel").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
+	find_node("MobilityRailValueLabel").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
+	find_node("MobilityCarValueLabel").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
+	find_node("MobilityNonMotorizedValueLabel").text = str("%1.2f" % percentNonMotorizedTravel) + "% total distance traveled"
+	find_node("MobilityAirValueLabel").text = str(value) + " km/year"
+	set_mobility()
 
 
 
-func _on_HotWaterHeater_item_selected(index):
-	pass # Replace with function body.
+func _on_MobilityCar_value_changed(value):
+	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value + distNON.value
+	var percentAirTravel = distAIR.value / totalmobility * 100.0
+	var percentBusTravel = distBUS.value / totalmobility * 100.0
+	var percentRailTravel = distRAIL.value /totalmobility * 100.0
+	var percentCarTravel = distCAR.value / totalmobility * 100.0
+	var percentNonMotorizedTravel = distNON.value / totalmobility * 100.0
+	find_node("MobilityAirValueLabel").text = str("%1.2f" % percentAirTravel) + "% total distance traveled"
+	find_node("MobilityBusValueLabel").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
+	find_node("MobilityRailValueLabel").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
+	find_node("MobilityCarValueLabel").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
+	find_node("MobilityNonMotorizedValueLabel").text = str("%1.2f" % percentNonMotorizedTravel) + "% total distance traveled"
+	find_node("MobilityAirValueLabel").text = str(value) + " km/year"
+	set_mobility()
+
+func _on_MobilityNonMotorized_value_changed(value):
+	var totalmobility = distAIR.value + distRAIL.value + distBUS.value + distCAR.value + distNON.value
+	var percentAirTravel = distAIR.value / totalmobility * 100.0
+	var percentBusTravel = distBUS.value / totalmobility * 100.0
+	var percentRailTravel = distRAIL.value /totalmobility * 100.0
+	var percentCarTravel = distCAR.value / totalmobility * 100.0
+	var percentNonMotorizedTravel = distNON.value / totalmobility * 100.0
+	find_node("MobilityAirValueLabel").text = str("%1.2f" % percentAirTravel) + "% total distance traveled"
+	find_node("MobilityBusValueLabel").text = str("%1.2f" % percentBusTravel) + "% total distance traveled"
+	find_node("MobilityRailValueLabel").text = str("%1.2f" % percentRailTravel) + "% total distance traveled"
+	find_node("MobilityCarValueLabel").text = str("%1.2f" % percentCarTravel) + "% total distance traveled"
+	find_node("MobilityNonMotorizedValueLabel").text = str("%1.2f" % percentNonMotorizedTravel) + "% total distance traveled"
+	find_node("MobilityAirValueLabel").text = str(value) + " km/year"
+	set_mobility()
+
+func _on_CO2Button_pressed():
+	find_node("CO2UICity").visible = true
+	find_node("UICity").visible = false
+
+
+func _on_PowerButton_pressed():
+	find_node("CO2UICity").visible = false
+	find_node("UICity").visible = true
+
+
+func _on_ToMobility2_pressed():
+	find_node("MobilityPopUp").visible = true
+	find_node("MobilityPopUp").rect_position = Vector2(29,160)
+	find_node("ConstructionPopUp").visible = false
+	
+
+
+func _on_ToConstruction2_pressed():
+	find_node("ConstructionPopUp").visible = true
+	find_node("ConstructionPopUp").rect_position = Vector2(29,160)
+	find_node("GroceryPopUp").visible = false
+	
+
+
+func _on_ToGrocery2_pressed():
+	find_node("GroceryPopUp").visible = true
+	find_node("GroceryPopUp").rect_position = Vector2(29,160)
+	find_node("WaterPopUp").visible = false
+	
+func _on_ToWater2_pressed():
+	find_node("WaterPopUp").visible = true
+	find_node("WaterPopUp").rect_position = Vector2(29,160)
+	find_node("CookingPopUp").visible = false
+
+func _on_ToCooking2_pressed():
+	find_node("CookingPopUp").visible = true
+	find_node("CookingPopUp").rect_position = Vector2(29,160)
+	find_node("TechPopUp").visible = false
+
+func _on_ToTech2_pressed():
+	find_node("TechPopUp").visible = true
+	find_node("TechPopUp").rect_position = Vector2(29,160)
+	find_node("SchoolPopUp").visible = false
+
+func _on_ToSchool2_pressed():
+	find_node("SchoolPopUp").visible = true
+	find_node("SchoolPopUp").rect_position = Vector2(29,160)
+	find_node("CommercialPopUp").visible = false
+	
+func _on_ToCommercial2_pressed():
+	find_node("CommercialPopUp").visible = true
+	find_node("CommercialPopUp").rect_position = Vector2(29,160)
+	find_node("MobilityPopUp").visible = false
 
 
 func _on_ToCooking_toggled(button_pressed):
@@ -826,10 +790,6 @@ func _on_ToCooking_toggled(button_pressed):
 
 
 func _on_ToGrocery2_toggled(button_pressed):
-	pass # Replace with function body.
-
-
-func _on_EnergyForCooking_value_changed(value):
 	pass # Replace with function body.
 
 
