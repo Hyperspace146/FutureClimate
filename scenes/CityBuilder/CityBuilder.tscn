@@ -57,7 +57,6 @@ anchor_bottom = 1.0
 theme = ExtResource( 11 )
 
 [node name="City" type="Control" parent="CanvasLayer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 27.0
@@ -146,7 +145,6 @@ margin_bottom = 27.0
 rect_min_size = Vector2( 20, 20 )
 
 [node name="Panel" type="Panel" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button2"]
-visible = false
 margin_left = -107.0
 margin_top = -112.5
 margin_right = 117.0
@@ -164,20 +162,20 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="Button" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button2/Panel/HBoxContainer"]
-margin_right = 62.0
-margin_bottom = 73.0
+margin_right = 44.0
+margin_bottom = 64.0
 icon = ExtResource( 9 )
 
 [node name="Button2" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button2/Panel/HBoxContainer"]
-margin_left = 82.0
-margin_right = 144.0
-margin_bottom = 73.0
+margin_left = 64.0
+margin_right = 126.0
+margin_bottom = 64.0
 icon = ExtResource( 5 )
 
 [node name="Button3" type="Button" parent="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button2/Panel/HBoxContainer"]
-margin_left = 164.0
-margin_right = 208.0
-margin_bottom = 73.0
+margin_left = 146.0
+margin_right = 190.0
+margin_bottom = 64.0
 icon = ExtResource( 7 )
 
 [node name="StatsContainer" type="VBoxContainer" parent="CanvasLayer/TabContainer/City"]
