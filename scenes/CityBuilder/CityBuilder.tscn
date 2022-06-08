@@ -377,13 +377,12 @@ margin_bottom = -27.5
 disabled = true
 text = "Less Palm Oil"
 
-[node name="Energy" type="Panel" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs"]
-visible = false
+[node name="Transport" type="Panel" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 27.0
 
-[node name="Button" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Energy" instance=ExtResource( 16 )]
+[node name="Transport" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Transport" instance=ExtResource( 16 )]
 margin_left = 64.0
 margin_top = -48.0
 margin_right = 146.0
@@ -391,45 +390,185 @@ margin_bottom = -21.0
 text = "Transport"
 cost = 200
 
-[node name="Button" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Energy/Button" instance=ExtResource( 16 )]
-margin_left = 165.0
-margin_top = -92.5
-margin_right = 247.0
-margin_bottom = -65.5
+[node name="Fuelless Fridays" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Transport/Transport" instance=ExtResource( 16 )]
+margin_left = 109.0
+margin_top = -89.5
+margin_right = 248.0
+margin_bottom = -62.5
 disabled = true
-text = "Policy: Fuelless Fridays"
+text = "Fuelless Fridays"
 tooltip = "Work from home."
 cost = 2000
 
-[node name="Button" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Energy/Button/Button" instance=ExtResource( 16 )]
-margin_left = 252.0
-margin_top = -88.5
-margin_right = 334.0
-margin_bottom = -61.5
+[node name="No Fly Zone" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Transport/Transport/Fuelless Fridays" instance=ExtResource( 16 )]
+margin_left = 202.0
+margin_top = -67.5
+margin_right = 309.0
+margin_bottom = -40.5
 disabled = true
 text = "No fly zone"
 tooltip = "Less air travel."
 cost = 3000
 
-[node name="Button2" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Energy/Button/Button" instance=ExtResource( 16 )]
-margin_left = 269.0
-margin_top = 30.5
-margin_right = 351.0
-margin_bottom = 57.5
+[node name="Small Car Store" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Transport/Transport/Fuelless Fridays/No Fly Zone" instance=ExtResource( 16 )]
+margin_left = 134.0
+margin_top = 43.5
+margin_right = 273.0
+margin_bottom = 70.5
 disabled = true
-text = "Building: Train station"
+text = "Small Car Store"
+
+[node name="Ban Internal Combustion Vehicles" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Transport/Transport/Fuelless Fridays/No Fly Zone/Small Car Store" instance=ExtResource( 16 )]
+margin_left = 179.0
+margin_top = -13.5
+margin_right = 464.0
+margin_bottom = 13.5
+disabled = true
+text = "Ban Internal Combustion Vehicles"
+
+[node name="Train Station" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Transport/Transport/Fuelless Fridays" instance=ExtResource( 16 )]
+margin_left = 194.0
+margin_top = 37.5
+margin_right = 312.0
+margin_bottom = 64.5
+disabled = true
+text = "Train Station"
 tooltip = "idk"
 cost = 5000
 
-[node name="Button2" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Energy/Button" instance=ExtResource( 16 )]
-margin_left = 165.0
-margin_top = 62.5
-margin_right = 347.0
-margin_bottom = 89.5
+[node name="Bus Terminal" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Transport/Transport" instance=ExtResource( 16 )]
+margin_left = 119.0
+margin_top = 67.5
+margin_right = 237.0
+margin_bottom = 94.5
 disabled = true
-text = "Building: Bus terminal"
+text = "Bus Terminal"
 tooltip = "Buses"
 cost = 1200
+
+[node name="Carpool Mandate" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Transport/Transport/Bus Terminal" instance=ExtResource( 16 )]
+margin_left = 161.0
+margin_top = -53.5
+margin_right = 310.0
+margin_bottom = -26.5
+disabled = true
+text = "Carpool Mandate"
+
+[node name="High Speed Train" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Transport/Transport/Bus Terminal/Carpool Mandate" instance=ExtResource( 16 )]
+margin_left = 227.0
+margin_top = -10.5
+margin_right = 375.0
+margin_bottom = 16.5
+disabled = true
+text = "High Speed Train"
+
+[node name="Ebike Shop" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Transport/Transport/Bus Terminal" instance=ExtResource( 16 )]
+margin_left = 178.0
+margin_top = 43.5
+margin_right = 294.0
+margin_bottom = 70.5
+disabled = true
+text = "Ebike Shop"
+
+[node name="Electric Bus" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Transport/Transport/Bus Terminal/Ebike Shop" instance=ExtResource( 16 )]
+margin_left = 223.0
+margin_top = -12.5
+margin_right = 339.0
+margin_bottom = 14.5
+disabled = true
+text = "Electric Bus"
+
+[node name="Consumption" type="Panel" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 27.0
+
+[node name="Consumption" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Consumption" instance=ExtResource( 16 )]
+margin_left = 58.0
+margin_top = -49.0
+margin_right = 174.0
+margin_bottom = -22.0
+text = "Consumption"
+
+[node name="Local Goods" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Consumption/Consumption" instance=ExtResource( 16 )]
+margin_left = 124.0
+margin_top = 68.5
+margin_right = 240.0
+margin_bottom = 95.5
+disabled = true
+text = "Local Goods"
+
+[node name="Repair Shop" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Consumption/Consumption/Local Goods" instance=ExtResource( 16 )]
+margin_left = 164.0
+margin_top = 41.5
+margin_right = 280.0
+margin_bottom = 68.5
+disabled = true
+text = "Repair Shop"
+
+[node name="Community Centers" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Consumption/Consumption/Local Goods/Repair Shop" instance=ExtResource( 16 )]
+margin_left = 201.0
+margin_top = -11.5
+margin_right = 372.0
+margin_bottom = 15.5
+disabled = true
+text = "Community Centers"
+
+[node name="Less Steel Construction" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Consumption/Consumption/Local Goods" instance=ExtResource( 16 )]
+margin_left = 132.0
+margin_top = -44.5
+margin_right = 341.0
+margin_bottom = -17.5
+disabled = true
+text = "Less Steel Construction"
+
+[node name="Carbon Pricing" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Consumption/Consumption/Local Goods/Less Steel Construction" instance=ExtResource( 16 )]
+margin_left = 253.0
+margin_top = -17.5
+margin_right = 383.0
+margin_bottom = 9.5
+disabled = true
+text = "Carbon Pricing"
+
+[node name="Public Housing" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Consumption/Consumption" instance=ExtResource( 16 )]
+margin_left = 135.0
+margin_top = -73.5
+margin_right = 262.0
+margin_bottom = -46.5
+disabled = true
+text = "Public Housing"
+
+[node name="Wooden Buildings" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Consumption/Consumption/Public Housing" instance=ExtResource( 16 )]
+margin_left = 152.0
+margin_top = -69.5
+margin_right = 305.0
+margin_bottom = -42.5
+disabled = true
+text = "Wooden Buildings"
+
+[node name="Community Clinic" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Consumption/Consumption/Public Housing/Wooden Buildings" instance=ExtResource( 16 )]
+margin_left = 222.0
+margin_top = -12.5
+margin_right = 367.0
+margin_bottom = 14.5
+disabled = true
+text = "Community Clinic"
+
+[node name="Heat Pump Store" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Consumption/Consumption/Public Housing" instance=ExtResource( 16 )]
+margin_left = 153.0
+margin_top = 33.5
+margin_right = 269.0
+margin_bottom = 60.5
+disabled = true
+text = "Heat Pump Store"
+
+[node name="Healthcare for All" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Consumption/Consumption/Public Housing/Heat Pump Store" instance=ExtResource( 16 )]
+margin_left = 219.0
+margin_top = -10.5
+margin_right = 375.0
+margin_bottom = 16.5
+disabled = true
+text = "Healthcare for All"
 
 [node name="TooltipPanel" type="Panel" parent="CanvasLayer/TabContainer/Tech/TechPanel"]
 anchor_top = 1.0
