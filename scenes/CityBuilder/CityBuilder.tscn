@@ -269,7 +269,7 @@ rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel"]
+[node name="Food" type="Button" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel"]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 29.0
@@ -281,60 +281,101 @@ script = ExtResource( 14 )
 tooltip = "Open the food tech tree."
 cost = 100
 
-[node name="Button2" type="Button" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Button"]
+[node name="Meat Tax" type="Button" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Food"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 139.0
-margin_top = -95.5
-margin_right = 224.0
-margin_bottom = -68.5
+margin_left = 115.0
+margin_top = -89.5
+margin_right = 201.0
+margin_bottom = -62.5
 disabled = true
-text = "Electric stoves"
+text = "Meat Tax"
 script = ExtResource( 18 )
 tooltip = "Electric stoves"
 cost = 1000
 
-[node name="Button4" type="Button" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Button/Button2"]
+[node name="High Protein Veggies" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Food/Meat Tax" instance=ExtResource( 16 )]
+margin_left = 113.0
+margin_top = 34.5
+margin_right = 293.0
+margin_bottom = 64.5
+disabled = true
+text = "High Protein Veggies"
+
+[node name="Meatless Mondays" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Food/Meat Tax" instance=ExtResource( 16 )]
+margin_left = 115.0
+margin_top = -82.5
+margin_right = 289.0
+margin_bottom = -55.5
+disabled = true
+text = "Meatless Mondayhs"
+
+[node name="Food Pantry" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Food/Meat Tax/Meatless Mondays" instance=ExtResource( 16 )]
+margin_left = 254.0
+margin_top = 23.5
+margin_right = 370.0
+margin_bottom = 50.5
+disabled = true
+text = "Food Pantry"
+
+[node name="Date Standardization" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Food/Meat Tax/Meatless Mondays" instance=ExtResource( 16 )]
+margin_left = 220.0
+margin_top = -66.5
+margin_right = 421.0
+margin_bottom = -39.5
+disabled = true
+text = "Date Standardization"
+
+[node name="Upscaled Local Farms" type="Button" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Food"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 175.0
-margin_top = -100.5
-margin_right = 384.0
-margin_bottom = -73.5
+margin_left = 81.0
+margin_top = 74.5
+margin_right = 270.0
+margin_bottom = 101.5
 disabled = true
-text = "Less steel construction"
-script = ExtResource( 14 )
-tooltip = "steel"
-cost = 3000
-
-[node name="Button" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Button/Button2/Button4" instance=ExtResource( 16 )]
-margin_left = 265.0
-margin_top = 61.5
-margin_right = 347.0
-margin_bottom = 88.5
-disabled = true
-text = "idk"
-
-[node name="Button3" type="Button" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Button"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 145.0
-margin_top = 57.5
-margin_right = 330.0
-margin_bottom = 84.5
-disabled = true
-text = "Upscaled local farms"
+text = "Upscaled Local Farms"
 script = ExtResource( 14 )
 tooltip = "farms"
 cost = 700
 
-[node name="TechTreeItem" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Button/Button3" instance=ExtResource( 16 )]
-margin_left = 224.0
-margin_top = -86.5
-margin_right = 340.0
-margin_bottom = -59.5
+[node name="Induction Stove" type="Button" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Food/Upscaled Local Farms"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 194.0
+margin_top = 38.5
+margin_right = 403.0
+margin_bottom = 65.5
 disabled = true
+text = "Induction Stove"
+script = ExtResource( 14 )
+tooltip = "steel"
+cost = 3000
+
+[node name="Disrupt Processed" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Food/Upscaled Local Farms" instance=ExtResource( 16 )]
+margin_left = 218.0
+margin_top = -45.5
+margin_right = 382.0
+margin_bottom = -18.5
+disabled = true
+text = "Disrupt Processed"
 script = ExtResource( 18 )
+
+[node name="Neighbourhood Farms" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Food/Upscaled Local Farms/Disrupt Processed" instance=ExtResource( 16 )]
+margin_left = 181.0
+margin_top = 24.5
+margin_right = 369.0
+margin_bottom = 51.5
+disabled = true
+text = "Neighbourhood Farms"
+
+[node name="Less Palm Oil" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Food/Upscaled Local Farms/Disrupt Processed" instance=ExtResource( 16 )]
+margin_left = 211.0
+margin_top = -54.5
+margin_right = 328.0
+margin_bottom = -27.5
+disabled = true
+text = "Less Palm Oil"
 
 [node name="Energy" type="Panel" parent="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs"]
 visible = false
@@ -432,8 +473,8 @@ margin_top = 27.0
 [connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button2/Panel/HBoxContainer/Button2" to="BuildingGrid" method="_on_Button_pressed" binds= [ 16 ]]
 [connection signal="pressed" from="CanvasLayer/TabContainer/City/BuildingSelectPanel/BuildingSelectContainer/Button2/Panel/HBoxContainer/Button3" to="BuildingGrid" method="_on_Button_pressed" binds= [ 17 ]]
 [connection signal="pressed" from="CanvasLayer/TabContainer/City/StatsContainer/NextTurnButton" to="Events" method="_emit_signal_end_turn"]
-[connection signal="pressed" from="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Button" to="CanvasLayer/TabContainer/Tech" method="_select_tech"]
-[connection signal="pressed" from="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Button/Button2" to="CanvasLayer/TabContainer/Tech" method="_select_tech"]
-[connection signal="pressed" from="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Button/Button2/Button4" to="CanvasLayer/TabContainer/Tech" method="_select_tech"]
-[connection signal="pressed" from="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Button/Button3" to="CanvasLayer/TabContainer/Tech" method="_select_tech"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Food" to="CanvasLayer/TabContainer/Tech" method="_select_tech"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Food/Meat Tax" to="CanvasLayer/TabContainer/Tech" method="_select_tech"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Food/Upscaled Local Farms" to="CanvasLayer/TabContainer/Tech" method="_select_tech"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Tech/TechPanel/TreeTabs/Food/FoodTreePanel/Food/Upscaled Local Farms/Induction Stove" to="CanvasLayer/TabContainer/Tech" method="_select_tech"]
 [connection signal="pressed" from="CanvasLayer/TabContainer/Tech/TechPanel/TooltipPanel/PurchaseButton" to="CanvasLayer/TabContainer/Tech" method="_purchase_tech"]
