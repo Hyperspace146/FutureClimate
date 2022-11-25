@@ -68,7 +68,7 @@ default_font = ExtResource( 17 )
 HSlider/styles/grabber_area = SubResource( 1 )
 HSlider/styles/slider = SubResource( 2 )
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 24 ), ExtResource( 34 ), ExtResource( 23 ), ExtResource( 32 ) ],
 "loop": true,
@@ -76,7 +76,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=5]
 resource_name = "GPower"
 tracks/0/type = "value"
 tracks/0/path = NodePath("VBoxContainer:rect_position")
@@ -91,13 +91,7 @@ tracks/0/keys = {
 "values": [ Vector2( 930, -240 ), Vector2( 930, 69 ) ]
 }
 
-[sub_resource type="DynamicFont" id=5]
-size = 30
-outline_size = 2
-outline_color = Color( 0.0980392, 0.109804, 0.290196, 1 )
-font_data = ExtResource( 28 )
-
-[sub_resource type="StyleBoxFlat" id=11]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.929412, 0.2, 0.101961, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -113,7 +107,7 @@ expand_margin_right = 12.0
 expand_margin_top = 8.0
 expand_margin_bottom = 8.0
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.87451, 0.890196, 0.552941, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -129,40 +123,46 @@ expand_margin_right = 12.0
 expand_margin_top = 8.0
 expand_margin_bottom = 8.0
 
+[sub_resource type="DynamicFont" id=8]
+size = 30
+outline_size = 2
+outline_color = Color( 0.0980392, 0.109804, 0.290196, 1 )
+font_data = ExtResource( 28 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.423529, 0.603922, 0.686275, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.423529, 0.603922, 0.686275, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.423529, 0.603922, 0.686275, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
 [sub_resource type="StyleBoxFlat" id=12]
-bg_color = Color( 0.423529, 0.603922, 0.686275, 1 )
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id=8]
-bg_color = Color( 0.423529, 0.603922, 0.686275, 1 )
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.423529, 0.603922, 0.686275, 1 )
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.423529, 0.603922, 0.686275, 1 )
 border_width_left = 8
 border_width_top = 8
@@ -187,6 +187,9 @@ corner_radius_bottom_left = 60
 [node name="OutdoorView" type="Control"]
 theme = SubResource( 3 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -436,6 +439,8 @@ __meta__ = {
 margin_left = 557.0
 margin_right = 700.0
 margin_bottom = 28.0
+hint_tooltip = "Affects heating/cooling and hot water"
+mouse_filter = 0
 text = "Climate zone"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -457,6 +462,8 @@ anchor_right = 1.0
 margin_left = 10.0
 margin_right = 179.0
 margin_bottom = 28.0
+hint_tooltip = "Affects construction,  heating/cooling, illumination"
+mouse_filter = 0
 text = "Square footage"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -611,27 +618,27 @@ margin_top = -57.0
 margin_right = 978.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ToMobility2" type="Button" parent="CanvasLayer/ConstructionPopUp"]
+[node name="ToReductions2" type="Button" parent="CanvasLayer/ConstructionPopUp"]
 margin_left = 777.0
 margin_top = -57.0
 margin_right = 875.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Prev"
 
 [node name="Construction" type="Button" parent="CanvasLayer/ConstructionPopUp"]
@@ -640,8 +647,8 @@ margin_top = -100.0
 margin_right = 505.0
 margin_bottom = -9.99999
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 disabled = true
 text = "Construction"
 __meta__ = {
@@ -662,46 +669,18 @@ __meta__ = {
 
 [node name="GrocerySliders" type="VBoxContainer" parent="CanvasLayer/GroceryPopUp"]
 margin_left = 47.0
-margin_top = 69.0
+margin_top = 140.0
 margin_right = 573.0
-margin_bottom = 402.0
+margin_bottom = 473.0
 rect_min_size = Vector2( 500, 300 )
 custom_constants/separation = 43
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FractLocal" type="HSlider" parent="CanvasLayer/GroceryPopUp/GrocerySliders"]
+[node name="CalorieFractBeef" type="HSlider" parent="CanvasLayer/GroceryPopUp/GrocerySliders"]
 margin_right = 526.0
 margin_bottom = 16.0
-value = 10.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal"]
-margin_left = -1.0
-margin_top = -34.0
-margin_right = 520.0
-text = "Local food compared with today: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal"]
-margin_left = 450.0
-margin_top = -34.0
-margin_right = 641.0
-margin_bottom = -6.0
-text = "0.5 X"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CalorieFractBeef" type="HSlider" parent="CanvasLayer/GroceryPopUp/GrocerySliders"]
-margin_top = 59.0
-margin_right = 526.0
-margin_bottom = 75.0
 value = 5.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -728,9 +707,9 @@ __meta__ = {
 }
 
 [node name="CalorieFractPoultry" type="HSlider" parent="CanvasLayer/GroceryPopUp/GrocerySliders"]
-margin_top = 118.0
+margin_top = 59.0
 margin_right = 526.0
-margin_bottom = 134.0
+margin_bottom = 75.0
 value = 15.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -757,9 +736,9 @@ __meta__ = {
 }
 
 [node name="CalorieFractDairy" type="HSlider" parent="CanvasLayer/GroceryPopUp/GrocerySliders"]
-margin_top = 177.0
+margin_top = 118.0
 margin_right = 526.0
-margin_bottom = 193.0
+margin_bottom = 134.0
 value = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -786,9 +765,9 @@ __meta__ = {
 }
 
 [node name="FractWaste" type="HSlider" parent="CanvasLayer/GroceryPopUp/GrocerySliders"]
-margin_top = 236.0
+margin_top = 177.0
 margin_right = 526.0
-margin_bottom = 252.0
+margin_bottom = 193.0
 value = 25.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -815,9 +794,9 @@ __meta__ = {
 }
 
 [node name="FractProcessed" type="HSlider" parent="CanvasLayer/GroceryPopUp/GrocerySliders"]
-margin_top = 295.0
+margin_top = 236.0
 margin_right = 526.0
-margin_bottom = 311.0
+margin_bottom = 252.0
 value = 55.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -828,7 +807,7 @@ margin_left = -1.0
 margin_top = -35.0
 margin_right = 521.0
 margin_bottom = 15.0
-text = "Processed food compared with today: "
+text = "Energy for processing food"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -838,7 +817,34 @@ margin_left = 450.0
 margin_top = -34.0
 margin_right = 641.0
 margin_bottom = -6.0
-text = "0.5 X"
+text = "1.0 X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SizeLabel5" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed"]
+margin_top = 20.0
+margin_right = 111.0
+margin_bottom = 40.0
+hint_tooltip = "125 cal/kcal"
+mouse_filter = 0
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 20 )
+text = "Less processed food"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SizeLabel6" type="Label" parent="CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed"]
+margin_left = 450.0
+margin_top = 20.0
+margin_right = 554.0
+margin_bottom = 40.0
+hint_tooltip = "300 cal/kcal"
+mouse_filter = 0
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 20 )
+text = "Average today"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -854,12 +860,12 @@ margin_top = -57.0
 margin_right = 978.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/focus = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -871,12 +877,12 @@ margin_top = -57.0
 margin_right = 875.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/focus = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Prev"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -888,10 +894,66 @@ margin_top = -100.0
 margin_right = 506.208
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 disabled = true
 text = "Grocery"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FoodTransport" type="HSlider" parent="CanvasLayer/GroceryPopUp"]
+margin_left = 47.0
+margin_top = 69.0
+margin_right = 573.0
+margin_bottom = 85.0
+value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/GroceryPopUp/FoodTransport"]
+margin_left = -1.0
+margin_top = -34.0
+margin_right = 520.0
+text = "Food transportation energy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/GroceryPopUp/FoodTransport"]
+margin_left = 450.0
+margin_top = -34.0
+margin_right = 641.0
+margin_bottom = -6.0
+text = "1.0 X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SizeLabel3" type="Label" parent="CanvasLayer/GroceryPopUp/FoodTransport"]
+margin_left = 450.0
+margin_top = 20.0
+margin_right = 554.0
+margin_bottom = 40.0
+hint_tooltip = "50 cal/kcal"
+mouse_filter = 0
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 20 )
+text = "Average today"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SizeLabel4" type="Label" parent="CanvasLayer/GroceryPopUp/FoodTransport"]
+margin_top = 20.0
+margin_right = 111.0
+margin_bottom = 40.0
+hint_tooltip = "25 cal/kcal"
+mouse_filter = 0
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 20 )
+text = "More local food"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -942,7 +1004,10 @@ value = 10.0
 margin_top = -33.0
 margin_right = 526.0
 margin_bottom = -3.0
-text = "Shower length:                                  8 minutes"
+text = "Hot shower length:                          8 minutes/day"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Hotwatertemp" type="HSlider" parent="CanvasLayer/WaterPopUp/WaterSliders"]
 visible = false
@@ -1001,11 +1066,11 @@ margin_top = -57.0
 margin_right = 978.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1017,11 +1082,11 @@ margin_top = -57.0
 margin_right = 875.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Prev"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1033,8 +1098,8 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 disabled = true
 text = "Water & Clothes"
 __meta__ = {
@@ -1054,10 +1119,10 @@ __meta__ = {
 }
 
 [node name="CookingSliders" type="VBoxContainer" parent="CanvasLayer/CookingPopUp"]
-margin_left = 48.6871
-margin_top = 30.5706
+margin_left = 48.687
+margin_top = 60.0
 margin_right = 573.687
-margin_bottom = 337.571
+margin_bottom = 372.0
 rect_min_size = Vector2( 500, 300 )
 custom_constants/separation = 49
 __meta__ = {
@@ -1068,7 +1133,38 @@ __meta__ = {
 position = Vector2( 714, 190.969 )
 texture = ExtResource( 9 )
 
+[node name="ElectricityMixManuf" type="HSlider" parent="CanvasLayer/CookingPopUp/CookingSliders"]
+margin_right = 525.0
+margin_bottom = 16.0
+max_value = 8.76
+step = 0.01
+value = 8.76
+
+[node name="Label" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/ElectricityMixManuf"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+hint_tooltip = "Electricity source for home, schools, hospitals, etc."
+mouse_filter = 0
+text = "Electricity mix"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SizeLabel2" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/ElectricityMixManuf"]
+margin_top = 30.0
+margin_right = 601.0
+margin_bottom = 71.0
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 20 )
+text = "All renewables                               All gas                                                  All coal
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Electricity" type="OptionButton" parent="CanvasLayer/CookingPopUp/CookingSliders"]
+visible = false
 margin_right = 524.0
 margin_bottom = 34.0
 rect_pivot_offset = Vector2( 281.638, 63.8712 )
@@ -1081,21 +1177,22 @@ margin_left = 548.172
 margin_top = -0.858887
 margin_right = 1069.17
 margin_bottom = 36.1411
-text = "Electricity Source"
+text = "Local electricity source"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="StoveType" type="OptionButton" parent="CanvasLayer/CookingPopUp/CookingSliders"]
-margin_top = 83.0
-margin_right = 524.0
-margin_bottom = 117.0
+margin_top = 65.0
+margin_right = 525.0
+margin_bottom = 99.0
 rect_pivot_offset = Vector2( 281.638, 63.8712 )
 text = "Gas stove"
 items = [ "Gas stove", null, false, 0, null, "Electric stove", null, false, 1, null, "Induction stove", null, false, 2, null ]
 selected = 0
 
 [node name="Label" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/StoveType"]
+visible = false
 margin_left = 548.172
 margin_top = -0.858887
 margin_right = 1069.17
@@ -1106,9 +1203,9 @@ __meta__ = {
 }
 
 [node name="FractCooked" type="HSlider" parent="CanvasLayer/CookingPopUp/CookingSliders"]
-margin_top = 166.0
-margin_right = 524.0
-margin_bottom = 182.0
+margin_top = 148.0
+margin_right = 525.0
+margin_bottom = 164.0
 value = 50.0
 
 [node name="Label" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/FractCooked"]
@@ -1120,9 +1217,9 @@ __meta__ = {
 }
 
 [node name="FridgeEnergyUsage" type="HSlider" parent="CanvasLayer/CookingPopUp/CookingSliders"]
-margin_top = 231.0
-margin_right = 524.0
-margin_bottom = 247.0
+margin_top = 213.0
+margin_right = 525.0
+margin_bottom = 229.0
 value = 10.0
 
 [node name="Label" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/FridgeEnergyUsage"]
@@ -1134,33 +1231,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EnergyForCooking" type="HSlider" parent="CanvasLayer/CookingPopUp/CookingSliders"]
-visible = false
-margin_top = 213.0
-margin_right = 524.0
-margin_bottom = 229.0
-value = 10.0
-
-[node name="Label" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/EnergyForCooking"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Energy for Cooking:                               14  Watts"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ToTech" type="Button" parent="CanvasLayer/CookingPopUp"]
 margin_left = 880.0
 margin_top = -57.0
 margin_right = 978.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1172,11 +1253,11 @@ margin_top = -57.0
 margin_right = 875.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Prev"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1188,10 +1269,10 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 disabled = true
-text = "Cooking"
+text = "Electricity/Appliances"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1302,11 +1383,11 @@ margin_top = -57.0
 margin_right = 978.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1318,11 +1399,11 @@ margin_top = -57.0
 margin_right = 875.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Prev"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1334,8 +1415,8 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 disabled = true
 text = "Tech"
 __meta__ = {
@@ -1343,6 +1424,7 @@ __meta__ = {
 }
 
 [node name="SchoolPopUp" type="Button" parent="CanvasLayer"]
+visible = false
 margin_left = 400.0
 margin_top = 1400.0
 margin_right = 1370.0
@@ -1370,20 +1452,6 @@ position = Vector2( 719.285, 167.653 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 5 )
 
-[node name="PercentWellInsulated" type="HSlider" parent="CanvasLayer/SchoolPopUp/SchoolSliders"]
-margin_right = 524.0
-margin_bottom = 16.0
-value = 10.0
-
-[node name="Label" type="Label" parent="CanvasLayer/SchoolPopUp/SchoolSliders/PercentWellInsulated"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Well-insulated buildings w/ heat pumps:  "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="SchoolHeating" type="OptionButton" parent="CanvasLayer/SchoolPopUp/SchoolSliders"]
 visible = false
 margin_right = 524.0
@@ -1393,9 +1461,9 @@ items = [ "School/hospital poorly insulated", null, false, 0, null, "School/hosp
 selected = 0
 
 [node name="PercentKids" type="HSlider" parent="CanvasLayer/SchoolPopUp/SchoolSliders"]
-margin_top = 65.0
+visible = false
 margin_right = 524.0
-margin_bottom = 81.0
+margin_bottom = 16.0
 value = 50.0
 
 [node name="Label" type="Label" parent="CanvasLayer/SchoolPopUp/SchoolSliders/PercentKids"]
@@ -1406,55 +1474,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SchoolsqrFtPerStudent" type="HSlider" parent="CanvasLayer/SchoolPopUp/SchoolSliders"]
-margin_top = 130.0
-margin_right = 524.0
-margin_bottom = 146.0
-value = 50.0
-
-[node name="Label" type="Label" parent="CanvasLayer/SchoolPopUp/SchoolSliders/SchoolsqrFtPerStudent"]
-margin_top = -35.0
-margin_right = 521.0
-text = "Floor area per student: 10 m/2"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SchoolEnergyUsageForOther" type="HSlider" parent="CanvasLayer/SchoolPopUp/SchoolSliders"]
-margin_top = 195.0
-margin_right = 524.0
-margin_bottom = 211.0
-value = 10.0
-
-[node name="Label" type="Label" parent="CanvasLayer/SchoolPopUp/SchoolSliders/SchoolEnergyUsageForOther"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Extra energy usage for schools"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HospsqrFtPerPerson" type="HSlider" parent="CanvasLayer/SchoolPopUp/SchoolSliders"]
-margin_top = 260.0
-margin_right = 524.0
-margin_bottom = 276.0
-step = 0.1
-value = 10.0
-
-[node name="Label" type="Label" parent="CanvasLayer/SchoolPopUp/SchoolSliders/HospsqrFtPerPerson"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Medical floor area per person"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="HospExtra" type="HSlider" parent="CanvasLayer/SchoolPopUp/SchoolSliders"]
-margin_top = 325.0
+visible = false
+margin_top = 65.0
 margin_right = 524.0
-margin_bottom = 341.0
+margin_bottom = 81.0
 value = 10.0
 
 [node name="Label" type="Label" parent="CanvasLayer/SchoolPopUp/SchoolSliders/HospExtra"]
@@ -1484,11 +1508,11 @@ margin_top = -57.0
 margin_right = 978.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1500,11 +1524,11 @@ margin_top = -57.0
 margin_right = 875.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Prev"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1516,15 +1540,15 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 disabled = true
 text = "School/Medical"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CommercialPopUp" type="Button" parent="CanvasLayer"]
+[node name="ServicesPopUp" type="Button" parent="CanvasLayer"]
 margin_left = -600.0
 margin_top = 1400.0
 margin_right = 370.0
@@ -1536,7 +1560,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CommercialSliders" type="VBoxContainer" parent="CanvasLayer/CommercialPopUp"]
+[node name="ServicesSliders" type="VBoxContainer" parent="CanvasLayer/ServicesPopUp"]
 margin_left = 52.5579
 margin_top = 52.318
 margin_right = 577.557
@@ -1547,12 +1571,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Building9" type="Sprite" parent="CanvasLayer/CommercialPopUp/CommercialSliders"]
+[node name="Building9" type="Sprite" parent="CanvasLayer/ServicesPopUp/ServicesSliders"]
 position = Vector2( 723.687, 175.968 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 10 )
 
-[node name="CommercialHeating" type="OptionButton" parent="CanvasLayer/CommercialPopUp/CommercialSliders"]
+[node name="CommercialHeating" type="OptionButton" parent="CanvasLayer/ServicesPopUp/ServicesSliders"]
 visible = false
 margin_right = 524.0
 margin_bottom = 34.0
@@ -1560,12 +1584,72 @@ text = "School poorly insulated"
 items = [ "School poorly insulated", null, false, 0, null, "School medium-insulated", null, false, 1, null, "School well-insulated", null, false, 2, null, "School well-insulated + heat pump", null, false, 3, null ]
 selected = 0
 
-[node name="CommercialArea" type="HSlider" parent="CanvasLayer/CommercialPopUp/CommercialSliders"]
+[node name="PercentWellInsulated" type="HSlider" parent="CanvasLayer/ServicesPopUp/ServicesSliders"]
 margin_right = 524.0
 margin_bottom = 16.0
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ServicesPopUp/ServicesSliders/PercentWellInsulated"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Well-insulated buildings w/ heat pumps:  "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SchoolsqrFtPerStudent" type="HSlider" parent="CanvasLayer/ServicesPopUp/ServicesSliders"]
+margin_top = 65.0
+margin_right = 524.0
+margin_bottom = 81.0
 value = 50.0
 
-[node name="Label" type="Label" parent="CanvasLayer/CommercialPopUp/CommercialSliders/CommercialArea"]
+[node name="Label" type="Label" parent="CanvasLayer/ServicesPopUp/ServicesSliders/SchoolsqrFtPerStudent"]
+margin_top = -35.0
+margin_right = 521.0
+text = "School area per student: 10 m/2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HospsqrFtPerPerson" type="HSlider" parent="CanvasLayer/ServicesPopUp/ServicesSliders"]
+margin_top = 130.0
+margin_right = 524.0
+margin_bottom = 146.0
+step = 0.1
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ServicesPopUp/ServicesSliders/HospsqrFtPerPerson"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Medical floor area per person"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SchoolEnergyUsageForOther" type="HSlider" parent="CanvasLayer/ServicesPopUp/ServicesSliders"]
+margin_top = 195.0
+margin_right = 524.0
+margin_bottom = 211.0
+value = 10.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ServicesPopUp/ServicesSliders/SchoolEnergyUsageForOther"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Extra energy usage for schools/hospitals: 10 W"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CommercialArea" type="HSlider" parent="CanvasLayer/ServicesPopUp/ServicesSliders"]
+margin_top = 260.0
+margin_right = 524.0
+margin_bottom = 276.0
+value = 50.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ServicesPopUp/ServicesSliders/CommercialArea"]
 margin_top = -35.0
 margin_right = 521.0
 text = "Commercial area per person: 25 m/2"
@@ -1573,13 +1657,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ShippingBoat" type="HSlider" parent="CanvasLayer/CommercialPopUp/CommercialSliders"]
+[node name="ShippingBoat" type="HSlider" parent="CanvasLayer/ServicesPopUp/ServicesSliders"]
+visible = false
 margin_top = 65.0
 margin_right = 524.0
 margin_bottom = 81.0
 value = 50.0
 
-[node name="Label" type="Label" parent="CanvasLayer/CommercialPopUp/CommercialSliders/ShippingBoat"]
+[node name="Label" type="Label" parent="CanvasLayer/ServicesPopUp/ServicesSliders/ShippingBoat"]
 margin_top = -35.0
 margin_right = 521.0
 text = "Shipping by boat: "
@@ -1587,27 +1672,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ShippingTrain" type="HSlider" parent="CanvasLayer/CommercialPopUp/CommercialSliders"]
-margin_top = 130.0
+[node name="ShippingTotal" type="HSlider" parent="CanvasLayer/ServicesPopUp/ServicesSliders"]
+margin_top = 325.0
 margin_right = 524.0
-margin_bottom = 146.0
+margin_bottom = 341.0
 value = 50.0
 
-[node name="Label" type="Label" parent="CanvasLayer/CommercialPopUp/CommercialSliders/ShippingTrain"]
+[node name="Label" type="Label" parent="CanvasLayer/ServicesPopUp/ServicesSliders/ShippingTotal"]
 margin_top = -35.0
 margin_right = 521.0
-text = "Shipping by rail: "
+text = "Shipping usage: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ShippingRoad" type="HSlider" parent="CanvasLayer/CommercialPopUp/CommercialSliders"]
-margin_top = 195.0
+[node name="ShippingRoad" type="HSlider" parent="CanvasLayer/ServicesPopUp/ServicesSliders"]
+visible = false
+margin_top = 390.0
 margin_right = 524.0
-margin_bottom = 211.0
+margin_bottom = 406.0
 value = 10.0
 
-[node name="Label" type="Label" parent="CanvasLayer/CommercialPopUp/CommercialSliders/ShippingRoad"]
+[node name="Label" type="Label" parent="CanvasLayer/ServicesPopUp/ServicesSliders/ShippingRoad"]
 margin_top = -33.0
 margin_right = 526.0
 margin_bottom = -3.0
@@ -1616,48 +1702,48 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ToMobility" type="Button" parent="CanvasLayer/CommercialPopUp"]
+[node name="ToMobility" type="Button" parent="CanvasLayer/ServicesPopUp"]
 margin_left = 880.0
 margin_top = -57.0
 margin_right = 978.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ToSchool2" type="Button" parent="CanvasLayer/CommercialPopUp"]
+[node name="ToSchool2" type="Button" parent="CanvasLayer/ServicesPopUp"]
 margin_left = 777.0
 margin_top = -57.0
 margin_right = 875.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Prev"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="School" type="Button" parent="CanvasLayer/CommercialPopUp"]
+[node name="School" type="Button" parent="CanvasLayer/ServicesPopUp"]
 margin_left = 12.991
 margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 disabled = true
-text = "Commercial"
+text = "Services"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1677,7 +1763,7 @@ margin_top = 63.0794
 margin_right = 579.514
 margin_bottom = 422.079
 rect_min_size = Vector2( 500, 300 )
-custom_constants/separation = 49
+custom_constants/separation = 65
 
 [node name="Building9" type="Sprite" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
 position = Vector2( 726.285, 167.653 )
@@ -1705,7 +1791,7 @@ margin_right = 602.0
 margin_bottom = 62.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
-text = "0km                                                                                                         25000 km
+text = "0km                                                                                                         50000 km
 "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1730,17 +1816,20 @@ items = [ "School/hospital poorly insulated", null, false, 0, null, "School/hosp
 selected = 0
 
 [node name="MobilityBus" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
-margin_top = 65.0
+margin_top = 81.0
 margin_right = 524.0
-margin_bottom = 81.0
+margin_bottom = 97.0
 value = 50.0
 
 [node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus"]
 margin_top = -35.0
 margin_right = 282.0
 margin_bottom = 24.0
-text = "Distance travelled by bus
+text = "Distance travelled by bus: 
 "
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SizeLabel" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus"]
 margin_top = 22.0
@@ -1748,7 +1837,7 @@ margin_right = 601.0
 margin_bottom = 50.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
-text = "0 km                                                                                                        25000 km"
+text = "0 km                                                                                                        50000 km"
 
 [node name="Label2" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus"]
 margin_left = 553.593
@@ -1761,15 +1850,15 @@ __meta__ = {
 }
 
 [node name="MobilityRail" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
-margin_top = 130.0
+margin_top = 162.0
 margin_right = 524.0
-margin_bottom = 146.0
+margin_bottom = 178.0
 value = 50.0
 
 [node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail"]
 margin_top = -35.0
 margin_right = 521.0
-text = "Distance travelled by rail"
+text = "Distance travelled by rail: "
 
 [node name="SizeLabel" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail"]
 margin_top = 22.0
@@ -1777,7 +1866,7 @@ margin_right = 601.0
 margin_bottom = 50.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
-text = "0 km                                                                                                        25000 km"
+text = "0 km                                                                                                        50000 km"
 
 [node name="Label2" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail"]
 margin_left = 555.061
@@ -1790,16 +1879,16 @@ __meta__ = {
 }
 
 [node name="MobilityCar" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
-margin_top = 195.0
+margin_top = 243.0
 margin_right = 524.0
-margin_bottom = 211.0
+margin_bottom = 259.0
 value = 10.0
 
 [node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar"]
 margin_top = -37.0
 margin_right = 276.0
 margin_bottom = 22.0
-text = "Distance travelled by car
+text = "Distance travelled by car: 
 "
 
 [node name="SizeLabel" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar"]
@@ -1809,7 +1898,7 @@ margin_right = 599.0
 margin_bottom = 50.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
-text = "0 km                                                                                                         25000 km"
+text = "0 km                                                                                                         50000 km"
 
 [node name="Label2" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar"]
 margin_left = 556.039
@@ -1822,16 +1911,19 @@ __meta__ = {
 }
 
 [node name="MobilityNonMotorized" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
-margin_top = 260.0
+margin_top = 324.0
 margin_right = 524.0
-margin_bottom = 276.0
+margin_bottom = 340.0
 value = 10.0
 
 [node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityNonMotorized"]
 margin_top = -33.0
 margin_right = 526.0
 margin_bottom = -3.0
-text = "Distance travelled by non-motorized"
+text = "Non-motorized travel distance: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SizeLabel" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityNonMotorized"]
 margin_left = -2.0
@@ -1861,17 +1953,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ToBeginning" type="Button" parent="CanvasLayer/MobilityPopUp"]
+[node name="ToReductions" type="Button" parent="CanvasLayer/MobilityPopUp"]
 margin_left = 880.0
 margin_top = -57.0
 margin_right = 978.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1883,11 +1975,11 @@ margin_top = -57.0
 margin_right = 875.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Prev"
 
 [node name="School" type="Button" parent="CanvasLayer/MobilityPopUp"]
@@ -1896,8 +1988,8 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 disabled = true
 text = "Transportation"
 __meta__ = {
@@ -1912,30 +2004,143 @@ margin_bottom = 2500.0
 theme = SubResource( 3 )
 custom_styles/disabled = ExtResource( 18 )
 disabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="ReductionsSliders" type="VBoxContainer" parent="CanvasLayer/ReductionsPopUp"]
-margin_left = 54.5145
-margin_top = 63.0794
-margin_right = 579.514
-margin_bottom = 422.079
-rect_min_size = Vector2( 500, 300 )
-custom_constants/separation = 49
-
-[node name="Building9" type="Sprite" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
-position = Vector2( 726.285, 167.653 )
+[node name="Building9" type="Sprite" parent="CanvasLayer/ReductionsPopUp"]
+position = Vector2( 780.799, 217.653 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 5 )
 
-[node name="EfficiencyAir" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
+[node name="Label" type="Label" parent="CanvasLayer/ReductionsPopUp"]
+margin_left = 53.8302
+margin_top = 18.7296
+margin_right = 577.83
+margin_bottom = 46.7296
+text = "Car type/size"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CarType" type="OptionButton" parent="CanvasLayer/ReductionsPopUp"]
+margin_left = 54.514
+margin_top = 50.0
+margin_right = 578.514
+margin_bottom = 84.0
+text = "Gasoline"
+items = [ "Gasoline", null, false, 0, null, "Diesel", null, false, 1, null, "Hybrid", null, false, 2, null, "Plug-in hybrid", null, false, 3, null, "Electric", null, false, 4, null ]
+selected = 0
+
+[node name="CarSize" type="OptionButton" parent="CanvasLayer/ReductionsPopUp"]
+margin_left = 54.514
+margin_top = 100.0
+margin_right = 578.514
+margin_bottom = 134.0
+text = "Size: Small"
+items = [ "Size: Small", null, false, 0, null, "Size: Medium", null, false, 1, null, "Size: Large", null, false, 2, null, "Size: Extra large", null, false, 3, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReductionsSliders" type="VBoxContainer" parent="CanvasLayer/ReductionsPopUp"]
+margin_left = 55.0
+margin_top = 185.0
+margin_right = 580.0
+margin_bottom = 485.0
+rect_min_size = Vector2( 500, 300 )
+custom_constants/separation = 55
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EfficiencyCar" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
+visible = false
+margin_top = 89.0
 margin_right = 524.0
+margin_bottom = 105.0
+value = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar"]
+margin_top = -37.0
+margin_right = 276.0
+margin_bottom = 22.0
+text = "Energy usage of car: 
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SizeLabel" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar"]
+margin_left = -2.0
+margin_top = 22.0
+margin_right = 599.0
+margin_bottom = 50.0
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 20 )
+text = "Small, efficient                                                                                              Large"
+
+[node name="Label2" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar"]
+margin_left = 556.039
+margin_top = -4.92798
+margin_right = 852.039
+margin_bottom = 23.0721
+text = "0 % reduction in energy use"
+
+[node name="EfficiencyCar2" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
+margin_right = 525.0
 margin_bottom = 16.0
+min_value = 1.0
+max_value = 4.0
+step = 0.1
+value = 1.5
+
+[node name="Label" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar2"]
+margin_top = -37.0
+margin_right = 276.0
+margin_bottom = 22.0
+text = "Passengers per car: 
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SizeLabel" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar2"]
+margin_left = -2.0
+margin_top = 22.0
+margin_right = 599.0
+margin_bottom = 50.0
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 20 )
+text = "1                                                                                                                               4"
+
+[node name="Label2" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar2"]
+margin_left = 226.58
+margin_top = -36.7876
+margin_right = 522.58
+margin_bottom = -8.78752
+text = "1.5 passengers per car"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EfficiencyAir" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
+margin_top = 71.0
+margin_right = 525.0
+margin_bottom = 87.0
+max_value = 1.2
+step = 0.01
 value = 1.0
 
 [node name="Label" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyAir"]
 margin_top = -33.0
 margin_right = 526.0
 margin_bottom = -3.0
-text = "Travel by Air:"
+text = "Air travel energy usage (w/ infrastructure): "
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SizeLabel" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyAir"]
 margin_left = 1.0
@@ -1944,11 +2149,15 @@ margin_right = 602.0
 margin_bottom = 62.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
-text = "0%                                                                                                                  100%
+text = "Best                                                                                                 Avg
 
 "
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label2" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyAir"]
+visible = false
 margin_left = 553.594
 margin_top = -6.07935
 margin_right = 849.594
@@ -1956,17 +2165,22 @@ margin_bottom = 21.9207
 text = "0 % reduction in energy use"
 
 [node name="EfficiencyBus" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
-margin_top = 65.0
-margin_right = 524.0
-margin_bottom = 81.0
+margin_top = 142.0
+margin_right = 525.0
+margin_bottom = 158.0
+max_value = 1.2
+step = 0.01
 value = 1.0
 
 [node name="Label" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyBus"]
 margin_top = -35.0
 margin_right = 282.0
 margin_bottom = 24.0
-text = "Travel by Bus:
+text = "Car/bus energy usage (w/ infrastructure) 
 "
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SizeLabel" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyBus"]
 margin_top = 22.0
@@ -1974,9 +2188,13 @@ margin_right = 601.0
 margin_bottom = 50.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
-text = "0%                                                                                                                  100%"
+text = "Best                                       |--                                                       Avg"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label2" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyBus"]
+visible = false
 margin_left = 553.593
 margin_top = -3.57605
 margin_right = 849.593
@@ -1987,15 +2205,20 @@ __meta__ = {
 }
 
 [node name="EfficiencyRail" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
-margin_top = 130.0
-margin_right = 524.0
-margin_bottom = 146.0
+margin_top = 213.0
+margin_right = 525.0
+margin_bottom = 229.0
+max_value = 1.2
+step = 0.01
 value = 1.0
 
 [node name="Label" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyRail"]
 margin_top = -35.0
 margin_right = 521.0
-text = "Travel by Rail:"
+text = "Rail travel energy usage (w/ infrastructure): "
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SizeLabel" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyRail"]
 margin_top = 22.0
@@ -2003,42 +2226,14 @@ margin_right = 601.0
 margin_bottom = 50.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
-text = "0%                                                                                                                  100%"
+text = "Best |--                                                                                             Avg"
 
 [node name="Label2" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyRail"]
+visible = false
 margin_left = 555.061
 margin_top = -6.45312
 margin_right = 851.061
 margin_bottom = 21.5469
-text = "0 % reduction in energy use"
-
-[node name="EfficiencyCar" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
-margin_top = 195.0
-margin_right = 524.0
-margin_bottom = 211.0
-value = 1.0
-
-[node name="Label" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar"]
-margin_top = -37.0
-margin_right = 276.0
-margin_bottom = 22.0
-text = "Travel by Car:
-"
-
-[node name="SizeLabel" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar"]
-margin_left = -2.0
-margin_top = 22.0
-margin_right = 599.0
-margin_bottom = 50.0
-size_flags_vertical = 8
-custom_fonts/font = ExtResource( 20 )
-text = "0%                                                                                                                  100%"
-
-[node name="Label2" type="Label" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar"]
-margin_left = 556.039
-margin_top = -4.92798
-margin_right = 852.039
-margin_bottom = 23.0721
 text = "0 % reduction in energy use"
 
 [node name="SchoolHeating2" type="OptionButton" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
@@ -2059,27 +2254,27 @@ margin_top = -57.0
 margin_right = 978.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ToCommercial2" type="Button" parent="CanvasLayer/ReductionsPopUp"]
+[node name="ToMobility2" type="Button" parent="CanvasLayer/ReductionsPopUp"]
 margin_left = 777.0
 margin_top = -57.0
 margin_right = 875.0
 margin_bottom = -7.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 22 )
 custom_styles/pressed = ExtResource( 22 )
 custom_styles/disabled = ExtResource( 22 )
 custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
 text = "Prev"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2091,10 +2286,13 @@ margin_top = -100.0
 margin_right = 512.991
 margin_bottom = -10.0
 theme = SubResource( 3 )
-custom_fonts/font = ExtResource( 16 )
 custom_styles/disabled = ExtResource( 18 )
+custom_fonts/font = ExtResource( 16 )
 disabled = true
-text = "Efficiencies"
+text = "Transport Efficiency"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="UICity" type="Control" parent="CanvasLayer"]
 mouse_filter = 2
@@ -2176,7 +2374,7 @@ __meta__ = {
 position = Vector2( 37, 13 )
 frames = ExtResource( 33 )
 animation = "on"
-frame = 4
+frame = 5
 playing = true
 offset = Vector2( 0, 24 )
 
@@ -2213,8 +2411,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/UICity/ColorRect/VBoxContainer/Wind"]
 position = Vector2( 15, 8 )
-frames = SubResource( 9 )
-frame = 1
+frames = SubResource( 4 )
 playing = true
 centered = false
 
@@ -2264,7 +2461,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UICity/ColorRect"]
-anims/GPower = SubResource( 10 )
+anims/GPower = SubResource( 5 )
 
 [node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer/UICity"]
 visible = false
@@ -2273,9 +2470,9 @@ margin_top = 14.0
 margin_right = 88.0
 margin_bottom = 58.0
 hint_tooltip = "Percentage of Energy produced that is green."
-custom_fonts/font = SubResource( 5 )
-custom_styles/fg = SubResource( 11 )
-custom_styles/bg = SubResource( 4 )
+custom_styles/fg = SubResource( 6 )
+custom_styles/bg = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 max_value = 2.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2296,7 +2493,7 @@ __meta__ = {
 [node name="HomeLabel" type="Label" parent="CanvasLayer/UICity"]
 margin_right = 100.0
 margin_bottom = 34.0
-hint_tooltip = "Energy for building divided by lifetime"
+hint_tooltip = "Energy for construction divided by lifetime"
 mouse_filter = 0
 custom_fonts/font = ExtResource( 17 )
 text = "Home"
@@ -2308,7 +2505,7 @@ __meta__ = {
 margin_top = 34.0
 margin_right = 100.0
 margin_bottom = 68.0
-hint_tooltip = "In-home heating"
+hint_tooltip = "In-home heating/cooling"
 mouse_filter = 0
 custom_fonts/font = ExtResource( 17 )
 text = "Heat"
@@ -2317,7 +2514,7 @@ text = "Heat"
 margin_left = 200.0
 margin_right = 319.0
 margin_bottom = 34.0
-hint_tooltip = "Energy for food outside the home"
+hint_tooltip = "Energy for growing, processing and transport of food"
 mouse_filter = 0
 custom_fonts/font = ExtResource( 17 )
 text = "Food"
@@ -2342,6 +2539,8 @@ __meta__ = {
 margin_left = 400.0
 margin_right = 500.0
 margin_bottom = 34.0
+hint_tooltip = "Water, waste, education, health care, commercial"
+mouse_filter = 0
 custom_fonts/font = ExtResource( 17 )
 text = "Services"
 __meta__ = {
@@ -2353,6 +2552,8 @@ margin_left = 400.0
 margin_top = 34.0
 margin_right = 500.0
 margin_bottom = 68.0
+hint_tooltip = "Fridge, tech, clothes, lights"
+mouse_filter = 0
 custom_fonts/font = ExtResource( 17 )
 text = "Appliances"
 __meta__ = {
@@ -2360,9 +2561,12 @@ __meta__ = {
 }
 
 [node name="EmbodiedLabel" type="Label" parent="CanvasLayer/UICity"]
+visible = false
 margin_left = 600.0
 margin_right = 719.0
 margin_bottom = 34.0
+hint_tooltip = "Clothes, tech, appliances"
+mouse_filter = 0
 custom_fonts/font = ExtResource( 17 )
 text = "Embodied"
 __meta__ = {
@@ -2370,10 +2574,9 @@ __meta__ = {
 }
 
 [node name="HotWaterCookLabel" type="Label" parent="CanvasLayer/UICity"]
-margin_left = 600.0
-margin_top = 34.0
-margin_right = 700.0
-margin_bottom = 68.0
+margin_left = 610.0
+margin_right = 710.0
+margin_bottom = 34.0
 hint_tooltip = "Includes cooking"
 mouse_filter = 0
 custom_fonts/font = ExtResource( 17 )
@@ -2405,13 +2608,13 @@ margin_top = 105.655
 margin_right = -364.228
 margin_bottom = 149.655
 theme = ExtResource( 21 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = ExtResource( 17 )
-custom_styles/hover = SubResource( 12 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/disabled = SubResource( 7 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 11 )
+custom_styles/disabled = SubResource( 12 )
 custom_styles/normal = SubResource( 13 )
+custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "CO2"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2424,18 +2627,72 @@ margin_top = 105.655
 margin_right = -245.138
 margin_bottom = 149.655
 theme = ExtResource( 21 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = ExtResource( 17 )
 custom_styles/hover = ExtResource( 27 )
 custom_styles/pressed = ExtResource( 27 )
 custom_styles/focus = ExtResource( 27 )
 custom_styles/disabled = ExtResource( 27 )
 custom_styles/normal = ExtResource( 27 )
+custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Power"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HelpButton" type="Button" parent="CanvasLayer"]
+anchor_right = 1.0
+margin_left = 850.0
+margin_top = 60.0
+margin_right = -74.0
+margin_bottom = 104.0
+theme = ExtResource( 21 )
+custom_styles/hover = ExtResource( 27 )
+custom_styles/pressed = ExtResource( 27 )
+custom_styles/focus = ExtResource( 27 )
+custom_styles/disabled = ExtResource( 27 )
+custom_styles/normal = ExtResource( 27 )
+custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Help"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HelpButton2" type="Button" parent="CanvasLayer"]
+anchor_right = 1.0
+margin_left = 50.0
+margin_top = 15.0
+margin_right = -49.9999
+margin_bottom = 615.0
+theme = ExtResource( 21 )
+custom_styles/hover = ExtResource( 27 )
+custom_styles/pressed = ExtResource( 27 )
+custom_styles/focus = ExtResource( 27 )
+custom_styles/disabled = ExtResource( 27 )
+custom_styles/normal = ExtResource( 27 )
+custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/HelpButton2"]
+margin_left = 42.0
+margin_top = 32.0
+margin_right = 907.0
+margin_bottom = 566.0
+mouse_filter = 1
+text = "This tool extends the \"Decent Living with Minimum Energy\" work of Millward-Hopkins et al. Their study found that a decent living for all can be obtained for an average of less than 500 watts per person, including all construction, manufacturing and infrastructure needs. 
+
+The tool lets you calculate the energy required to support your own definition of a decent living. There are 8 pages of energy usage that you can set, ranging from housing, food, and water to electricity, tech and transportation. Click \"Next\" and \"Prev\" to cycle through these. Total power usage is at the top. 
+
+Default values are largely set to American averages. The minimum value of many (but not all) sliders is set to the decent living value. There's also a rudimentary carbon dioxide emissions calculation, accessible by clicking \"CO2.\"
+
+This tool is a work in progress: we are adding CO2 and methane emissions from food, and revising some assumptions about emissions. We welcome feedback! Click to proceed, and click \"Help\" to return to this message."
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="item_selected" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/ClimateZone" to="." method="_on_ClimateZone_item_selected"]
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/SquareFootage" to="." method="_on_SquareFootage_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/PeoplePerResidence" to="." method="_on_PeoplePerResidence_value_changed"]
@@ -2444,8 +2701,7 @@ __meta__ = {
 [connection signal="item_selected" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/HeatCoolMethod" to="." method="_on_HeatCoolMethod_item_selected"]
 [connection signal="item_selected" from="CanvasLayer/ConstructionPopUp/ConstructionSliders/Insulation2" to="." method="_on_Insulation2_item_selected"]
 [connection signal="pressed" from="CanvasLayer/ConstructionPopUp/ToGrocery" to="." method="_on_ToGrocery_pressed"]
-[connection signal="pressed" from="CanvasLayer/ConstructionPopUp/ToMobility2" to="." method="_on_ToMobility2_pressed"]
-[connection signal="value_changed" from="CanvasLayer/GroceryPopUp/GrocerySliders/FractLocal" to="." method="_on_FractLocal_value_changed"]
+[connection signal="pressed" from="CanvasLayer/ConstructionPopUp/ToReductions2" to="." method="_on_ToReductions2_pressed"]
 [connection signal="value_changed" from="CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractBeef" to="." method="_on_CalorieFractBeef_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractPoultry" to="." method="_on_CalorieFractPoultry_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/GroceryPopUp/GrocerySliders/CalorieFractDairy" to="." method="_on_CalorieFractDairy_value_changed"]
@@ -2453,6 +2709,7 @@ __meta__ = {
 [connection signal="value_changed" from="CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed" to="." method="_on_FractProcessed_value_changed"]
 [connection signal="pressed" from="CanvasLayer/GroceryPopUp/ToResidence" to="." method="_on_ToResidence_pressed"]
 [connection signal="pressed" from="CanvasLayer/GroceryPopUp/ToConstruction2" to="." method="_on_ToConstruction2_pressed"]
+[connection signal="value_changed" from="CanvasLayer/GroceryPopUp/FoodTransport" to="." method="_on_FractLocal_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders/ShowerLength" to="." method="_on_ShowerLength_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders/Hotwatertemp" to="." method="_on_Hotwatertemp_value_changed"]
 [connection signal="item_selected" from="CanvasLayer/WaterPopUp/WaterSliders/ClothesWashTemp" to="." method="_on_ClothesWashTemp_item_selected"]
@@ -2460,6 +2717,7 @@ __meta__ = {
 [connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders/ClothesBought" to="." method="_on_ClothesBought_value_changed"]
 [connection signal="pressed" from="CanvasLayer/WaterPopUp/ToCooking" to="." method="_on_ToCooking_pressed"]
 [connection signal="pressed" from="CanvasLayer/WaterPopUp/ToGrocery2" to="." method="_on_ToGrocery2_pressed"]
+[connection signal="value_changed" from="CanvasLayer/CookingPopUp/CookingSliders/ElectricityMixManuf" to="." method="_on_ElectricityMixManuf_value_changed"]
 [connection signal="item_selected" from="CanvasLayer/CookingPopUp/CookingSliders/Electricity" to="." method="_on_Electricity_item_selected"]
 [connection signal="item_selected" from="CanvasLayer/CookingPopUp/CookingSliders/StoveType" to="." method="_on_StoveType_item_selected"]
 [connection signal="value_changed" from="CanvasLayer/CookingPopUp/CookingSliders/FractCooked" to="." method="_on_FractCooked_value_changed"]
@@ -2473,30 +2731,35 @@ __meta__ = {
 [connection signal="value_changed" from="CanvasLayer/TechPopUp/TechSliders/LaptopLifetime" to="." method="_on_LaptopLifetime_value_changed"]
 [connection signal="pressed" from="CanvasLayer/TechPopUp/ToSchool" to="." method="_on_ToSchool_pressed"]
 [connection signal="pressed" from="CanvasLayer/TechPopUp/ToCooking2" to="." method="_on_ToCooking2_pressed"]
-[connection signal="value_changed" from="CanvasLayer/SchoolPopUp/SchoolSliders/PercentWellInsulated" to="." method="_on_PercentWellInsulated_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/SchoolPopUp/SchoolSliders/PercentKids" to="." method="_on_PercentKids_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/SchoolPopUp/SchoolSliders/SchoolsqrFtPerStudent" to="." method="_on_SchoolsqrFtPerStudent_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/SchoolPopUp/SchoolSliders/SchoolEnergyUsageForOther" to="." method="_on_SchoolEnergyUsageForOther_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/SchoolPopUp/SchoolSliders/HospsqrFtPerPerson" to="." method="_on_HospsqrFtPerPerson_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/SchoolPopUp/SchoolSliders/HospExtra" to="." method="_on_HospExtra_value_changed"]
 [connection signal="pressed" from="CanvasLayer/SchoolPopUp/ToResidence2" to="." method="_on_ToResidence2_pressed"]
 [connection signal="pressed" from="CanvasLayer/SchoolPopUp/ToTech2" to="." method="_on_ToTech2_pressed"]
-[connection signal="value_changed" from="CanvasLayer/CommercialPopUp/CommercialSliders/CommercialArea" to="." method="_on_CommercialArea_value_changed"]
-[connection signal="pressed" from="CanvasLayer/CommercialPopUp/ToMobility" to="." method="_on_ToMobility_pressed"]
-[connection signal="pressed" from="CanvasLayer/CommercialPopUp/ToSchool2" to="." method="_on_ToSchool2_pressed"]
+[connection signal="value_changed" from="CanvasLayer/ServicesPopUp/ServicesSliders/PercentWellInsulated" to="." method="_on_PercentWellInsulated_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/ServicesPopUp/ServicesSliders/SchoolsqrFtPerStudent" to="." method="_on_SchoolsqrFtPerStudent_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/ServicesPopUp/ServicesSliders/HospsqrFtPerPerson" to="." method="_on_HospsqrFtPerPerson_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/ServicesPopUp/ServicesSliders/SchoolEnergyUsageForOther" to="." method="_on_SchoolEnergyUsageForOther_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/ServicesPopUp/ServicesSliders/CommercialArea" to="." method="_on_CommercialArea_value_changed"]
+[connection signal="pressed" from="CanvasLayer/ServicesPopUp/ToMobility" to="." method="_on_ToMobility_pressed"]
+[connection signal="pressed" from="CanvasLayer/ServicesPopUp/ToSchool2" to="." method="_on_ToSchool2_pressed"]
 [connection signal="value_changed" from="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir" to="." method="_on_MobilityAir_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus" to="." method="_on_MobilityBus_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail" to="." method="_on_MobilityRail_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar" to="." method="_on_MobilityCar_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityNonMotorized" to="." method="_on_MobilityNonMotorized_value_changed"]
-[connection signal="pressed" from="CanvasLayer/MobilityPopUp/ToBeginning" to="." method="_on_ToBeginning_pressed"]
+[connection signal="pressed" from="CanvasLayer/MobilityPopUp/ToReductions" to="." method="_on_ToReductions_pressed"]
 [connection signal="pressed" from="CanvasLayer/MobilityPopUp/ToCommercial2" to="." method="_on_ToCommercial2_pressed"]
+[connection signal="item_selected" from="CanvasLayer/ReductionsPopUp/CarType" to="." method="_on_CarType_item_selected"]
+[connection signal="item_selected" from="CanvasLayer/ReductionsPopUp/CarSize" to="." method="_on_CarType_item_selected"]
+[connection signal="value_changed" from="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar" to="." method="_on_EfficiencyCar_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar2" to="." method="_on_EfficiencyCar_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyAir" to="." method="_on_EfficiencyAir_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyBus" to="." method="_on_EfficiencyBus_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyRail" to="." method="_on_EfficiencyRail_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/ReductionsPopUp/ReductionsSliders/EfficiencyCar" to="." method="_on_EfficiencyCar_value_changed"]
 [connection signal="pressed" from="CanvasLayer/ReductionsPopUp/ToBeginning" to="." method="_on_ToBeginning_pressed"]
-[connection signal="pressed" from="CanvasLayer/ReductionsPopUp/ToCommercial2" to="." method="_on_ToCommercial2_pressed"]
+[connection signal="pressed" from="CanvasLayer/ReductionsPopUp/ToMobility2" to="." method="_on_ToMobility2_pressed"]
 [connection signal="toggled" from="CanvasLayer/UICity/ColorRect/ElectricityLabel2" to="CanvasLayer/UICity" method="_on_ElectricityLabel2_toggled"]
 [connection signal="pressed" from="CanvasLayer/CO2Button" to="." method="_on_CO2Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PowerButton" to="." method="_on_PowerButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/HelpButton" to="." method="_on_HelpButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/HelpButton2" to="." method="_on_HelpButton2_pressed"]
