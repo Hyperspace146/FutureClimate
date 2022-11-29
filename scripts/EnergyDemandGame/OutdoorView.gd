@@ -21,18 +21,17 @@ onready var FractWaste = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/Fract
 onready var processedFoodRatio = get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed")
 
 # RESIDENCE from simon
-onready var FractCooked = get_node("CanvasLayer/CookingPopUp/CookingSliders/FractCooked")
-onready var FridgeEnergyUsage = get_node("CanvasLayer/CookingPopUp/CookingSliders/FridgeEnergyUsage")
-onready var WaterUsage = get_node("CanvasLayer/WaterPopUp/WaterSliders/WaterUsage")
+onready var FridgeEnergyUsage = get_node("CanvasLayer/WaterPopUp/WaterSliders2/FridgeEnergyUsage")
+onready var WaterUsage = get_node("CanvasLayer/WaterPopUp/WaterSliders2/WaterUsage")
 onready var HotWater = get_node("CanvasLayer/WaterPopUp/WaterSliders/HotWaterHeater")
 #onready var HeatedWater = get_node("CanvasLayer/WaterPopUp/WaterSliders/HeatedWater")
 #onready var EnergyForCooking = get_node("CanvasLayer/CookingPopUp/CookingSliders/EnergyForCooking")
-onready var stove = get_node("CanvasLayer/CookingPopUp/CookingSliders/StoveType")
+onready var stove = get_node("CanvasLayer/WaterPopUp/StoveType")
 #onready var elecType = get_node("CanvasLayer/CookingPopUp/CookingSliders/Electricity")
 onready var elecMix = get_node("CanvasLayer/CookingPopUp/CookingSliders/ElectricityMixManuf")
 onready var showerLength = get_node("CanvasLayer/WaterPopUp/WaterSliders/ShowerLength")
-onready var ClothesWashTemp = get_node("CanvasLayer/WaterPopUp/WaterSliders/ClothesWashTemp")
-onready var ClothesBought = get_node("CanvasLayer/WaterPopUp/WaterSliders/ClothesBought")
+onready var ClothesWashTemp = get_node("CanvasLayer/WaterPopUp/WaterSliders2/ClothesWashTemp")
+onready var ClothesBought = get_node("CanvasLayer/WaterPopUp/WaterSliders2/ClothesBought")
 #TECH 
 onready var phoneUse = get_node("CanvasLayer/TechPopUp/TechSliders/PhoneUsage")
 onready var phoneStandby = get_node("CanvasLayer/TechPopUp/TechSliders/PhoneUsageStandby")
@@ -89,7 +88,7 @@ onready var totalCO2 = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 onready var totalElec = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 onready var totalCH4 = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 var coalco2 = 8.76/1000.0 #1 kg CO2/kWh = 8.76 kg CO2/yr/W, /1000 for units of tons
-var gasco2 = 0.47*8.76/1000.0#@0.433 kg CO2/kWh* 8.76/1000.0 #https://onlinelibrary.wiley.com/doi/abs/10.1111/jiec.12084
+var gaselecco2 = 0.47*8.76/1000.0#@0.433 kg CO2/kWh* 8.76/1000.0 #https://onlinelibrary.wiley.com/doi/abs/10.1111/jiec.12084
 #and https://www.nrel.gov/analysis/life-cycle-assessment.html
 var gasch4 = 0.034/1000.0# (55 MJ/kg: 1 kg gas/yr=55 MJ/yr*1 yr/365/24/3600 s = 1.744 W
 # 1 W requires 1/1.744 kg CH4, at 4% leakage rate, 0.04/1.744 kg CH4 = 34 g/W
@@ -132,9 +131,6 @@ func _ready():
 	#var solarPanelSize0 = 0
 	
 		# RESIDENCE from simon
-	FractCooked.min_value = 0 # %
-	FractCooked.max_value = 100 # %
-	FractCooked.value = 50
 	FridgeEnergyUsage.min_value = 14 # Watts
 	FridgeEnergyUsage.max_value = 100 # Watts
 	FridgeEnergyUsage.value = 68
@@ -147,8 +143,8 @@ func _ready():
 	showerLength.min_value = 0.0
 	showerLength.max_value = 20.0
 	showerLength.value = 8.0
-	ClothesBought.value = 4.0
-	ClothesBought.min_value = 0.0
+	ClothesBought.value = 3.0
+	ClothesBought.min_value = 3.0
 	ClothesBought.max_value = 12.0
 #	HotWaterTemp.min_value = 49.0
 #	HotWaterTemp.max_value = 65.0
@@ -207,7 +203,7 @@ func _ready():
 	PercentInsulated.min_value = 0.0
 	PercentInsulated.max_value = 100.0
 	CommercialArea.value = 25.0
-	CommercialArea.min_value = 0.0
+	CommercialArea.min_value = 5.0
 	CommercialArea.max_value = 30.0
 	#ShippingRoad.value = 2.3
 	#ShippingRoad.min_value = 0.0
@@ -223,9 +219,9 @@ func _ready():
 	#ShippingIntensity.max_value = 
 	
 	#MEDICAL
-	#1.6 m2/cap * 3 for other medical space
+	#1.6 m2/cap for other medical space
 	HospsqrFtPerPerson.min_value = 0.0
-	HospsqrFtPerPerson.max_value = 20.0
+	HospsqrFtPerPerson.max_value = 7.0
 	HospsqrFtPerPerson.value = 5.0
 	#HospExtra.min_value = 0
 	#HospExtra.max_value = 45
@@ -282,18 +278,21 @@ func totalpowercalc():
 	var totalc = (totalCO2[0] + totalCO2[1] + totalCO2[2] + totalCO2[3] + totalCO2[4] + totalCO2[5] + totalCO2[6] + totalCO2[7]) 
 	get_node("CanvasLayer/CO2UICity/Total").text = str("%3.1f" % totalc) + " tons"
 	var totalm = (totalCH4[0] + totalCH4[1] + totalCH4[2] + totalCH4[3] + totalCH4[4] + totalCH4[5] + totalCH4[6] + totalCH4[7])
-	get_node("CanvasLayer/CO2UICity/MethaneLabel").text = "Methane: " + str("%3.2f" % totalm) + " tons"
+	get_node("CanvasLayer/CO2UICity/MethaneLabel").text = "Methane: " + str("%3.2f" % totalm) + " t"
 	
 func set_energyForFoodChoice():
 	var PTDFract = 150.0 + 20.0/100.0*get_node("CanvasLayer/GroceryPopUp/FoodTransport").value + 130.0/100.0*get_node("CanvasLayer/GroceryPopUp/GrocerySliders/FractProcessed").value
 	energyForFoodChoice = (1.0 + FractWaste.value/100.0) * (100.0 * 0.2 * (1.0 + 23.0*CalorieFractBeef.value/100.0 + 10.0*CalorieFractPoultry.value/100.0 + 5.0*CalorieFractDairy.value/100.0) + 100.0 * 0.23 * (PTDFract)/100.0)
+#food growing: fertilizer, fuel, equipment; food transport: fuel, refrigeration?; distribution: ?; processing: industrial
+#
+	var co2ForFoodChoice = gaselecco2*energyForFoodChoice
 	var methaneForFoodChoice = (1.0 + FractWaste.value/100.0) * (CalorieFractBeef.value/100.0*2100.0/700.0*24.0 + CalorieFractDairy.value/100.0*2100.0/1000.0*5.0)/28.0*365.0/1000.0
 	get_node("CanvasLayer/UICity/FoodLabel").text = "Food:   " + str("%3.0f" % energyForFoodChoice) + " W"
 	totalPower[0] = energyForFoodChoice
-	totalCO2[0] = energyForFoodChoice * gasco2
+	totalCO2[0] = energyForFoodChoice * gaselecco2
+	get_node("CanvasLayer/CO2UICity/FoodLabel").text = "Food:   " + str("%3.1f" % co2ForFoodChoice) + " t"
 	totalCH4[0] = methaneForFoodChoice + gaselecch4*energyForFoodChoice*elecMix.value/elecMix.max_value
 	totalpowercalc()
-
 
 #func set_energyForResidence():
 #	energyForResidence = (sqrFt.value/pplpRes.value)*6 + (WaterUsage.value * 0.365 * EnergyForWater.value) + (HeatedWater.value * 4.42) + (100 * FractCooked.value * EnergyForCooking.value) + (FridgeEnergyUsage.value / pplpRes.value) + 2 + 0.4 
@@ -361,17 +360,18 @@ func set_waterheatingcooking():
 	var CO2cooking = 0.0
 	var CH4cooking = 0.0
 	var electriccooking = 0.0
+	var FractCooked = 50.0
 #	if (stove.selected == 0): #wood
-#		cooking = calories * FractCooked.value/100.0 * 1.5 #approx 10 MJ/kg
+#		cooking = calories * FractCooked/100.0 * 1.5 #approx 10 MJ/kg
 	if (stove.selected == 0): #gas
-		cooking = calories * FractCooked.value/100.0 * 0.956 #world average
+		cooking = calories * FractCooked/100.0 * 0.956 #world average
 		CO2cooking = cooking * 1.778/1000.0
 		CH4cooking = cooking * gasch4
 	if (stove.selected == 1): #electric
-		cooking = calories * FractCooked.value/100.0 * 0.7 #higher efficiency
+		cooking = calories * FractCooked/100.0 * 0.7 #higher efficiency
 		electriccooking = cooking
 	if (stove.selected == 2): #induction/pressure cooker
-		cooking = calories * FractCooked.value /100.0* 0.4 #induction
+		cooking = calories * FractCooked /100.0* 0.4 #induction
 		electriccooking = cooking
 	if (ClothesWashTemp.selected == 0): 
 		clotheshotwater = 40.0/2.0
@@ -408,6 +408,7 @@ func set_services():
 	#water: 20 L for clothes washing, plus shower. (this category measures delivery, we assume electric)
 	#8 L/min shower * 10 min avg = 80 L
 	var CO2services = 0.0
+	var CH4services = 0.0
 	var schmedEmb
 	var waterfactor = 1.0
 	if(climateZone.selected == 0): 
@@ -436,101 +437,109 @@ func set_services():
 	totalPower[5] = services
 	CO2services = elecMix.value/1000.0*services
 	get_node("CanvasLayer/CO2UICity/ServicesLabel").text = "Services:   " + str("%3.1f" % CO2services) + " t"
+	CH4services = elecMix.value/elecMix.max_value*services*gaselecch4
 	totalCO2[5] = CO2services
+	totalCH4[5] = CH4services
 	totalElec[5] = services
 	totalpowercalc()
 	
 func set_mobility(): 
 	var co2mobility = 0.0
+	var ch4mobility = 0.0
 	var emfCAR = 0.0
 	var co2ratCAR = 0.0
+	var ch4ratCAR = 0.0
 	var co2CAR = 0.0
 	var ch4CAR = 0.0
 	#type: gas, diesel, hybrid, plug-in hybrid, electric
 	#size: small, medium, large, extra-large
-	if (typeCAR.selected == 0): 
-		if (sizeCAR.selected == 0):
-			emfCAR = 5.0*.342
-			co2ratCAR = 5.0*2.392*0.00001 #kg CO2/L
-		if (sizeCAR.selected == 1):
-			emfCAR = 7.5*.342
-			co2ratCAR = 7.5*2.392*0.00001
-		if (sizeCAR.selected == 2):
-			emfCAR = 10.0*.342
-			co2ratCAR = 10.0*2.392*0.00001
-		if (sizeCAR.selected == 3):
-			emfCAR = 12.5*.342
-			co2ratCAR = 12.5*2.392*0.00001
-	if (typeCAR.selected == 1): 
-		emfCAR = 8.0*.342
-		if (sizeCAR.selected == 0):
-			emfCAR = 4.0*.342
-			co2ratCAR = 4.0*2.640*0.00001
-		if (sizeCAR.selected == 1):
-			emfCAR = 6.0*.342
-			co2ratCAR = 6.0*2.64*0.00001
-		if (sizeCAR.selected == 2):
-			emfCAR = 8.0*.342
-			co2ratCAR = 8.0*2.64*0.00001
-		if (sizeCAR.selected == 3):
-			emfCAR = 10.0*.342
-			co2ratCAR = 10.0*2.64*0.00001
-	if (typeCAR.selected == 2): 
-		if (sizeCAR.selected == 0):
-			emfCAR = 4.0*.342
-			co2ratCAR = 4.0*2.392*0.00001
-		if (sizeCAR.selected == 1):
-			emfCAR = 6.0*.342
-			co2ratCAR = 6.0*2.392*0.00001
-		if (sizeCAR.selected == 2):
-			emfCAR = 8.0*.342
-			co2ratCAR = 8.0*2.392*0.00001
-		if (sizeCAR.selected == 3):
-			emfCAR = 9.5*.342
-			co2ratCAR = 9.5*2.392*0.00001
-	if (typeCAR.selected == 3): 
-		if (sizeCAR.selected == 0):
-			emfCAR = 2.0*.342
-			co2ratCAR = 0.67*2.0*2.392*0.00001
-		if (sizeCAR.selected == 1):
-			emfCAR = 2.5*.342
-			co2ratCAR = 0.67*2.5*2.392*0.00001
-		if (sizeCAR.selected == 2):
-			emfCAR = 3.0*.342
-			co2ratCAR = 0.67*3.0*2.392*0.00001
-		if (sizeCAR.selected == 3):
-			emfCAR = 3.5*.342
+	if (typeCAR.selected == 0): #gas
+		if (sizeCAR.selected == 0): #small
+			emfCAR = 5.0*.342 #Le/100 km * 34.2 MJ/L /100 = MJ/km = GJ/1000 km
+			co2ratCAR = 5.0*2.392*0.00001 #Le/100 km * 2.392 kg CO2/L /100 * 1 ton /1000 kg = ton CO2/km
+		if (sizeCAR.selected == 1): #medium
+			emfCAR = 7.5*.342 # GJ/kpkm
+			co2ratCAR = 7.5*2.392*0.00001 #ton CO2/km
+		if (sizeCAR.selected == 2): #large
+			emfCAR = 10.0*.342 #GJ/kpkm
+			co2ratCAR = 10.0*2.392*0.00001 #ton CO2/km
+		if (sizeCAR.selected == 3): #extra large
+			emfCAR = 12.5*.342 #GJ/kpkm
+			co2ratCAR = 12.5*2.392*0.00001 #ton CO2/km
+	if (typeCAR.selected == 1): #diesel
+		if (sizeCAR.selected == 0): #small
+			emfCAR = 4.0*.342 #GJ/kpkm
+			co2ratCAR = 4.0*2.640*0.00001 #ton CO2/km
+		if (sizeCAR.selected == 1): #medium
+			emfCAR = 6.0*.342 #GJ/kpkm
+			co2ratCAR = 6.0*2.64*0.00001 #ton CO2/km
+		if (sizeCAR.selected == 2): #large
+			emfCAR = 8.0*.342 #GJ/kpkm
+			co2ratCAR = 8.0*2.64*0.00001 #ton CO2/km
+		if (sizeCAR.selected == 3): #extra large
+			emfCAR = 10.0*.342 #GJ/kpkm
+			co2ratCAR = 10.0*2.64*0.00001 #ton CO2/km
+	if (typeCAR.selected == 2): #hybrod
+		if (sizeCAR.selected == 0): #small
+			emfCAR = 4.0*.342 #GJ/kpkm
+			co2ratCAR = 4.0*2.392*0.00001 #ton CO2/km
+		if (sizeCAR.selected == 1): #medium
+			emfCAR = 6.0*.342 #GJ/kpkm
+			co2ratCAR = 6.0*2.392*0.00001 #ton CO2/km
+		if (sizeCAR.selected == 2): #large
+			emfCAR = 8.0*.342 #GJ/kpkm
+			co2ratCAR = 8.0*2.392*0.00001 #ton CO2/km
+		if (sizeCAR.selected == 3): #extra large
+			emfCAR = 9.5*.342 #GJ/kpkm
+			co2ratCAR = 9.5*2.392*0.00001 #ton CO2/km
+	if (typeCAR.selected == 3): #plug-in hybrid
+		if (sizeCAR.selected == 0): #small
+			emfCAR = 2.0*.342 #GJ/kpkm
+			co2ratCAR = 0.67*2.0*2.392*0.00001 #ton CO2/km
+		if (sizeCAR.selected == 1): #medium
+			emfCAR = 2.5*.342 #GJ/kpkm
+			co2ratCAR = 0.67*2.5*2.392*0.00001 #ton CO2/km
+		if (sizeCAR.selected == 2): #large
+			emfCAR = 3.0*.342 #GJ/kpkm
+			co2ratCAR = 0.67*3.0*2.392*0.00001 #ton CO2/km
+		if (sizeCAR.selected == 3): #extra large
+			emfCAR = 3.5*.342 #GJ/kpkm
 			co2ratCAR = 0.67*3.5*2.392*0.00001
 		#arbitrarily picking a 67% gas and 33% electricity mix. note this means much more electric driving
-		co2ratCAR = co2ratCAR + elecMix.value/1000.0*0.33*emfCAR*0.03173516
-	if (typeCAR.selected == 4): 
-		if (sizeCAR.selected == 0):
-			emfCAR = 1.5*.342
-		if (sizeCAR.selected == 1):
-			emfCAR = 1.8*.342
-		if (sizeCAR.selected == 2):
-			emfCAR = 2.2*.342
-		if (sizeCAR.selected == 3):
-			emfCAR = 2.5*.342
-		co2ratCAR = elecMix.value/1000.0*emfCAR*0.03173516
+		co2ratCAR = co2ratCAR + elecMix.value/1000.0*0.33*emfCAR*0.0315 #
+		ch4ratCAR = elecMix.value/elecMix.max_value*0.33*emfCAR*0.0315*gaselecch4
+	if (typeCAR.selected == 4): #electric
+		if (sizeCAR.selected == 0): #small
+			emfCAR = 1.5*.342 #GJ/kpkm
+		if (sizeCAR.selected == 1): #medium
+			emfCAR = 1.8*.342 #GJ/kpkm
+		if (sizeCAR.selected == 2): #large
+			emfCAR = 2.2*.342 #GJ/kpkm
+		if (sizeCAR.selected == 3): #extra large
+			emfCAR = 2.5*.342 #GJ/kpkm
+		co2ratCAR = elecMix.value/1000.0*emfCAR*0.0315
+		ch4ratCAR = elecMix.value/elecMix.max_value*emfCAR*0.0315*gaselecch4
 	emfCAR=emfCAR+0.21 + perBUS.value*(0.77-0.21)#MJ/km, minimum energy, today is 0.48-0.77
-	co2ratCAR = co2ratCAR + (0.21 + perBUS.value*(0.77-0.21))*elecMix.value/1000.0*0.03173516
+	co2ratCAR = co2ratCAR + (0.21 + perBUS.value*(0.77-0.21))*elecMix.value/1000.0*0.0315
+	ch4ratCAR = ch4ratCAR + (0.21 + perBUS.value*(0.77-0.21))*elecMix.value/elecMix.max_value*0.0315*gaselecch4
 	var emfAIR = 1.17 + perAIR.value*(2.0-1.17)#MJ/km, minimum energy, today is 2
 	var emfRAIL =  0.287 +perRAIL.value*(1.12-0.287)#MJ/km, minimum energy, today is 0.27-1.12
 	var emfBUS = 0.27 +perBUS.value*(1.38-0.27)#MJ/km, minimum energy, today is 0.54-1.38
-	var co2ratRAIL = emfRAIL*elecMix.value/1000.0*0.03173516
+	var co2ratRAIL = emfRAIL*elecMix.value/1000.0*0.0315
+	var ch4ratRAIL = emfRAIL*elecMix.value/elecMix.max_value*0.0315*gaselecch4
 	#Bus should probably be diesel to electric
-	var co2ratBUS = emfBUS*elecMix.value/1000.0*0.03173516
+	var co2ratBUS = emfBUS*elecMix.value/1000.0*0.0315
+	var ch4ratBUS = emfBUS*elecMix.value/elecMix.max_value*0.0315*gaselecch4
 	#var emfCAR = 0.56 #MJ/km, minimum energy, today is 1.58-3.17
-	#gas: 46 MJ/kg, diesel: 45 MJ/kg
+	#gas: 46.4 MJ/kg, diesel: 45.7 MJ/kg; co2 emissions gas: 3.3 kg CO2/kg gas, diesel: 3.15 kg CO2/kg diesel
 	var emfNON = 0 #MJ/km
-	var EngrAIR = distAIR.value*emfAIR*0.03173516 #/(perAIR.value/100)
-	co2mobility = co2mobility + distAIR.value*emfAIR/42.8*3.15/1000.0 #air, using kerosene energy content of 42.8 MJ/kg and 3.15 kg CO2/kg kerosene
-	var EngrRAIL = distRAIL.value*emfRAIL*0.03173516 #/(perRAIL.value/100)
-	var EngrBUS = distBUS.value*emfBUS*0.03173516 #/(perBUS.value/100)
-	var EngrCAR = distCAR.value*emfCAR*0.03173516/(perCAR.value) #code breaks when perCAR is added
+	var EngrAIR = distAIR.value*emfAIR*0.0315 #/(perAIR.value/100)
+	co2mobility = distAIR.value*emfAIR/42.8*3.15/1000.0 #air, using kerosene energy content of 42.8 MJ/kg and 3.15 kg CO2/kg kerosene
+	var EngrRAIL = distRAIL.value*emfRAIL*0.0315 #/(perRAIL.value/100)
+	var EngrBUS = distBUS.value*emfBUS*0.0315 #/(perBUS.value/100)
+	var EngrCAR = distCAR.value*emfCAR*0.0315/(perCAR.value)
 	co2mobility = co2mobility + distCAR.value*co2ratCAR/(perCAR.value) + distBUS.value*co2ratBUS + distRAIL.value*co2ratRAIL
-	var EngrNON = distNON.value*emfNON*0.03173516
+	var EngrNON = distNON.value*emfNON*0.0315
 	var mobility = EngrAIR + EngrRAIL + EngrBUS + EngrCAR + EngrNON
 	get_node("CanvasLayer/UICity/MobilityLabel").text = "Mobility: " + str("%3.0f" % mobility) + " W"
 	totalPower[6] = mobility
@@ -542,8 +551,8 @@ func set_appliances():
 	var CO2embodied = 0.0
 	#shared: 8 W for a fridge with 14 year lifetime, 1.6 W for cooking with 20 year lifetime)
 	#indiv: 7 W-yr for phone
-	# assuming 30 W for new clothes based on current numbers (not best)
-	var clothesemb = ClothesBought.value /2.0 * 30.0 
+	# assuming 12 W (30 W) for new clothes based on best (current) numbers
+	var clothesemb = ClothesBought.value /3.0 * 12.0 
 	var embodied = (8.0+ 1.6)/pplpRes.value + 7.0/phoneLife.value + 120.0/laptopLife.value +clothesemb
 	#get_node("CanvasLayer/UICity/EmbodiedLabel").text = "Embodied: " + str("%3.0f" % embodied) + " W"
 	#totalPower[4] = embodied
@@ -642,22 +651,18 @@ func _on_ToCooking_pressed():
 
 func _on_WaterUsage_value_changed(value):
 	set_services()
-	get_node("CanvasLayer/WaterPopUp/WaterSliders/WaterUsage/Label").text = "Other water usage =         " + str(value) + " L"
+	get_node("CanvasLayer/WaterPopUp/WaterSliders2/WaterUsage/Label").text = "Other water usage =         " + str(value) + " L"
 
 func _on_HeatedWater_value_changed(value):
 	set_waterheatingcooking()
 	get_node("CanvasLayer/WaterPopUp/WaterSliders/HeatedWater/Label").text = "Other heated water =         " + str(value) + " L"
-
-func _on_FractCooked_value_changed(value):
-	set_waterheatingcooking()
-	get_node("CanvasLayer/CookingPopUp/CookingSliders/FractCooked/Label").text = "Fraction of food that is cooked =         " + str(value) + " %"
 
 func _on_StoveType_item_selected(id):
 	set_waterheatingcooking()
 
 func _on_FridgeEnergyUsage_value_changed(value):
 	set_appliances()
-	get_node("CanvasLayer/CookingPopUp/CookingSliders/FridgeEnergyUsage/Label").text = "Fridge energy usage = " + str(value) + " W"
+	get_node("CanvasLayer/WaterPopUp/WaterSliders2/FridgeEnergyUsage/Label").text = "Fridge energy usage = " + str(value) + " W"
 
 func _on_ShowerLength_value_changed(value):
 	set_waterheatingcooking()
@@ -752,7 +757,7 @@ func _on_ToBeginning_pressed():
 
 func _on_ClothesBought_value_changed(value):
 	set_appliances()
-	get_node("CanvasLayer/WaterPopUp/WaterSliders/ClothesBought/Label").text = "Clothes bought: " + str(value) + " outfits per year"
+	get_node("CanvasLayer/WaterPopUp/WaterSliders2/ClothesBought/Label").text = "Clothes bought: " + str(value) + " outfits per year"
 	pass # Replace with function body.
 
 	#MOBILITY LABELS - Carmen
@@ -939,3 +944,148 @@ func _on_HelpButton2_pressed():
 func _on_HelpButton_pressed():
 	get_node("CanvasLayer/HelpButton2").visible = true
 	pass # Replace with function body.
+
+
+func _on_HelpButton3_pressed():
+		# CONSTRUCTION
+	sqrFt.value = 60
+	pplpRes.value = 4
+	bldngLifetime.value = 80
+	climateZone.selected = 0
+	insulation.selected = 3
+	bldngMaterial.selected = 0
+	htClMethod.selected = 2
+	
+	elecMix.value = 0.0
+	
+		# RESIDENCE from simon
+	FridgeEnergyUsage.value = 14
+	WaterUsage.value = 35
+	showerLength.value = 2.5
+	ClothesBought.value = 3.0
+	stove.selected = 2
+	ClothesWashTemp.selected = 2
+	HotWater.selected = 1
+	
+		
+	#GROCERY
+	FoodTransport.value = 50.0
+	CalorieFractBeef.value = 1
+	CalorieFractPoultry.value = 3
+	CalorieFractDairy.value = 3.0
+	FractWaste.value = 15.0
+	processedFoodRatio.value = 35.0
+	
+	#Tech
+	phoneUse.value = 4
+	phoneStandby.value = 12
+	phoneLife.value = 5
+	laptopLife.value = 10
+	laptopUse.value = 4
+		#SCHOOL
+	SchoolsqrFtPerStudent.value = 10.0
+	ServicesEnergyUsageForOther.value = 10
+	PercentInsulated.value = 100.0
+	CommercialArea.value = 5.0
+	ShippingTotal.value = 0.0
+	
+	#MEDICAL
+	HospsqrFtPerPerson.value = 1.6
+	
+	#MOBILITY - Carmen
+	distAIR.value = 1000 #km
+	distRAIL.value =2000 #km
+	distBUS.value = 2000 #km
+	distCAR.value = 1000 #km
+	distNON.value = 1000 #km
+	
+	#EFFICIENCIES - Carmen
+	perAIR.value = 0.0
+	perRAIL.value = 0.0
+	perBUS.value = 0.0
+	perCAR.value = 3
+	typeCAR.selected = 4
+	set_waterheatingcooking()
+	set_energyForFoodChoice()
+	set_heating()
+	set_homeEmbodied()
+	set_appliances()
+	set_services()
+	#set_embodied()
+	set_mobility()
+	totalpowercalc()
+
+		
+	get_node("CanvasLayer/HelpButton2").visible = false
+
+
+func _on_HelpButton4_pressed():
+	
+		# CONSTRUCTION
+	sqrFt.value = 200
+	pplpRes.value = 2
+	bldngLifetime.value = 50
+	climateZone.selected = 2
+	insulation.selected = 2
+	elecMix.value = coalco2*600.0
+	
+		# RESIDENCE from simon
+	FridgeEnergyUsage.value = 50
+	WaterUsage.value = 200
+	showerLength.value = 10.0
+	ClothesBought.value = 4.0
+	stove.selected = 0
+	ClothesWashTemp.selected = 1
+	HotWater.selected = 0
+	
+		
+	#GROCERY
+	FoodTransport.value = 100.0
+	CalorieFractBeef.value = 5
+	CalorieFractPoultry.value = 7
+	CalorieFractDairy.value = 6.0
+	FractWaste.value = 50.0
+	processedFoodRatio.value = 100.0
+	
+	#Tech
+	phoneUse.value = 4
+	phoneStandby.value = 20
+	phoneLife.value = 2
+	laptopLife.value = 3
+	laptopUse.value = 8
+		#SCHOOL
+	SchoolsqrFtPerStudent.value = 10.0
+	ServicesEnergyUsageForOther.value = 10
+	PercentInsulated.value = 25.0
+	CommercialArea.value = 25.0
+	ShippingTotal.value = 0.0
+	
+	#MEDICAL
+	HospsqrFtPerPerson.value = 5.0
+	
+	#MOBILITY - Carmen
+	distAIR.value = 3679 #km
+	distRAIL.value = 191 #km
+	distBUS.value = 1855 #km
+	distCAR.value = 23980 #km
+	distNON.value = 137 #km
+	
+	#EFFICIENCIES - Carmen
+	perAIR.value = 1.0
+	perRAIL.value = 1.0
+	perBUS.value = 1.0
+	perCAR.value = 1.5 #https://css.umich.edu/publications/factsheets/mobility/personal-transportation-factsheet
+	
+	typeCAR.selected = 0
+	sizeCAR.selected = 3
+	set_waterheatingcooking()
+	set_energyForFoodChoice()
+	set_heating()
+	set_homeEmbodied()
+	set_appliances()
+	set_services()
+	#set_embodied()
+	set_mobility()
+	totalpowercalc()
+
+	get_node("CanvasLayer/HelpButton2").visible = false

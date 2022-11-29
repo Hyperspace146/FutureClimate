@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://scripts/EnergyDemandGame/OutdoorView.gd" type="Script" id=1]
 [ext_resource path="res://sprites/EnergyDemandGame/building 3.png" type="Texture" id=2]
@@ -35,6 +35,8 @@
 [ext_resource path="res://sprites/Animations/Solar.tres" type="SpriteFrames" id=33]
 [ext_resource path="res://sprites/Winmill/wind-2.png" type="Texture" id=34]
 [ext_resource path="res://sprites/UI/blankHover.png" type="Texture" id=35]
+[ext_resource path="res://scenes/EnergyDemandGame/grabback.tres" type="StyleBox" id=36]
+[ext_resource path="res://scenes/EnergyDemandGame/grabber.tres" type="StyleBox" id=37]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.258824, 0.513726, 0.270588, 1 )
@@ -232,6 +234,9 @@ margin_right = 2316.0
 margin_bottom = 2627.0
 rect_rotation = -30.0
 color = Color( 0.2, 0.537255, 0.0627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect12" type="ColorRect" parent="Node2D"]
 margin_left = -1284.0
@@ -451,6 +456,8 @@ margin_top = 64.0
 margin_right = 547.0
 margin_bottom = 96.0
 rect_min_size = Vector2( 0, 32 )
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -485,8 +492,11 @@ margin_top = 126.0
 margin_right = 547.0
 margin_bottom = 158.0
 rect_min_size = Vector2( 0, 32 )
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 min_value = 1.0
 max_value = 6.0
+step = 0.1
 value = 1.0
 tick_count = 7
 ticks_on_borders = true
@@ -520,6 +530,8 @@ margin_top = 188.0
 margin_right = 547.0
 margin_bottom = 212.0
 rect_min_size = Vector2( 0, 24 )
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -681,6 +693,8 @@ __meta__ = {
 [node name="CalorieFractBeef" type="HSlider" parent="CanvasLayer/GroceryPopUp/GrocerySliders"]
 margin_right = 526.0
 margin_bottom = 16.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 5.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -710,6 +724,8 @@ __meta__ = {
 margin_top = 59.0
 margin_right = 526.0
 margin_bottom = 75.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 15.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -739,6 +755,8 @@ __meta__ = {
 margin_top = 118.0
 margin_right = 526.0
 margin_bottom = 134.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -768,6 +786,8 @@ __meta__ = {
 margin_top = 177.0
 margin_right = 526.0
 margin_bottom = 193.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 25.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -797,6 +817,8 @@ __meta__ = {
 margin_top = 236.0
 margin_right = 526.0
 margin_bottom = 252.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 55.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -850,7 +872,7 @@ __meta__ = {
 }
 
 [node name="Building6" type="Sprite" parent="CanvasLayer/GroceryPopUp/GrocerySliders"]
-position = Vector2( 713, 145 )
+position = Vector2( 713, 100 )
 scale = Vector2( -0.9, 0.9 )
 texture = ExtResource( 4 )
 
@@ -907,6 +929,8 @@ margin_left = 47.0
 margin_top = 69.0
 margin_right = 573.0
 margin_bottom = 85.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 100.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -970,11 +994,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="StoveType" type="OptionButton" parent="CanvasLayer/WaterPopUp"]
+margin_left = 54.0
+margin_top = 20.0
+margin_right = 579.0
+margin_bottom = 54.0
+rect_pivot_offset = Vector2( 281.638, 63.8712 )
+text = "Gas stove"
+items = [ "Gas stove", null, false, 0, null, "Electric stove", null, false, 1, null, "Induction stove", null, false, 2, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/WaterPopUp/StoveType"]
+visible = false
+margin_left = 548.172
+margin_top = -0.858887
+margin_right = 1069.17
+margin_bottom = 36.1411
+text = "Stove Type"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="WaterSliders" type="VBoxContainer" parent="CanvasLayer/WaterPopUp"]
 margin_left = 54.957
-margin_top = 35.0
+margin_top = 75.0
 margin_right = 579.957
-margin_bottom = 342.0
+margin_bottom = 387.0
 rect_min_size = Vector2( 500, 300 )
 custom_constants/separation = 49
 __meta__ = {
@@ -998,6 +1046,9 @@ selected = 0
 margin_top = 83.0
 margin_right = 525.0
 margin_bottom = 99.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
+step = 0.5
 value = 10.0
 
 [node name="Label" type="Label" parent="CanvasLayer/WaterPopUp/WaterSliders/ShowerLength"]
@@ -1025,21 +1076,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ClothesWashTemp" type="OptionButton" parent="CanvasLayer/WaterPopUp/WaterSliders"]
-margin_top = 148.0
+[node name="WaterSliders2" type="VBoxContainer" parent="CanvasLayer/WaterPopUp"]
+margin_left = 54.957
+margin_top = 200.0
+margin_right = 579.957
+margin_bottom = 512.0
+rect_min_size = Vector2( 500, 300 )
+custom_constants/separation = 49
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClothesWashTemp" type="OptionButton" parent="CanvasLayer/WaterPopUp/WaterSliders2"]
 margin_right = 525.0
-margin_bottom = 182.0
+margin_bottom = 34.0
 text = "Hot water wash"
 items = [ "Hot water wash", null, false, 0, null, "Warm water wash", null, false, 1, null, "Cold water wash", null, false, 2, null ]
 selected = 0
 
-[node name="WaterUsage" type="HSlider" parent="CanvasLayer/WaterPopUp/WaterSliders"]
-margin_top = 231.0
+[node name="WaterUsage" type="HSlider" parent="CanvasLayer/WaterPopUp/WaterSliders2"]
+margin_top = 83.0
 margin_right = 525.0
-margin_bottom = 247.0
+margin_bottom = 99.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 24.0
 
-[node name="Label" type="Label" parent="CanvasLayer/WaterPopUp/WaterSliders/WaterUsage"]
+[node name="Label" type="Label" parent="CanvasLayer/WaterPopUp/WaterSliders2/WaterUsage"]
 margin_top = -34.0
 margin_right = 521.0
 margin_bottom = 1.0
@@ -1048,17 +1111,39 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ClothesBought" type="HSlider" parent="CanvasLayer/WaterPopUp/WaterSliders"]
-margin_top = 296.0
+[node name="ClothesBought" type="HSlider" parent="CanvasLayer/WaterPopUp/WaterSliders2"]
+margin_top = 148.0
 margin_right = 525.0
-margin_bottom = 312.0
+margin_bottom = 164.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 20.0
 
-[node name="Label" type="Label" parent="CanvasLayer/WaterPopUp/WaterSliders/ClothesBought"]
+[node name="Label" type="Label" parent="CanvasLayer/WaterPopUp/WaterSliders2/ClothesBought"]
 margin_top = -34.0
 margin_right = 523.0
 margin_bottom = 1.0
 text = "Clothes bought/yr: 2 outfits"
+
+[node name="FridgeEnergyUsage" type="HSlider" parent="CanvasLayer/WaterPopUp/WaterSliders2"]
+margin_top = 213.0
+margin_right = 525.0
+margin_bottom = 229.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
+value = 10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/WaterPopUp/WaterSliders2/FridgeEnergyUsage"]
+margin_top = -33.0
+margin_right = 526.0
+margin_bottom = -3.0
+text = "Fridge Energy Usage:                               14  Watts"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ToCooking" type="Button" parent="CanvasLayer/WaterPopUp"]
 margin_left = 880.0
@@ -1101,7 +1186,7 @@ theme = SubResource( 3 )
 custom_styles/disabled = ExtResource( 18 )
 custom_fonts/font = ExtResource( 16 )
 disabled = true
-text = "Water & Clothes"
+text = "Appliances"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1131,14 +1216,29 @@ __meta__ = {
 
 [node name="Building9" type="Sprite" parent="CanvasLayer/CookingPopUp/CookingSliders"]
 position = Vector2( 714, 190.969 )
-texture = ExtResource( 9 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 12 )
+flip_h = true
 
 [node name="ElectricityMixManuf" type="HSlider" parent="CanvasLayer/CookingPopUp/CookingSliders"]
 margin_right = 525.0
 margin_bottom = 16.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 max_value = 8.76
 step = 0.01
 value = 8.76
+
+[node name="SizeLabel2" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/ElectricityMixManuf"]
+margin_top = 20.0
+margin_right = 601.0
+margin_bottom = 61.0
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 20 )
+text = "All coal                                       Fossil gas                                                 100% clean"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/ElectricityMixManuf"]
 margin_top = -33.0
@@ -1151,10 +1251,91 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SizeLabel2" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/ElectricityMixManuf"]
-margin_top = 30.0
+[node name="IndustrialEfficiency" type="HSlider" parent="CanvasLayer/CookingPopUp/CookingSliders"]
+margin_top = 65.0
+margin_right = 525.0
+margin_bottom = 81.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
+value = 50.0
+
+[node name="Label" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/IndustrialEfficiency"]
+margin_top = -35.0
+margin_right = 521.0
+margin_bottom = -6.0
+hint_tooltip = "Or efficiency gains"
+mouse_filter = 0
+text = "Industrial process electrification"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SizeLabel3" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/IndustrialEfficiency"]
+margin_top = 20.0
 margin_right = 601.0
-margin_bottom = 71.0
+margin_bottom = 40.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 20 )
+text = "All renewables                               All gas                                                  All coal
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DurabilityGoods" type="HSlider" parent="CanvasLayer/CookingPopUp/CookingSliders"]
+margin_top = 130.0
+margin_right = 525.0
+margin_bottom = 146.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
+value = 50.0
+
+[node name="Label" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/DurabilityGoods"]
+margin_top = -35.0
+margin_right = 521.0
+margin_bottom = -6.0
+hint_tooltip = "Or efficiency gains"
+mouse_filter = 0
+text = "Durability of goods"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SizeLabel3" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/DurabilityGoods"]
+margin_top = 20.0
+margin_right = 601.0
+margin_bottom = 42.0
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 20 )
+text = "All renewables                               All gas                                                  All coal
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FreightElec" type="HSlider" parent="CanvasLayer/CookingPopUp/CookingSliders"]
+margin_top = 195.0
+margin_right = 525.0
+margin_bottom = 211.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
+value = 50.0
+
+[node name="Label" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/FreightElec"]
+margin_top = -35.0
+margin_right = 521.0
+margin_bottom = -6.0
+hint_tooltip = "Or efficiency gains"
+mouse_filter = 0
+text = "Freight electrification"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SizeLabel3" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/FreightElec"]
+margin_top = 20.0
+margin_right = 601.0
+margin_bottom = 42.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 20 )
 text = "All renewables                               All gas                                                  All coal
@@ -1178,55 +1359,6 @@ margin_top = -0.858887
 margin_right = 1069.17
 margin_bottom = 36.1411
 text = "Local electricity source"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StoveType" type="OptionButton" parent="CanvasLayer/CookingPopUp/CookingSliders"]
-margin_top = 65.0
-margin_right = 525.0
-margin_bottom = 99.0
-rect_pivot_offset = Vector2( 281.638, 63.8712 )
-text = "Gas stove"
-items = [ "Gas stove", null, false, 0, null, "Electric stove", null, false, 1, null, "Induction stove", null, false, 2, null ]
-selected = 0
-
-[node name="Label" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/StoveType"]
-visible = false
-margin_left = 548.172
-margin_top = -0.858887
-margin_right = 1069.17
-margin_bottom = 36.1411
-text = "Stove Type"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FractCooked" type="HSlider" parent="CanvasLayer/CookingPopUp/CookingSliders"]
-margin_top = 148.0
-margin_right = 525.0
-margin_bottom = 164.0
-value = 50.0
-
-[node name="Label" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/FractCooked"]
-margin_top = -35.0
-margin_right = 521.0
-text = "Fraction of food that is cooked:           50%"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FridgeEnergyUsage" type="HSlider" parent="CanvasLayer/CookingPopUp/CookingSliders"]
-margin_top = 213.0
-margin_right = 525.0
-margin_bottom = 229.0
-value = 10.0
-
-[node name="Label" type="Label" parent="CanvasLayer/CookingPopUp/CookingSliders/FridgeEnergyUsage"]
-margin_top = -33.0
-margin_right = 526.0
-margin_bottom = -3.0
-text = "Fridge Energy Usage:                               14  Watts"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1272,7 +1404,7 @@ theme = SubResource( 3 )
 custom_styles/disabled = ExtResource( 18 )
 custom_fonts/font = ExtResource( 16 )
 disabled = true
-text = "Electricity/Appliances"
+text = "Electrification"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1308,6 +1440,8 @@ texture = ExtResource( 14 )
 [node name="PhoneUsage" type="HSlider" parent="CanvasLayer/TechPopUp/TechSliders"]
 margin_right = 524.0
 margin_bottom = 16.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 50.0
 
 [node name="Label" type="Label" parent="CanvasLayer/TechPopUp/TechSliders/PhoneUsage"]
@@ -1322,6 +1456,8 @@ __meta__ = {
 margin_top = 65.0
 margin_right = 524.0
 margin_bottom = 81.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 50.0
 
 [node name="Label" type="Label" parent="CanvasLayer/TechPopUp/TechSliders/PhoneUsageStandby"]
@@ -1336,6 +1472,8 @@ __meta__ = {
 margin_top = 130.0
 margin_right = 524.0
 margin_bottom = 146.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 10.0
 
 [node name="Label" type="Label" parent="CanvasLayer/TechPopUp/TechSliders/PhoneLifetime"]
@@ -1351,6 +1489,8 @@ __meta__ = {
 margin_top = 195.0
 margin_right = 524.0
 margin_bottom = 211.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 10.0
 
 [node name="Label" type="Label" parent="CanvasLayer/TechPopUp/TechSliders/LaptopUsage"]
@@ -1366,6 +1506,8 @@ __meta__ = {
 margin_top = 260.0
 margin_right = 524.0
 margin_bottom = 276.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 10.0
 
 [node name="Label" type="Label" parent="CanvasLayer/TechPopUp/TechSliders/LaptopLifetime"]
@@ -1587,6 +1729,8 @@ selected = 0
 [node name="PercentWellInsulated" type="HSlider" parent="CanvasLayer/ServicesPopUp/ServicesSliders"]
 margin_right = 524.0
 margin_bottom = 16.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 10.0
 
 [node name="Label" type="Label" parent="CanvasLayer/ServicesPopUp/ServicesSliders/PercentWellInsulated"]
@@ -1602,6 +1746,8 @@ __meta__ = {
 margin_top = 65.0
 margin_right = 524.0
 margin_bottom = 81.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 50.0
 
 [node name="Label" type="Label" parent="CanvasLayer/ServicesPopUp/ServicesSliders/SchoolsqrFtPerStudent"]
@@ -1616,6 +1762,8 @@ __meta__ = {
 margin_top = 130.0
 margin_right = 524.0
 margin_bottom = 146.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 step = 0.1
 value = 10.0
 
@@ -1632,6 +1780,8 @@ __meta__ = {
 margin_top = 195.0
 margin_right = 524.0
 margin_bottom = 211.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 10.0
 
 [node name="Label" type="Label" parent="CanvasLayer/ServicesPopUp/ServicesSliders/SchoolEnergyUsageForOther"]
@@ -1647,6 +1797,8 @@ __meta__ = {
 margin_top = 260.0
 margin_right = 524.0
 margin_bottom = 276.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 50.0
 
 [node name="Label" type="Label" parent="CanvasLayer/ServicesPopUp/ServicesSliders/CommercialArea"]
@@ -1676,6 +1828,8 @@ __meta__ = {
 margin_top = 325.0
 margin_right = 524.0
 margin_bottom = 341.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 50.0
 
 [node name="Label" type="Label" parent="CanvasLayer/ServicesPopUp/ServicesSliders/ShippingTotal"]
@@ -1773,6 +1927,8 @@ texture = ExtResource( 5 )
 [node name="MobilityAir" type="HSlider" parent="CanvasLayer/MobilityPopUp/MobilitySliders"]
 margin_right = 524.0
 margin_bottom = 16.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 10.0
 
 [node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityAir"]
@@ -1819,6 +1975,8 @@ selected = 0
 margin_top = 81.0
 margin_right = 524.0
 margin_bottom = 97.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 50.0
 
 [node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityBus"]
@@ -1853,6 +2011,8 @@ __meta__ = {
 margin_top = 162.0
 margin_right = 524.0
 margin_bottom = 178.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 50.0
 
 [node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityRail"]
@@ -1882,6 +2042,8 @@ __meta__ = {
 margin_top = 243.0
 margin_right = 524.0
 margin_bottom = 259.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 10.0
 
 [node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityCar"]
@@ -1914,6 +2076,8 @@ __meta__ = {
 margin_top = 324.0
 margin_right = 524.0
 margin_bottom = 340.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 value = 10.0
 
 [node name="Label" type="Label" parent="CanvasLayer/MobilityPopUp/MobilitySliders/MobilityNonMotorized"]
@@ -2091,6 +2255,8 @@ text = "0 % reduction in energy use"
 [node name="EfficiencyCar2" type="HSlider" parent="CanvasLayer/ReductionsPopUp/ReductionsSliders"]
 margin_right = 525.0
 margin_bottom = 16.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 min_value = 1.0
 max_value = 4.0
 step = 0.1
@@ -2129,6 +2295,8 @@ __meta__ = {
 margin_top = 71.0
 margin_right = 525.0
 margin_bottom = 87.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 max_value = 1.2
 step = 0.01
 value = 1.0
@@ -2168,6 +2336,8 @@ text = "0 % reduction in energy use"
 margin_top = 142.0
 margin_right = 525.0
 margin_bottom = 158.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 max_value = 1.2
 step = 0.01
 value = 1.0
@@ -2176,8 +2346,7 @@ value = 1.0
 margin_top = -35.0
 margin_right = 282.0
 margin_bottom = 24.0
-text = "Car/bus energy usage (w/ infrastructure) 
-"
+text = "Bus energy usage and road infrastructure)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2208,6 +2377,8 @@ __meta__ = {
 margin_top = 213.0
 margin_right = 525.0
 margin_bottom = 229.0
+custom_styles/slider = ExtResource( 36 )
+custom_styles/grabber_area = ExtResource( 37 )
 max_value = 1.2
 step = 0.01
 value = 1.0
@@ -2336,7 +2507,7 @@ __meta__ = {
 position = Vector2( 36, 38 )
 frames = ExtResource( 25 )
 animation = "on"
-frame = 2
+frame = 8
 playing = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/UICity/ColorRect/VBoxContainer/Nuclear"]
@@ -2412,6 +2583,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/UICity/ColorRect/VBoxContainer/Wind"]
 position = Vector2( 15, 8 )
 frames = SubResource( 4 )
+frame = 2
 playing = true
 centered = false
 
@@ -2685,11 +2857,69 @@ margin_bottom = 566.0
 mouse_filter = 1
 text = "This tool extends the \"Decent Living with Minimum Energy\" work of Millward-Hopkins et al. Their study found that a decent living for all can be obtained for an average of less than 500 watts per person, including all construction, manufacturing and infrastructure needs. 
 
-The tool lets you calculate the energy required to support your own definition of a decent living. There are 8 pages of energy usage that you can set, ranging from housing, food, and water to electricity, tech and transportation. Click \"Next\" and \"Prev\" to cycle through these. Total power usage is at the top. 
+The tool lets you calculate the energy required to support your own definition of a decent living. There are 8 pages of energy usage that you can set, ranging from housing, food, and water to electricity, tech and transportation. Click \"Next\" and \"Prev\" to cycle through the pages. Total power usage is at the top. Press \"CO2\" to view rudimentary estimates of carbon dioxide and methane emissions.
 
-Default values are largely set to American averages. The minimum value of many (but not all) sliders is set to the decent living value. There's also a rudimentary carbon dioxide emissions calculation, accessible by clicking \"CO2.\"
+This is still a work in progress, and we welcome any feedback! Click anywhere to proceed, or use the buttons below to pre-set values. Click \"Help\" to return to this message."
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-This tool is a work in progress: we are adding CO2 and methane emissions from food, and revising some assumptions about emissions. We welcome feedback! Click to proceed, and click \"Help\" to return to this message."
+[node name="HelpButton3" type="Button" parent="CanvasLayer/HelpButton2"]
+anchor_right = 1.0
+margin_left = 25.0
+margin_top = 485.0
+margin_right = -649.0
+margin_bottom = 585.0
+theme = ExtResource( 21 )
+custom_styles/hover = ExtResource( 22 )
+custom_styles/pressed = ExtResource( 22 )
+custom_styles/focus = ExtResource( 22 )
+custom_styles/disabled = ExtResource( 22 )
+custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/HelpButton2/HelpButton3"]
+margin_left = 32.5417
+margin_top = 20.9097
+margin_right = 226.542
+margin_bottom = 88.9097
+mouse_filter = 1
+text = " Set all values to minimum energy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HelpButton4" type="Button" parent="CanvasLayer/HelpButton2"]
+anchor_right = 1.0
+margin_left = 550.0
+margin_top = 485.0
+margin_right = -124.0
+margin_bottom = 585.0
+theme = ExtResource( 21 )
+custom_styles/hover = ExtResource( 22 )
+custom_styles/pressed = ExtResource( 22 )
+custom_styles/focus = ExtResource( 22 )
+custom_styles/disabled = ExtResource( 22 )
+custom_styles/normal = ExtResource( 22 )
+custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/HelpButton2/HelpButton4"]
+margin_left = 30.0
+margin_top = 19.0
+margin_right = 232.0
+margin_bottom = 87.0
+mouse_filter = 1
+text = "  Set all values to American average"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2710,18 +2940,17 @@ __meta__ = {
 [connection signal="pressed" from="CanvasLayer/GroceryPopUp/ToResidence" to="." method="_on_ToResidence_pressed"]
 [connection signal="pressed" from="CanvasLayer/GroceryPopUp/ToConstruction2" to="." method="_on_ToConstruction2_pressed"]
 [connection signal="value_changed" from="CanvasLayer/GroceryPopUp/FoodTransport" to="." method="_on_FractLocal_value_changed"]
+[connection signal="item_selected" from="CanvasLayer/WaterPopUp/StoveType" to="." method="_on_StoveType_item_selected"]
 [connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders/ShowerLength" to="." method="_on_ShowerLength_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders/Hotwatertemp" to="." method="_on_Hotwatertemp_value_changed"]
-[connection signal="item_selected" from="CanvasLayer/WaterPopUp/WaterSliders/ClothesWashTemp" to="." method="_on_ClothesWashTemp_item_selected"]
-[connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders/WaterUsage" to="." method="_on_WaterUsage_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders/ClothesBought" to="." method="_on_ClothesBought_value_changed"]
+[connection signal="item_selected" from="CanvasLayer/WaterPopUp/WaterSliders2/ClothesWashTemp" to="." method="_on_ClothesWashTemp_item_selected"]
+[connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders2/WaterUsage" to="." method="_on_WaterUsage_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders2/ClothesBought" to="." method="_on_ClothesBought_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/WaterPopUp/WaterSliders2/FridgeEnergyUsage" to="." method="_on_FridgeEnergyUsage_value_changed"]
 [connection signal="pressed" from="CanvasLayer/WaterPopUp/ToCooking" to="." method="_on_ToCooking_pressed"]
 [connection signal="pressed" from="CanvasLayer/WaterPopUp/ToGrocery2" to="." method="_on_ToGrocery2_pressed"]
 [connection signal="value_changed" from="CanvasLayer/CookingPopUp/CookingSliders/ElectricityMixManuf" to="." method="_on_ElectricityMixManuf_value_changed"]
 [connection signal="item_selected" from="CanvasLayer/CookingPopUp/CookingSliders/Electricity" to="." method="_on_Electricity_item_selected"]
-[connection signal="item_selected" from="CanvasLayer/CookingPopUp/CookingSliders/StoveType" to="." method="_on_StoveType_item_selected"]
-[connection signal="value_changed" from="CanvasLayer/CookingPopUp/CookingSliders/FractCooked" to="." method="_on_FractCooked_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/CookingPopUp/CookingSliders/FridgeEnergyUsage" to="." method="_on_FridgeEnergyUsage_value_changed"]
 [connection signal="pressed" from="CanvasLayer/CookingPopUp/ToTech" to="." method="_on_ToTech_pressed"]
 [connection signal="pressed" from="CanvasLayer/CookingPopUp/ToWater2" to="." method="_on_ToWater2_pressed"]
 [connection signal="value_changed" from="CanvasLayer/TechPopUp/TechSliders/PhoneUsage" to="." method="_on_PhoneUsage_value_changed"]
@@ -2763,3 +2992,5 @@ __meta__ = {
 [connection signal="pressed" from="CanvasLayer/PowerButton" to="." method="_on_PowerButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/HelpButton" to="." method="_on_HelpButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/HelpButton2" to="." method="_on_HelpButton2_pressed"]
+[connection signal="pressed" from="CanvasLayer/HelpButton2/HelpButton3" to="." method="_on_HelpButton3_pressed"]
+[connection signal="pressed" from="CanvasLayer/HelpButton2/HelpButton4" to="." method="_on_HelpButton4_pressed"]
